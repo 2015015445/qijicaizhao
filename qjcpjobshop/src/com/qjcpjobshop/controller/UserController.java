@@ -1,0 +1,72 @@
+package com.qjcpjobshop.controller;
+
+import java.io.IOException;
+
+import javax.annotation.Resource;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.qjcpjobshop.entity.Userfindjob;
+import com.qjcpjobshop.service.UserService;
+
+
+@Controller
+//@RequestMapping("/user")
+public class UserController extends HttpServlet {
+	
+	@Resource
+	private UserService userService;
+	
+	@RequestMapping(value="/user/regist1", method=RequestMethod.GET)
+	public String Regist(){
+		System.out.println("进入注册界面");
+		return "register";
+	}
+	
+	@RequestMapping(value="/user/regist", method=RequestMethod.POST)
+	public String regist(@RequestParam("findJobEmail") String name, @RequestParam("password") String password,HttpSession session){
+		System.out.println("registing.....");
+		try{
+			if(userService.findByName(name)!=null){
+				return "registfail";
+			}
+			Userfindjob user = new Userfindjob();
+			user.setEmail(name);
+			user.setPassword(password);
+			userService.regist(user);
+			System.out.println("regist");
+			return "login";
+		}catch(Exception e){
+			e.printStackTrace();
+			return "redirect:http://localhost:8080/qjcpjobshop/registfail";
+		}
+		
+
+	}
+	
+	@RequestMapping(value="/user/login", method=RequestMethod.POST)
+	public String Login(@RequestParam("findJobEmail") String name, @RequestParam("password") String password,HttpSession session){
+		Userfindjob u = userService.login(name, password);
+		if(u!=null){
+			if(u.getPassword().equals(password)){
+				return "redirect:http://localhost:8080/mywork/index.jsp";
+			}
+			return "redirect:http://localhost:8080/qjcpjobshop/loginfail";
+		}else{
+			return "redirect:http://localhost:8080/qjcpjobshop/loginfail";
+		}
+	}
+	@RequestMapping(value="/user/login1", method=RequestMethod.GET)
+	public String Login1(){
+		return "redirect:http://localhost:8080/qjcpjobshop/login";
+	}
+}
