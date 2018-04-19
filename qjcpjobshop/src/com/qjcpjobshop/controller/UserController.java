@@ -33,7 +33,7 @@ public class UserController extends HttpServlet {
 	}
 	
 	@RequestMapping(value="/user/regist", method=RequestMethod.POST)
-	public String regist(@RequestParam("findJobEmail") String name, @RequestParam("password") String password,HttpSession session){
+	public String regist(@RequestParam("email") String name, @RequestParam("password") String password,HttpSession session){
 		System.out.println("registing.....");
 		try{
 			if(userService.findByName(name)!=null){
@@ -47,26 +47,27 @@ public class UserController extends HttpServlet {
 			return "login";
 		}catch(Exception e){
 			e.printStackTrace();
-			return "redirect:http://localhost:8080/qjcpjobshop/registfail";
+			return "registfail";
 		}
 		
 
 	}
 	
 	@RequestMapping(value="/user/login", method=RequestMethod.POST)
-	public String Login(@RequestParam("findJobEmail") String name, @RequestParam("password") String password,HttpSession session){
+	public String Login(@RequestParam("email") String name, @RequestParam("password") String password,HttpSession session){
+		System.out.println("登陆中");
 		Userfindjob u = userService.login(name, password);
 		if(u!=null){
 			if(u.getPassword().equals(password)){
-				return "redirect:http://localhost:8080/mywork/index.jsp";
+				return "index";
 			}
-			return "redirect:http://localhost:8080/qjcpjobshop/loginfail";
+			return "loginfail";
 		}else{
-			return "redirect:http://localhost:8080/qjcpjobshop/loginfail";
+			return "loginfail";
 		}
 	}
 	@RequestMapping(value="/user/login1", method=RequestMethod.GET)
 	public String Login1(){
-		return "redirect:http://localhost:8080/qjcpjobshop/login";
+		return "login";
 	}
 }

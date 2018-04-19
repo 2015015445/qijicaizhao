@@ -5,15 +5,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:wb="http://open.weibo.com/wb">
 <head>
-<script id="allmobilize" charset="utf-8" src="${ctx}/style/js/allmobilize.min.js"></script>
+<script id="allmobilize" charset="utf-8" src="style/js/allmobilize.min.js"></script>
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="alternate" media="handheld"  />
 <!-- end 云适配 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>拉勾网-最专业的互联网招聘平台</title>
+<title>奇迹才聘网-最专业的互联网招聘平台</title>
 <meta property="qc:admins" content="23635710066417756375" />
-<meta content="拉勾网是3W旗下的互联网领域垂直招聘网站,互联网职业机会尽在拉勾网" name="description">
-<meta content="拉勾,拉勾网,拉勾招聘,拉钩, 拉钩网 ,互联网招聘,拉勾互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 拉勾官网, 拉勾百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招" name="keywords">
+<meta content="奇迹才聘网是3W旗下的互联网领域垂直招聘网站,互联网职业机会尽在奇迹才聘网" name="description">
+<meta content="奇迹才聘,奇迹才聘网,奇迹才聘招聘 ,互联网招聘,奇迹才聘互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 奇迹才聘官网, 奇迹才聘百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招" name="keywords">
 <meta name="baidu-site-verification" content="QIQ6KC1oZ6" />
 
 <!-- <div class="web_root"  style="display:none">h</div> -->
@@ -25,29 +25,29 @@ console.log(1);
 <link rel="stylesheet" type="text/css" href="${ctx}/style/css/style.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/style/css/external.min.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/style/css/popup.css"/>
-<script src="${ctx}/style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="${ctx}/style/js/jquery.lib.min.js"></script>
-<script src="${ctx}/style/js/ajaxfileupload.js" type="text/javascript"></script>
-<script type="text/javascript" src="${ctx}/style/js/additional-methods.js"></script>
+<script src="style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="style/js/jquery.lib.min.js"></script>
+<script src="style/js/ajaxfileupload.js" type="text/javascript"></script>
+<script type="text/javascript" src="style/js/additional-methods.js"></script>
 <!--[if lte IE 8]>
-    <script type="text/javascript" src="${ctx}/style/js/excanvas.js"></script>
+    <script type="text/javascript" src="style/js/excanvas.js"></script>
 <![endif]-->
 <script type="text/javascript">
 var youdao_conv_id = 271546; 
 </script> 
-<script type="text/javascript" src="${ctx}/style/js/conv.js"></script>
+<script type="text/javascript" src="style/js/conv.js"></script>
 </head>
 <body>
 <div id="body">
 	<div id="header">
     	<div class="wrapper">
     		<a href="index.html" class="logo">
-    			<img src="${ctx}/style/images/logo.png" width="229" height="43" alt="拉勾招聘-专注互联网招聘" />
+    			<img src="${ctx}/style/images/logo.png" width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" />
     		</a>
     		<ul class="reset" id="navheader">
     			<li class="current"><a href="index.html">首页</a></li>
     			<li ><a href="companylist.html" >公司</a></li>
-    			<li ><a href="h/toForum.html" target="_blank">论坛</a></li>
+    			<li ><a href="htoForum.html" target="_blank">职业预测</a></li>
     				    			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
 	    							    			<li ><a href="create.html" rel="nofollow">发布职位</a></li>
 	    		    		</ul>
@@ -1017,7 +1017,7 @@ var youdao_conv_id = 271546;
 .ui-menu-item{ *width:439px;vertical-align: middle;position: relative;margin: 0px;margin-right: 50px !important;background:#fff;border-right: 1px dashed #ededed;}
 .ui-menu-item a{display:block;overflow:hidden;}
 </style>
-<script type="text/javascript" src="${ctx }/style/js/search.min.js"></script>
+<script type="text/javascript" src="style/js/search.min.js"></script>
 <dl class="hotSearch">
 	<dt>热门搜索：</dt>
 	<dd><a href="list.htmlJava?labelWords=label&city=">Java</a></dd>
@@ -2047,53 +2047,7 @@ var youdao_conv_id = 271546;
             </div>
             
             <div class="clear"></div>
-			<div id="linkbox">
-			    <dl>
-			        <dt>友情链接</dt>
-			        <dd>
-			        		<a href="http://www.zhuqu.com/" target="_blank">住趣家居网</a> <span>|</span>
-			        		<a href="http://www.woshipm.com/" target="_blank">人人都是产品经理</a> <span>|</span>
-			        		<a href="http://zaodula.com/" target="_blank">互联网er的早读课</a> <span>|</span>
-			                <a href="http://lieyunwang.com/" target="_blank">猎云网</a> <span>|</span>
-			        		<a href="http://www.ucloud.cn/" target="_blank">UCloud</a> <span>|</span>
-			          		<a href="http://www.iconfans.com/" target="_blank">iconfans</a>  <span>|</span>
-			          		<a href="http://www.html5dw.com/" target="_blank">html5梦工厂</a>   <span>|</span>
-			          		<a href="http://www.sykong.com/" target="_blank">手游那点事</a> 
-			          		
-			          		<a href="http://www.php100.com/" target="_blank">php100</a> <span>|</span>
-			          		<a href="http://www.uehtml.com/" target="_blank">uehtml</a> <span>|</span>
-			          		<a href="http://www.w3cplus.com/" target="_blank">W3CPlus</a> <span>|</span>
-			          		<a href="http://www.boxui.com/" target="_blank">盒子UI</a> <span>|</span>
-			          		<a href="http://www.uimaker.com/" target="_blank">uimaker</a> <span>|</span>
-			          		<a href="http://www.yixieshi.com/" target="_blank">互联网的一些事</a> <span>|</span>
-			          		<a href="http://www.chuanke.com/" target="_blank">传课网</a> <span>|</span>
-			          		<a href="http://www.eoe.cn/" target="_blank">安卓开发</a> <span>|</span>
-			          		<a href="http://www.eoeandroid.com/" target="_blank">安卓开发论坛</a> 
-			          		<a href="http://hao.360.cn/" target="_blank" >360安全网址导航</a> <span>|</span>
-			          		<a href="http://se.360.cn/" target="_blank" >360安全浏览器</a> <span>|</span>
-			          		<a href="http://www.hao123.com/" target="_blank" >hao123上网导航</a> <span>|</span>
-			          		<a href="http://www.ycpai.com" target="_blank" >互联网创业</a><span>|</span>
-			          		<a href="http://www.zhongchou.cn" target="_blank" >众筹网</a><span>|</span>
-			          		<a href="http://www.marklol.com/" target="_blank" >马克互联网</a><span>|</span>
-			          		<a href="http://www.chaohuhr.com/" target="_blank" >巢湖英才网</a>
-			          		
-			          		<a href="http://www.zhubajie.com/" target="_blank" >创意服务外包</a><span>|</span>
-			          		<a href="http://www.thinkphp.cn/" target="_blank" >thinkphp</a><span>|</span>
-			          		<a href="http://www.chuangxinpai.com/" target="_blank" >创新派</a><span>|</span>
-
-			          		<a href="http://w3cshare.com/" target="_blank" >W3Cshare</a><span>|</span>
-			          		<a href="http://www.518lunwen.cn/" target="_blank" >论文发表网</a><span>|</span>
-			          		<a href="http://www.199it.com" target="_blank" >199it</a><span>|</span>
-
-			          		<a href="http://www.shichangbu.com" target="_blank" >市场部网</a><span>|</span>
-			          		<a href="http://www.meitu.com/" target="_blank" >美图公司</a><span>|</span>
-			          		<a href="https://www.teambition.com/" target="_blank" >Teambition</a>
-			          		<a href="http://oupeng.com/" target="_blank" >欧朋浏览器</a><span>|</span>
-			          		<a href="http://iwebad.com/" target="_blank">网络广告人社区</a>
-			          		<a href="h/af/flink.html" target="_blank" class="more">更多</a>
-			        </dd>
-			    </dl>
-			</div>
+			
         </div>	
  	    <input type="hidden" value="" name="userid" id="userid" />
  		<!-- <div id="qrSide"><a></a></div> -->
@@ -2127,7 +2081,7 @@ var youdao_conv_id = 271546;
 		    <input type="submit" id="submitLogin" value="登 &nbsp; &nbsp; 录" />
 		</form>
 		<div class="login_right">
-			<div>还没有拉勾帐号？</div>
+			<div>还没有奇迹才聘帐号？</div>
 			<a href="register.html" class="registor_now">立即注册</a>
 		    <div class="login_others">使用以下帐号直接登录:</div>
 		    <a href="h/ologin/auth/sina.html" target="_blank" id="icon_wb" class="icon_wb" title="使用新浪微博帐号登录"></a>
@@ -2136,9 +2090,9 @@ var youdao_conv_id = 271546;
     </div><!--/#loginPop-->
 </div>
 <!------------------------------------- end ----------------------------------------->
-<script type="text/javascript" src="${ctx}/style/js/Chart.min.js"></script>
-<script type="text/javascript" src="${ctx}/style/js/home.min.js"></script>
-<script type="text/javascript" src="${ctx}/style/js/count.js"></script>
+<script type="text/javascript" src="style/js/Chart.min.js"></script>
+<script type="text/javascript" src="style/js/home.min.js"></script>
+<script type="text/javascript" src="style/js/count.js"></script>
 			<div class="clear"></div>
 			<input type="hidden" id="resubmitToken" value="" />
 	    	<a id="backtop" title="回到顶部" rel="nofollow"></a>
@@ -2146,16 +2100,16 @@ var youdao_conv_id = 271546;
 	</div><!-- end #body -->
 	<div id="footer">
 		<div class="wrapper">
-			<a href="h/about.html" target="_blank" rel="nofollow">联系我们</a>
-		    <a href="h/af/zhaopin.html" target="_blank">互联网公司导航</a>
-		    <a href="http://e.weibo.com/lagou720" target="_blank" rel="nofollow">拉勾微博</a>
-		    <a class="footer_qr" href="javascript:void(0)" rel="nofollow">拉勾微信<i></i></a>
-			<div class="copyright">&copy;2013-2014 Lagou <a target="_blank" href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">京ICP备14023790号-2</a></div>
+			<a href="about.html" target="_blank" rel="nofollow">联系我们</a>
+		    
+		    <a href=https://weibo.com/u/5704043792 target="_blank" rel="nofollow">奇迹才聘微博</a>
+		    <a class="footer_qr" href="javascript:void(0)" rel="nofollow">奇迹才聘微信<i></i></a>
+			<div class="copyright">&copy;2018-2020 QiJiCaiPin <a target="_blank" href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">京ICP备14023790号-2</a></div>
 		</div>
 	</div>
 
-<script type="text/javascript" src="style/js/core.min.js"></script>
-<script type="text/javascript" src="style/js/popup.min.js"></script>
+<script type="text/javascript" src="${ctx}/style/js/core.min.js"></script>
+<script type="text/javascript" src="${ctx}/style/js/popup.min.js"></script>
 
 <!-- <script src="style/js/wb.js" type="text/javascript" charset="utf-8"></script>
  -->
