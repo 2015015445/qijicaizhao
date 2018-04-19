@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%  
+String path = request.getContextPath();  
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
+%>  
+  
+<base href="<%=basePath%>"> 
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:wb="http://open.weibo.com/wb">
@@ -22,9 +28,9 @@ var ctx = "h";
 console.log(1);
 </script>
 <link rel="Shortcut Icon" href="${ctx}/h/images/favicon.ico">
-<link rel="stylesheet" type="text/css" href="${ctx}/style/css/style.css"/>
-<link rel="stylesheet" type="text/css" href="${ctx}/style/css/external.min.css"/>
-<link rel="stylesheet" type="text/css" href="${ctx}/style/css/popup.css"/>
+<link rel="stylesheet" type="text/css" href="style/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="style/css/external.min.css"/>
+<link rel="stylesheet" type="text/css" href="style/css/popup.css"/>
 <script src="style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="style/js/jquery.lib.min.js"></script>
 <script src="style/js/ajaxfileupload.js" type="text/javascript"></script>
