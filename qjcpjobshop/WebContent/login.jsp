@@ -29,8 +29,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 var ctx = "h";
 console.log(1);
 </script>
-<link rel="Shortcut Icon" href="${ctx}/h/images/favicon.ico">
-<link rel="stylesheet" type="text/css" href="${ctx}/style/css/style.css"/>
+<link rel="Shortcut Icon" href="h/images/favicon.ico">
+<link rel="stylesheet" type="text/css" href="style/css/style.css"/>
 
 <script src="style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
 
@@ -80,7 +80,7 @@ var youdao_conv_id = 271546;
         <div class="login_box_btm"></div>
     </div>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 $(function(){
 	//验证表单
 	 	$("#loginForm").validate({
@@ -139,6 +139,6 @@ $(function(){
 	        }  
 		});
 })
-</script>
+</script> -->
 </body>
 </html>

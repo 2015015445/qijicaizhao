@@ -5,7 +5,6 @@
 String path = request.getContextPath();  
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
 %>  
-  
 <base href="<%=basePath%>"> 
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,13 +26,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 var ctx = "h";
 console.log(1);
 </script>
-<link rel="Shortcut Icon" href="${ctx}/h/images/favicon.ico">
+<link rel="Shortcut Icon" href="h/images/favicon.ico">
 <link rel="stylesheet" type="text/css" href="style/css/style.css"/>
 <link rel="stylesheet" type="text/css" href="style/css/external.min.css"/>
 <link rel="stylesheet" type="text/css" href="style/css/popup.css"/>
-<script src="style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="style/js/jquery.lib.min.js"></script>
-<script src="style/js/ajaxfileupload.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/ajaxfileupload.js" type="text/javascript"></script>
 <script type="text/javascript" src="style/js/additional-methods.js"></script>
 <!--[if lte IE 8]>
     <script type="text/javascript" src="style/js/excanvas.js"></script>
@@ -55,7 +54,7 @@ var youdao_conv_id = 271546;
     			<li ><a href="companylist.html" >公司</a></li>
     			<li ><a href="htoForum.html" target="_blank">职业预测</a></li>
     				    			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
-	    							    			<li ><a href="create.html" rel="nofollow">发布职位</a></li>
+	    							    			<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li>
 	    		    		</ul>
         	            <ul class="loginTop">
             	<li><a href="${ctx}/user/login1" rel="nofollow">登录</a></li> 

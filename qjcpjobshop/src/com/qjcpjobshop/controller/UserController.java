@@ -20,19 +20,19 @@ import com.qjcpjobshop.service.UserService;
 
 
 @Controller
-//@RequestMapping("/user")
-public class UserController extends HttpServlet {
+@RequestMapping("/user")
+public class UserController {
 	
 	@Resource
 	private UserService userService;
 	
-	@RequestMapping(value="/user/regist1", method=RequestMethod.GET)
+	@RequestMapping(value="/regist1", method=RequestMethod.GET)
 	public String Regist(){
 		System.out.println("进入注册界面");
 		return "register";
 	}
 	
-	@RequestMapping(value="/user/regist", method=RequestMethod.POST)
+	@RequestMapping(value="/regist", method=RequestMethod.POST)
 	public String regist(@RequestParam("email") String name, @RequestParam("password") String password,HttpSession session){
 		System.out.println("registing.....");
 		try{
@@ -53,12 +53,13 @@ public class UserController extends HttpServlet {
 
 	}
 	
-	@RequestMapping(value="/user/login", method=RequestMethod.POST)
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String Login(@RequestParam("email") String name, @RequestParam("password") String password,HttpSession session){
 		System.out.println("登陆中");
 		Userfindjob u = userService.login(name, password);
 		if(u!=null){
 			if(u.getPassword().equals(password)){
+				session.setAttribute("id", name);
 				return "index";
 			}
 			return "loginfail";
@@ -66,8 +67,9 @@ public class UserController extends HttpServlet {
 			return "loginfail";
 		}
 	}
-	@RequestMapping(value="/user/login1", method=RequestMethod.GET)
+	@RequestMapping(value="/login1")
 	public String Login1(){
+		System.out.println("slkdjf");
 		return "login";
 	}
 }
