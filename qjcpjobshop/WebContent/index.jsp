@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
 <%  
 String path = request.getContextPath();  
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
 %>  
 <base href="<%=basePath%>"> 
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns:wb="http://open.weibo.com/wb">
-<head>
-<script id="allmobilize" charset="utf-8" src="style/js/allmobilize.min.js"></script>
+<script id="allmobilize" charset="utf-8" src="${ctx}/style/js/allmobilize.min.js"></script>
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="alternate" media="handheld"  />
 <!-- end 云适配 -->
@@ -30,9 +30,9 @@ console.log(1);
 <link rel="stylesheet" type="text/css" href="style/css/style.css"/>
 <link rel="stylesheet" type="text/css" href="style/css/external.min.css"/>
 <link rel="stylesheet" type="text/css" href="style/css/popup.css"/>
-<script src="${ctx}/style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
+<script src="style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="style/js/jquery.lib.min.js"></script>
-<script src="${ctx}/style/js/ajaxfileupload.js" type="text/javascript"></script>
+<script src="style/js/ajaxfileupload.js" type="text/javascript"></script>
 <script type="text/javascript" src="style/js/additional-methods.js"></script>
 <!--[if lte IE 8]>
     <script type="text/javascript" src="style/js/excanvas.js"></script>
@@ -40,7 +40,7 @@ console.log(1);
 <script type="text/javascript">
 var youdao_conv_id = 271546; 
 </script> 
-<script type="text/javascript" src="style/js/conv.js"></script>
+<script type="text/javascript" src="${ctx}/style/js/conv.js"></script>
 </head>
 <body>
 <div id="body">

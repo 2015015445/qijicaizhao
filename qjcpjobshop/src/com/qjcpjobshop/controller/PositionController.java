@@ -22,18 +22,22 @@ import com.qjcpjobshop.service.PositionService;
 import com.qjcpjobshop.service.UserService;
 
 @Controller
-//@RequestMapping("/position")
+@RequestMapping("/position")
 public class PositionController extends HttpServlet {
 	@Resource
 	private PositionService positionService;
 	
-	@RequestMapping(value="/position/addposition1", method=RequestMethod.POST)
-	public String addPosition1(@RequestParam("id") String id, @RequestParam("type") String type,@RequestParam("name") String name,@RequestParam("minSalary") String minSalary,@RequestParam("maxSalary") String maxSalary,@RequestParam("city") String city,@RequestParam("experience") String experience,@RequestParam("degree") String degree,@RequestParam("tempation") String tempation,@RequestParam("description") String description,@RequestParam("address") String address,HttpSession session){
+	@RequestMapping(value="/addposition1", method=RequestMethod.POST)
+	public String addPosition1(@RequestParam("id") String id, @RequestParam(value="type1",required=false) String type,@RequestParam("name") String name,@RequestParam("minSalary") String minSalary,@RequestParam("maxSalary") String maxSalary,@RequestParam("city") String city,@RequestParam(value="experience",required=false) String experience,@RequestParam(value="degree",required=false) String degree,@RequestParam("tempation") String tempation,@RequestParam(value="description",required=false) String description,@RequestParam(value="address",required=false) String address,@RequestParam(value="email",required=false) String email,HttpSession session){
 		try{
 			Position p = new Position();
-			p.setId(id+p.getCount());
-			p.setCount();
+			int count = positionService.findCompanypositionCount(id)+1;
+			p.setId(id+count);
 			p.setType(type);
+			
+			System.out.println("type"+type);
+			
+			p.setEmail(email);
 			p.setName(name);
 			p.setMinSalary(minSalary);
 			p.setMaxSalary(maxSalary);
@@ -46,10 +50,10 @@ public class PositionController extends HttpServlet {
 			positionService.addPosition(p);
 			System.out.println("insert OK");
 			
-			Object[] options = {"继续"}; 
-			JOptionPane.showOptionDialog(null, "添加成功，点击以继续", "提示", 
-			JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, 
-			null, options, options[0]);
+//			Object[] options = {"继续"}; 
+//			JOptionPane.showOptionDialog(null, "添加成功，点击以继续", "提示", 
+//			JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, 
+//			null, options, options[0]);
 			
 			return "index";
 		}catch(Exception e){
@@ -63,6 +67,5 @@ public class PositionController extends HttpServlet {
 			return "create";
 		}
 		
-
 	}
 }

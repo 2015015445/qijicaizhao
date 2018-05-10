@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
 <%  
 String path = request.getContextPath();  
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
 %>  
   
 <base href="<%=basePath%>"> 
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
-<head>
 <script id="allmobilize" charset="utf-8" src="style/js/allmobilize.min.js"></script>
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="alternate" media="handheld"  />
@@ -32,7 +32,7 @@ console.log(1);
 <link rel="Shortcut Icon" href="h/images/favicon.ico">
 <link rel="stylesheet" type="text/css" href="style/css/style.css"/>
 
-<script src="style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
 
 <script type="text/javascript" src="style/js/jquery.lib.min.js"></script>
 <script type="text/javascript" src="style/js/core.min.js"></script>
@@ -48,7 +48,7 @@ var youdao_conv_id = 271546;
 	<div class="login_wrapper">
 		<div class="login_header">
         	<a href="h/"><img src="${ctx}/style/images/logo_white.png" width="285" height="62" alt="奇迹才聘招聘" /></a>
-            <div id="cloud_s"><img src="${ctx}/style/images/cloud_s.png" width="81" height="52" alt="cloud" /></div>
+            <div id="cloud_s"><img src="style/images/cloud_s.png" width="81" height="52" alt="cloud" /></div>
             <div id="cloud_m"><img src="${ctx}/style/images/cloud_m.png" width="136" height="95"  alt="cloud" /></div>
         </div>
         

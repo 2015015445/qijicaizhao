@@ -7,8 +7,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "position")
 public class Position {
-	
-	private int count = 1;
 	private String id;
 	private String email;
 	private String type;
@@ -29,12 +27,6 @@ public class Position {
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
-	public int getCount(){
-		return count;
-	}
-	public void setCount(){
-		this.count = count + 1;
 	}
 	public String getEmail() {
 		return email;

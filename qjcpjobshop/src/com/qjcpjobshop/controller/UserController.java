@@ -69,7 +69,6 @@ public class UserController {
 	}
 	@RequestMapping(value="/login1")
 	public String Login1(){
-		System.out.println("slkdjf");
 		return "login";
 	}
 }

@@ -1,7 +1,10 @@
 package com.qjcpjobshop.dao;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -24,5 +27,15 @@ public class PositionDao {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	public int findCompanypositionCount(String id){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from Position");
+		List<Position> querylist = query.list();
+		tran.commit();
+		session.close();
+		return querylist.size();
 	}
 }
