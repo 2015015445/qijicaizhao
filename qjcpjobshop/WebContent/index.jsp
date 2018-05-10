@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
 <%  
 String path = request.getContextPath();  
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
 %>  
   
 <base href="<%=basePath%>"> 
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns:wb="http://open.weibo.com/wb">
-<head>
 <script id="allmobilize" charset="utf-8" src="style/js/allmobilize.min.js"></script>
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="alternate" media="handheld"  />
@@ -27,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 var ctx = "h";
 console.log(1);
 </script>
-<link rel="Shortcut Icon" href="${ctx}/h/images/favicon.ico">
+<link rel="Shortcut Icon" href="zh/images/favicon.ico">
 <link rel="stylesheet" type="text/css" href="style/css/style.css"/>
 <link rel="stylesheet" type="text/css" href="style/css/external.min.css"/>
 <link rel="stylesheet" type="text/css" href="style/css/popup.css"/>
@@ -54,7 +55,7 @@ var youdao_conv_id = 271546;
     			<li class="current"><a href="index.html">首页</a></li>
     			<li ><a href="companylist.html" >公司</a></li>
     			<li ><a href="htoForum.html" target="_blank">职业预测</a></li>
-    				    			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
+    				    			<li ><a href="jianli" rel="nofollow">我的简历</a></li>
 	    							    			<li ><a href="create.html" rel="nofollow">发布职位</a></li>
 	    		    		</ul>
         	            <ul class="loginTop">
@@ -2114,8 +2115,8 @@ var youdao_conv_id = 271546;
 		</div>
 	</div>
 
-<script type="text/javascript" src="${ctx}/style/js/core.min.js"></script>
-<script type="text/javascript" src="${ctx}/style/js/popup.min.js"></script>
+<script type="text/javascript" src="style/js/core.min.js"></script>
+<script type="text/javascript" src="style/js/popup.min.js"></script>
 
 <!-- <script src="style/js/wb.js" type="text/javascript" charset="utf-8"></script>
  -->

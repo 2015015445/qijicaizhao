@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.qjcpjobshop.entity.Resume;
 import com.qjcpjobshop.entity.Userfindjob;
 import com.qjcpjobshop.service.UserService;
 
@@ -25,6 +26,21 @@ public class UserController extends HttpServlet {
 	
 	@Resource
 	private UserService userService;
+	
+	@RequestMapping(value="/jianlis", method=RequestMethod.POST)
+	public String Jianli1(Resume p, HttpSession session){
+		System.out.println("保存简历");
+		Userfindjob u = (Userfindjob) session.getAttribute("user");
+		p.setEmail(u.getEmail());
+		userService.savep(p,session);
+		return "jianli";
+	}
+	
+	@RequestMapping(value="/jianli", method=RequestMethod.GET)
+	public String Jianli(){
+		System.out.println("进入简历");
+		return "jianli";
+	}
 	
 	@RequestMapping(value="/user/regist1", method=RequestMethod.GET)
 	public String Regist(){
@@ -59,11 +75,13 @@ public class UserController extends HttpServlet {
 		Userfindjob u = userService.login(name, password);
 		if(u!=null){
 			if(u.getPassword().equals(password)){
+				session.setAttribute("user", u);
 				return "index";
 			}
-			return "loginfail";
+			return "false";
 		}else{
-			return "loginfail";
+			
+			return "false";
 		}
 	}
 	@RequestMapping(value="/user/login1", method=RequestMethod.GET)
