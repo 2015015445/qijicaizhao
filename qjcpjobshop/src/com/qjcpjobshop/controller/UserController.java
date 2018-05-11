@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.qjcpjobshop.entity.Resume;
 import com.qjcpjobshop.entity.Userfindjob;
 import com.qjcpjobshop.service.UserService;
 
@@ -26,7 +27,26 @@ public class UserController {
 	@Resource
 	private UserService userService;
 	
+<<<<<<< HEAD
 	@RequestMapping(value="/regist1", method=RequestMethod.GET)
+=======
+	@RequestMapping(value="/jianlis", method=RequestMethod.POST)
+	public String Jianli1(Resume p, HttpSession session){
+		System.out.println("保存简历");
+		Userfindjob u = (Userfindjob) session.getAttribute("user");
+		p.setEmail(u.getEmail());
+		userService.savep(p,session);
+		return "jianli";
+	}
+	
+	@RequestMapping(value="/jianli", method=RequestMethod.GET)
+	public String Jianli(){
+		System.out.println("进入简历");
+		return "jianli";
+	}
+	
+	@RequestMapping(value="/user/regist1", method=RequestMethod.GET)
+>>>>>>> cd2093c696a8692002e965030cd496747ff27f56
 	public String Regist(){
 		System.out.println("进入注册界面");
 		return "register";
@@ -59,12 +79,17 @@ public class UserController {
 		Userfindjob u = userService.login(name, password);
 		if(u!=null){
 			if(u.getPassword().equals(password)){
+<<<<<<< HEAD
 				session.setAttribute("id", name);
+=======
+				session.setAttribute("user", u);
+>>>>>>> cd2093c696a8692002e965030cd496747ff27f56
 				return "index";
 			}
-			return "loginfail";
+			return "false";
 		}else{
-			return "loginfail";
+			
+			return "false";
 		}
 	}
 	@RequestMapping(value="/login1")

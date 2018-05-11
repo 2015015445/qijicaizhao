@@ -23,7 +23,7 @@ console.log(1);
 <script type="text/javascript" src="style/js/jquery.1.10.1.min.js"></script>
 <script src="style/js/jquery.lib.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="style/js/ajaxfileupload.js"></script>
-<script src="style/js/additional-methods.js" type="text/javascript"></script>
+<!-- <script src="style/js/additional-methods.js" type="text/javascript"></script> -->
 <!--[if lte IE 8]>
     <script type="text/javascript" src="style/js/excanvas.js"></script>
 <![endif]-->
@@ -107,18 +107,18 @@ var youdao_conv_id = 271546;
             		</div><!--end .basicShow-->
 
             		<div class="basicEdit dn">
-            			<form id="profileForm">
+            			<form id="profileForm" action="">
 						  <table>
 						    <tbody><tr>
 						      <td valign="top">
 						        <span class="redstar">*</span>
 						      </td> 
 						      <td>
-						        <input type="text" placeholder="姓名" value="jason" name="name" id="name">
+						        <input type="text" placeholder="姓名" value="" name="name" >
 						      </td>
 						      <td valign="top"></td> 
 						      <td>
-						          <ul class="profile_radio clearfix reset">
+						          <ul>
 						            <li class="current">
 						           	  	 男<em></em>
 						              	<input type="radio" checked="checked" name="gender" value="男"> 
@@ -176,7 +176,7 @@ var youdao_conv_id = 271546;
 						        <span class="redstar">*</span>
 						      </td> 
 						      <td colspan="3">
-						          <input type="text" placeholder="手机号码" value="18644444444" name="tel" id="tel">
+						          <input type="text" placeholder="手机号码"  name="tel" >
 						      </td>
 						   	</tr>
 						   	<tr>
@@ -184,7 +184,7 @@ var youdao_conv_id = 271546;
 						        <span class="redstar">*</span>
 						      </td> 
 						      <td colspan="3">
-						          <input type="text" placeholder="接收面试通知的邮箱" value="jason@qq.com" name="email" id="email">
+						          <input type="text" placeholder="接收面试通知的邮箱" name="email" >
 						      </td>
 						    </tr>
 						    <tr>
@@ -1286,7 +1286,8 @@ var youdao_conv_id = 271546;
             		            			
             		</div><!--end .descriptionShow-->
             		<div class="descriptionEdit dn">
-            			<form class="descriptionForm">
+<!--             			<form class="descriptionForm"> -->
+            			<form>
 	            			<table>
 	            				<tbody><tr>
 									<td colspan="2">
