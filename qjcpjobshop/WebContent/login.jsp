@@ -1,15 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<<<<<<< HEAD
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-=======
-
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
->>>>>>> cd2093c696a8692002e965030cd496747ff27f56
-
 <html>
 <head>
 <%  
@@ -53,15 +46,10 @@ var youdao_conv_id = 271546;
 <body id="login_bg">
 	<div class="login_wrapper">
 		<div class="login_header">
-<<<<<<< HEAD
-        	<a href="h/"><img src="${ctx}/style/images/logo_white.png" width="285" height="62" alt="奇迹才聘招聘" /></a>
-            <div id="cloud_s"><img src="style/images/cloud_s.png" width="81" height="52" alt="cloud" /></div>
-            <div id="cloud_m"><img src="${ctx}/style/images/cloud_m.png" width="136" height="95"  alt="cloud" /></div>
-=======
+
         	<a href="h/"><img src="style/images/logo_white.png" width="285" height="62" alt="奇迹才聘招聘" /></a>
             <div id="cloud_s"><img src="style/images/cloud_s.png" width="81" height="52" alt="cloud" /></div>
             <div id="cloud_m"><img src="style/images/cloud_m.png" width="136" height="95"  alt="cloud" /></div>
->>>>>>> cd2093c696a8692002e965030cd496747ff27f56
         </div>
         
     	<input type="hidden" id="resubmitToken" value="" />		
@@ -92,7 +80,6 @@ var youdao_conv_id = 271546;
         <div class="login_box_btm"></div>
     </div>
 
-<<<<<<< HEAD
 <!--<script type="text/javascript">
 $(function(){
 	//验证表单
@@ -153,8 +140,5 @@ $(function(){
 		});
 })
 </script> -->
-=======
-
->>>>>>> cd2093c696a8692002e965030cd496747ff27f56
 </body>
 </html>
