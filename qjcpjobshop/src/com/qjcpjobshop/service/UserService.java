@@ -14,12 +14,7 @@ public class UserService {
 	@Resource
 	private UserDao userDao;
 	
-	public Resume findP(String name) {
-		return userDao.findP(name);
-	}
-	public void savep(Resume p, HttpSession session) {
-		userDao.savep(p, session);
-	}
+
 	public void regist(Userfindjob user) {
 		userDao.insert(user);
 	}
