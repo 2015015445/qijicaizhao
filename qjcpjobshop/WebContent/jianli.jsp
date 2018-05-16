@@ -464,9 +464,18 @@ var youdao_conv_id = 271546;
             			</form><!--end #expectForm-->
             		</div><!--end .expectEdit-->
             		            		<div class="expectAdd pAdd">
-            		            			填写准确的期望工作能大大提高求职成功率哦…<br>
-						快来添加期望工作吧！
-						<span>添加期望工作</span>
+            		            			<c:if test="${resume2 != null }">
+            		            				${resume2.expectCity } |  ${resume2.type } <br>${resume2.expectPosition } |  ${resume2.expectSalary }
+            			            			
+            									
+            									<span>修改</span>
+            		            			</c:if>
+            		            			<c:if test="${resume2 == null }">
+            		            				填写准确的期望工作能大大 提高求职成功率哦…<br>
+												快来添加期望工作吧！
+												<span>添加期望工作</span>
+            		            			</c:if>
+            		            			
             		</div><!--end .expectAdd-->
             		
             		<input type="hidden" id="expectJobVal" value="">
@@ -853,9 +862,17 @@ var youdao_conv_id = 271546;
             		</div><!--end .experienceEdit-->
             		
             		            		<div class="experienceAdd pAdd">
-            		            			工作经历最能体现自己的工作能力，<br>
-						且完善后才可投递简历哦！
-						<span>添加工作经历</span>
+            		            			<c:if test="${resume3 != null }">
+            		            				${resume3.companyName }|${resume3.positionName }<br>
+            		            				${resume3.companyYearStart }年${resume3.companyMonthStart }月-${resume3.companyYearEnd }年${resume3.companyMonthEnd }月
+            		            			<span>修改</span>
+            		            			</c:if>
+            		            			<c:if test="${resume3 == null }">
+            		            				工作经历最能体现自己的工作能力，<br>
+												且完善后才可投递简历哦！
+												<span>添加工作经历</span>
+            		            			</c:if>
+            		            			
             		</div><!--end .experienceAdd-->
             	</div><!--end #workExperience-->
 
@@ -1061,9 +1078,17 @@ var youdao_conv_id = 271546;
             			</form><!--end .projectForm-->
             		</div><!--end .projectEdit-->
             		            		<div class="projectAdd pAdd">
-            		            			项目经验是用人单位衡量人才能力的重要指标哦！<br>
-						来说说让你难忘的项目吧！
-						<span>添加项目经验</span>
+            		            			<c:if test="${resume4 != null }">
+            		            				${resume4.projectName }|${resume4.thePost }<br>
+            		            				${resume4.projectYearStart }年${resume4.projectMonthStart }月-${resume4.projectYearEnd }年${resume4.projectMonthEnd }月
+            		            				<span>修改</span>
+            		            			</c:if>
+            		            			<c:if test="${resume4 == null }">
+            		            				项目经验是用人单位衡量人才能力的重要指标哦！<br>
+												来说说让你难忘的项目吧！
+												<span>添加项目经验</span>
+            		            			</c:if>
+            		            			
             		</div><!--end .projectAdd-->
             	</div><!--end #projectExperience-->
 
@@ -1417,9 +1442,17 @@ var youdao_conv_id = 271546;
             			</form><!--end .educationalForm-->
             		</div><!--end .educationalEdit-->
             		            		<div class="educationalAdd pAdd">
-            		            			教育背景可以充分体现你的学习和专业能力，<br>
-						且完善后才可投递简历哦！
-						<span>添加教育经历</span>
+            		            			<c:if test="${resume5 != null }">
+            		            				${resume5.schoolName }|${resume5.degree }|${resume5.professionalName }<br>
+            		            				${resume5.schoolYearStart }年-${resume5.schoolYearEnd }年
+            		            				<span>修改</span>
+            		            			</c:if>
+            		            			<c:if test="${resume5 == null }">
+            		            				教育背景可以充分体现你的学习和专业能力，<br>
+												且完善后才可投递简历哦！
+												<span>添加教育经历</span>
+            		            			</c:if>
+            		            			
             		</div><!--end .educationalAdd-->
             	</div><!--end #educationalBackground-->
 
@@ -1450,9 +1483,16 @@ var youdao_conv_id = 271546;
             			</form><!--end .descriptionForm-->
             		</div><!--end .descriptionEdit-->
             		            		<div class="descriptionAdd pAdd">
+            		            		<c:if test="${resume6 != null }">
+            		            			${resume6.selfDescription }<br>
+            		            			<span>修改</span>
+            		            		</c:if>
+            		            		<c:if test="${resume6 == null }">
             		            			描述你的性格、爱好以及吸引人的经历等，<br>
-						让企业了解多元化的你！
-						<span>添加自我描述</span>
+											让企业了解多元化的你！
+											<span>添加自我描述</span>
+            		            		</c:if>
+            		            			
             		</div><!--end .descriptionAdd-->
             	</div><!--end #selfDescription-->
 
