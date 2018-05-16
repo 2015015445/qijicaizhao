@@ -1512,6 +1512,8 @@ var youdao_conv_id = 271546;
             		<h2>我的附件简历 
             			            			<a title="上传附件简历" href="#uploadFile" class="inline cboxElement">上传简历</a>
             			            		</h2>
+            			            			
+<a href="${resumsrc }">打开文件</a>
             		<div class="resumeUploadDiv">
 	            			            		暂无附件简历
 	            		            		</div>
@@ -1556,12 +1558,11 @@ var youdao_conv_id = 271546;
 	    <table width="100%">
 	    	<tbody><tr>
 	        	<td align="center">
-	                <form>
-	                    <a class="btn_addPic" href="javascript:void(0);">
-	                    	<span>选择上传文件</span>
-	                        <input type="file" onchange="file_check(this,'h/nearBy/updateMyResume.json','resumeUpload')" class="filePrew" id="resumeUpload" name="newResume" size="3" title="支持word、pdf、ppt、txt、wps格式文件，大小不超过10M" tabindex="3">
-	                    </a>
-	                </form>
+	                <form action="${ctx }/fileUpload" enctype="multipart/form-data" method="post">
+								<input type="file" name="file"/>
+								
+								<input type="submit"/>
+					</form>
 	            </td>
 	        </tr>
 	    	<tr>
