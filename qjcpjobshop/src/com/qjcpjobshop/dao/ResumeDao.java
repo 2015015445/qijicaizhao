@@ -65,7 +65,7 @@ public class ResumeDao {
 			Query query = session.createQuery("update Resume p set p.projectMonthStart = '"+p.getProjectMonthStart()+
 					"',p.projectName = '"+p.getProjectName()+"',p.thePost = '"+p.getThePost()+
 					"',p.projectYearStart = '"+p.getProjectYearStart()+"',p.projectYearEnd = '"+p.getProjectYearEnd()+
-					"',p.projectMonthEnd = '"+p.getProjectMonthEnd()+"' where email = "+u.getEmail());  
+					"',p.projectMonthEnd = '"+p.getProjectMonthEnd()+"',p.projectDescription = '"+p.getProjectDescription()+"' where email = "+u.getEmail());  
 			query.executeUpdate();
 			tx.commit();
 			session.close();
