@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>简历</title>
 </head>
 <body onunload="opener.reload();opener.focus();">
 <%  
@@ -23,7 +23,7 @@
         while(-1 != (bytesRead = bis.read(buff,0,buff.length))){  
             bos.write(buff,0,bytesRead);  
         }   
-    }catch(Exception e){  
+    }catch(Exception e){
         e.printStackTrace();  
     }finally{  
         if(bis != null)  

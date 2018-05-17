@@ -58,7 +58,7 @@ var youdao_conv_id = 271546;
     			<img width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" src="style/images/logo.png">
     		</a>
     		<ul id="navheader" class="reset">
-    			<li><a href="index.html">首页</a></li>
+    			<li><a href="index.jsp">首页</a></li>
     			<li><a href="companylist.html">公司</a></li>
     			<li><a target="_blank" href="htoForum.html">职业预测</a></li>
     				    			<li class="current"><a rel="nofollow" href="jianli.html">我的简历</a></li>
@@ -776,7 +776,7 @@ var youdao_conv_id = 271546;
 									    <div class="clear"></div>
 	            					</td>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 		            					<div class="fl">
@@ -888,7 +888,7 @@ var youdao_conv_id = 271546;
 	            			<table>
 	            				<tbody><tr>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 							      		<c:if test="${resume4.projectName != null }"><input type="text" placeholder="${resume4.projectName }" name="projectName" class="projectName"></c:if>
@@ -896,7 +896,7 @@ var youdao_conv_id = 271546;
 							        	
 							      	</td>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 							      		<c:if test="${resume4.thePost != null }"><input type="text" placeholder="${resume4.thePost }" name="thePost" class="thePost"></c:if>
@@ -906,7 +906,7 @@ var youdao_conv_id = 271546;
 							    </tr>
 	            				<tr>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 		            					<div class="fl">
@@ -978,7 +978,7 @@ var youdao_conv_id = 271546;
 								        <div class="clear"></div>
 	            					</td>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 	            						<div class="fl">
@@ -1048,7 +1048,7 @@ var youdao_conv_id = 271546;
 									        	</ul>
 									        </div>
 								        </div>
-								        <div class="clear"></div>
+<!-- 								        <div class="clear"></div> -->
 	            					</td>
 	            				</tr>
 	            				<tr>
@@ -1100,7 +1100,7 @@ var youdao_conv_id = 271546;
 	            			<table>
 	            				<tbody><tr>
 							      	<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 							      		
@@ -1109,7 +1109,7 @@ var youdao_conv_id = 271546;
 							        	
 							      	</td>
 							      	<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 							      		<input type="hidden" class="degree" value="" name="degree">
@@ -1129,7 +1129,7 @@ var youdao_conv_id = 271546;
 							    </tr>
 	            				<tr>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 	            						<c:if test="${resume5.professionalName != null }"><input type="text" placeholder="${resume5.professionalName }" name="professionalName" class="professionalName"></c:if>
@@ -1137,7 +1137,7 @@ var youdao_conv_id = 271546;
 	            						
 	            					</td>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 		            					<div class="fl">
@@ -1279,7 +1279,7 @@ var youdao_conv_id = 271546;
 	            			<table>
 	            				<tbody><tr>
 							      	<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 			
@@ -1288,7 +1288,7 @@ var youdao_conv_id = 271546;
 							        	
 							      	</td>
 							      	<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 							      		<input type="hidden" class="degree" value="" name="degree">
@@ -1308,7 +1308,7 @@ var youdao_conv_id = 271546;
 							    </tr>
 	            				<tr>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 	            						<c:if test="${resume5.professionalName != null }"><input type="text" placeholder="${resume5.professionalName }" name="professionalName" class="professionalName"></c:if>
@@ -1316,7 +1316,7 @@ var youdao_conv_id = 271546;
 	            						
 	            					</td>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 		            					<div class="fl">
@@ -1510,13 +1510,18 @@ var youdao_conv_id = 271546;
 
 				<div class="mycenterR" id="myResume">
             		<h2>我的附件简历 
-            			            			<a title="上传附件简历" href="#uploadFile" class="inline cboxElement">上传简历</a>
-            			            		</h2>
-            			            			
-<a href="NewFile.jsp"  target="_blank">打开文件</a>
-            		<div class="resumeUploadDiv">
-	            			            		暂无附件简历
-	            		            		</div>
+            			<a title="上传附件简历" href="#uploadFile" class="inline cboxElement">上传简历</a>
+            		</h2>
+            		<c:if test="${resumsrc != null }">
+            			<a href="NewFile.jsp"  target="_blank">查看我的附件简历</a>
+            		</c:if>	 
+            		<c:if test="${resumsrc == null }">
+            			<div class="resumeUploadDiv">
+	            			暂无附件简历
+	            		</div>
+            		</c:if>           			
+					
+            		
             	</div><!--end #myResume-->
 
             	<div class="mycenterR" id="resumeSet">
