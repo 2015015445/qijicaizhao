@@ -140,7 +140,7 @@ var youdao_conv_id = 271546;
 						
 						
             										
-						            		</div>
+					</div>
             	</div><!--end #resumeScore-->
 
             	<div class="profile_box" id="basicInfo">
@@ -1513,7 +1513,7 @@ var youdao_conv_id = 271546;
             			            			<a title="上传附件简历" href="#uploadFile" class="inline cboxElement">上传简历</a>
             			            		</h2>
             			            			
-<a href="${resumsrc }">打开文件</a>
+<a href="NewFile.jsp"  target="_blank">打开文件</a>
             		<div class="resumeUploadDiv">
 	            			            		暂无附件简历
 	            		            		</div>

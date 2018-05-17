@@ -63,7 +63,7 @@ public class ResumeController {
             //上传文件名
             String filename = file.getOriginalFilename();
             File filepath = new File(path,filename);
-            session.setAttribute("resumsrc", filepath);
+            session.setAttribute("resumsrc", path+ "/" + filename);
             System.out.println(filepath);
             //判断路径是否存在，如果不存在就创建一个
             if (!filepath.getParentFile().exists()) { 
