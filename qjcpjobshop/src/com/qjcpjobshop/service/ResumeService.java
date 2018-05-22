@@ -17,6 +17,9 @@ public class ResumeService {
 	public Resume findR(String name) {
 		return resumeDao.findR(name);
 	}
+	public void sp (String p) {
+		resumeDao.sp(p);
+	}
 	public void savep(Resume p, HttpSession session) {
 		resumeDao.savep(p, session);
 	}

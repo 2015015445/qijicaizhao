@@ -41,26 +41,33 @@ public class ResumeController {
 	@RequestMapping(value="/jianli", method=RequestMethod.GET)
 	public String Jianli(HttpSession session){
 		System.out.println("进入简历");
+		
 		Userfindjob u = (Userfindjob) session.getAttribute("user");
 		Resume re = resumeService.findR(u.getEmail());
-		if(re.getName() != null) {
-			session.setAttribute("resume1", re);
-		}else{session.removeAttribute("resume1");}
-		if(re.getExpectCity() != null) {
-			session.setAttribute("resume2", re);
-		}else{session.removeAttribute("resume2");}
-		if(re.getCompanyName() != null) {
-			session.setAttribute("resume3", re);
-		}else{session.removeAttribute("resume3");}
-		if(re.getPositionName() != null) {
-			session.setAttribute("resume4", re);
-		}else{session.removeAttribute("resume4");}
-		if(re.getSchoolName() != null) {
-			session.setAttribute("resume5", re);
-		}else{session.removeAttribute("resume5");}
-		if(re.getSelfDescription() != null) {
-			session.setAttribute("resume6", re);
-		}else{session.removeAttribute("resume6");}
+		if(resumeService.findR(u.getEmail()) == null) {
+			resumeService.sp(u.getEmail());
+			return "jianli";
+		}else {
+			if(re.getName() != null) {
+				session.setAttribute("resume1", re);
+			}else{session.removeAttribute("resume1");}
+			if(re.getExpectCity() != null) {
+				session.setAttribute("resume2", re);
+			}else{session.removeAttribute("resume2");}
+			if(re.getCompanyName() != null) {
+				session.setAttribute("resume3", re);
+			}else{session.removeAttribute("resume3");}
+			if(re.getPositionName() != null) {
+				session.setAttribute("resume4", re);
+			}else{session.removeAttribute("resume4");}
+			if(re.getSchoolName() != null) {
+				session.setAttribute("resume5", re);
+			}else{session.removeAttribute("resume5");}
+			if(re.getSelfDescription() != null) {
+				session.setAttribute("resume6", re);
+			}else{session.removeAttribute("resume6");}
+		}
+
 		return "jianli";
 	}
 	
