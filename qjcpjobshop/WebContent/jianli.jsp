@@ -103,7 +103,7 @@ var youdao_conv_id = 271546;
             	<div class="fr c5" id="lastChangedTime">最后一次更新：<span>2014-07-01 15:14 </span></div><!--end #lastChangedTime-->
             	<div id="resumeScore">
             		<div class="score fl">
-            			<canvas height="120" width="120" id="doughnutChartCanvas" style="width: 120px; height: 120px;"></canvas>
+            			<canvas height="60" width="60" id="doughnutChartCanvas" style="width: 60px; height: 60px;"></canvas>
            				<div style="" class="scoreVal"><span>
            					<c:if test="${resume1 == null }">0</c:if>
            					<c:if test="${resume1 != null&&resume2 ==null }">15</c:if>

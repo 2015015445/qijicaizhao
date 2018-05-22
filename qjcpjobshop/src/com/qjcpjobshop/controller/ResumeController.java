@@ -2,18 +2,10 @@ package com.qjcpjobshop.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,15 +33,34 @@ public class ResumeController {
 		
 		p.setEmail(u.getEmail());
 		resumeService.savep(p,session);
-		Resume resume = resumeService.findR(u.getEmail());
 		
 		System.out.println("保存成功");
 		return "jianli";
 	}
 	
 	@RequestMapping(value="/jianli", method=RequestMethod.GET)
-	public String Jianli(){
+	public String Jianli(HttpSession session){
 		System.out.println("进入简历");
+		Userfindjob u = (Userfindjob) session.getAttribute("user");
+		Resume re = resumeService.findR(u.getEmail());
+		if(re.getName() != null) {
+			session.setAttribute("resume1", re);
+		}else{session.removeAttribute("resume1");}
+		if(re.getExpectCity() != null) {
+			session.setAttribute("resume2", re);
+		}else{session.removeAttribute("resume2");}
+		if(re.getCompanyName() != null) {
+			session.setAttribute("resume3", re);
+		}else{session.removeAttribute("resume3");}
+		if(re.getPositionName() != null) {
+			session.setAttribute("resume4", re);
+		}else{session.removeAttribute("resume4");}
+		if(re.getSchoolName() != null) {
+			session.setAttribute("resume5", re);
+		}else{session.removeAttribute("resume5");}
+		if(re.getSelfDescription() != null) {
+			session.setAttribute("resume6", re);
+		}else{session.removeAttribute("resume6");}
 		return "jianli";
 	}
 	

@@ -29,7 +29,7 @@ public class UserController {
 	
 
 	
-	@RequestMapping(value="/user/regist1", method=RequestMethod.GET)
+	@RequestMapping(value="/regist1", method=RequestMethod.GET)
 	public String Regist(){
 		System.out.println("进入注册界面");
 		return "register";
