@@ -93,11 +93,11 @@ var youdao_conv_id = 271546;
 	            	<div class="nameShow fl">
 	            		<c:if test="${resume1.name != null }"><h1 title="我的简历">${resume1.name }的简历</h1></c:if>
 	            		<c:if test="${resume1.name == null }"><h1 title="我的简历">我的简历</h1></c:if>
-	            		<span class="rename">重命名</span> | <a target="_blank" href="h/resume/preview.html">预览</a>
+	            		<span class="rename">重命名</span> | <a target="_blank" href="${ctx }/preview">预览</a>
             		</div>
             		<form class="fl dn" id="resumeNameForm">
             			<input type="text" value="${resume1.name }的简历" name="resumeName" class="nameEdit c9">	
-            			<input type="submit" value="保存"> | <a target="_blank" href="h/resume/preview.html">预览</a>
+            			<input type="submit" value="保存"> | <a target="_blank" href="${ctx }/preview">预览</a>
             		</form>
             	</div><!--end #resume_name-->
             	<div class="fr c5" id="lastChangedTime">最后一次更新：<span>2014-07-01 15:14 </span></div><!--end #lastChangedTime-->

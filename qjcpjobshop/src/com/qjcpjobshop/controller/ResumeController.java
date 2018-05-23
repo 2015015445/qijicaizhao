@@ -71,6 +71,22 @@ public class ResumeController {
 		return "jianli";
 	}
 	
+	@RequestMapping(value="/preview", method=RequestMethod.GET)
+	public String Preview(HttpSession session){
+		Userfindjob u = (Userfindjob) session.getAttribute("user");
+		Resume re = resumeService.findR(u.getEmail());
+		if(resumeService.findR(u.getEmail()) == null) {
+			resumeService.sp(u.getEmail());
+			return "jianli";
+		}else {
+			if(re.getName() != null) {
+				session.setAttribute("resume", re);
+			}
+		}
+
+		return "preview";
+	}
+	
 	@RequestMapping(value="/fileUpload", method=RequestMethod.POST)
 	public String FileUpload(HttpServletRequest request,  
 			 @RequestParam("file") MultipartFile file,HttpSession session){
