@@ -26,6 +26,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- <div class="web_root"  style="display:none">h</div> -->
 <script type="text/javascript">
+function clickj() {
+	alert("你还没有登陆！！");
+}
 var ctx = "h";
 console.log(1);
 </script>
@@ -61,7 +64,9 @@ var youdao_conv_id = 271546;
 <!--     		<li ><a href="jianli.html" rel="nofollow">我的简历</a></li> -->
 <%-- 	    	<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li> --%>
 
-    			<li ><a href="${ctx}/jianli" rel="nofollow">我的简历</a></li>
+    			<c:if test="${user == null }"><li ><a rel="nofollow" onclick="clickj()">我的简历</a></li></c:if>
+    			<c:if test="${user != null }"><li ><a href="${ctx}/jianli" rel="nofollow">我的简历</a></li></c:if>
+    			
 	    		<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li>
 
 	    	</ul>

@@ -58,17 +58,17 @@ $(function(){
             			            			${resume.tel } | ${resume.email }<br>
             			
             		</span>
-           			<div class="m_portrait">
-                    	<div></div>
+<!--            			<div class="m_portrait"> -->
+<!--                     	<div></div> -->
 <!--                     	<img width="120" height="120" alt="jason" src="style/images/default_headpic.png"> -->
-                    </div>
+<!--                     </div> -->
                 </div><!--end .basicShow-->
             </div><!--end #basicInfo-->
 			
 				            <div class="profile_box" id="expectJob">
 	                <h2>期望工作</h2>
 	                <div class="expectShow">
-	                	${resume.expectCity }，${resume.type }，月薪${expectSalary }，${expectPosition }
+	                	${resume.expectCity }，${resume.type }，月薪${resume.expectSalary }，${resume.expectPosition }
 	                </div><!--end .expectShow-->
 	            </div><!--end #expectJob-->
 						
@@ -77,9 +77,9 @@ $(function(){
 	                <div class="experienceShow">
 	                  <ul class="wlist clearfix">
 	                  	                    	           				            				<li class="clear">
-            					           					<span class="c9">${resume.companyYearStart }.${companyMonthStart }-${resume.companyYearEnd }.${resume.companyMonthEnd }</span>
+            					           					<span class="c9">${resume.companyYearStart }.${resume.companyMonthStart }-${resume.companyYearEnd }.${resume.companyMonthEnd }</span>
 	           					<div>
-	           						<img width="56" height="56" alt="上海辉硕科技有限公司" src="style/images/logo_default.png">
+<!-- 	           						<img width="56" height="56" alt="上海辉硕科技有限公司" src="style/images/logo_default.png"> -->
 	           						<h3>${resume.positionName } </h3>
 	           						<h4>${resume.companyName }</h4>
 	           					</div>
@@ -111,10 +111,10 @@ $(function(){
 	                <div class="educationalShow">
 	                  <ul class="elist clearfix">
 	                  	                  	            				            				<li class="clear">
-            				            					<span class="c9">${resuem.schoolYearStart }-${resume.schoolYearEnd }</span>
+            				            					<span class="c9">${resume.schoolYearStart }-${resume.schoolYearEnd }</span>
             					<div>
             						<h3>${schoolName }</h3>
-            						<h4>${resume.professionalName，${resume.degree }</h4>
+            						<h4>${resume.professionalName}，${resume.degree }</h4>
             					</div>
             				</li>
             				           					                  </ul>

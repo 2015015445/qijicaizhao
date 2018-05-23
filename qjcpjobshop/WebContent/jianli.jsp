@@ -19,6 +19,7 @@
 
 <!-- <div class="web_root"  style="display:none">h</div> -->
 <script type="text/javascript">
+
 var h =1;
 function timenow() {
 	
@@ -26,7 +27,7 @@ function timenow() {
 	$('#lastChangedTime').html("最后一次更新：<span>"+value+" </span>");
 }
 window.onload=function(){
-	 
+	
 	value="<% out.print(new java.text.SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())); %>"
 	$('#lastChangedTime').html("最后一次更新：<span>"+value+" </span>");
 }
@@ -103,7 +104,7 @@ var youdao_conv_id = 271546;
             	<div class="fr c5" id="lastChangedTime">最后一次更新：<span>2014-07-01 15:14 </span></div><!--end #lastChangedTime-->
             	<div id="resumeScore">
             		<div class="score fl">
-            			<canvas height="60" width="60" id="doughnutChartCanvas" style="width: 60px; height: 60px;"></canvas>
+            			<canvas height="85" width="85" id="doughnutChartCanvas" style="width: 60px; height: 60px;"></canvas>
            				<div style="" class="scoreVal"><span>
            					<c:if test="${resume1 == null }">0</c:if>
            					<c:if test="${resume1 != null&&resume2 ==null }">15</c:if>
@@ -274,27 +275,27 @@ var youdao_conv_id = 271546;
 						    </tr>
 						  </tbody></table>
 						</form><!--end #profileForm-->
-<!-- 						<div class="new_portrait"> -->
+						<div class="new_portrait">
 <!-- 						  <div class="portrait_upload" id="portraitNo"> -->
 <!-- 						      <span>上传自己的头像</span> -->
 <!-- 						  </div> -->
-<!-- 						  <div class="portraitShow dn" id="portraitShow"> -->
-<!-- 						  	<form action="FileUpLoadServlet" enctype="multipart/form-data" method="post"> -->
+<!-- 						  <div > -->
+<!-- 						  	<form action="fileUpload" enctype="multipart/form-data" method="post"> -->
 <!-- 								<input type="file" name="upfile"/> -->
 <!-- 								<img width="120" height="120" src=""> -->
-								
+<!-- 								<input type="button" value="sd"></input> -->
 <!-- 							</form> -->
 						    
 <!-- 						    <span>更换头像</span> -->
 <!-- 						  </div> -->
 <!-- 						  <input type="file" value="" title="支持jpg、jpeg、gif、png格式，文件小于5M" onchange="img_check(this,'h/resume/uploadPhoto.json','headPic');" name="headPic" id="headPic" class="myfiles"> -->
-							<!-- <input type="hidden" id="headPicHidden" /> -->
+<!-- 							<input type="hidden" id="headPicHidden" /> -->
 <!-- 						  	<em> -->
 <!-- 						                  尺寸：120*120px <br>    -->
 <!-- 						                  大小：小于5M -->
 <!-- 						  	</em> -->
 <!-- 						  	<span style="display:none;" id="headPic_error" class="error"></span> -->
-<!-- 						</div>end .new_portrait -->
+						</div><!-- end .new_portrait -->
             		</div><!--end .basicEdit-->
             		<input type="hidden" id="nameVal" value="jason">
             		<input type="hidden" id="genderVal" value="男">
@@ -308,7 +309,7 @@ var youdao_conv_id = 271546;
 
             	<div class="profile_box" id="expectJob">
             		<h2>期望工作</h2>
-            		            		<span class="c_edit dn"></span>
+<!--             		            		<span class="c_edit dn"></span> -->
             		<div class="expectShow dn">
             		            			<span></span>
             		</div><!--end .expectShow-->
@@ -523,10 +524,14 @@ var youdao_conv_id = 271546;
 		            					<div class="fl">
 		            						<input type="hidden" class="companyYearStart" value="" name="companyYearStart">
 		            						<c:if test="${resume3.companyYearStart != null }"><input type="button" value="${resume3.companyYearStart }" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
-						      	  			<c:if test="${resume3.companyYearStart == null }"><input type="button" value="123" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
+						      	  			<c:if test="${resume3.companyYearStart == null }"><input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
 								        	
 											<div class=" boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -568,10 +573,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -601,6 +602,10 @@ var youdao_conv_id = 271546;
 											<div class="box_companyYearEnd  boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
 									            	<li>至今</li>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -642,10 +647,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -711,9 +712,13 @@ var youdao_conv_id = 271546;
 		            					<div class="fl">
 		            						<input type="hidden" class="companyYearStart" value="" name="companyYearStart">
 		            						<c:if test="${resume3 != null }"><input type="button" value="${resume3.companyYearStart }" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
-						      	  			<c:if test="${resume3 == null }"><input type="button" value="123" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
+						      	  			<c:if test="${resume3 == null }"><input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
 											<div class="box_companyYearStart boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -755,10 +760,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -787,6 +788,10 @@ var youdao_conv_id = 271546;
 											<div class="box_companyYearEnd  boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
 									            	<li>至今</li>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -828,10 +833,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -916,6 +917,10 @@ var youdao_conv_id = 271546;
 								        	
 											<div class="box_projectYearStart  boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -957,10 +962,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -989,6 +990,10 @@ var youdao_conv_id = 271546;
 											<div class="box_projectYearEnd  boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
 									            	<li>至今</li>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -1030,10 +1035,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -1147,6 +1148,10 @@ var youdao_conv_id = 271546;
 								        	
 											<div class="box_schoolYearStart boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -1188,10 +1193,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -1202,6 +1203,7 @@ var youdao_conv_id = 271546;
 								        	
 											<div style="display: none;" class="box_schoolYearEnd  boxUpDown boxUpDown_139 dn">
 									            <ul>
+									            															<li>2022</li>
 									        											        			<li>2021</li>
 									        											        			<li>2020</li>
 									        											        			<li>2019</li>
@@ -1325,6 +1327,10 @@ var youdao_conv_id = 271546;
 						      	  			<c:if test="${resume5.schoolYearStart == null }"><input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_schoolYearStart"></c:if>
 											<div class="box_schoolYearStart boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -1366,10 +1372,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -1379,6 +1381,15 @@ var youdao_conv_id = 271546;
 						      	  			<c:if test="${resume5.schoolYearEnd == null }"><input type="button" value="结束年份" class="profile_select_139 profile_select_normal select_schoolYearEnd"></c:if>
 											<div class="box_schoolYearEnd  boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									            
+									        											        			<li>2022</li>
+									        											        			<li>2021</li>
+									        											        			<li>2020</li>
+									        											        			<li>2019</li>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
