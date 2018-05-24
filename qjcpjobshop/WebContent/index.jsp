@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>  
 <% out.print(new java.text.SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())); %>
 <base href="<%=basePath%>"> 
-<script id="allmobilize" charset="utf-8" src="${ctx}/style/js/allmobilize.min.js"></script>
+<script id="allmobilize" charset="utf-8" src="${basePath}/style/js/allmobilize.min.js"></script>
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="alternate" media="handheld"  />
 <!-- end 云适配 -->
@@ -54,7 +54,7 @@ var youdao_conv_id = 271546;
     			<img src="${ctx}/style/images/logo.png" width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" />
     		</a>
     		<ul class="reset" id="navheader">
-    			<li class="current"><a href="index.html">首页</a></li>
+    			<li class="current"><a href="index.jsp">首页</a></li>
     			<li ><a href="companylist.html" >公司</a></li>
     			<li ><a href="htoForum.html" target="_blank">职业预测</a></li>
 

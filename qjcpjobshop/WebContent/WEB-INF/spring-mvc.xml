@@ -13,13 +13,13 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 		
 	<mvc:annotation-driven/>
-	<mvc:resources location="/style/" mapping="/style/**"></mvc:resources>
+	<mvc:resources location="style/" mapping="/style/**"/>
+	<mvc:resources location="static/" mapping="/static/**"/>
 	
 	<!-- <mvc:default-servlet-handler/> -->
 	<context:component-scan base-package="com.qjcpjobshop">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-	<mvc:resources location="static/" mapping="/static/**"/>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/"/>
 		<property name="suffix" value=".jsp"/>

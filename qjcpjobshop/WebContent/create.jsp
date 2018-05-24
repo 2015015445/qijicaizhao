@@ -135,7 +135,7 @@ var youdao_conv_id = 271546;
                                 	<td width="25"><span class="redstar">*</span></td>
                                 	<td width="85">职位类别</td>
                                 	<td>
-                                    	<input type="hidden" id="type" value="" name="type1">
+                                    	<input type="hidden" id="type" value="" name="type">
                                         <input type="button" value="请选择职位类别" id="select_category" class="selectr selectr_380">                                      
                                         
                                         <div class="dn" id="box_job" style="display: none;">
@@ -534,8 +534,8 @@ var youdao_conv_id = 271546;
                                 	<td width="25"><span class="redstar">*</span></td>
                                 	<td width="85">工作经验</td>
                                 	<td>
-                                    	<input type="hidden" id="experience" value="" >
-                                        <input type="button" value="请选择工作经验" id="select_experience" class="selectr selectr_380" name="experience">                                       
+                                    	<input type="hidden" id="experience" name = "experience"value="" >
+                                        <input type="button" value="请选择工作经验" id="select_experience" class="selectr selectr_380">                                       
                                         <div class="boxUpDown boxUpDown_380 dn" id="box_experience" style="display: none;">
                                             <ul>
                                                                                                     <li>
@@ -568,8 +568,8 @@ var youdao_conv_id = 271546;
                                 	<td>学历要求</td>
                                     <!--<h3><span>(最高月薪不能大于最低月薪的2倍)</span></h3> -->
                                 	<td>
-                                    	<input type="hidden" id="education" value="">
-                                        <input type="button" value="请选择学历要求" id="select_education" class="selectr selectr_380" name="degree">                                      
+                                    	<input type="hidden" id="education" value=""  name="degree">
+                                        <input type="button" value="请选择学历要求" id="select_education" class="selectr selectr_380">                                      
                                         <div class="boxUpDown boxUpDown_380 dn" id="box_education" style="display: none;">
                                             <ul>
                                                                                                     <li>

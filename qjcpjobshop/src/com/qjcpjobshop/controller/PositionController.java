@@ -28,7 +28,7 @@ public class PositionController extends HttpServlet {
 	private PositionService positionService;
 	
 	@RequestMapping(value="/addposition1", method=RequestMethod.POST)
-	public String addPosition1(@RequestParam("id") String id, @RequestParam(value="type1",required=false) String type,@RequestParam("name") String name,@RequestParam("minSalary") String minSalary,@RequestParam("maxSalary") String maxSalary,@RequestParam("city") String city,@RequestParam(value="experience",required=false) String experience,@RequestParam(value="degree",required=false) String degree,@RequestParam("tempation") String tempation,@RequestParam(value="description",required=false) String description,@RequestParam(value="address",required=false) String address,@RequestParam(value="email",required=false) String email,HttpSession session){
+	public String addPosition1(@RequestParam("id") String id, @RequestParam(value="type",required=false) String type,@RequestParam("name") String name,@RequestParam("minSalary") String minSalary,@RequestParam("maxSalary") String maxSalary,@RequestParam("city") String city,@RequestParam(value="experience",required=false) String experience,@RequestParam(value="degree",required=false) String degree,@RequestParam("tempation") String tempation,@RequestParam(value="description",required=false) String description,@RequestParam(value="address",required=false) String address,@RequestParam(value="email",required=false) String email,@RequestParam(value="jobNature",required=false) String jobNature,HttpSession session){
 		try{
 			Position p = new Position();
 			int count = positionService.findCompanypositionCount(id)+1;
@@ -37,6 +37,7 @@ public class PositionController extends HttpServlet {
 			
 			System.out.println("type"+type);
 			
+			p.setJobNature(jobNature);
 			p.setEmail(email);
 			p.setName(name);
 			p.setMinSalary(minSalary);
@@ -49,6 +50,7 @@ public class PositionController extends HttpServlet {
 			p.setAddress(address);
 			positionService.addPosition(p);
 			System.out.println("insert OK");
+			JOptionPane.showMessageDialog(null,"添加职位成功!", "系统提示", JOptionPane.INFORMATION_MESSAGE);
 			
 //			Object[] options = {"继续"}; 
 //			JOptionPane.showOptionDialog(null, "添加成功，点击以继续", "提示", 
