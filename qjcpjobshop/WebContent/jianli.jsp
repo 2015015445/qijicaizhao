@@ -19,6 +19,7 @@
 
 <!-- <div class="web_root"  style="display:none">h</div> -->
 <script type="text/javascript">
+
 var h =1;
 function timenow() {
 	
@@ -26,7 +27,7 @@ function timenow() {
 	$('#lastChangedTime').html("最后一次更新：<span>"+value+" </span>");
 }
 window.onload=function(){
-	 
+	
 	value="<% out.print(new java.text.SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())); %>"
 	$('#lastChangedTime').html("最后一次更新：<span>"+value+" </span>");
 }
@@ -58,7 +59,7 @@ var youdao_conv_id = 271546;
     			<img width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" src="style/images/logo.png">
     		</a>
     		<ul id="navheader" class="reset">
-    			<li><a href="index.html">首页</a></li>
+    			<li><a href="index.jsp">首页</a></li>
     			<li><a href="companylist.html">公司</a></li>
     			<li><a target="_blank" href="htoForum.html">职业预测</a></li>
     				    			<li class="current"><a rel="nofollow" href="jianli.html">我的简历</a></li>
@@ -93,39 +94,54 @@ var youdao_conv_id = 271546;
 	            	<div class="nameShow fl">
 	            		<c:if test="${resume1.name != null }"><h1 title="我的简历">${resume1.name }的简历</h1></c:if>
 	            		<c:if test="${resume1.name == null }"><h1 title="我的简历">我的简历</h1></c:if>
-	            		<span class="rename">重命名</span> | <a target="_blank" href="h/resume/preview.html">预览</a>
+	            		<span class="rename">重命名</span> | <a target="_blank" href="${ctx }/preview">预览</a>
             		</div>
             		<form class="fl dn" id="resumeNameForm">
-            			<input type="text" value="${resume.name }的简历" name="resumeName" class="nameEdit c9">	
-            			<input type="submit" value="保存"> | <a target="_blank" href="h/resume/preview.html">预览</a>
+            			<input type="text" value="${resume1.name }的简历" name="resumeName" class="nameEdit c9">	
+            			<input type="submit" value="保存"> | <a target="_blank" href="${ctx }/preview">预览</a>
             		</form>
             	</div><!--end #resume_name-->
             	<div class="fr c5" id="lastChangedTime">最后一次更新：<span>2014-07-01 15:14 </span></div><!--end #lastChangedTime-->
             	<div id="resumeScore">
             		<div class="score fl">
-            			<canvas height="120" width="120" id="doughnutChartCanvas" style="width: 120px; height: 120px;"></canvas>
+            			<canvas height="85" width="85" id="doughnutChartCanvas" style="width: 60px; height: 60px;"></canvas>
            				<div style="" class="scoreVal"><span>
+           					<c:if test="${resume1 == null }">0</c:if>
            					<c:if test="${resume1 != null&&resume2 ==null }">15</c:if>
            					<c:if test="${resume1 != null&&resume2 != null }">
-           						<c:if test="${resume1 != null&&resume2 !=null&&resume3 == null }">30</c:if>
-           						<c:if test="${resume1 != null&&resume2 != null&&resume3 != null }">
-           							<c:if test="${resume1 != null&&resume2 !=null&&resume3 != null&&resume4 == null }">45</c:if>
-           							<c:if test="${resume1 != null&&resume2 != null&&resume3 != null&&resume4 != null }">
-           								<c:if test="${resume1 != null&&resume2 !=null&&resume3 != null&&resume4 != null&&resume5 == null }">60</c:if>
-           								<c:if test="${resume1 != null&&resume2 != null&&resume3 != null&&resume4 != null&&resume5 !=null }">
-           									<c:if test="${resume1 != null&&resume2 !=null&&resume3 != null&&resume4 != null&&resume5 != null&&resume6 == null }">75</c:if>
-           									<c:if test="${resume1 != null&&resume2 != null&&resume3 != null&&resume4 != null&&resume5 !=null&&resume5 == null }">90</c:if>
+           						<c:if test="${resume3 == null }">30</c:if>
+           						<c:if test="${resume3 != null }">
+           							<c:if test="${resume4 == null }">45</c:if>
+           							<c:if test="${resume4 != null }">
+           								<c:if test="${resume5 == null }">60</c:if>
+           								<c:if test="${resume5 !=null }">
+           									<c:if test="${resume6 == null }">75</c:if>
+           									<c:if test="${resume6 != null }">90</c:if>
            								</c:if>
            							</c:if>
            						</c:if>
            					</c:if>
-           					
+           					</span>分</div>
             		</div>	
             		
             		<div class="which fl">
             			<div>工作经历最能体现自己的工作能力，且完善后才可投递简历哦！</div>
-            										<span rel="workExperience"><a>马上去完善</a></span>
-						            		</div>
+<!--             										       -->
+						<c:if test="${resume2 == null }"><span rel="expectJob"><a>马上去完善</a></span></c:if>
+						<c:if test="${resume2 != null&&resume3 == null }"><span rel="workExperience"><a>马上去完善</a></span></c:if>
+						<c:if test="${resume2 != null&&resume3!=null }">
+							<c:if test="${resume4==null }"><span rel="projectExperience"><a>马上去完善</a></span></c:if>
+							<c:if test="${resume4!=null }">
+								<c:if test="${resume5==null }"><span rel="educationalBackground"><a>马上去完善</a></span></c:if>
+								<c:if test="${resume5!=null }">
+									<span rel="selfDescription"><a>马上去完善</a></span>
+								</c:if>
+							</c:if>
+						</c:if>
+						
+						
+            										
+					</div>
             	</div><!--end #resumeScore-->
 
             	<div class="profile_box" id="basicInfo">
@@ -259,27 +275,27 @@ var youdao_conv_id = 271546;
 						    </tr>
 						  </tbody></table>
 						</form><!--end #profileForm-->
-<!-- 						<div class="new_portrait"> -->
+						<div class="new_portrait">
 <!-- 						  <div class="portrait_upload" id="portraitNo"> -->
 <!-- 						      <span>上传自己的头像</span> -->
 <!-- 						  </div> -->
-<!-- 						  <div class="portraitShow dn" id="portraitShow"> -->
-<!-- 						  	<form action="FileUpLoadServlet" enctype="multipart/form-data" method="post"> -->
+<!-- 						  <div > -->
+<!-- 						  	<form action="fileUpload" enctype="multipart/form-data" method="post"> -->
 <!-- 								<input type="file" name="upfile"/> -->
 <!-- 								<img width="120" height="120" src=""> -->
-								
+<!-- 								<input type="button" value="sd"></input> -->
 <!-- 							</form> -->
 						    
 <!-- 						    <span>更换头像</span> -->
 <!-- 						  </div> -->
 <!-- 						  <input type="file" value="" title="支持jpg、jpeg、gif、png格式，文件小于5M" onchange="img_check(this,'h/resume/uploadPhoto.json','headPic');" name="headPic" id="headPic" class="myfiles"> -->
-							<!-- <input type="hidden" id="headPicHidden" /> -->
+<!-- 							<input type="hidden" id="headPicHidden" /> -->
 <!-- 						  	<em> -->
 <!-- 						                  尺寸：120*120px <br>    -->
 <!-- 						                  大小：小于5M -->
 <!-- 						  	</em> -->
 <!-- 						  	<span style="display:none;" id="headPic_error" class="error"></span> -->
-<!-- 						</div>end .new_portrait -->
+						</div><!-- end .new_portrait -->
             		</div><!--end .basicEdit-->
             		<input type="hidden" id="nameVal" value="jason">
             		<input type="hidden" id="genderVal" value="男">
@@ -293,7 +309,7 @@ var youdao_conv_id = 271546;
 
             	<div class="profile_box" id="expectJob">
             		<h2>期望工作</h2>
-            		            		<span class="c_edit dn"></span>
+<!--             		            		<span class="c_edit dn"></span> -->
             		<div class="expectShow dn">
             		            			<span></span>
             		</div><!--end .expectShow-->
@@ -449,9 +465,18 @@ var youdao_conv_id = 271546;
             			</form><!--end #expectForm-->
             		</div><!--end .expectEdit-->
             		            		<div class="expectAdd pAdd">
-            		            			填写准确的期望工作能大大提高求职成功率哦…<br>
-						快来添加期望工作吧！
-						<span>添加期望工作</span>
+            		            			<c:if test="${resume2 != null }">
+            		            				${resume2.expectCity } |  ${resume2.type } <br>${resume2.expectPosition } |  ${resume2.expectSalary }
+            			            			
+            									
+            									<span>修改</span>
+            		            			</c:if>
+            		            			<c:if test="${resume2 == null }">
+            		            				填写准确的期望工作能大大 提高求职成功率哦…<br>
+												快来添加期望工作吧！
+												<span>添加期望工作</span>
+            		            			</c:if>
+            		            			
             		</div><!--end .expectAdd-->
             		
             		<input type="hidden" id="expectJobVal" value="">
@@ -499,10 +524,14 @@ var youdao_conv_id = 271546;
 		            					<div class="fl">
 		            						<input type="hidden" class="companyYearStart" value="" name="companyYearStart">
 		            						<c:if test="${resume3.companyYearStart != null }"><input type="button" value="${resume3.companyYearStart }" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
-						      	  			<c:if test="${resume3.companyYearStart == null }"><input type="button" value="123" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
+						      	  			<c:if test="${resume3.companyYearStart == null }"><input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
 								        	
 											<div class=" boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -544,10 +573,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -577,6 +602,10 @@ var youdao_conv_id = 271546;
 											<div class="box_companyYearEnd  boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
 									            	<li>至今</li>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -618,10 +647,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -662,7 +687,7 @@ var youdao_conv_id = 271546;
 							      	</td> 
 							      	<td>
 							      	    <c:if test="${resume3.companyName != null }">
-							      	    	<input type="text" placeholder="${resume.companyName }" name="companyName" class="companyName">
+							      	    	<input type="text" placeholder="${resume3.companyName }" name="companyName" class="companyName">
 							      	    </c:if>
 							      	    <c:if test="${resume3.companyName == null }">
 							      	    	<input type="text" placeholder="公司名称" name="companyName" class="companyName">
@@ -687,9 +712,13 @@ var youdao_conv_id = 271546;
 		            					<div class="fl">
 		            						<input type="hidden" class="companyYearStart" value="" name="companyYearStart">
 		            						<c:if test="${resume3 != null }"><input type="button" value="${resume3.companyYearStart }" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
-						      	  			<c:if test="${resume3 == null }"><input type="button" value="123" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
+						      	  			<c:if test="${resume3 == null }"><input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_companyYearStart"></c:if>
 											<div class="box_companyYearStart boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -731,10 +760,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -752,7 +777,7 @@ var youdao_conv_id = 271546;
 									    <div class="clear"></div>
 	            					</td>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 		            					<div class="fl">
@@ -763,6 +788,10 @@ var youdao_conv_id = 271546;
 											<div class="box_companyYearEnd  boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
 									            	<li>至今</li>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -804,10 +833,6 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
@@ -838,9 +863,17 @@ var youdao_conv_id = 271546;
             		</div><!--end .experienceEdit-->
             		
             		            		<div class="experienceAdd pAdd">
-            		            			工作经历最能体现自己的工作能力，<br>
-						且完善后才可投递简历哦！
-						<span>添加工作经历</span>
+            		            			<c:if test="${resume3 != null }">
+            		            				${resume3.companyName }|${resume3.positionName }<br>
+            		            				${resume3.companyYearStart }年${resume3.companyMonthStart }月-${resume3.companyYearEnd }年${resume3.companyMonthEnd }月
+            		            			<span>修改</span>
+            		            			</c:if>
+            		            			<c:if test="${resume3 == null }">
+            		            				工作经历最能体现自己的工作能力，<br>
+												且完善后才可投递简历哦！
+												<span>添加工作经历</span>
+            		            			</c:if>
+            		            			
             		</div><!--end .experienceAdd-->
             	</div><!--end #workExperience-->
 
@@ -856,7 +889,7 @@ var youdao_conv_id = 271546;
 	            			<table>
 	            				<tbody><tr>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 							      		<c:if test="${resume4.projectName != null }"><input type="text" placeholder="${resume4.projectName }" name="projectName" class="projectName"></c:if>
@@ -864,7 +897,7 @@ var youdao_conv_id = 271546;
 							        	
 							      	</td>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 							      		<c:if test="${resume4.thePost != null }"><input type="text" placeholder="${resume4.thePost }" name="thePost" class="thePost"></c:if>
@@ -874,16 +907,20 @@ var youdao_conv_id = 271546;
 							    </tr>
 	            				<tr>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 		            					<div class="fl">
 		            						<input type="hidden" class="projectYearStart" value="" name="projectYearStart">
-		            						<c:if test="${resume4 != null }"><input type="button" value="${resume4.projectYearStart }" class="profile_select_139 profile_select_normal select_projectYearStart"></c:if>
-						      	  			<c:if test="${resume4 == null }"><input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_projectYearStart"></c:if>
+		            						<c:if test="${resume4.projectYearStart != null }"><input type="button" value="${resume4.projectYearStart }" class="profile_select_139 profile_select_normal select_projectYearStart"></c:if>
+						      	  			<c:if test="${resume4.projectYearStart == null }"><input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_projectYearStart"></c:if>
 								        	
 											<div class="box_projectYearStart  boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -925,17 +962,13 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
 										<div class="fl">
 									        <input type="hidden" class="projectMonthStart" value="" name="projectMonthStart">
-									        <c:if test="${resume != null }"><input type="button" value="${resume.projectMonthStart }" class="profile_select_139 profile_select_normal select_projectMonthStart"></c:if>
-						      	  			<c:if test="${resume == null }"><input type="button" value="开始月份" class="profile_select_139 profile_select_normal select_projectMonthStart"></c:if>
+									        <c:if test="${resume4.projectMonthStart != null }"><input type="button" value="${resume4.projectMonthStart }" class="profile_select_139 profile_select_normal select_projectMonthStart"></c:if>
+						      	  			<c:if test="${resume4.projectMonthStart == null }"><input type="button" value="开始月份" class="profile_select_139 profile_select_normal select_projectMonthStart"></c:if>
 								        	
 											<div style="display: none;" class="box_projectMonthStart boxUpDown boxUpDown_139 dn">
 									            <ul>
@@ -946,17 +979,21 @@ var youdao_conv_id = 271546;
 								        <div class="clear"></div>
 	            					</td>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 	            						<div class="fl">
 		            						<input type="hidden" class="projectYearEnd" value="" name="projectYearEnd">
-		            						<c:if test="${resume != null }"><input type="button" value="${resume.projectYearEnd }" class="profile_select_139 profile_select_normal select_projectYearEnd"></c:if>
-						      	  			<c:if test="${resume == null }"><input type="button" value="结束年份" class="profile_select_139 profile_select_normal select_projectYearEnd"></c:if>
+		            						<c:if test="${resume4.projectYearEnd != null }"><input type="button" value="${resume4.projectYearEnd }" class="profile_select_139 profile_select_normal select_projectYearEnd"></c:if>
+						      	  			<c:if test="${resume4.projectYearEnd == null }"><input type="button" value="结束年份" class="profile_select_139 profile_select_normal select_projectYearEnd"></c:if>
 								        	
 											<div class="box_projectYearEnd  boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
 									            	<li>至今</li>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -998,17 +1035,13 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
 										<div class="fl">
 									        <input type="hidden" class="projectMonthEnd" value="" name="projectMonthEnd">
-									        <c:if test="${resume != null }"><input type="button" value="${resume.projectMonthEnd }" class="profile_select_139 profile_select_normal select_projectMonthEnd"></c:if>
-						      	  			<c:if test="${resume == null }"><input type="button" value="结束月份" class="profile_select_139 profile_select_normal select_projectMonthEnd"></c:if>
+									        <c:if test="${resume4.projectMonthEnd != null }"><input type="button" value="${resume4.projectMonthEnd }" class="profile_select_139 profile_select_normal select_projectMonthEnd"></c:if>
+						      	  			<c:if test="${resume4.projectMonthEnd == null }"><input type="button" value="结束月份" class="profile_select_139 profile_select_normal select_projectMonthEnd"></c:if>
 <!-- 								        	<input type="button" value="结束月份" class="profile_select_139 profile_select_normal select_projectMonthEnd"> -->
 											<div style="display: none;" class="box_projectMonthEnd boxUpDown boxUpDown_139 dn">
 									            <ul>
@@ -1016,7 +1049,7 @@ var youdao_conv_id = 271546;
 									        	</ul>
 									        </div>
 								        </div>
-								        <div class="clear"></div>
+<!-- 								        <div class="clear"></div> -->
 	            					</td>
 	            				</tr>
 	            				<tr>
@@ -1046,9 +1079,17 @@ var youdao_conv_id = 271546;
             			</form><!--end .projectForm-->
             		</div><!--end .projectEdit-->
             		            		<div class="projectAdd pAdd">
-            		            			项目经验是用人单位衡量人才能力的重要指标哦！<br>
-						来说说让你难忘的项目吧！
-						<span>添加项目经验</span>
+            		            			<c:if test="${resume4 != null }">
+            		            				${resume4.projectName }|${resume4.thePost }<br>
+            		            				${resume4.projectYearStart }年${resume4.projectMonthStart }月-${resume4.projectYearEnd }年${resume4.projectMonthEnd }月
+            		            				<span>修改</span>
+            		            			</c:if>
+            		            			<c:if test="${resume4 == null }">
+            		            				项目经验是用人单位衡量人才能力的重要指标哦！<br>
+												来说说让你难忘的项目吧！
+												<span>添加项目经验</span>
+            		            			</c:if>
+            		            			
             		</div><!--end .projectAdd-->
             	</div><!--end #projectExperience-->
 
@@ -1060,7 +1101,7 @@ var youdao_conv_id = 271546;
 	            			<table>
 	            				<tbody><tr>
 							      	<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 							      		
@@ -1069,7 +1110,7 @@ var youdao_conv_id = 271546;
 							        	
 							      	</td>
 							      	<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 							      		<input type="hidden" class="degree" value="" name="degree">
@@ -1089,7 +1130,7 @@ var youdao_conv_id = 271546;
 							    </tr>
 	            				<tr>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 	            						<c:if test="${resume5.professionalName != null }"><input type="text" placeholder="${resume5.professionalName }" name="professionalName" class="professionalName"></c:if>
@@ -1097,16 +1138,20 @@ var youdao_conv_id = 271546;
 	            						
 	            					</td>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 		            					<div class="fl">
 		            						<input type="hidden" class="schoolYearStart" value="" name="schoolYearStart">
-		            						<c:if test="${resume5 != null }"><input type="button" value="${resume5.schoolYearStart }" class="profile_select_139 profile_select_normal select_schoolYearStart"></c:if>
-						      	  			<c:if test="${resume5 == null }"><input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_schoolYearStart"></c:if>
+		            						<c:if test="${resume5.schoolYearStart != null }"><input type="button" value="${resume5.schoolYearStart }" class="profile_select_139 profile_select_normal select_schoolYearStart"></c:if>
+						      	  			<c:if test="${resume5.schoolYearStart == null }"><input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_schoolYearStart"></c:if>
 								        	
 											<div class="box_schoolYearStart boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -1148,20 +1193,17 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
 										<div class="fl">
 		            						<input type="hidden" class="schoolYearEnd" value="" name="schoolYearEnd">
-		            						<c:if test="${resume != null }"><input type="button" value="${resume.schoolYearEnd }" class="profile_select_139 profile_select_normal select_schoolYearEnd"></c:if>
-						      	  			<c:if test="${resume == null }"><input type="button" value="结束年份" class="profile_select_139 profile_select_normal select_schoolYearEnd"></c:if>
+		            						<c:if test="${resume5.schoolYearEnd != null }"><input type="button" value="${resume5.schoolYearEnd }" class="profile_select_139 profile_select_normal select_schoolYearEnd"></c:if>
+						      	  			<c:if test="${resume5.schoolYearEnd == null }"><input type="button" value="结束年份" class="profile_select_139 profile_select_normal select_schoolYearEnd"></c:if>
 								        	
 											<div style="display: none;" class="box_schoolYearEnd  boxUpDown boxUpDown_139 dn">
 									            <ul>
+									            															<li>2022</li>
 									        											        			<li>2021</li>
 									        											        			<li>2020</li>
 									        											        			<li>2019</li>
@@ -1239,7 +1281,7 @@ var youdao_conv_id = 271546;
 	            			<table>
 	            				<tbody><tr>
 							      	<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 			
@@ -1248,7 +1290,7 @@ var youdao_conv_id = 271546;
 							        	
 							      	</td>
 							      	<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 							      	<td>
 							      		<input type="hidden" class="degree" value="" name="degree">
@@ -1268,7 +1310,7 @@ var youdao_conv_id = 271546;
 							    </tr>
 	            				<tr>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 	            						<c:if test="${resume5.professionalName != null }"><input type="text" placeholder="${resume5.professionalName }" name="professionalName" class="professionalName"></c:if>
@@ -1276,14 +1318,19 @@ var youdao_conv_id = 271546;
 	            						
 	            					</td>
 	            					<td valign="top">
-							        	<span class="redstar">*</span>
+<!-- 							        	<span class="redstar">*</span> -->
 							      	</td> 
 	            					<td>
 		            					<div class="fl">
 		            						<input type="hidden" class="schoolYearStart" value="" name="schoolYearStart">
-								        	<input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_schoolYearStart">
+								        	<c:if test="${resume5.schoolYearStart != null }"><input type="button" value="${resume5.schoolYearStart }" class="profile_select_139 profile_select_normal select_schoolYearStart"></c:if>
+						      	  			<c:if test="${resume5.schoolYearStart == null }"><input type="button" value="开始年份" class="profile_select_139 profile_select_normal select_schoolYearStart"></c:if>
 											<div class="box_schoolYearStart boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -1325,18 +1372,24 @@ var youdao_conv_id = 271546;
 									        											        			<li>1976</li>
 									        											        			<li>1975</li>
 									        											        			<li>1974</li>
-									        											        			<li>1973</li>
-									        											        			<li>1972</li>
-									        											        			<li>1971</li>
-									        											        			<li>1970</li>
 									        											        	</ul>
 									        </div>
 										</div>
 										<div class="fl">
 		            						<input type="hidden" class="schoolYearEnd" value="" name="schoolYearEnd">
-								        	<input type="button" value="结束年份" class="profile_select_139 profile_select_normal select_schoolYearEnd">
+								        	<c:if test="${resume5.schoolYearEnd != null }"><input type="button" value="${resume5.schoolYearEnd }" class="profile_select_139 profile_select_normal select_schoolYearEnd"></c:if>
+						      	  			<c:if test="${resume5.schoolYearEnd == null }"><input type="button" value="结束年份" class="profile_select_139 profile_select_normal select_schoolYearEnd"></c:if>
 											<div class="box_schoolYearEnd  boxUpDown boxUpDown_139 dn" style="display: none;">
 									            <ul>
+									            
+									        											        			<li>2022</li>
+									        											        			<li>2021</li>
+									        											        			<li>2020</li>
+									        											        			<li>2019</li>
+									        											        			<li>2018</li>
+									        											        			<li>2017</li>
+									        											        			<li>2016</li>
+									        											        			<li>2015</li>
 									        											        			<li>2014</li>
 									        											        			<li>2013</li>
 									        											        			<li>2012</li>
@@ -1400,9 +1453,17 @@ var youdao_conv_id = 271546;
             			</form><!--end .educationalForm-->
             		</div><!--end .educationalEdit-->
             		            		<div class="educationalAdd pAdd">
-            		            			教育背景可以充分体现你的学习和专业能力，<br>
-						且完善后才可投递简历哦！
-						<span>添加教育经历</span>
+            		            			<c:if test="${resume5 != null }">
+            		            				${resume5.schoolName }|${resume5.degree }|${resume5.professionalName }<br>
+            		            				${resume5.schoolYearStart }年-${resume5.schoolYearEnd }年
+            		            				<span>修改</span>
+            		            			</c:if>
+            		            			<c:if test="${resume5 == null }">
+            		            				教育背景可以充分体现你的学习和专业能力，<br>
+												且完善后才可投递简历哦！
+												<span>添加教育经历</span>
+            		            			</c:if>
+            		            			
             		</div><!--end .educationalAdd-->
             	</div><!--end #educationalBackground-->
 
@@ -1433,49 +1494,21 @@ var youdao_conv_id = 271546;
             			</form><!--end .descriptionForm-->
             		</div><!--end .descriptionEdit-->
             		            		<div class="descriptionAdd pAdd">
+            		            		<c:if test="${resume6 != null }">
+            		            			${resume6.selfDescription }<br>
+            		            			<span>修改</span>
+            		            		</c:if>
+            		            		<c:if test="${resume6 == null }">
             		            			描述你的性格、爱好以及吸引人的经历等，<br>
-						让企业了解多元化的你！
-						<span>添加自我描述</span>
+											让企业了解多元化的你！
+											<span>添加自我描述</span>
+            		            		</c:if>
+            		            			
             		</div><!--end .descriptionAdd-->
             	</div><!--end #selfDescription-->
 
-            	<div class="profile_box" id="worksShow">
-            		<h2>作品展示</h2>
-            		            		<span class="c_add dn"></span>
-            		<div class="workShow dn">
-            		            			<ul class="slist clearfix">
-            				            			</ul>
-            		</div><!--end .workShow-->
-            		<div class="workEdit dn">
-            			<form class="workForm" action="${ctx }/jianlis" method="post">
-	            			<table>
-	            				<tbody><tr>
-							      	<td>
-							        	<input type="text" placeholder="请输入作品链接" name="workLink" class="workLink">
-							      	</td>
-							    </tr>
-	            				<tr>
-									<td>
-										<textarea maxlength="100" class="workDescription s_textarea" name="workDescription" placeholder="请输入说明文字"></textarea>
-										<div class="word_count">你还可以输入 <span>100</span> 字</div>
-									</td>
-	            				</tr>
-	            				<tr>
-	            					<td>
-										<input type="submit" value="保 存" class="btn_profile_save">
-						          		<a class="btn_profile_cancel" href="javascript:;">取 消</a>
-	            					</td>
-	            				</tr>
-	            			</tbody></table>
-	            			<input type="hidden" class="showId" value="">
-            			</form><!--end .workForm-->
-            		</div><!--end .workEdit-->
-            		            		<div class="workAdd pAdd">
-            		            			好作品会说话！<br>
-						快来秀出你的作品打动企业吧！
-						<span>添加作品展示</span>
-            		</div><!--end .workAdd-->
-            	</div><!--end #worksShow-->
+            	<!--end .workAdd-->
+            	<!--end #worksShow-->
 				<input type="hidden" id="resumeId" value="268472">
             </div><!--end .content_l-->
             <div class="content_r">
@@ -1488,11 +1521,18 @@ var youdao_conv_id = 271546;
 
 				<div class="mycenterR" id="myResume">
             		<h2>我的附件简历 
-            			            			<a title="上传附件简历" href="#uploadFile" class="inline cboxElement">上传简历</a>
-            			            		</h2>
-            		<div class="resumeUploadDiv">
-	            			            		暂无附件简历
-	            		            		</div>
+            			<a title="上传附件简历" href="#uploadFile" class="inline cboxElement">上传简历</a>
+            		</h2>
+            		<c:if test="${resumsrc != null }">
+            			<a href="NewFile.jsp"  target="_blank">查看我的附件简历</a>
+            		</c:if>	 
+            		<c:if test="${resumsrc == null }">
+            			<div class="resumeUploadDiv">
+	            			暂无附件简历
+	            		</div>
+            		</c:if>           			
+					
+            		
             	</div><!--end #myResume-->
 
             	<div class="mycenterR" id="resumeSet">
@@ -1534,12 +1574,11 @@ var youdao_conv_id = 271546;
 	    <table width="100%">
 	    	<tbody><tr>
 	        	<td align="center">
-	                <form>
-	                    <a class="btn_addPic" href="javascript:void(0);">
-	                    	<span>选择上传文件</span>
-	                        <input type="file" onchange="file_check(this,'h/nearBy/updateMyResume.json','resumeUpload')" class="filePrew" id="resumeUpload" name="newResume" size="3" title="支持word、pdf、ppt、txt、wps格式文件，大小不超过10M" tabindex="3">
-	                    </a>
-	                </form>
+	                <form action="${ctx }/fileUpload" enctype="multipart/form-data" method="post">
+								<input type="file" name="file"/>
+								
+								<input type="submit"/>
+					</form>
 	            </td>
 	        </tr>
 	    	<tr>

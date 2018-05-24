@@ -147,34 +147,34 @@ var youdao_conv_id = 271546;
 			    			label.insertAfter(element);
 			    		};	
 			    	},
-			    	submitHandler:function(form){
-			    		var type =$('input[type="radio"]:checked',form).val();
-			    		var email =$('#email').val();
-			    		var password =$('#password').val();
-			    		var resubmitToken = $('#resubmitToken').val();
+// 			    	submitHandler:function(form){
+// 			    		var type =$('input[type="radio"]:checked',form).val();
+// 			    		var email =$('#email').val();
+// 			    		var password =$('#password').val();
+// 			    		var resubmitToken = $('#resubmitToken').val();
 			    		
-			    		var callback = $('#callback').val();
-			    		var authType = $('#authType').val();
-			    		var signature = $('#signature').val();
-			    		var timestamp = $('#timestamp').val();
+// 			    		var callback = $('#callback').val();
+// 			    		var authType = $('#authType').val();
+// 			    		var signature = $('#signature').val();
+// 			    		var timestamp = $('#timestamp').val();
 			    		
-			    		$(form).find(":submit").attr("disabled", true);
+// 			    		$(form).find(":submit").attr("disabled", true);
 
-			            $.ajax({
-			            	type:'POST',
-			            	data: {email:email,password:password,type:type,resubmitToken:resubmitToken, callback:callback, authType:authType, signature:signature, timestamp:timestamp},
-			            	url:ctx+'/user/register.json',
-			            	dataType:'json'
-			            }).done(function(result) {
-		            		$('#resubmitToken').val(result.resubmitToken);
-			            	if(result.success){
-			            		window.location.href=result.content;			            		
-			            	}else{
-								$('#beError').text(result.msg).show();
-			            	}
-			            	$(form).find(":submit").attr("disabled", false);			           		
-			            });
-			        }  
+// 			            $.ajax({
+// 			            	type:'POST',
+// 			            	data: {email:email,password:password,type:type,resubmitToken:resubmitToken, callback:callback, authType:authType, signature:signature, timestamp:timestamp},
+// 			            	url:ctx+'/user/register.json',
+// 			            	dataType:'json'
+// 			            }).done(function(result) {
+// 		            		$('#resubmitToken').val(result.resubmitToken);
+// 			            	if(result.success){
+// 			            		window.location.href=result.content;			            		
+// 			            	}else{
+// 								$('#beError').text(result.msg).show();
+// 			            	}
+// 			            	$(form).find(":submit").attr("disabled", false);			           		
+// 			            });
+// 			        }  
 	    	});
     });
     </script> -->

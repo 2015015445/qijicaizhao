@@ -27,7 +27,7 @@ public class UserController {
 	
 	@Resource
 	private UserService userService;
-	
+
 	@RequestMapping(value="/regist1", method=RequestMethod.GET)
 	public String Regist(){
 		System.out.println("进入注册界面");

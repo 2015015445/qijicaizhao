@@ -11,7 +11,7 @@
 String path = request.getContextPath();  
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
 %>  
-<% out.print(new java.text.SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())); %>
+<%-- <% out.print(new java.text.SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())); %> --%>
 <base href="<%=basePath%>"> 
 <script id="allmobilize" charset="utf-8" src="${basePath}/style/js/allmobilize.min.js"></script>
 <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -26,6 +26,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- <div class="web_root"  style="display:none">h</div> -->
 <script type="text/javascript">
+function clickj() {
+	alert("你还没有登陆！！");
+}
 var ctx = "h";
 console.log(1);
 </script>
@@ -58,19 +61,21 @@ var youdao_conv_id = 271546;
     			<li ><a href="companylist.html" >公司</a></li>
     			<li ><a href="htoForum.html" target="_blank">职业预测</a></li>
 
-<!--     				    			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li> -->
-<%-- 	    							    			<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li> --%>
+<!--     		<li ><a href="jianli.html" rel="nofollow">我的简历</a></li> -->
+<%-- 	    	<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li> --%>
 
-    				    			<li ><a href="${ctx}/jianli" rel="nofollow">我的简历</a></li>
-	    							    			<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li>
+    			<c:if test="${user == null }"><li ><a rel="nofollow" onclick="clickj()">我的简历</a></li></c:if>
+    			<c:if test="${user != null }"><li ><a href="${ctx}/jianli" rel="nofollow">我的简历</a></li></c:if>
+    			
+	    		<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li>
 
-	    		    		</ul>
-        	            <ul class="loginTop">
+	    	</ul>
+        	<ul class="loginTop">
             	<li><a href="${ctx}/user/login1" rel="nofollow">登录</a></li> 
             	<li>|</li>
             	<li><a href="${ctx}/user/regist1" rel="nofollow">注册</a></li>
             </ul>
-                                </div>
+        </div>
     </div><!-- end #header -->
     <div id="container">
         				

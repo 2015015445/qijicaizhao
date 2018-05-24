@@ -30,12 +30,12 @@ public class UserDao {
 	}
 	
 	public Userfindjob findByName(String name){
-		String hql = "from Userfindjob where email ="+name;
+		String hql = "from Userfindjob where email ='"+name+"'";
 		return (Userfindjob)sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
 	}
 	
 	public Userfindjob selectByUsername(String name,String password){
-		String hql = "from Userfindjob where email ="+name;
+		String hql = "from Userfindjob where email ='"+name+"'";
 		return (Userfindjob)sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
 //		User u=this.sessionFactory.getCurrentSession().get(User.class, username);
 		
