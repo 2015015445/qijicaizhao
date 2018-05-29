@@ -88,7 +88,7 @@ var youdao_conv_id = 271546;
         <div class="login_box_btm"></div>
     </div>
     
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
     
     $(document).ready(function(e) {
     	$('.register_radio li input').click(function(e){
@@ -177,6 +177,6 @@ var youdao_conv_id = 271546;
 // 			        }  
 	    	});
     });
-    </script> -->
+    </script>
 </body>
 </html>
