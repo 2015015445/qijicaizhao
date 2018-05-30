@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.qjcpjobshop.entity.Resume;
+import com.qjcpjobshop.entity.Usercompany;
 import com.qjcpjobshop.entity.Userfindjob;
 import com.qjcpjobshop.service.UserService;
 
@@ -35,25 +36,38 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/regist", method=RequestMethod.POST)
-	public String regist(@RequestParam("email") String name, @RequestParam("password") String password,HttpSession session){
+	public String regist(@RequestParam("email") String email, @RequestParam("password") String password,@RequestParam("type") String type,HttpSession session){
 		System.out.println("registing.....");
 		try{
-			if(userService.findByName(name)!=null){
-				return "registfail";
+			if(type.equals("0")){
+				if(userService.findByUserName(email)!=null){
+					return "registfail";
+				}else{
+					Userfindjob user = new Userfindjob();
+					user.setEmail(email);
+					user.setPassword(password);
+					userService.registUser(user);
+					System.out.println("registuser");
+					JOptionPane.showMessageDialog(null,"注册成功!", "系统提示", JOptionPane.INFORMATION_MESSAGE);
+					return "login";
+				}
+			}else{
+				if(userService.findByCompanyName(email)!=null){
+					return "registfail";
+				}else{
+					Usercompany company = new Usercompany();
+					company.setEmail(email);
+					company.setPassword(password);
+					userService.registCompany(company);
+					System.out.println("registcompany");
+					JOptionPane.showMessageDialog(null,"注册成功!", "系统提示", JOptionPane.INFORMATION_MESSAGE);
+					return "login";
+				}
 			}
-			Userfindjob user = new Userfindjob();
-			user.setEmail(name);
-			user.setPassword(password);
-			userService.regist(user);
-			System.out.println("regist");
-			JOptionPane.showMessageDialog(null,"注册成功!", "系统提示", JOptionPane.INFORMATION_MESSAGE);
-			return "login";
 		}catch(Exception e){
 			e.printStackTrace();
 			return "registfail";
 		}
-		
-
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
