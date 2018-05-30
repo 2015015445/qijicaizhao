@@ -25,6 +25,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="baidu-site-verification" content="QIQ6KC1oZ6" />
 
 <!-- <div class="web_root"  style="display:none">h</div> -->
+<style type="text/css">
+	.numstyle1{
+		background-color:#0d9572;padding: 5px 10px 5px 10px;margin:10px 10px 0px 0px;
+	}
+	
+</style>
 <script type="text/javascript">
 function clickj() {
 	alert("你还没有登陆！！");
@@ -684,9 +690,24 @@ var youdao_conv_id = 271546;
 			                        </ul>
 			                 </div>
 			        </li>	
-			        <a href="${ctx }/position/index?pageNum${positionpage.prePageNum}" >上一页</a>
-			        <a href="${ctx }/position/index?pageNum${positionpage.nePageNum}" >下一页</a>
-		            </c:forEach>
+			        </c:forEach>
+			        <div align="center" style="margin-top: 15px">
+			        <a href="" class="numstyle1" href="${ctx }/position/index?pageNum=1"><font color="#fff">首页</font></a>
+			        <a class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.prePageNum}" ><font color="#fff">上一页</font></a>
+			        <c:if test="${positionpage.totalPageNum < 5}">
+			        	<c:forEach  begin="1" end="${positionpage.totalPageNum }" var="num">
+			        	<a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
+			        	</c:forEach>
+			        </c:if>
+			        <c:if test="${positionpage.totalPageNum > 5}">
+			        	<c:forEach  begin="1" end="5" var="num">
+			        	<a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
+			        	</c:forEach>
+			        	<a class="numstyle1"><font color="#fff">...</font></a>
+			        </c:if>
+			        <a class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.nePageNum}" ><font color="#fff">下一页</font></a>
+			        <a href="" class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.totalPageNum}"><font color="#fff">尾页</font></a>
+		            </div>
 		        </c:if>
 		        <c:if test="${searchpositionpage != null }">
 	            	<c:forEach items="${searchpositionpage.list }" var="p">
@@ -719,10 +740,27 @@ var youdao_conv_id = 271546;
 			                        	<li>扁平管理</li>
 			                        </ul>
 			                 </div>
-			        </li>	
-			        <a href="${ctx }/position/searchpage?pageNum${searchpositionpage.prePageNum}" >上一页</a>
-			        <a href="${ctx }/position/searchpage?pageNum${searchpositionpage.nePageNum}" >下一页</a>
-		            </c:forEach>
+			        </li>
+			        </c:forEach>
+			        <div align="center" style="margin-top: 15px">	
+			        <a href="" class="numstyle1" href="${ctx }/position/searchpage?pageNum=1&kd=${searchname}"><font color="#fff">首页</font></a>
+			        <a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.prePageNum}&kd=${searchname}" ><font color="#fff">上一页</font></a>
+			        <c:if test="${searchpositionpage.totalPageNum < 5}">
+			        	<c:forEach  begin="1" end="${searchpositionpage.totalPageNum }" var="num">
+			        	<a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
+			        	</c:forEach>
+			        </c:if>
+			        <c:if test="${searchpositionpage.totalPageNum > 5}">
+			        	<c:forEach  begin="1" end="5" var="num">
+			        	<a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
+			        	</c:forEach>
+			        	<a class="numstyle1" ><font color="#fff">...</font></a>
+			        </c:if>
+			        <a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.nePageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
+			        <a href="" class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.totalPageNum}&kd=${searchname}"><font color="#fff">尾页</font></a>
+		            </div>
+		            
+		            
 		        </c:if>
 		        <c:if test="${searchpositiontypepage != null }">
 	            	<c:forEach items="${searchpositiontypepage.list }" var="p">
@@ -755,12 +793,27 @@ var youdao_conv_id = 271546;
 			                        	<li>扁平管理</li>
 			                        </ul>
 			                 </div>
-			        </li>	
-			        <a href="${ctx }/position/searchtypepage?pageNum${searchpositiontypepage.prePageNum}" >上一页</a>
-			        <a href="${ctx }/position/searchtypepage?pageNum${searchpositiontypepage.nePageNum}" >下一页</a>
-		            </c:forEach>
+			        </li>
+			        </c:forEach>	
+			        <div align="center" style="margin-top: 15px">
+			        <a href="" class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=1&kd=${searchname}"><font color="#fff">首页</font></a>
+			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.prePageNum}&kd=${searchname}" ><font color="#fff">上一页</font></a>
+			        <c:if test="${searchpositiontypepage.totalPageNum < 5}">
+			        	<c:forEach  begin="1" end="${searchpositiontypepage.totalPageNum }" var="num">
+			        	<a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
+			        	</c:forEach>
+			        </c:if>
+			        <c:if test="${searchpositiontypepage.totalPageNum > 5}">
+			        	<c:forEach  begin="1" end="5" var="num">
+			        	<a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
+			        	</c:forEach>
+			        	<a class="numstyle1"><font color="#fff">...</font></a>
+			        </c:if>
+			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.nePageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
+			        <a href="" class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.totalPageNum}&kd=${searchname}"><font color="#fff">尾页</font></a>
+		            </div>
 		        </c:if>
-	            	<a href="list.html?city=%E5%85%A8%E5%9B%BD" class="btn fr" target="_blank">查看更多</a>
+<!-- 	            	<a href="list.html?city=%E5%85%A8%E5%9B%BD" class="btn fr" target="_blank">查看更多</a> -->
 	            </ul>
             </div>
             

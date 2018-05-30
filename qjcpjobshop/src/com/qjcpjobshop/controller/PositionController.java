@@ -76,6 +76,8 @@ public class PositionController extends HttpServlet {
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String findPositionByPage(@RequestParam("pageNum") int num, HttpSession session){
+		session.removeAttribute("searchpositionpage");
+		session.removeAttribute("searchpositiontypepage");
 		Page p = this.positionService.findPositionByPage(num, 12);
 		List li = p.getList();
 		Iterator i = li.iterator();
@@ -97,6 +99,8 @@ public class PositionController extends HttpServlet {
 	
 	@RequestMapping(value="/search")
 	public String searchPosition(@RequestParam("kd") String name, HttpSession session){
+		session.removeAttribute("positionpage");
+		session.removeAttribute("searchpositiontypepage");
 		Page p = this.positionService.searchPosition(1, 12,name);
 		List li = p.getList();
 		Iterator i = li.iterator();
@@ -110,6 +114,8 @@ public class PositionController extends HttpServlet {
 	
 	@RequestMapping(value="/searchpage")
 	public String searchPositionPage(@RequestParam("kd") String name,  @RequestParam("pageNum") int num, HttpSession session){
+		session.removeAttribute("positionpage");
+		session.removeAttribute("searchpositiontypepage");
 		Page p = this.positionService.searchPosition(num, 12,name);
 		List li = p.getList();
 		Iterator i = li.iterator();
@@ -118,11 +124,14 @@ public class PositionController extends HttpServlet {
 			System.out.println(pos.getType());
 		}
 		session.setAttribute("searchpositionpage", p);
+		session.setAttribute("searchname", name);
 		return "index";
 	}
 	
 	@RequestMapping(value="/searchtype", method=RequestMethod.GET)
 	public String searchPositionType(@RequestParam("kd") String name, HttpSession session){
+		session.removeAttribute("searchpositionpage");
+		session.removeAttribute("positionpage");
 		Page p = this.positionService.searchPositionByType(1, 12,name);
 		List li = p.getList();
 		Iterator i = li.iterator();
@@ -136,6 +145,8 @@ public class PositionController extends HttpServlet {
 	
 	@RequestMapping(value="/searchtypepage", method=RequestMethod.GET)
 	public String searchPositionTypePage(@RequestParam("kd") String name, @RequestParam("pageNum") int num, HttpSession session){
+		session.removeAttribute("searchpositionpage");
+		session.removeAttribute("positionpage");
 		Page p = this.positionService.searchPositionByType(num, 12,name);
 		List li = p.getList();
 		Iterator i = li.iterator();
@@ -144,6 +155,7 @@ public class PositionController extends HttpServlet {
 			System.out.println(pos.getType());
 		}
 		session.setAttribute("searchpositiontypepage", p);
+		session.setAttribute("searchname", name);
 		return "index";
 	}
 	
