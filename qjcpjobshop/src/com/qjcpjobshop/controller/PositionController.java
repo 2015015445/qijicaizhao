@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.qjcpjobshop.entity.Page;
 import com.qjcpjobshop.entity.Position;
 import com.qjcpjobshop.entity.Userfindjob;
 import com.qjcpjobshop.service.PositionService;
@@ -57,7 +58,7 @@ public class PositionController extends HttpServlet {
 //			JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, 
 //			null, options, options[0]);
 			
-			return "index";
+			return "redirect:/index?pageNum=1";
 		}catch(Exception e){
 			e.printStackTrace();
 			
@@ -70,4 +71,30 @@ public class PositionController extends HttpServlet {
 		}
 		
 	}
+	
+	@RequestMapping(value="/index", method=RequestMethod.GET)
+	public String findPositionByPage(@RequestParam("pageNum") int num, HttpSession session){
+		Page p = this.positionService.findPositionByPage(num, 12);
+//		session.removeAttribute("positionpage");
+		session.setAttribute("positionpage", p);
+		return "index";
+	}
+	
+	@RequestMapping(value="/search", method=RequestMethod.POST)
+	public String searchPositions(@RequestParam("kd") String name, HttpSession session){
+			Page p = this.positionService.searchPosition(1, 12,name);
+		
+		session.setAttribute("positionpage", p);
+		return "index";
+	}
+	
+	@RequestMapping(value="/search", method=RequestMethod.GET)
+	public String searchPosition(@RequestParam("kd") String name, HttpSession session){
+			Page p = this.positionService.searchPosition(1, 12,name);
+		
+		session.setAttribute("positionpage", p);
+		return "index";
+	}
+	
+	
 }

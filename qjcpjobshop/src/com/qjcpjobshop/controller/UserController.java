@@ -67,7 +67,7 @@ public class UserController {
 			if(u.getPassword().equals(password)){
 				session.setAttribute("id", name);
 				session.setAttribute("user", u);
-				return "index";
+				return "redirect:/index?pageNum=1";
 			}
 			return "loginfail";
 		}else{

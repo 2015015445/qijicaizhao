@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.qjcpjobshop.dao.PositionDao;
 import com.qjcpjobshop.dao.UserDao;
+import com.qjcpjobshop.entity.Page;
 import com.qjcpjobshop.entity.Position;
 
 @Service
@@ -20,5 +21,13 @@ public class PositionService {
 	public int findCompanypositionCount(String id){
 		int count = positionDao.findCompanypositionCount(id);
 		return count;
+	}
+	
+	public Page findPositionByPage(int num, int size){
+		return positionDao.findPositionByPage(num, size);
+	}
+	
+	public Page searchPosition(int num, int size, String name) {
+		return positionDao.searchPosition(num, size, name);
 	}
 }
