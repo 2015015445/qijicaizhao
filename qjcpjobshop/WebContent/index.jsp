@@ -62,6 +62,7 @@ var youdao_conv_id = 271546;
     		<a href="index.html" class="logo">
     			<img src="${ctx}/style/images/logo.png" width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" />
     		</a>
+
     		<ul class="reset" id="navheader">
     			<li class="current"><a href="${ctx }/position/index?pageNum=1">首页</a></li>
     			<li ><a href="${ctx}/company/findallcompany" >公司</a></li>
