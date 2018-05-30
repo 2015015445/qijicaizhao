@@ -36,6 +36,8 @@ public class PositionDao {
 		return count;
 	}
 	
+	
+	
 	public Page findPositionByPage(int num, int size) {
 		try{
 			Query query = this.sessionFactory.getCurrentSession().createQuery("from Position order by id");
@@ -62,6 +64,14 @@ public class PositionDao {
 		return querylist.size();
 	}
 	
+	public int searchPositionTotalCount(String type, String name) {
+		String hql = "select count(*) from Position where name like ?";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString(0, "%"+name+"%");
+		int count = ( (Long) query.iterate().next()).intValue();
+		return count;
+	}
+	
 	public Page searchPosition(int num, int size, String name){
 		try{
 			String hql = "from Position a where a.name like ?";  
@@ -72,7 +82,33 @@ public class PositionDao {
 			List<Position> list = query.list();
 			Page p = new Page(num,size);
 			p.setList(list);
-			p.setTotalCount(this.findPositionTotalCount("Position"));
+			p.setTotalCount(this.searchPositionTotalCount("Position",name));
+			return p;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public int findPositionTypeTotalCount(String type, String name) {
+		String hql = "select count(*) from Position where type like ?";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString(0, "%"+name+"%");
+		int count = ( (Long) query.iterate().next()).intValue();
+		return count;
+	}
+	
+	public Page searchPositionByType(int num, int size, String name){
+		try{
+			String hql = "from Position a where a.type like ?";  
+			Query query=this.sessionFactory.getCurrentSession().createQuery(hql);     
+			query.setString(0,"%"+name+"%");
+			query.setFirstResult(num*size-size);
+			query.setMaxResults(size);
+			List<Position> list = query.list();
+			Page p = new Page(num,size);
+			p.setList(list);
+			p.setTotalCount(this.findPositionTypeTotalCount("Position",name));
 			return p;
 		}catch(Exception e) {
 			e.printStackTrace();

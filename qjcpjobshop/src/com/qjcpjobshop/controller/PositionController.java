@@ -1,6 +1,8 @@
 package com.qjcpjobshop.controller;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -75,24 +77,73 @@ public class PositionController extends HttpServlet {
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String findPositionByPage(@RequestParam("pageNum") int num, HttpSession session){
 		Page p = this.positionService.findPositionByPage(num, 12);
-//		session.removeAttribute("positionpage");
+		List li = p.getList();
+		Iterator i = li.iterator();
+		while(i.hasNext()){
+			Position pos = (Position) i.next();
+			System.out.println(pos.getType());
+		}
 		session.setAttribute("positionpage", p);
 		return "index";
 	}
 	
-	@RequestMapping(value="/search", method=RequestMethod.POST)
-	public String searchPositions(@RequestParam("kd") String name, HttpSession session){
-			Page p = this.positionService.searchPosition(1, 12,name);
-		
-		session.setAttribute("positionpage", p);
-		return "index";
-	}
+//	@RequestMapping(value="/search", method=RequestMethod.POST)
+//	public String searchPositions(@RequestParam("kd") String name, HttpSession session){
+//			Page p = this.positionService.searchPosition(1, 12,name);
+//		
+//		session.setAttribute("positionpage", p);
+//		return "index";
+//	}
 	
-	@RequestMapping(value="/search", method=RequestMethod.GET)
+	@RequestMapping(value="/search")
 	public String searchPosition(@RequestParam("kd") String name, HttpSession session){
-			Page p = this.positionService.searchPosition(1, 12,name);
-		
-		session.setAttribute("positionpage", p);
+		Page p = this.positionService.searchPosition(1, 12,name);
+		List li = p.getList();
+		Iterator i = li.iterator();
+		while(i.hasNext()){
+			Position pos = (Position) i.next();
+			System.out.println(pos.getType());
+		}
+		session.setAttribute("searchpositionpage", p);
+		return "index";
+	}
+	
+	@RequestMapping(value="/searchpage")
+	public String searchPositionPage(@RequestParam("kd") String name,  @RequestParam("pageNum") int num, HttpSession session){
+		Page p = this.positionService.searchPosition(num, 12,name);
+		List li = p.getList();
+		Iterator i = li.iterator();
+		while(i.hasNext()){
+			Position pos = (Position) i.next();
+			System.out.println(pos.getType());
+		}
+		session.setAttribute("searchpositionpage", p);
+		return "index";
+	}
+	
+	@RequestMapping(value="/searchtype", method=RequestMethod.GET)
+	public String searchPositionType(@RequestParam("kd") String name, HttpSession session){
+		Page p = this.positionService.searchPositionByType(1, 12,name);
+		List li = p.getList();
+		Iterator i = li.iterator();
+		while(i.hasNext()){
+			Position pos = (Position) i.next();
+			System.out.println(pos.getType());
+		}
+		session.setAttribute("searchpositiontypepage", p);
+		return "index";
+	}
+	
+	@RequestMapping(value="/searchtypepage", method=RequestMethod.GET)
+	public String searchPositionTypePage(@RequestParam("kd") String name, @RequestParam("pageNum") int num, HttpSession session){
+		Page p = this.positionService.searchPositionByType(num, 12,name);
+		List li = p.getList();
+		Iterator i = li.iterator();
+		while(i.hasNext()){
+			Position pos = (Position) i.next();
+			System.out.println(pos.getType());
+		}
+		session.setAttribute("searchpositiontypepage", p);
 		return "index";
 	}
 	

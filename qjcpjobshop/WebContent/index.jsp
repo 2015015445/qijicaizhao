@@ -91,8 +91,8 @@ var youdao_conv_id = 271546;
 				<a href="${ctx }/position/search?kd=C++">C++</a>
 				<a href="${ctx }/position/search?kd=Android">Android</a>
 				<a href="${ctx }/position/search?kd=iOS">iOS</a>
-				<a href="${ctx }/position/search?kd=前端开发">前端开发</a>
-				<a href="${ctx }/position/search?kd=测试">测试</a>
+				<a href="${ctx }/position/searchtype?kd=前端开发">前端开发</a>
+				<a href="${ctx }/position/searchtype?kd=测试">测试</a>
 				<a href="${ctx }/position/search?kd=技术经理">技术经理</a>
 				<a href="${ctx }/position/search?kd=项目经理">项目经理</a>
 				<a href="${ctx }/position/search?kd=架构师">架构师</a>
@@ -100,14 +100,14 @@ var youdao_conv_id = 271546;
 				<div class="menu_sub dn">
 					<dl class="reset">
 					    <dt>
-					        <a href="h/jobs/list_后端开发?labelWords=label">后端开发</a>
+					        <a href="${ctx }/position/searchtype?kd=后端开发">后端开发</a>
 					    </dt>
 						<dd>
-			   				<a href="${ctx }/position/search?kd=Java">Java</a>
-						   	<a href="${ctx }/position/search?kd=C++">C++</a>
-						   	<a href="${ctx }/position/search?kd=PHP">PHP</a>
+			   				<a href="${ctx }/position/search?kd=Java" class="curr">Java</a>
+						   	<a href="${ctx }/position/search?kd=C++" class="curr">C++</a>
+						   	<a href="${ctx }/position/search?kd=PHP" class="curr">PHP</a>
 						   	<a href="${ctx }/position/search?kd=数据挖掘">数据挖掘</a>
-						   	<a href="${ctx }/position/search?kd=C">C</a>
+						   	<a href="${ctx }/position/search?kd=C" class="curr">C</a>
 						   	<a href="${ctx }/position/search?kd=C#">C#</a>
 						   	<a href="${ctx }/position/search?kd=.NET">.NET</a>
 						   	<a href="${ctx }/position/search?kd=Hadoop">Hadoop</a>
@@ -121,18 +121,18 @@ var youdao_conv_id = 271546;
 					</dl>
 					<dl class="reset">
 					    <dt>
-					    	<a href="h/jobs/list_移动开发?labelWords=label">移动开发</a>
+					    	<a href="${ctx }/position/searchtype?kd=移动开发">移动开发</a>
 					    </dt>
 						<dd>
 							<a href="${ctx }/position/search?kd=HTNL5">HTML5</a>
-							<a href="${ctx }/position/search?kd=Android">Android</a>
-							<a href="${ctx }/position/search?kd=iOS"	>iOS</a>
+							<a href="${ctx }/position/search?kd=Android" class="curr">Android</a>
+							<a href="${ctx }/position/search?kd=iOS"	class="curr">iOS</a>
 							<a href="${ctx }/position/search?kd=WP">WP</a>
 						</dd>
 					</dl>
 					<dl class="reset">
 						<dt>
-					    	<a href="h/jobs/list_前端开发?labelWords=label">前端开发</a>
+					    	<a href="${ctx }/position/searchtype?kd=前端开发">前端开发</a>
 					    </dt>
 						<dd>
 							<a href="${ctx }/position/search?kd=web前端">web前端</a>
@@ -145,7 +145,7 @@ var youdao_conv_id = 271546;
 					</dl>
 					<dl class="reset">
 						<dt>
-					    	<a href="h/jobs/list_测试?labelWords=label"></a>
+					    	<a href="${ctx }/position/searchtype?kd=测试">测试</a>
 					    </dt>
 						<dd>
 			   				<a href="${ctx }/position/search?kd=测试工程师">测试工程师</a>
@@ -157,7 +157,7 @@ var youdao_conv_id = 271546;
 					</dl>
 					<dl class="reset">
 						<dt>
-					    	<a href="h/jobs/list_运维?labelWords=label"></a>
+					    	<a href="${ctx }/position/searchtype?kd=运维">运维</a>
 					    </dt>
 						<dd>
 			   				<a href="${ctx }/position/search?kd=运维工程师">运维工程师</a>
@@ -169,7 +169,7 @@ var youdao_conv_id = 271546;
 					</dl>
 					<dl class="reset">
 						<dt>
-					    	<a href="h/jobs/list_DBA?labelWords=label"></a>
+					    	<a href="${ctx }/position/searchtype?kd=DBA">DBA</a>
 					    </dt>
 						<dd>
 			   				<a href="${ctx }/position/search?kd=MySQL">MySQL</a>
@@ -181,21 +181,21 @@ var youdao_conv_id = 271546;
 				    	</dl>
 				    	<dl class="reset">
 							<dt>
-					        	<a href="h/jobs/list_项目管理?labelWords=label">项目管理</a>
+					        	<a href="${ctx }/position/searchtype?kd=项目管理">项目管理</a>
 					        </dt>
 							<dd>
-								<a href="${ctx }/position/search?kd=项目经理">项目经理</a>
+								<a href="${ctx }/position/search?kd=项目经理" class="curr">项目经理</a>
 							</dd>
 				    	</dl>
 						<dl class="reset">
 					    	<dt>
-					        	<a href="h/jobs/list_高端技术职位?labelWords=label">高端技术职位</a>
+					        	<a href="${ctx }/position/searchtype?kd=高端技术职位">高端职位</a>
 					        </dt>
 						    <dd>
-				   				<a href="${ctx }/position/search?kd=技术经理">技术经理</a>
+				   				<a href="${ctx }/position/search?kd=技术经理" class="curr">技术经理</a>
 							   	<a href="${ctx }/position/search?kd=技术总监">技术总监</a>
 							   	<a href="${ctx }/position/search?kd=测试经理">测试经理</a>
-							   	<a href="${ctx }/position/search?kd=架构师">架构师</a>
+							   	<a href="${ctx }/position/search?kd=架构师" class="curr">架构师</a>
 							   	<a href="${ctx }/position/search?kd=CTO">CTO</a>
 							   	<a href="${ctx }/position/search?kd=运维总监">运维总监</a>
 							</dd>
@@ -205,29 +205,29 @@ var youdao_conv_id = 271546;
 				<div class="menu_box">
 					<div class="menu_main">
 						<h2>产品 <span></span></h2>
-    						<a href="h/jobs/list_产品经理?labelWords=label">产品经理</a>
-		            		<a href="h/jobs/list_产品助理?labelWords=label">产品助理</a>
-		            		<a href="h/jobs/list_无线产品经理?labelWords=label">无线产品经理</a>
-		            		<a href="h/jobs/list_游戏策划?labelWords=label">游戏策划</a>
+    						<a href="${ctx }/position/search?kd=产品经理">产品经理</a>
+		            		<a href="${ctx }/position/search?kd=产品助理">产品助理</a>
+		            		<a href="${ctx }/position/searchtype?kd=无线产品经理">无线产品经理</a>
+		            		<a href="${ctx }/position/search?kd=游戏策划">游戏策划</a>
 				    </div>
 					<div class="menu_sub dn">
 					   	<dl class="reset">
 					        <dt>
-					        	<a href="h/jobs/list_产品经理?labelWords=label">产品经理</a>
+					        	<a href="${ctx }/position/searchtype?kd=产品经理">产品经理</a>
 					        </dt>
 						    <dd>
-								<a href="${ctx }/position/search?kd=产品经理">产品经理</a>
+								<a href="${ctx }/position/search?kd=产品经理" class="curr">产品经理</a>
 								<a href="${ctx }/position/search?kd=网页产品经理">网页产品经理</a>
 								<a href="${ctx }/position/search?kd=移动产品经理">移动产品经理</a>
-								<a href="${ctx }/position/search?kd=产品助理"	>产品助理</a>
+								<a href="${ctx }/position/search?kd=产品助理" class="curr"	>产品助理</a>
 								<a href="${ctx }/position/search?kd=数据产品经理">数据产品经理</a>
 								<a href="${ctx }/position/search?kd=电商产品经理"	>电商产品经理</a>
-								<a href="${ctx }/position/search?kd=游戏策划"	>游戏策划</a>
+								<a href="${ctx }/position/search?kd=游戏策划"	 class="curr">游戏策划</a>
 							</dd>
 					    </dl>
 						<dl class="reset">
 					    	<dt>
-					        	<a href="h/jobs/list_产品设计师?labelWords=label">产品设计师</a>
+					        	<a href="${ctx }/position/searchtype?kd=产品设计师">产品设计师</a>
 					        </dt>
 						    <dd>
 								<a href="${ctx }/position/search?kd=网页产品设计师">网页产品设计师</a>
@@ -236,7 +236,7 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_高端产品职位?labelWords=label">高端产品职位</a>
+					        			<a href="${ctx }/position/searchtype?kd=高端产品职位">高端职位</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=产品部经理">产品部经理</a>
@@ -257,7 +257,7 @@ var youdao_conv_id = 271546;
 					   	<div class="menu_sub dn">
 					   								    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_视觉设计?labelWords=label">视觉设计</a>
+					        			<a href="${ctx }/position/searchtype?kd=视觉设计">视觉设计</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=视觉设计师">视觉设计师</a>
@@ -279,7 +279,7 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_交互设计?labelWords=label">交互设计</a>
+					        			<a href="${ctx }/position/searchtype?kd=交互设计">交互设计</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=交互设计师">交互设计师</a>
@@ -290,7 +290,7 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_用户研究?labelWords=label">用户研究</a>
+					        			<a href="${ctx }/position/searchtype?kd=用户研究">用户研究</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=数据分析师">数据分析师</a>
@@ -300,7 +300,7 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_高端设计职位?labelWords=label">高端职位设计</a>
+					        			<a href="${ctx }/position/searchtype?kd=高端设计职位">高端职位</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=设计经理/主管">设计经理/主管</a>
@@ -318,14 +318,14 @@ var youdao_conv_id = 271546;
 									<div class="menu_box">
 						<div class="menu_main">
 							<h2>运营 <span></span></h2>
-											            					            		<a href="h/jobs/list_运营?labelWords=label">运营</a>
-				            					            		<a href="h/jobs/list_游戏运营?labelWords=label">游戏运营</a>
-				            					            		<a href="h/jobs/list_编辑?labelWords=label">编辑</a>
+											            			<a href="${ctx }/position/searchtype?kd=运营">运营</a>
+				            					            		<a href="${ctx }/position/search?kd=游戏运营">游戏运营</a>
+				            					            		<a href="${ctx }/position/searchtype?kd=编辑">编辑</a>
 				            					            					   	</div>
 					   	<div class="menu_sub dn">
 					   								    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_运营?labelWords=label">运营</a>
+					        			<a href="${ctx }/position/searchtype?kd=运营">运营</a>
 					        		</dt>
 						        	<dd>
 									   	<a href="${ctx }/position/search?kd=用户运营">用户运营</a>
@@ -335,13 +335,13 @@ var youdao_conv_id = 271546;
 										   	<a href="${ctx }/position/search?kd=活动运营"	>活动运营</a>
 										   	<a href="${ctx }/position/search?kd=商家运营">商家运营</a>
 										   	<a href="${ctx }/position/search?kd=品类运营">品类运营</a>
-										   	<a href="${ctx }/position/search?kd=游戏运营">游戏运营</a>
+										   	<a href="${ctx }/position/search?kd=游戏运营" class="curr">游戏运营</a>
 										   	<a href="${ctx }/position/search?kd=网络推广">网络推广</a>
          							        </dd>
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_编辑?labelWords=label">编辑</a>
+					        			<a href="${ctx }/position/searchtype?kd=编辑">编辑</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=副主编">副主编</a>
@@ -350,7 +350,7 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_客服?labelWords=label">客服</a>
+					        			<a href="${ctx }/position/searchtype?kd=客服">客服</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=售前咨询">售前咨询</a>
@@ -359,7 +359,7 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_高端运营职位?labelWords=label">高端运营职位</a>
+					        			<a href="${ctx }/position/searchtype?kd=高端运营职位">高端运营职位</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=主编">主编</a>
@@ -372,32 +372,32 @@ var youdao_conv_id = 271546;
 									<div class="menu_box">
 						<div class="menu_main">
 							<h2>市场与销售 <span></span></h2>
-											            			<a href="h/jobs/list_市场推广?labelWords=label">市场推广</a>
-				            					            		<a href="h/jobs/list_市场策划?labelWords=label">市场策划</a>
-				            					            		<a href="h/jobs/list_活动策划?labelWords=label">活动策划</a>
-				            					            		<a href="h/jobs/list_BD?labelWords=label">BD</a>
-				            					            		<a href="h/jobs/list_销售经理?labelWords=label">销售经理</a>
+											            			<a href="${ctx }/position/search?kd=市场推广">市场推广</a>
+				            					            		<a href="${ctx }/position/search?kd=市场策划">市场策划</a>
+				            					            		<a href="${ctx }/position/search?kd=活动策划">活动策划</a>
+				            					            		<a href="${ctx }/position/search?kd=BD">BD</a>
+				            					            		<a href="${ctx }/position/search?kd=销售经理">销售经理</a>
 				            					            					   	</div>
 					   	<div class="menu_sub dn">
 					   								    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_市场 营销?labelWords=label">市场营销</a>
+					        			<a href="${ctx }/position/searchtype?kd=市场营销">市场营销</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=市场营销"	>市场营销</a>
-							            										   	<a href="${ctx }/position/search?kd=市场策划"	>市场策划</a>
+							            										   	<a href="${ctx }/position/search?kd=市场策划" class="curr"	>市场策划</a>
 							            										   	<a href="${ctx }/position/search?kd=市场顾问">市场顾问</a>
-							            										   	<a href="${ctx }/position/search?kd=市场推广"	>市场推广</a>
+							            										   	<a href="${ctx }/position/search?kd=市场推广"	 class="curr">市场推广</a>
 							            										   	<a href="${ctx }/position/search?kd=SEO">SEO</a>
 							            										   	<a href="${ctx }/position/search?kd=SEM">SEM</a>
 							            										   	<a href="${ctx }/position/search?kd=商务渠道">商务渠道</a>
 							            										   	<a href="${ctx }/position/search?kd=商业数据分析">商业数据分析</a>
-							            										   	<a href="${ctx }/position/search?kd=活动策划">活动策划</a>
+							            										   	<a href="${ctx }/position/search?kd=活动策划" class="curr">活动策划</a>
 							            							        </dd>
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_公关?labelWords=label">公关</a>
+					        			<a href="${ctx }/position/searchtype?kd=公关">公关</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=媒介经理"	>媒介经理</a>
@@ -407,13 +407,13 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_销售?labelWords=label">
+					        			<a href="${ctx }/position/searchtype?kd=销售">
 					        									            								            							            								            							            								            							            								            							            								            							            								            						        				销售
 					        			</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=销售专员"	>销售专员</a>
-							            										   	<a href="${ctx }/position/search?kd=销售经理">销售经理</a>
+							            										   	<a href="${ctx }/position/search?kd=销售经理" class="curr">销售经理</a>
 							            										   	<a href="${ctx }/position/search?kd=客户代表">客户代表</a>
 							            										   	<a href="${ctx }/position/search?kd=大客户代表">大客户代表</a>
 							            										   	<a href="${ctx }/position/search?kd=BD经理">BD经理</a>
@@ -424,7 +424,7 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_高端市场职位?labelWords=label">高端市场职位</a>
+					        			<a href="${ctx }/position/searchtype?kd=高端市场职位">高端市场职位</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=市场总监">市场总监</a>
@@ -439,15 +439,15 @@ var youdao_conv_id = 271546;
 									<div class="menu_box">
 						<div class="menu_main">
 							<h2>职能 <span></span></h2>
-											            			<a href="h/jobs/list_HR?labelWords=label">HR</a>
-				            					            		<a href="h/jobs/list_行政?labelWords=label">行政</a>
-				            					            		<a href="h/jobs/list_会计?labelWords=label">会计</a>
-				            					            		<a href="h/jobs/list_出纳?labelWords=label">出纳</a>
+											            			<a href="${ctx }/position/search?kd=HR">HR</a>
+				            					            		<a href="${ctx }/position/search?kd=行政">行政</a>
+				            					            		<a href="${ctx }/position/search?kd=会计">会计</a>
+				            					            		<a href="${ctx }/position/search?kd=出纳">出纳</a>
 				            					            					   	</div>
 					   	<div class="menu_sub dn">
 					   								    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_人力资源?labelWords=label">人力资源</a>
+					        			<a href="${ctx }/position/searchtype?kd=人力资源">人力资源</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=人力资源">人力资源</a>
@@ -461,28 +461,28 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_行政?labelWords=label">行政</a>
+					        			<a href="${ctx }/position/searchtype?kd=行政">行政</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=助理">助理</a>
 							            										   	<a href="${ctx }/position/search?kd=前台">前台</a>
 							            										   	<a href="${ctx }/position/search?kd=法务">法务</a>
-							            										   	<a href="${ctx }/position/search?kd=行政">行政</a>
+							            										   	<a href="${ctx }/position/search?kd=行政" class="curr">行政</a>
 							            							        </dd>
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_财务?labelWords=label">财务</a>
+					        			<a href="${ctx }/position/searchtype?kd=财务">财务</a>
 					        		</dt>
 						        	<dd>
-							        											   	<a href="${ctx }/position/search?kd=会计">会计</a>
-							            										   	<a href="${ctx }/position/search?kd=出纳">出纳</a>
+							        											   	<a href="${ctx }/position/search?kd=会计" class="curr">会计</a>
+							            										   	<a href="${ctx }/position/search?kd=出纳" class="curr">出纳</a>
 							            										   	<a href="${ctx }/position/search?kd=财务">财务</a>
 							            							        </dd>
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="h/jobs/list_高端职能职位?labelWords=label">高端智能职位</a>
+					        			<a href="${ctx }/position/searchtype?kd=高端职能职位">高端职位</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=行政总监/经理">行政总监/经理</a>
@@ -498,7 +498,7 @@ var youdao_conv_id = 271546;
 		</div>
         <div class="content">	
 	        			<div id="search_box">
-		<form  name="searchForm" action="${ctx }/position/search" method="post">
+		<form  name="searchForm" action="${ctx }/position/search">
         <ul id="searchType">
         	<li data-searchtype="1" class="type_selected" name="datatype">职位</li>
         	<li data-searchtype="4">公司</li>
@@ -652,6 +652,7 @@ var youdao_conv_id = 271546;
             </ul>
             <div id="hotList">
 	            <ul class="hot_pos reset">
+	            <c:if test="${positionpage != null }">
 	            	<c:forEach items="${positionpage.list }" var="p">
 		            	<li class="clearfix">
 		            	<div class="hot_pos_l">
@@ -672,8 +673,8 @@ var youdao_conv_id = 271546;
 			                <div class="hot_pos_r">
 			                    <div class="mb10 recompany"><a href="h/c/399.html" target="_blank">节操精选</a></div>
 			                        <span><em class="c7">领域：</em> 移动互联网</span>
-			                        			                        <span><em class="c7">创始人：</em>陈桦</span>
-			                        			                        <br />
+			                        <span><em class="c7">创始人：</em>陈桦</span>
+			                        <br />
 			                        <span><em class="c7">阶段：</em> 初创型(天使轮)</span>
 			                        <span><em class="c7">规模：</em>少于15人</span>
 			                        <ul class="companyTags reset">
@@ -683,7 +684,82 @@ var youdao_conv_id = 271546;
 			                        </ul>
 			                 </div>
 			        </li>	
+			        <a href="${ctx }/position/index?pageNum${positionpage.prePageNum}" >上一页</a>
+			        <a href="${ctx }/position/index?pageNum${positionpage.nePageNum}" >下一页</a>
 		            </c:forEach>
+		        </c:if>
+		        <c:if test="${searchpositionpage != null }">
+	            	<c:forEach items="${searchpositionpage.list }" var="p">
+		            	<li class="clearfix">
+		            	<div class="hot_pos_l">
+			                <div class="mb10">
+			                    <a href="h/jobs/147822.html" target="_blank">${p.name }</a> 
+			                            &nbsp;
+			                    <span class="c9">[${p.city }]</span>
+			                            			                        </div>
+			                    <span><em class="c7">月薪： </em>${p.minSalary }k-${p.maxSalary }k</span>
+			                    <span><em class="c7">经验：</em> ${p.experience }</span>
+			                    <span><em class="c7">最低学历： </em>${p.degree }</span>
+			                    <br />
+			                    <span><em class="c7">职位诱惑：</em>${p.tempation }</span>
+			                    <br />
+				                <span>1天前发布</span>
+			                    <!-- <a  class="wb">分享到微博</a> -->
+			                </div>
+			                <div class="hot_pos_r">
+			                    <div class="mb10 recompany"><a href="h/c/399.html" target="_blank">节操精选</a></div>
+			                        <span><em class="c7">领域：</em> 移动互联网</span>
+			                        <span><em class="c7">创始人：</em>陈桦</span>
+			                        <br />
+			                        <span><em class="c7">阶段：</em> 初创型(天使轮)</span>
+			                        <span><em class="c7">规模：</em>少于15人</span>
+			                        <ul class="companyTags reset">
+			                        	<li>移动互联网</li>
+			                        	<li>五险一金</li>
+			                        	<li>扁平管理</li>
+			                        </ul>
+			                 </div>
+			        </li>	
+			        <a href="${ctx }/position/searchpage?pageNum${searchpositionpage.prePageNum}" >上一页</a>
+			        <a href="${ctx }/position/searchpage?pageNum${searchpositionpage.nePageNum}" >下一页</a>
+		            </c:forEach>
+		        </c:if>
+		        <c:if test="${searchpositiontypepage != null }">
+	            	<c:forEach items="${searchpositiontypepage.list }" var="p">
+		            	<li class="clearfix">
+		            	<div class="hot_pos_l">
+			                <div class="mb10">
+			                    <a href="h/jobs/147822.html" target="_blank">${p.name }</a> 
+			                            &nbsp;
+			                    <span class="c9">[${p.city }]</span>
+			                            			                        </div>
+			                    <span><em class="c7">月薪： </em>${p.minSalary }k-${p.maxSalary }k</span>
+			                    <span><em class="c7">经验：</em> ${p.experience }</span>
+			                    <span><em class="c7">最低学历： </em>${p.degree }</span>
+			                    <br />
+			                    <span><em class="c7">职位诱惑：</em>${p.tempation }</span>
+			                    <br />
+				                <span>1天前发布</span>
+			                    <!-- <a  class="wb">分享到微博</a> -->
+			                </div>
+			                <div class="hot_pos_r">
+			                    <div class="mb10 recompany"><a href="h/c/399.html" target="_blank">节操精选</a></div>
+			                        <span><em class="c7">领域：</em> 移动互联网</span>
+			                        <span><em class="c7">创始人：</em>陈桦</span>
+			                        <br />
+			                        <span><em class="c7">阶段：</em> 初创型(天使轮)</span>
+			                        <span><em class="c7">规模：</em>少于15人</span>
+			                        <ul class="companyTags reset">
+			                        	<li>移动互联网</li>
+			                        	<li>五险一金</li>
+			                        	<li>扁平管理</li>
+			                        </ul>
+			                 </div>
+			        </li>	
+			        <a href="${ctx }/position/searchtypepage?pageNum${searchpositiontypepage.prePageNum}" >上一页</a>
+			        <a href="${ctx }/position/searchtypepage?pageNum${searchpositiontypepage.nePageNum}" >下一页</a>
+		            </c:forEach>
+		        </c:if>
 	            	<a href="list.html?city=%E5%85%A8%E5%9B%BD" class="btn fr" target="_blank">查看更多</a>
 	            </ul>
             </div>

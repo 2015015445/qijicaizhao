@@ -30,4 +30,8 @@ public class PositionService {
 	public Page searchPosition(int num, int size, String name) {
 		return positionDao.searchPosition(num, size, name);
 	}
+	
+	public Page searchPositionByType(int num, int size, String name) {
+		return positionDao.searchPositionByType(num, size, name);
+	}
 }
