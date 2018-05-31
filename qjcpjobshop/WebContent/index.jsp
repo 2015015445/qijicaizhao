@@ -64,7 +64,7 @@ var youdao_conv_id = 271546;
     		</a>
     		<ul class="reset" id="navheader">
     			<li class="current"><a href="${ctx }/position/index?pageNum=1">首页</a></li>
-    			<li ><a href="companylist.html" >公司</a></li>
+    			<li ><a href="${ctx }/company/findallcompany" >公司</a></li>
     			<li ><a href="htoForum.html" target="_blank">职业预测</a></li>
 
 <!--     		<li ><a href="jianli.html" rel="nofollow">我的简历</a></li> -->
@@ -535,16 +535,16 @@ var youdao_conv_id = 271546;
 <script type="text/javascript" src="style/js/search.min.js"></script>
 <dl class="hotSearch">
 	<dt>热门搜索：</dt>
-	<dd><a href="list.htmlJava?labelWords=label&city=">Java</a></dd>
-	<dd><a href="list.htmlPHP?labelWords=label&city=">PHP</a></dd>
-	<dd><a href="list.htmlAndroid?labelWords=label&city=">Android</a></dd>
-	<dd><a href="list.htmliOS?labelWords=label&city=">iOS</a></dd>
-	<dd><a href="list.html前端?labelWords=label&city=">前端</a></dd>
-	<dd><a href="list.html产品经理?labelWords=label&city=">产品经理</a></dd>
-	<dd><a href="list.htmlUI?labelWords=label&city=">UI</a></dd>
-	<dd><a href="list.html运营?labelWords=label&city=">运营</a></dd>
-	<dd><a href="list.htmlBD?labelWords=label&city=">BD</a></dd>
-	<dd><a href="list.html?gx=实习&city=">实习</a></dd>
+	<dd><a href="${ctx }/position/search?kd=Java">Java</a></dd>
+	<dd><a href="${ctx }/position/search?kd=PHP">PHP</a></dd>
+	<dd><a href="${ctx }/position/search?kd=Android">Android</a></dd>
+	<dd><a href="${ctx }/position/search?kd=iOS">iOS</a></dd>
+	<dd><a href="${ctx }/position/searchtype?kd=前端">前端</a></dd>
+	<dd><a href="${ctx }/position/search?kd=产品经理">产品经理</a></dd>
+	<dd><a href="${ctx }/position/search?kd=UI">UI</a></dd>
+	<dd><a href="${ctx }/position/search?kd=运营">运营</a></dd>
+	<dd><a href="${ctx }/position/search?kd=BD">BD</a></dd>
+	<dd><a href="${ctx }/position/search?kd=实习">实习</a></dd>
 </dl>			
 			<div id="home_banner">
 	            <ul class="banner_bg">
@@ -691,6 +691,7 @@ var youdao_conv_id = 271546;
 			                 </div>
 			        </li>	
 			        </c:forEach>
+			        <c:if test="${positionpage != null }">
 			        <div align="center" style="margin-top: 15px">
 			        <a href="" class="numstyle1" href="${ctx }/position/index?pageNum=1"><font color="#fff">首页</font></a>
 			        <a class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.prePageNum}" ><font color="#fff">上一页</font></a>
@@ -708,6 +709,7 @@ var youdao_conv_id = 271546;
 			        <a class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.nePageNum}" ><font color="#fff">下一页</font></a>
 			        <a href="" class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.totalPageNum}"><font color="#fff">尾页</font></a>
 		            </div>
+		            </c:if>
 		        </c:if>
 		        <c:if test="${searchpositionpage != null }">
 	            	<c:forEach items="${searchpositionpage.list }" var="p">
@@ -742,6 +744,7 @@ var youdao_conv_id = 271546;
 			                 </div>
 			        </li>
 			        </c:forEach>
+			        <c:if test="${searchpositionpage != null }">
 			        <div align="center" style="margin-top: 15px">	
 			        <a href="" class="numstyle1" href="${ctx }/position/searchpage?pageNum=1&kd=${searchname}"><font color="#fff">首页</font></a>
 			        <a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.prePageNum}&kd=${searchname}" ><font color="#fff">上一页</font></a>
@@ -759,7 +762,7 @@ var youdao_conv_id = 271546;
 			        <a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.nePageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
 			        <a href="" class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.totalPageNum}&kd=${searchname}"><font color="#fff">尾页</font></a>
 		            </div>
-		            
+		            </c:if>
 		            
 		        </c:if>
 		        <c:if test="${searchpositiontypepage != null }">
@@ -795,6 +798,7 @@ var youdao_conv_id = 271546;
 			                 </div>
 			        </li>
 			        </c:forEach>	
+			         <c:if test="${searchpositiontypepage != null }">
 			        <div align="center" style="margin-top: 15px">
 			        <a href="" class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=1&kd=${searchname}"><font color="#fff">首页</font></a>
 			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.prePageNum}&kd=${searchname}" ><font color="#fff">上一页</font></a>
@@ -812,6 +816,7 @@ var youdao_conv_id = 271546;
 			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.nePageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
 			        <a href="" class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.totalPageNum}&kd=${searchname}"><font color="#fff">尾页</font></a>
 		            </div>
+		            </c:if>
 		        </c:if>
 <!-- 	            	<a href="list.html?city=%E5%85%A8%E5%9B%BD" class="btn fr" target="_blank">查看更多</a> -->
 	            </ul>

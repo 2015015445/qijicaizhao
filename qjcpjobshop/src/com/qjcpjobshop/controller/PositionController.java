@@ -77,15 +77,20 @@ public class PositionController extends HttpServlet {
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String findPositionByPage(@RequestParam("pageNum") int num, HttpSession session){
 		session.removeAttribute("searchpositionpage");
+		session.removeAttribute("positionpage");
 		session.removeAttribute("searchpositiontypepage");
 		Page p = this.positionService.findPositionByPage(num, 12);
-		List li = p.getList();
-		Iterator i = li.iterator();
-		while(i.hasNext()){
-			Position pos = (Position) i.next();
-			System.out.println(pos.getType());
+		
+		if(p != null) {
+			session.setAttribute("positionpage", p);
+			List li = p.getList();
+			Iterator i = li.iterator();
+			while(i.hasNext()){
+				Position pos = (Position) i.next();
+				System.out.println(pos.getType());
+			}
 		}
-		session.setAttribute("positionpage", p);
+		
 		return "index";
 	}
 	
@@ -100,30 +105,42 @@ public class PositionController extends HttpServlet {
 	@RequestMapping(value="/search")
 	public String searchPosition(@RequestParam("kd") String name, HttpSession session){
 		session.removeAttribute("positionpage");
+		session.removeAttribute("searchpositionpage");
 		session.removeAttribute("searchpositiontypepage");
 		Page p = this.positionService.searchPosition(1, 12,name);
-		List li = p.getList();
-		Iterator i = li.iterator();
-		while(i.hasNext()){
-			Position pos = (Position) i.next();
-			System.out.println(pos.getType());
+		
+
+		if(p != null) {
+			List li = p.getList();
+			Iterator i = li.iterator();
+			while(i.hasNext()){
+				Position pos = (Position) i.next();
+				System.out.println(pos.getType());
+			}
+			System.out.println("positionpage的页数为："+p.getTotalCount());
+			session.setAttribute("searchpositionpage", p);
 		}
-		session.setAttribute("searchpositionpage", p);
+		
 		return "index";
 	}
 	
 	@RequestMapping(value="/searchpage")
 	public String searchPositionPage(@RequestParam("kd") String name,  @RequestParam("pageNum") int num, HttpSession session){
 		session.removeAttribute("positionpage");
+		session.removeAttribute("searchpositionpage");
 		session.removeAttribute("searchpositiontypepage");
 		Page p = this.positionService.searchPosition(num, 12,name);
-		List li = p.getList();
-		Iterator i = li.iterator();
-		while(i.hasNext()){
-			Position pos = (Position) i.next();
-			System.out.println(pos.getType());
+		
+		if(p != null) {
+			session.setAttribute("searchpositionpage", p);
+			List li = p.getList();
+			Iterator i = li.iterator();
+			while(i.hasNext()){
+				Position pos = (Position) i.next();
+				System.out.println(pos.getType());
+			}
 		}
-		session.setAttribute("searchpositionpage", p);
+		
 		session.setAttribute("searchname", name);
 		return "index";
 	}
@@ -132,29 +149,39 @@ public class PositionController extends HttpServlet {
 	public String searchPositionType(@RequestParam("kd") String name, HttpSession session){
 		session.removeAttribute("searchpositionpage");
 		session.removeAttribute("positionpage");
+		session.removeAttribute("searchpositiontypepage");
 		Page p = this.positionService.searchPositionByType(1, 12,name);
-		List li = p.getList();
-		Iterator i = li.iterator();
-		while(i.hasNext()){
-			Position pos = (Position) i.next();
-			System.out.println(pos.getType());
+		
+		if(p != null) {
+			session.setAttribute("searchpositiontypepage", p);
+			List li = p.getList();
+			Iterator i = li.iterator();
+			while(i.hasNext()){
+				Position pos = (Position) i.next();
+				System.out.println(pos.getType());
+			}
 		}
-		session.setAttribute("searchpositiontypepage", p);
+		
 		return "index";
 	}
 	
 	@RequestMapping(value="/searchtypepage", method=RequestMethod.GET)
 	public String searchPositionTypePage(@RequestParam("kd") String name, @RequestParam("pageNum") int num, HttpSession session){
 		session.removeAttribute("searchpositionpage");
+		session.removeAttribute("searchpositiontypepage");
 		session.removeAttribute("positionpage");
 		Page p = this.positionService.searchPositionByType(num, 12,name);
-		List li = p.getList();
-		Iterator i = li.iterator();
-		while(i.hasNext()){
-			Position pos = (Position) i.next();
-			System.out.println(pos.getType());
+		
+		if(p != null) {
+			session.setAttribute("searchpositiontypepage", p);
+			List li = p.getList();
+			Iterator i = li.iterator();
+			while(i.hasNext()){
+				Position pos = (Position) i.next();
+				System.out.println(pos.getType());
+			}
 		}
-		session.setAttribute("searchpositiontypepage", p);
+		
 		session.setAttribute("searchname", name);
 		return "index";
 	}

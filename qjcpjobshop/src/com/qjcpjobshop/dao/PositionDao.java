@@ -82,8 +82,13 @@ public class PositionDao {
 			List<Position> list = query.list();
 			Page p = new Page(num,size);
 			p.setList(list);
-			p.setTotalCount(this.searchPositionTotalCount("Position",name));
-			return p;
+			int totalnum = this.searchPositionTotalCount("Position", name);
+			p.setTotalCount(totalnum);
+			if(totalnum != 0) {
+				return p;
+			}else {
+				return null;
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 			return null;
@@ -108,8 +113,13 @@ public class PositionDao {
 			List<Position> list = query.list();
 			Page p = new Page(num,size);
 			p.setList(list);
-			p.setTotalCount(this.findPositionTypeTotalCount("Position",name));
-			return p;
+			int totalnum = this.findPositionTypeTotalCount("Position", name);
+			p.setTotalCount(totalnum);
+			if(totalnum != 0) {
+				return p;
+			}else {
+				return null;
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 			return null;
