@@ -119,6 +119,7 @@ public class PositionController extends HttpServlet {
 			}
 			System.out.println("positionpage的页数为："+p.getTotalCount());
 			session.setAttribute("searchpositionpage", p);
+			session.setAttribute("searchname", name);
 		}
 		
 		return "index";
@@ -154,6 +155,7 @@ public class PositionController extends HttpServlet {
 		
 		if(p != null) {
 			session.setAttribute("searchpositiontypepage", p);
+			session.setAttribute("searchname", name);
 			List li = p.getList();
 			Iterator i = li.iterator();
 			while(i.hasNext()){

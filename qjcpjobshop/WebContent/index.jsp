@@ -365,7 +365,7 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="${ctx }/position/searchtype?kd=高端运营职位">高端运营职位</a>
+					        			<a href="${ctx }/position/searchtype?kd=高端运营职位">高端职位</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=主编">主编</a>
@@ -430,7 +430,7 @@ var youdao_conv_id = 271546;
 					        	</dl>
 													    	<dl class="reset">
 					        							        		<dt>
-					        			<a href="${ctx }/position/searchtype?kd=高端市场职位">高端市场职位</a>
+					        			<a href="${ctx }/position/searchtype?kd=高端市场职位">高端职位</a>
 					        		</dt>
 						        	<dd>
 							        											   	<a href="${ctx }/position/search?kd=市场总监">市场总监</a>
@@ -697,12 +697,12 @@ var youdao_conv_id = 271546;
 			        <a class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.prePageNum}" ><font color="#fff">上一页</font></a>
 			        <c:if test="${positionpage.totalPageNum < 5}">
 			        	<c:forEach  begin="1" end="${positionpage.totalPageNum }" var="num">
-			        	<a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
+			        	<a class="numstyle1" href="${ctx }/position/index?pageNum=${num}"><font color="#fff">${num }</font></a>
 			        	</c:forEach>
 			        </c:if>
 			        <c:if test="${positionpage.totalPageNum > 5}">
 			        	<c:forEach  begin="1" end="5" var="num">
-			        	<a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
+			        	<a class="numstyle1" href="${ctx }/position/index?pageNum=${num}"><font color="#fff">${num }</font></a>
 			        	</c:forEach>
 			        	<a class="numstyle1"><font color="#fff">...</font></a>
 			        </c:if>
@@ -744,25 +744,24 @@ var youdao_conv_id = 271546;
 			                 </div>
 			        </li>
 			        </c:forEach>
-			        <c:if test="${searchpositionpage != null }">
 			        <div align="center" style="margin-top: 15px">	
 			        <a href="" class="numstyle1" href="${ctx }/position/searchpage?pageNum=1&kd=${searchname}"><font color="#fff">首页</font></a>
 			        <a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.prePageNum}&kd=${searchname}" ><font color="#fff">上一页</font></a>
 			        <c:if test="${searchpositionpage.totalPageNum < 5}">
 			        	<c:forEach  begin="1" end="${searchpositionpage.totalPageNum }" var="num">
-			        	<a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
+			        	<a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
 			        	</c:forEach>
 			        </c:if>
 			        <c:if test="${searchpositionpage.totalPageNum > 5}">
 			        	<c:forEach  begin="1" end="5" var="num">
-			        	<a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
+			        	<a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${num}&kd=${searchname}"><font color="#fff">${num }</font></a>
 			        	</c:forEach>
 			        	<a class="numstyle1" ><font color="#fff">...</font></a>
 			        </c:if>
 			        <a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.nePageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
 			        <a href="" class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.totalPageNum}&kd=${searchname}"><font color="#fff">尾页</font></a>
 		            </div>
-		            </c:if>
+		            
 		            
 		        </c:if>
 		        <c:if test="${searchpositiontypepage != null }">
@@ -798,7 +797,6 @@ var youdao_conv_id = 271546;
 			                 </div>
 			        </li>
 			        </c:forEach>	
-			         <c:if test="${searchpositiontypepage != null }">
 			        <div align="center" style="margin-top: 15px">
 			        <a href="" class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=1&kd=${searchname}"><font color="#fff">首页</font></a>
 			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.prePageNum}&kd=${searchname}" ><font color="#fff">上一页</font></a>
@@ -816,7 +814,6 @@ var youdao_conv_id = 271546;
 			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.nePageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
 			        <a href="" class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.totalPageNum}&kd=${searchname}"><font color="#fff">尾页</font></a>
 		            </div>
-		            </c:if>
 		        </c:if>
 <!-- 	            	<a href="list.html?city=%E5%85%A8%E5%9B%BD" class="btn fr" target="_blank">查看更多</a> -->
 	            </ul>
