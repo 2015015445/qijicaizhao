@@ -60,7 +60,7 @@ public class PositionController extends HttpServlet {
 //			JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, 
 //			null, options, options[0]);
 			
-			return "redirect:/index?pageNum=1";
+			return "redirect:/position/index?pageNum=1";
 		}catch(Exception e){
 			e.printStackTrace();
 			
@@ -74,7 +74,7 @@ public class PositionController extends HttpServlet {
 		
 	}
 	
-	@RequestMapping(value="/index", method=RequestMethod.GET)
+	@RequestMapping(value="/index")
 	public String findPositionByPage(@RequestParam("pageNum") int num, HttpSession session){
 		session.removeAttribute("searchpositionpage");
 		session.removeAttribute("positionpage");

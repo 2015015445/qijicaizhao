@@ -32,6 +32,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 </style>
 <script type="text/javascript">
+function searchclick() {
+	var na = $("#search_input").val()
+	if ("" == na || na ==null) {
+		alert('请输入要查找的内容')
+	}
+}
 function clickj() {
 	alert("你还没有登陆！！");
 }
@@ -522,7 +528,7 @@ var youdao_conv_id = 271546;
         <input type="hidden" name="lc" id="lc" value="" />
         <input type="hidden" name="workAddress" id="workAddress" value=""/>
                 <input type="hidden" name="city" id="cityInput" value=""/>
-                <input type="submit" id="search_button" value="搜索" />
+                <input type="submit" id="search_button" value="搜索" onclick="searchclick()"/>
 				
     </form>
 </div>
@@ -814,6 +820,11 @@ var youdao_conv_id = 271546;
 			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.nePageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
 			        <a href="" class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.totalPageNum}&kd=${searchname}"><font color="#fff">尾页</font></a>
 		            </div>
+		        </c:if>
+		        <c:if test="${searchpositiontypepage == null && positionpage == null && searchpositionpage == null }">
+		        	<div align="center" style="margin-top: 80px">
+	                	               		<span"><font size="15" color="#DDDDDD">暂时没找到相关的职位</font></span>
+	                </div>
 		        </c:if>
 <!-- 	            	<a href="list.html?city=%E5%85%A8%E5%9B%BD" class="btn fr" target="_blank">查看更多</a> -->
 	            </ul>
