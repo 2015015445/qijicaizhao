@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:wb="http://open.weibo.com/wb">
 <head>
@@ -21,6 +22,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="baidu-site-verification" content="QIQ6KC1oZ6" />
 
 <!-- <div class="web_root"  style="display:none">h</div> -->
+<style type="text/css">
+	.numstyle1{
+		background-color:#0d9572;padding: 5px 10px 5px 10px;margin:10px 10px 0px 0px;
+	}
+	.numstyle2{
+		background-color:#0d9572;padding: 5px 10px 5px 10px;margin: 10px 10px 0px 0px;
+	}
+	
+</style>
 <script type="text/javascript">
 var ctx = "h";
 console.log(1);
@@ -91,13 +101,13 @@ $('desc').html(areaContent)
                        	<span>${jobdetail.experience }</span>
                        	<span> ${jobdetail.degree }</span> 
                        	<span>${jobdetail.jobNature }</span><br />
-                      	  ${jobdetail.tempation }
+                      	 <P>${jobdetail.tempation }</P>
 <!--                       	<div>发布时间：3天前发布</div> -->
                     </dd>
                     <dd class="job_bt">
                         <h3 class="description">职位描述</h3>
-                        <div class="desc"></div>
-                        <pre><font font-weight=blod size="3px" color="#777">${jobdetail.description }</font></pre>
+                        <p class="desc"></p>
+                        <pre><font font-weight="blod" size="3px" color="#777">${jobdetail.description }</font></pre>
                     </dd>
                      
                                         	<dd class="unresume">
@@ -121,7 +131,7 @@ $('desc').html(areaContent)
 						</div>
                     </div>
                                         <dd>
-                                        	                    			                        	<a href="#loginPop" title="登录" class="inline btn fr btn_apply">投个简历</a>
+                                        	                    			                        	<a href="#setResumeApply" title="登录" class="inline btn fr btn_apply">投个简历</a>
 	                        	                   		                	                </dd>
                 </dl>
                                 <div id="weibolist"></div>
@@ -265,32 +275,29 @@ $('desc').html(areaContent)
 	    	</tr>
 	    	<tr>
 	        	<td>
-                    <form  id="resumeSendForm" class="resumeSetForm">
-	            		<label class="radio">
-	            			<input type="radio" name="resumeName" class="resume1" value="1"  />
-	            			在线简历：
-	            				            				<span class="red">在线简历还不完善，请完善后选择投递</span>
+                    <form  action="${ctx }/resumesend?semail=he&remail=a">
+	            		<div style="margin: 15px 0px 25px 25px; " >
+                    		<label class="radio" >
+	            			<input  type="radio" name="resumeName" class="resume1" value="1"  />
+	            			在线简历
 	            				            		</label>
+                    	</div>
             			<div class="setBtns">
-            											<a href="jianli.html" target="_blank">修改</a>
+            										
             			</div>
 	            		<div class="clear"></div>
-	            		<label class="radio">
+	            		<div style="margin: 15px 0px 25px 25px">
+	            			<label class="radio" class="radio" >
 	            			<input type="radio" name="resumeName" class="resume0" value="0"  />
-	            			附件简历：
-	            				            				<span class="uploadedResume red">暂无附件简历</span>
+	            			附件简历
 	            				            		</label>
+	            		</div>
 	            		<div class="setBtns">
-	            				            				<a href="h/nearBy/downloadResume" class="downloadResume dn">下载</a> <span class="dn">|</span>
-            					<a target="_blank" title="上传附件简历" class="reUpload">上传附件简历</a>
-	            				            			<input title="支持word、pdf、ppt、txt、wps格式文件，大小不超过10M"  name="newResume" id="reUploadResume2"
-	                        type="file" onchange="file_check(this,'h/nearBy/updateMyResume.json','reUploadResume2')" />
             			</div>
             			<div class="clear"></div>
             			<span class="error" style="display:none;">只支持word、pdf、ppt、txt、wps格式文件，请重新上传</span>
-	            		<label class="bgPink"><input type="checkbox" checked="checked" />默认使用此简历直接投递，下次不再提示</label>
 	            		<span class="setTip error"></span>
-	            		<input type="submit" class="btn_profile_save btn_s" value="确认投递简历" />
+	            		<input type="submit" style="margin-top: 40px" class="btn_profile_save" value="确认投递简历" />
 	            	</form>
 	            </td>
 	        </tr>

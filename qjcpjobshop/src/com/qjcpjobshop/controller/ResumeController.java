@@ -2,7 +2,23 @@ package com.qjcpjobshop.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
+import java.util.Properties;
+
 import javax.annotation.Resource;
+import javax.mail.Authenticator;
+import javax.mail.Folder;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.NoSuchProviderException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Store;
+import javax.mail.Transport;
+import javax.mail.URLName;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -87,6 +103,8 @@ public class ResumeController {
 		return "preview";
 	}
 	
+	
+	
 	@RequestMapping(value="/fileUpload", method=RequestMethod.POST)
 	public String FileUpload(HttpServletRequest request,  
 			 @RequestParam("file") MultipartFile file,HttpSession session){
@@ -116,5 +134,33 @@ public class ResumeController {
         } 
 		
 		return "jianli";
+	}
+	
+	@RequestMapping(value="resumesend")
+	public String resumeSend(@RequestParam("resumeName") int resumenum) throws ServletException,
+	IOException {
+		Properties props = System.getProperties();
+		props.put("mail.smtp.host", "smtp.163.com");
+		props.put("mail.smtp.auth", "true");
+		Session session = Session.getInstance(props, new Authenticator() {
+			public PasswordAuthentication getPasswordAuthentication() { /* 鑻ユ湇鍔″櫒闇�瑕佽韩浠借璇侊紝Sission浼氳嚜鍔ㄨ皟鐢ㄨ繖涓柟娉� */
+				return new PasswordAuthentication("he2510211460@163.com", "123456he");
+			}
+		});
+		Message msg = new MimeMessage(session);
+		try {
+			msg.setFrom(new InternetAddress("he2510211460@163.com"));
+			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("a15733125218@163.com"));
+			msg.setSubject("aa test");
+			msg.setText("hahahha");
+			msg.setHeader("X-Mailer", "smtpsend");
+			msg.setSentDate(new Date());
+			Transport.send(msg);
+			System.out.println("send Ok"+resumenum);
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "jobdetail";
 	}
 }
