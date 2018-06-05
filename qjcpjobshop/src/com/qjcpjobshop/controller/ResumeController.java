@@ -5,11 +5,16 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.annotation.Resource;
 import javax.mail.Authenticator;
+import javax.mail.BodyPart;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.NoSuchProviderException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
@@ -17,7 +22,9 @@ import javax.mail.Store;
 import javax.mail.Transport;
 import javax.mail.URLName;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -149,14 +156,52 @@ public class ResumeController {
 		});
 		Message msg = new MimeMessage(session);
 		try {
-			msg.setFrom(new InternetAddress("he2510211460@163.com"));
-			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("a15733125218@163.com"));
-			msg.setSubject("aa test");
-			msg.setText("hahahha");
-			msg.setHeader("X-Mailer", "smtpsend");
-			msg.setSentDate(new Date());
-			Transport.send(msg);
-			System.out.println("send Ok"+resumenum);
+//			msg.setFrom(new InternetAddress("he2510211460@163.com"));
+//			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("2510211460@qq.com"));
+//			msg.setSubject("来自Kris的警告");
+//			msg.setContent("<h1>说好的请我吃麻辣烫呢，都多长时间了，是不是想死了</h1>","text/html");
+//			msg.setHeader("X-Mailer", "smtpsend");
+//			msg.setSentDate(new Date());
+//			Transport.send(msg);
+//			System.out.println("send Ok"+resumenum);
+			 // 创建默认的 MimeMessage 对象。
+	         MimeMessage message = new MimeMessage(session);
+	 
+	         // Set From: 头部头字段
+	         message.setFrom(new InternetAddress("he2510211460@163.com"));
+	 
+	         // Set To: 头部头字段
+	         message.addRecipient(Message.RecipientType.TO,new InternetAddress("2510211460@qq.com"));
+	 
+	         // Set Subject: 头字段
+	         message.setSubject("This is the Subject Line!");
+	 
+	         // 创建消息部分
+	         BodyPart messageBodyPart = new MimeBodyPart();
+	 
+	         // 消息
+	         messageBodyPart.setText("This is message body");
+	        
+	         // 创建多重消息
+	         Multipart multipart = new MimeMultipart();
+	 
+	         // 设置文本消息部分
+	         multipart.addBodyPart(messageBodyPart);
+	 
+	         // 附件部分
+	         messageBodyPart = new MimeBodyPart();
+	         String filename = "C:/Users/acer/Desktop/qwe.jpg";
+	         DataSource source = new FileDataSource(filename);
+	         messageBodyPart.setDataHandler(new DataHandler(source));
+	         messageBodyPart.setFileName(filename);
+	         multipart.addBodyPart(messageBodyPart);
+	 
+	         // 发送完整消息
+	         message.setContent(multipart );
+	 
+	         //   发送消息
+	         Transport.send(message);
+	         System.out.println("Sent message successfully....");
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
