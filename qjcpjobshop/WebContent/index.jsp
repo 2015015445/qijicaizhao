@@ -669,7 +669,7 @@ var youdao_conv_id = 271546;
 		            	<li class="clearfix">
 		            	<div class="hot_pos_l">
 			                <div class="mb10">
-			                    <a href="h/jobs/147822.html" target="_blank">${p.name }</a> 
+			                    <a href="${ctx }/position/jobdetail?id=${p.id}" target="_blank">${p.name }</a> 
 			                            &nbsp;
 			                    <span class="c9">[${p.city }]</span>
 			                            			                        </div>
@@ -722,7 +722,7 @@ var youdao_conv_id = 271546;
 		            	<li class="clearfix">
 		            	<div class="hot_pos_l">
 			                <div class="mb10">
-			                    <a href="h/jobs/147822.html" target="_blank">${p.name }</a> 
+			                    <a href="${ctx }/position/jobdetail?id=${p.id}" target="_blank">${p.name }</a> 
 			                            &nbsp;
 			                    <span class="c9">[${p.city }]</span>
 			                            			                        </div>
@@ -775,7 +775,7 @@ var youdao_conv_id = 271546;
 		            	<li class="clearfix">
 		            	<div class="hot_pos_l">
 			                <div class="mb10">
-			                    <a href="h/jobs/147822.html" target="_blank">${p.name }</a> 
+			                    <a href="${ctx }/position/jobdetail?id=${p.id}" target="_blank">${p.name }</a> 
 			                            &nbsp;
 			                    <span class="c9">[${p.city }]</span>
 			                            			                        </div>

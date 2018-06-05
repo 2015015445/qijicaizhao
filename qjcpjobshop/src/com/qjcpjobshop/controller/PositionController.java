@@ -188,5 +188,11 @@ public class PositionController extends HttpServlet {
 		return "index";
 	}
 	
+	@RequestMapping("jobdetail")
+	public String jobDetail(@RequestParam("id") String id, HttpSession session) {
+		Position p = this.positionService.findJobDetail(id);
+		session.setAttribute("jobdetail", p);
+		return "jobdetail";
+	}
 	
 }

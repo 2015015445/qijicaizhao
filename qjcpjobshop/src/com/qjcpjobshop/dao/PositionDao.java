@@ -125,4 +125,9 @@ public class PositionDao {
 			return null;
 		}
 	}
+	
+	public Position findJobDetail(String id) {
+		Query query = this.sessionFactory.getCurrentSession().createQuery("from Position p where p.id ='"+id+"'");
+		return (Position) query.uniqueResult();
+	}
 }

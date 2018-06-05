@@ -34,4 +34,8 @@ public class PositionService {
 	public Page searchPositionByType(int num, int size, String name) {
 		return positionDao.searchPositionByType(num, size, name);
 	}
+	
+	public Position findJobDetail(String id) {
+		return positionDao.findJobDetail(id);
+	}
 }
