@@ -83,12 +83,15 @@ public class UserController {
 			if(u.getPassword().equals(password)){
 				session.setAttribute("id", name);
 				session.setAttribute("user", u);
+
 				Cookie cookie = new Cookie(name,password);
 				session.setAttribute("cookie", cookie);
 				model.addAttribute("email", cookie.getName());
 				return "index1";
+			}else{
+				return "redirect:/position/index?pageNum=1";
+
 			}
-			return "loginfail";
 		}else{
 			
 			return "loginfail";

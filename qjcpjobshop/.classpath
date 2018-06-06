@@ -59,5 +59,7 @@
 	<classpathentry kind="lib" path="D:/Java/javawenjian/qijicaizhao/qjcpjobshop/WebContent/WEB-INF/lib/spring-webmvc-4.3.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="D:/Java/javawenjian/qijicaizhao/qjcpjobshop/WebContent/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="lib" path="D:/Java/javawenjian/qijicaizhao/qjcpjobshop/WebContent/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

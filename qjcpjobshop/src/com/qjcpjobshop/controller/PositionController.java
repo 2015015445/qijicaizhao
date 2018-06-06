@@ -1,6 +1,8 @@
 package com.qjcpjobshop.controller;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.qjcpjobshop.entity.Page1;
 import com.qjcpjobshop.entity.Position;
 import com.qjcpjobshop.entity.Userfindjob;
 import com.qjcpjobshop.service.PositionService;
@@ -57,7 +60,7 @@ public class PositionController extends HttpServlet {
 //			JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, 
 //			null, options, options[0]);
 			
-			return "index";
+			return "redirect:/position/index?pageNum=1";
 		}catch(Exception e){
 			e.printStackTrace();
 			
@@ -70,4 +73,126 @@ public class PositionController extends HttpServlet {
 		}
 		
 	}
+	
+	@RequestMapping(value="/index")
+	public String findPositionByPage(@RequestParam("pageNum") int num, HttpSession session){
+		session.removeAttribute("searchpositionpage");
+		session.removeAttribute("positionpage");
+		session.removeAttribute("searchpositiontypepage");
+		Page1 p = this.positionService.findPositionByPage(num, 12);
+		
+		if(p != null) {
+			session.setAttribute("positionpage", p);
+			List li = p.getList();
+			Iterator i = li.iterator();
+			while(i.hasNext()){
+				Position pos = (Position) i.next();
+				System.out.println(pos.getType());
+			}
+		}
+		
+		return "index";
+	}
+	
+//	@RequestMapping(value="/search", method=RequestMethod.POST)
+//	public String searchPositions(@RequestParam("kd") String name, HttpSession session){
+//			Page p = this.positionService.searchPosition(1, 12,name);
+//		
+//		session.setAttribute("positionpage", p);
+//		return "index";
+//	}
+	
+	@RequestMapping(value="/search")
+	public String searchPosition(@RequestParam("kd") String name, HttpSession session){
+		session.removeAttribute("positionpage");
+		session.removeAttribute("searchpositionpage");
+		session.removeAttribute("searchpositiontypepage");
+		Page1 p = this.positionService.searchPosition(1, 12,name);
+		
+
+		if(p != null) {
+			List li = p.getList();
+			Iterator i = li.iterator();
+			while(i.hasNext()){
+				Position pos = (Position) i.next();
+				System.out.println(pos.getType());
+			}
+			System.out.println("positionpage的页数为："+p.getTotalCount());
+			session.setAttribute("searchpositionpage", p);
+			session.setAttribute("searchname", name);
+		}
+		
+		return "index";
+	}
+	
+	@RequestMapping(value="/searchpage")
+	public String searchPositionPage(@RequestParam("kd") String name,  @RequestParam("pageNum") int num, HttpSession session){
+		session.removeAttribute("positionpage");
+		session.removeAttribute("searchpositionpage");
+		session.removeAttribute("searchpositiontypepage");
+		Page1 p = this.positionService.searchPosition(num, 12,name);
+		
+		if(p != null) {
+			session.setAttribute("searchpositionpage", p);
+			List li = p.getList();
+			Iterator i = li.iterator();
+			while(i.hasNext()){
+				Position pos = (Position) i.next();
+				System.out.println(pos.getType());
+			}
+		}
+		
+		session.setAttribute("searchname", name);
+		return "index";
+	}
+	
+	@RequestMapping(value="/searchtype", method=RequestMethod.GET)
+	public String searchPositionType(@RequestParam("kd") String name, HttpSession session){
+		session.removeAttribute("searchpositionpage");
+		session.removeAttribute("positionpage");
+		session.removeAttribute("searchpositiontypepage");
+		Page1 p = this.positionService.searchPositionByType(1, 12,name);
+		
+		if(p != null) {
+			session.setAttribute("searchpositiontypepage", p);
+			session.setAttribute("searchname", name);
+			List li = p.getList();
+			Iterator i = li.iterator();
+			while(i.hasNext()){
+				Position pos = (Position) i.next();
+				System.out.println(pos.getType());
+			}
+		}
+		
+		return "index";
+	}
+	
+	@RequestMapping(value="/searchtypepage", method=RequestMethod.GET)
+	public String searchPositionTypePage(@RequestParam("kd") String name, @RequestParam("pageNum") int num, HttpSession session){
+		session.removeAttribute("searchpositionpage");
+		session.removeAttribute("searchpositiontypepage");
+		session.removeAttribute("positionpage");
+		Page1 p = this.positionService.searchPositionByType(num, 12,name);
+		
+		if(p != null) {
+			session.setAttribute("searchpositiontypepage", p);
+			List li = p.getList();
+			Iterator i = li.iterator();
+			while(i.hasNext()){
+				Position pos = (Position) i.next();
+				System.out.println(pos.getType());
+			}
+		}
+		
+		session.setAttribute("searchname", name);
+		return "index";
+	}
+	
+	@RequestMapping("jobdetail")
+	public String jobDetail(@RequestParam("id") String id, HttpSession session) {
+		Position p = this.positionService.findJobDetail(id);
+		session.setAttribute("jobdetail", p);
+		return "jobdetail";
+	}
+	
 }

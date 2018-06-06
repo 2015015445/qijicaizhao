@@ -3,6 +3,7 @@ package com.qjcpjobshop.entity;
 import java.util.List;
 
 public class Page<T> {
+	
 	private List<T> list;
 	private int pageSize;
 	private int prePageNum;
