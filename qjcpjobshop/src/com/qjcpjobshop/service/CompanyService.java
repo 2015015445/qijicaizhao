@@ -31,4 +31,8 @@ public class CompanyService {
 	public List<Company> findCompanyByPage(int pageNum, int pageSize){
 		return companyDao.findCompanyByPage(pageNum, pageSize);
 	}
+	
+	public List<Company> findCompanyByField(int pageNum, int pageSize,String field){
+		return companyDao.findCompanyByField(pageNum,pageSize,field);
+	}
 }

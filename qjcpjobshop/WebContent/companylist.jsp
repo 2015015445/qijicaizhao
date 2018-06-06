@@ -223,40 +223,40 @@ var youdao_conv_id = 271546;
 	                            <dt>发展阶段：</dt>
 	                            <dd>
 	                            			                            			                                <a href="javascript:void(0)">初创型</a>
-		                                	                                		                            			                                <a href="javascript:void(0)">成长型</a>
-		                                	                                		                            			                                <a href="javascript:void(0)">成熟型</a>
-		                                	                                		                            			                                <a href="javascript:void(0)">已上市</a>
+		                                	                                		                            	<a href="javascript:void(0)">成长型</a>
+		                                	                                		                            	<a href="javascript:void(0)">成熟型</a>
+		                                	                                		                            	<a href="javascript:void(0)">已上市</a>
 		                                	                                	                            </dd>
 	                        </dl>
 	                        <dl>
 	                            <dt>行业领域：</dt>
 	                            <dd>
-	                                	                                			                                <a href="javascript:void(0)">移动互联网</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">电子商务</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">社交</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">企业服务</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">O2O</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">教育</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">文化艺术</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">游戏</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">在线旅游</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">金融互联网</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">健康医疗</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">生活服务</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">硬件</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">搜索</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">安全</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">运动体育</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">云计算\大数据</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">移动广告</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">社会化营销</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">视频多媒体</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">媒体</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">智能家居</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">智能电视</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">分类信息</a>
-		                                	                                	                                			                                <a href="javascript:void(0)">招聘</a>
-		                                	                                	                            </dd>
+           			                                <a href="${ctx}/company/findcompanybyfield?field=移动互联网">移动互联网</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=电子商务">电子商务</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=社交">社交</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=企业服务">企业服务</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=O2O">O2O</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=教育">教育</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=移动互联网"文化艺术>文化艺术</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=游戏">游戏</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=在线旅游">在线旅游</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=金融互联网">金融互联网</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=健康医疗">健康医疗</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=生活服务">生活服务</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=硬件">硬件</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=搜索">搜索</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=安全">安全</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=运动体育">运动体育</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=云计算大数据">云计算\大数据</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=移动广告">移动广告</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=社会化营销">社会化营销</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=视频多媒体">视频多媒体</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=媒体">媒体</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=智能家居">智能家居</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=智能电视">智能电视</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=分类信息">分类信息</a>
+            	                                	<a href="${ctx}/company/findcompanybyfield?field=招聘">招聘</a>
+            	                            </dd>
 	                        </dl>
 	                        <!-- <dl>
 	                            <dt>热门标签：</dt>
