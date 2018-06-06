@@ -31,11 +31,11 @@ public class PositionController extends HttpServlet {
 	public String addPosition1(@RequestParam("id") String id, @RequestParam(value="type",required=false) String type,@RequestParam("name") String name,@RequestParam("minSalary") String minSalary,@RequestParam("maxSalary") String maxSalary,@RequestParam("city") String city,@RequestParam(value="experience",required=false) String experience,@RequestParam(value="degree",required=false) String degree,@RequestParam("tempation") String tempation,@RequestParam(value="description",required=false) String description,@RequestParam(value="address",required=false) String address,@RequestParam(value="email",required=false) String email,@RequestParam(value="jobNature",required=false) String jobNature,HttpSession session){
 		try{
 			Position p = new Position();
-			int count = positionService.findCompanypositionCount(id)+1;
-			p.setId(id+count);
-			p.setType(type);
+//			int count = positionService.findCompanypositionCount(id)+1;
+			p.setId(id);
+//			p.setType(type);
 			
-			System.out.println("type"+type);
+//			System.out.println("type"+type);
 			
 			p.setJobNature(jobNature);
 			p.setEmail(email);

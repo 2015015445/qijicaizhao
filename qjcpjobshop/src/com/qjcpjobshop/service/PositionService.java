@@ -1,5 +1,7 @@
 package com.qjcpjobshop.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -20,5 +22,9 @@ public class PositionService {
 	public int findCompanypositionCount(String id){
 		int count = positionDao.findCompanypositionCount(id);
 		return count;
+	}
+	
+	public List<Position> findPositionByEmail(String email){
+		return positionDao.findPositionByEmail(email);
 	}
 }

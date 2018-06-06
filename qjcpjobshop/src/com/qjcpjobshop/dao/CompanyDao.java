@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
+import com.qjcpjobshop.entity.Company;
 import com.qjcpjobshop.entity.Position;
 
 @Repository
@@ -26,5 +27,41 @@ public class CompanyDao {
 		tran.commit();
 		session.close();
 		return querylist;
+	}
+	
+	public Company findCompanyByEmail(String email){
+		/*Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from Userfindjob where email ="+email);*/
+		
+		String hql = "from Company where email ='"+email+"'";
+		return (Company)sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
+		/*List<Position> querylist = query.list();
+		tran.commit();
+		session.close();
+		return querylist;*/
+	}
+	
+	public int findCompanyCount(){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from Company");
+		List<Position> querylist = query.list();
+		tran.commit();
+		session.close();
+		return querylist.size();
+	}
+	
+	public List<Company> findCompanyByPage(int pageNum, int pageSize){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="from Company";
+		Query query = session.createQuery(hql);
+		query.setFirstResult((pageNum-1)*pageSize);
+		query.setMaxResults(pageSize);
+		List<Company> list = query.list();
+		tran.commit();
+		session.close();
+		return list;
 	}
 }

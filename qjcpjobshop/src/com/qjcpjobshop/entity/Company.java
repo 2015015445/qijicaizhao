@@ -11,7 +11,6 @@ public class Company {
 	private int id;
 	private String email;
 	private String name;
-	private String fullname;
 	private String stageofdevelopment;
 	private String thefinancingstage;
 	private String industryfield;
@@ -73,14 +72,6 @@ public class Company {
 	}
 	public void setImage(String image) {
 		this.image = image;
-	}
-
-	public String getFullname() {
-		return fullname;
-	}
-
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
 	}
 
 	public String getBriefintroduction() {

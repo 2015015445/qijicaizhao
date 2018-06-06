@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="javax.servlet.http.Cookie"%>
+<%@page import="javax.servlet.http.HttpSession"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:wb="http://open.weibo.com/wb">
 <head>
-<script id="allmobilize" charset="utf-8" src="style/js/allmobilize.min.js"></script>
+<script id="allmobilize" charset="utf-8" src="${ctx}/style/js/allmobilize.min.js"></script>
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="alternate" media="handheld"  />
 <!-- end 云适配 -->
@@ -45,18 +47,40 @@ var youdao_conv_id = 271546;
     			<img src="${ctx}/style/images/logo.png" width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" />
     		</a>
     		<ul class="reset" id="navheader">
-    			<li ><a href="index.html">首页</a></li>
-    			<li class="current"><a href="companylist.html" >公司</a></li>
+    			<li ><a href="${ctx}/user/index">首页</a></li>
+    			<li class="current"><a href="${ctx}/company/findallcompany" >公司</a></li>
     			<li ><a href="htoForum.html" target="_blank">职业预测</a></li>
-    				    			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
-	    							<li ><a href="create.html" rel="nofollow">发布职位</a></li>
-	    		    		</ul>
-        	            <ul class="loginTop">
+    			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
+				<li ><a href="create.html" rel="nofollow">发布职位</a></li>
+	    	</ul>
+	    	<% 
+	    		Cookie cookie = (Cookie)session.getAttribute("cookie");
+	    		if(cookie!=null){
+	    	%>
+	    	
+	    		<dl class="collapsible_menu">
+            		<dt>
+           			<span>${email}&nbsp;</span> 
+            		<span class="red dn" id="noticeDot-1"></span>
+            		<i></i>
+            	</dt>
+                                	<dd style="display: none;"><a href="positions.html">我发布的职位</a></dd>
+                	<dd style="display: none;"><a href="positions.html">我收到的简历</a></dd>
+                	<dd class="btm" style="display: none;"><a href="myhome.html">我的公司主页</a></dd>
+                	<dd style="display: none;"><a href="jianli.html">我要找工作</a></dd>
+                                                <dd style="display: none;"><a href="accountBind.html">帐号设置</a></dd>
+                                <dd class="logout" style="display: none;"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
+            </dl>
+	    	
+	    	<%}else{ %>
+	    	<ul class="loginTop">
             	<li><a href="${ctx}/user/login1" rel="nofollow">登录</a></li>
             	<li>|</li>
             	<li><a href="${ctx}/user/regist1" rel="nofollow">注册</a></li>
             </ul>
-                                </div>
+	    	<%} %>
+            
+        </div>
     </div><!-- end #header -->
     <div id="container">
         
@@ -289,7 +313,7 @@ var youdao_conv_id = 271546;
 			                    </li> -->
 		                        <c:forEach items="${list}" var="p1">
 			                        <li >
-				                        <a href="${p1.url}" target="_blank">
+				                        <a href="${ctx}/company/companydetail?email=${p1.email}" target="_blank">
 				                        	<h3 title="${p1.name}">${p1.name}</h3>
 				                        	<div class="comLogo">
 					                        	<img src="${p1.image}" width="190" height="190" alt="${p1.name}" />
@@ -304,12 +328,22 @@ var youdao_conv_id = 271546;
 			                      		<ul class="reset ctags">
 		                        			<li>${p1.thefinancingstage}</li>
    				                        	<li>${p1.industryfield}</li>
+   				                        	<li style="white-space: pre-wrap">${p1.briefintroduction}</li>
 				                        </ul>
 				                    </li>
 				                </c:forEach>
 		                </ul>
-		                
-              			<div class="Pagination"></div>
+              			<!-- <div class="Pagination"></div> -->
+              			<div class="Pagination myself">
+	              			<a href="${ctx}/company/findallcompany?pageNum=1">首页</a>
+	              			<a href="${ctx}/company/findallcompany?pageNum=${page.prePageNum }">上一页 </a>
+	              			<c:forEach items="${pagelist1}" var="p2">
+	              				<a href="${ctx}/company/findallcompany?pageNum=${p2}" title="${p2}">${p2}</a>
+	              			</c:forEach>
+	              			<a href="${ctx}/company/findallcompany?pageNum=${page.nextPageNum }">下一页 </a>
+	              			<a href="${ctx}/company/findallcompany?pageNum=${page.totalPageNum }">尾页</a>
+	              			<p>共 ${page.totalPageNum}页，当前第${page.currentPageNum}页</p>
+              			</div>
                   </form>
             </div>	
             <div class="content_r">
@@ -345,8 +379,8 @@ var youdao_conv_id = 271546;
    	
    	<input type="hidden" value="" name="userid" id="userid" />
       
-<script type="text/javascript" src="style/js/company_list.min.js"></script>
-<script>
+<script type="text/javascript" src="${ctx}/style/js/company_list.min.js"></script>
+<!-- <script>
 $(function(){
 	/*分页 */
  	 	 				 		$('.Pagination').pager({
@@ -357,7 +391,7 @@ $(function(){
 	      pageSize: 5
 	});	
 })
-</script>       	
+</script> -->       	
 			<div class="clear"></div>
 			<input type="hidden" id="resubmitToken" value="" />
 	    	<a id="backtop" title="回到顶部" rel="nofollow"></a>
@@ -373,8 +407,8 @@ $(function(){
 		</div>
 	</div>
 
-<script type="text/javascript" src="style/js/core.min.js"></script>
-<script type="text/javascript" src="style/js/popup.min.js"></script>
+<script type="text/javascript" src="${ctx}/style/js/core.min.js"></script>
+<script type="text/javascript" src="${ctx}/style/js/popup.min.js"></script>
 
 <!--  -->
 
