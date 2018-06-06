@@ -150,7 +150,7 @@ public class ResumeController {
 		props.put("mail.smtp.host", "smtp.163.com");
 		props.put("mail.smtp.auth", "true");
 		Session session = Session.getInstance(props, new Authenticator() {
-			public PasswordAuthentication getPasswordAuthentication() { /* 鑻ユ湇鍔″櫒闇�瑕佽韩浠借璇侊紝Sission浼氳嚜鍔ㄨ皟鐢ㄨ繖涓柟娉� */
+			public PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication("he2510211460@163.com", "123456he");
 			}
 		});

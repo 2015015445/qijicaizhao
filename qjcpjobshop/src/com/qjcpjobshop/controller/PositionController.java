@@ -1,6 +1,7 @@
 package com.qjcpjobshop.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -18,9 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.qjcpjobshop.entity.Company;
+import com.qjcpjobshop.entity.FoundingTeam;
 import com.qjcpjobshop.entity.Page1;
 import com.qjcpjobshop.entity.Position;
+import com.qjcpjobshop.entity.PositionAndCompany;
 import com.qjcpjobshop.entity.Userfindjob;
+import com.qjcpjobshop.service.CompanyService;
+import com.qjcpjobshop.service.FoundingTeamService;
 import com.qjcpjobshop.service.PositionService;
 import com.qjcpjobshop.service.UserService;
 
@@ -29,6 +35,12 @@ import com.qjcpjobshop.service.UserService;
 public class PositionController extends HttpServlet {
 	@Resource
 	private PositionService positionService;
+	
+	@Resource
+	private CompanyService companyService;
+	
+	@Resource
+	private FoundingTeamService foundingTeamService;
 	
 	@RequestMapping(value="/addposition1", method=RequestMethod.POST)
 	public String addPosition1(@RequestParam("id") String id, @RequestParam(value="type",required=false) String type,@RequestParam("name") String name,@RequestParam("minSalary") String minSalary,@RequestParam("maxSalary") String maxSalary,@RequestParam("city") String city,@RequestParam(value="experience",required=false) String experience,@RequestParam(value="degree",required=false) String degree,@RequestParam("tempation") String tempation,@RequestParam(value="description",required=false) String description,@RequestParam(value="address",required=false) String address,@RequestParam(value="email",required=false) String email,@RequestParam(value="jobNature",required=false) String jobNature,HttpSession session){
@@ -84,11 +96,15 @@ public class PositionController extends HttpServlet {
 		if(p != null) {
 			session.setAttribute("positionpage", p);
 			List li = p.getList();
+			List cpl = new ArrayList();
 			Iterator i = li.iterator();
 			while(i.hasNext()){
 				Position pos = (Position) i.next();
-				System.out.println(pos.getType());
+				String email = pos.getEmail();
+				Company cp = companyService.findCompanyByEmail(email);
+				cpl.add(cp);
 			}
+			session.setAttribute("company", cpl);
 		}
 		
 		return "index";
@@ -113,10 +129,14 @@ public class PositionController extends HttpServlet {
 		if(p != null) {
 			List li = p.getList();
 			Iterator i = li.iterator();
+			List cpl = new ArrayList();
 			while(i.hasNext()){
 				Position pos = (Position) i.next();
-				System.out.println(pos.getType());
+				String email = pos.getEmail();
+				Company cp = companyService.findCompanyByEmail(email);
+				cpl.add(cp);
 			}
+			session.setAttribute("company", cpl);
 			System.out.println("positionpage的页数为："+p.getTotalCount());
 			session.setAttribute("searchpositionpage", p);
 			session.setAttribute("searchname", name);
@@ -136,10 +156,14 @@ public class PositionController extends HttpServlet {
 			session.setAttribute("searchpositionpage", p);
 			List li = p.getList();
 			Iterator i = li.iterator();
+			List cpl = new ArrayList();
 			while(i.hasNext()){
 				Position pos = (Position) i.next();
-				System.out.println(pos.getType());
+				String email = pos.getEmail();
+				Company cp = companyService.findCompanyByEmail(email);
+				cpl.add(cp);
 			}
+			session.setAttribute("company", cpl);
 		}
 		
 		session.setAttribute("searchname", name);
@@ -158,10 +182,14 @@ public class PositionController extends HttpServlet {
 			session.setAttribute("searchname", name);
 			List li = p.getList();
 			Iterator i = li.iterator();
+			List cpl = new ArrayList();
 			while(i.hasNext()){
 				Position pos = (Position) i.next();
-				System.out.println(pos.getType());
+				String email = pos.getEmail();
+				Company cp = companyService.findCompanyByEmail(email);
+				cpl.add(cp);
 			}
+			session.setAttribute("company", cpl);
 		}
 		
 		return "index";
@@ -178,10 +206,14 @@ public class PositionController extends HttpServlet {
 			session.setAttribute("searchpositiontypepage", p);
 			List li = p.getList();
 			Iterator i = li.iterator();
+			List cpl = new ArrayList();
 			while(i.hasNext()){
 				Position pos = (Position) i.next();
-				System.out.println(pos.getType());
+				String email = pos.getEmail();
+				Company cp = companyService.findCompanyByEmail(email);
+				cpl.add(cp);
 			}
+			session.setAttribute("company", cpl);
 		}
 		
 		session.setAttribute("searchname", name);
@@ -191,6 +223,8 @@ public class PositionController extends HttpServlet {
 	@RequestMapping("jobdetail")
 	public String jobDetail(@RequestParam("id") String id, HttpSession session) {
 		Position p = this.positionService.findJobDetail(id);
+		Company company = companyService.findCompanyByEmail(p.getEmail());
+		session.setAttribute("jobdetailcompany", company);
 		session.setAttribute("jobdetail", p);
 		return "jobdetail";
 	}

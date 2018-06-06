@@ -665,7 +665,7 @@ var youdao_conv_id = 271546;
             <div id="hotList">
 	            <ul class="hot_pos reset">
 	            <c:if test="${positionpage != null }">
-	            	<c:forEach items="${positionpage.list }" var="p">
+	            	<c:forEach items="${positionpage.list }" var="p" varStatus="loop">
 		            	<li class="clearfix">
 		            	<div class="hot_pos_l">
 			                <div class="mb10">
@@ -683,12 +683,12 @@ var youdao_conv_id = 271546;
 			                    <!-- <a  class="wb">分享到微博</a> -->
 			                </div>
 			                <div class="hot_pos_r">
-			                    <div class="mb10 recompany"><a href="h/c/399.html" target="_blank">节操精选</a></div>
-			                        <span><em class="c7">领域：</em> 移动互联网</span>
+			                    <div class="mb10 recompany"><a href="${ctx}/company/companydetail?email=${company[loop.count-1].email }" target="_blank">${company[loop.count-1].name }</a></div>
+			                        <span><em class="c7">领域：</em> ${company[loop.count-1].industryfield }</span>
 			                        <span><em class="c7">创始人：</em>陈桦</span>
 			                        <br />
-			                        <span><em class="c7">阶段：</em> 初创型(天使轮)</span>
-			                        <span><em class="c7">规模：</em>少于15人</span>
+			                        <span><em class="c7">阶段：</em> ${company[loop.count-1].thefinancingstage }</span>
+			                        <span><em class="c7">规模：</em>${company[loop.count-1].scale }</span>
 			                        <ul class="companyTags reset">
 			                        	<li>移动互联网</li>
 			                        	<li>五险一金</li>
@@ -718,7 +718,7 @@ var youdao_conv_id = 271546;
 		            </c:if>
 		        </c:if>
 		        <c:if test="${searchpositionpage != null }">
-	            	<c:forEach items="${searchpositionpage.list }" var="p">
+	            	<c:forEach items="${searchpositionpage.list }" var="p" varStatus="loop">
 		            	<li class="clearfix">
 		            	<div class="hot_pos_l">
 			                <div class="mb10">
@@ -736,12 +736,12 @@ var youdao_conv_id = 271546;
 			                    <!-- <a  class="wb">分享到微博</a> -->
 			                </div>
 			                <div class="hot_pos_r">
-			                    <div class="mb10 recompany"><a href="h/c/399.html" target="_blank">节操精选</a></div>
-			                        <span><em class="c7">领域：</em> 移动互联网</span>
+			                    <div class="mb10 recompany"><a href="${ctx}/company/companydetail?email=${company[loop.count-1].email }" target="_blank">${company[loop.count-1].name }</a></div>
+			                        <span><em class="c7">领域：</em> ${company[loop.count-1].industryfield }</span>
 			                        <span><em class="c7">创始人：</em>陈桦</span>
 			                        <br />
-			                        <span><em class="c7">阶段：</em> 初创型(天使轮)</span>
-			                        <span><em class="c7">规模：</em>少于15人</span>
+			                        <span><em class="c7">阶段：</em> ${company[loop.count-1].thefinancingstage }</span>
+			                        <span><em class="c7">规模：</em>${company[loop.count-1].scale }</span>
 			                        <ul class="companyTags reset">
 			                        	<li>移动互联网</li>
 			                        	<li>五险一金</li>
@@ -771,7 +771,7 @@ var youdao_conv_id = 271546;
 		            
 		        </c:if>
 		        <c:if test="${searchpositiontypepage != null }">
-	            	<c:forEach items="${searchpositiontypepage.list }" var="p">
+	            	<c:forEach items="${searchpositiontypepage.list }" var="p" varStatus="loop">
 		            	<li class="clearfix">
 		            	<div class="hot_pos_l">
 			                <div class="mb10">
@@ -789,12 +789,12 @@ var youdao_conv_id = 271546;
 			                    <!-- <a  class="wb">分享到微博</a> -->
 			                </div>
 			                <div class="hot_pos_r">
-			                    <div class="mb10 recompany"><a href="h/c/399.html" target="_blank">节操精选</a></div>
-			                        <span><em class="c7">领域：</em> 移动互联网</span>
+			                    <div class="mb10 recompany"><a href="${ctx}/company/companydetail?email=${company[loop.count-1].email }" target="_blank">${company[loop.count-1].name }</a></div>
+			                        <span><em class="c7">领域：</em> ${company[loop.count-1].industryfield }</span>
 			                        <span><em class="c7">创始人：</em>陈桦</span>
 			                        <br />
-			                        <span><em class="c7">阶段：</em> 初创型(天使轮)</span>
-			                        <span><em class="c7">规模：</em>少于15人</span>
+			                        <span><em class="c7">阶段：</em> ${company[loop.count-1].thefinancingstage }</span>
+			                        <span><em class="c7">规模：</em>${company[loop.count-1].scale }</span>
 			                        <ul class="companyTags reset">
 			                        	<li>移动互联网</li>
 			                        	<li>五险一金</li>

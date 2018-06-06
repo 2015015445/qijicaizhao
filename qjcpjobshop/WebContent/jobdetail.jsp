@@ -87,7 +87,7 @@ $('desc').html(areaContent)
                     <dt>
                         <h1 title="内容运营">
                             <em></em>
-                                                        	<div>立方网运营部招聘</div>
+                                                        	<div>${jobdetailcompany.name }${jobdetail.department }招聘</div>
                            	                           	${jobdetail.name }
                         </h1>
                         
@@ -140,10 +140,10 @@ $('desc').html(areaContent)
                 <dl class="job_company">
                     <dt>
                     	<a href="h/c/683.html" target="_blank">
-                            <img class="b2" src="style/images/ff80808140ac5ed90140b953972e0215.png" width="80" height="80" alt="北京立方网信息技术有限公司" />
+                            <img class="b2" src="https://www.lgstatic.com/thumbnail_300x300/i/image2/M00/2A/33/CgotOVooq-OAKqXDAAAsWtz2brk407.png" width="80" height="80" alt="${jobdetailcompany.name }" />
                             <div>
                                 <h2 class="fl">
-                                	                                  		立方网
+                                	                                  		${jobdetailcompany.name }
                                   	                                  	
                                   	                                    	<img src="style/images/valid.png" width="15" height="19" alt="奇迹才聘认证企业" /> 
                                     	<span class="dn">奇迹才聘认证企业</span>
@@ -154,8 +154,8 @@ $('desc').html(areaContent)
                     </dt>
                     <dd>
                     	<ul class="c_feature reset">
-                        	<li><span>领域</span> 移动互联网,游戏</li>
-                        	<li><span>规模</span> 50-150人</li>
+                        	<li><span>领域</span> ${jobdetailcompany.industryfield }</li>
+                        	<li><span>规模</span> ${jobdetailcompany.scale }</li>
                         	<li>
                         		<span>主页</span> 
                         		           							<a href="http://L99.com" target="_blank" title="http://L99.com" rel="nofollow">http://L99.com</a>
@@ -164,7 +164,7 @@ $('desc').html(areaContent)
                         
                         <h4>发展阶段</h4>
                         <ul class="c_feature reset">
-                        	<li><span>目前阶段</span> A轮</li>
+                        	<li><span>目前阶段</span> ${jobdetailcompany.thefinancingstage }</li>
                         	                        	<li><span>投资机构</span> IDG(A轮)，腾讯(A轮)</li>
                         	                        </ul>
                         
