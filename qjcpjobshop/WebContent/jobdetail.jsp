@@ -87,7 +87,7 @@ $('desc').html(areaContent)
                     <dt>
                         <h1 title="内容运营">
                             <em></em>
-                                                        	<div>${jobdetailcompany.name }${jobdetail.department }招聘</div>
+                                                        	<div>${jobdetailcompany.name }招聘</div>
                            	                           	${jobdetail.name }
                         </h1>
                         

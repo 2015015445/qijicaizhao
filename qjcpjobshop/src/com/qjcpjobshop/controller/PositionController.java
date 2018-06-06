@@ -105,6 +105,9 @@ public class PositionController extends HttpServlet {
 				cpl.add(cp);
 			}
 			session.setAttribute("company", cpl);
+			if(session.getAttribute("email") == null) {
+				session.setAttribute("email", "123");
+			}
 		}
 		
 		return "index";

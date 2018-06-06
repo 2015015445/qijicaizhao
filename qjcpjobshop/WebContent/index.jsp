@@ -683,7 +683,7 @@ var youdao_conv_id = 271546;
 			                    <!-- <a  class="wb">分享到微博</a> -->
 			                </div>
 			                <div class="hot_pos_r">
-			                    <div class="mb10 recompany"><a href="${ctx}/company/companydetail?email=${company[loop.count-1].email }" target="_blank">${company[loop.count-1].name }</a></div>
+			                    <div class="mb10 recompany"><a href="${ctx}/company/companydetail?email=${company[loop.count-1].email }&id1=${email}" target="_blank">${company[loop.count-1].name }</a></div>
 			                        <span><em class="c7">领域：</em> ${company[loop.count-1].industryfield }</span>
 			                        <span><em class="c7">创始人：</em>陈桦</span>
 			                        <br />
@@ -736,7 +736,7 @@ var youdao_conv_id = 271546;
 			                    <!-- <a  class="wb">分享到微博</a> -->
 			                </div>
 			                <div class="hot_pos_r">
-			                    <div class="mb10 recompany"><a href="${ctx}/company/companydetail?email=${company[loop.count-1].email }" target="_blank">${company[loop.count-1].name }</a></div>
+			                    <div class="mb10 recompany"><a href="${ctx}/company/companydetail?email=${company[loop.count-1].email }&id1=${email}" target="_blank">${company[loop.count-1].name }</a></div>
 			                        <span><em class="c7">领域：</em> ${company[loop.count-1].industryfield }</span>
 			                        <span><em class="c7">创始人：</em>陈桦</span>
 			                        <br />
@@ -789,7 +789,7 @@ var youdao_conv_id = 271546;
 			                    <!-- <a  class="wb">分享到微博</a> -->
 			                </div>
 			                <div class="hot_pos_r">
-			                    <div class="mb10 recompany"><a href="${ctx}/company/companydetail?email=${company[loop.count-1].email }" target="_blank">${company[loop.count-1].name }</a></div>
+			                    <div class="mb10 recompany"><a href="${ctx}/company/companydetail?email=${company[loop.count-1].email }&id1=${email}" target="_blank">${company[loop.count-1].name }</a></div>
 			                        <span><em class="c7">领域：</em> ${company[loop.count-1].industryfield }</span>
 			                        <span><em class="c7">创始人：</em>陈桦</span>
 			                        <br />
