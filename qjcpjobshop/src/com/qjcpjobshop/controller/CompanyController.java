@@ -83,7 +83,7 @@ public class CompanyController {
 	}
 	
 	@RequestMapping(value="/companydetail", method=RequestMethod.GET)
-	public String companydetail(Model model,@RequestParam("email") String email){
+	public String companydetail(Model model,@RequestParam("email") String email,@RequestParam("id1") String id1){
 		Company c = companyService.findCompanyByEmail(email);
 		List<CompanyProduct> companyproductlist = companyProductService.findCompanyProductByEmail(email);
 		List<FoundingTeam> foundingteamlist = foundingTeamService.findCompanyProductByEmail(email);
@@ -92,6 +92,7 @@ public class CompanyController {
 		model.addAttribute("productlist",companyproductlist);
 		model.addAttribute("foundingteamlist",foundingteamlist );
 		model.addAttribute("positionlist",positionlist);
+		model.addAttribute("id1", id1);
 //		for(CompanyProduct pruduct:companyproductlist){
 //			System.out.println(pruduct.getImage());
 //		}

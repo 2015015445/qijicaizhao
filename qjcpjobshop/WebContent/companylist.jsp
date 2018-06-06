@@ -313,7 +313,7 @@ var youdao_conv_id = 271546;
 			                    </li> -->
 		                        <c:forEach items="${list}" var="p1">
 			                        <li >
-				                        <a href="${ctx}/company/companydetail?email=${p1.email}" target="_blank">
+				                        <a href="${ctx}/company/companydetail?email=${p1.email}&&id1=${email}" target="_blank">
 				                        	<h3 title="${p1.name}">${p1.name}</h3>
 				                        	<div class="comLogo">
 					                        	<img src="${p1.image}" width="190" height="190" alt="${p1.name}" />

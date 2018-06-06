@@ -54,7 +54,7 @@ var youdao_conv_id = 271546;
 	    		    		</ul>
         	        	<dl class="collapsible_menu">
             	<dt>
-           			<span>${company.email}&nbsp;</span> 
+           			<span>${id1}&nbsp;</span> 
             		<span class="red dn" id="noticeDot-1"></span>
             		<i></i>
             	</dt>
