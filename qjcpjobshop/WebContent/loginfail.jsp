@@ -16,10 +16,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="alternate" media="handheld"  />
 <!-- end 云适配 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>注册-拉勾网-最专业的互联网招聘平台</title>
+<title>注册-奇迹才聘网-最专业的互联网招聘平台</title>
 <meta property="qc:admins" content="23635710066417756375" />
-<meta content="拉勾网是3W旗下的互联网领域垂直招聘网站,互联网职业机会尽在拉勾网" name="description">
-<meta content="拉勾,拉勾网,拉勾招聘,拉钩, 拉钩网 ,互联网招聘,拉勾互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 拉勾官网, 拉勾百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招" name="keywords">
+<meta content="奇迹才聘网是3W旗下的互联网领域垂直招聘网站,互联网职业机会尽在奇迹才聘网" name="description">
+<meta content="奇迹才聘,奇迹才聘网,奇迹才聘招聘,奇迹才聘, 奇迹才聘网 ,互联网招聘,奇迹才聘互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 奇迹才聘官网, 奇迹才聘百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招" name="keywords">
 
 <meta name="baidu-site-verification" content="QIQ6KC1oZ6" />
 
@@ -46,7 +46,7 @@ var youdao_conv_id = 271546;
 <body id="login_bg">
 	<div class="login_wrapper">
 		<div class="login_header">
-        	<a href="h/"><img src="${ctx}/style/images/logo_white.png" width="285" height="62" alt="拉勾招聘" /></a>
+        	<a href="h/"><img src="${ctx}/style/images/logo_white.png" width="285" height="62" alt="奇迹才聘招聘" /></a>
             <div id="cloud_s"><img src="${ctx}/style/images/cloud_s.png" width="81" height="52" alt="cloud" /></div>
             <div id="cloud_m"><img src="${ctx}/style/images/cloud_m.png" width="136" height="95"  alt="cloud" /></div>
         </div>
@@ -62,7 +62,7 @@ var youdao_conv_id = 271546;
                 <input type="hidden" id="timestamp" name="timestamp" value=""/>
             </form>
             <div class="login_right">
-            	<div>已有拉勾帐号</div>
+            	<div>已有奇迹才聘帐号</div>
             	<a  href="${ctx}/user/login1"  class="registor_now">重新登录</a>
                 <div class="login_others">使用以下帐号直接登录:</div>
                 <a  href="h/ologin/auth/sina.html"  target="_blank" class="icon_wb" title="使用新浪微博帐号登录"></a>
@@ -100,7 +100,7 @@ var youdao_conv_id = 271546;
 			    	},
 			    	messages: {
 			    		type:{
-	    	        		required:"请选择使用拉勾的目的"
+	    	        		required:"请选择使用奇迹才聘的目的"
 	    	        	},
 			    	 	email: {
 			    	    	required: "请输入常用邮箱地址",
@@ -111,7 +111,7 @@ var youdao_conv_id = 271546;
 			    	    	rangelength: "请输入6-16位密码，字母区分大小写"
 			    	   	},
 			    	   	checkbox: {
-			    	    	required: "请接受拉勾用户协议"
+			    	    	required: "请接受奇迹才聘用户协议"
 			    	   	}
 			    	},
 			    	errorPlacement:function(label, element){/* 
