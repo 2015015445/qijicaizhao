@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -195,4 +196,10 @@ public class PositionController extends HttpServlet {
 		return "jobdetail";
 	}
 	
+	@RequestMapping(value="/create", method=RequestMethod.GET)
+	public String Create(@RequestParam("id") String id,Model model){
+		model.addAttribute("id", id);
+		System.out.println("PositionController中的id"+id);
+		return "create";
+	}
 }

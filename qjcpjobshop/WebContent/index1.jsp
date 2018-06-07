@@ -2058,8 +2058,8 @@ var youdao_conv_id = 271546;
 			                	<div class="hot_pos_r">
 			                    	<div class="mb10"><a href="h/c/8143.html" target="_blank">途家网</a></div>
 			                        <span><em class="c7">领域：</em> 移动互联网,O2O</span>
-			                        			                        <span><em class="c7">创始人：</em>罗军</span>
-			                        			                        <br />
+			                        <span><em class="c7">创始人：</em>罗军</span>
+			                        <br />
 			                        <span> <em class="c7">阶段： </em>成长型(B轮)</span>
 			                        <span> <em class="c7">规模：</em>500-2000人</span>
 			                        <ul class="companyTags reset">

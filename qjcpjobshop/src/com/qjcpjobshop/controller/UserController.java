@@ -87,13 +87,20 @@ public class UserController {
 				Cookie cookie = new Cookie(name,password);
 				session.setAttribute("cookie", cookie);
 				model.addAttribute("email", cookie.getName());
-				return "index1";
+				model.addAttribute("id", name);
+				return "index";
 			}else{
 				return "redirect:/position/index?pageNum=1";
-
 			}
 		}else{
-			
+			Usercompany company = userService.findByCompanyName(name);
+			if(company.getPassword().equals(password)){
+				Cookie cookie = new Cookie(name,password);
+				session.setAttribute("cookie", cookie);
+				model.addAttribute("email", cookie.getName());
+				session.setAttribute("button", true);
+				return "index";
+			}
 			return "loginfail";
 		}
 	}
@@ -104,19 +111,18 @@ public class UserController {
 	
 	@RequestMapping(value="/index")
 	public String index(HttpSession session,Model model){
-		if(session.getAttribute("cookie")!=null){
 			Cookie cookie = (Cookie) session.getAttribute("cookie");
 			model.addAttribute("email", cookie.getName());
-			return "index1";
-		}else{
+			System.out.println("cookie的getName（）"+cookie.getName());
+			
 			return "index";
-		}
 	}
 	
 	@RequestMapping(value="/signout")
 	public String signOut(HttpSession session,Model model){
 		session.setAttribute("cookie",null);
 		model.addAttribute("email", null);
+		session.setAttribute("button", null);
 		
 		return "index";
 	}

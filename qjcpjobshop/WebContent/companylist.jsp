@@ -96,39 +96,39 @@ var youdao_conv_id = 271546;
 	                       <!--  <h2 class="fl">热门公司</h2> -->
 	                        <ul class="workplace reset fr" id="workplaceSelect">
 	                        	                                <li >
-                                	<a href="javascript:void(0)"  class="current" >全国</a> 
+                                	<a href="${ctx}/company/findallcompany" >全国</a> 
                                 	                                	|
                                 	                                </li>
 	                                                            <li >
-                                	<a href="javascript:void(0)" >北京</a> 
+                                	<a href="${ctx}/company/findcompanybylocation?field=北京" >北京</a> 
                                 	                                	|
                                 	                                </li>
 	                                                            <li >
-                                	<a href="javascript:void(0)" >上海</a> 
+                                	<a href="${ctx}/company/findcompanybylocation?field=上海" >上海</a> 
                                 	                                	|
                                 	                                </li>
 	                                                            <li >
-                                	<a href="javascript:void(0)" >广州</a> 
+                                	<a href="${ctx}/company/findcompanybylocation?field=广州" >广州</a> 
                                 	                                	|
                                 	                                </li>
 	                                                            <li >
-                                	<a href="javascript:void(0)" >深圳</a> 
+                                	<a href="${ctx}/company/findcompanybylocation?field=深圳" >深圳</a> 
                                 	                                	|
                                 	                                </li>
 	                                                            <li >
-                                	<a href="javascript:void(0)" >成都</a> 
+                                	<a href="${ctx}/company/findcompanybylocation?field=成都" >成都</a> 
                                 	                                	|
                                 	                                </li>
 	                                                            <li >
-                                	<a href="javascript:void(0)" >杭州</a> 
+                                	<a href="${ctx}/company/findcompanybylocation?field=杭州" >杭州</a> 
                                 	                                	|
                                 	                                </li>
 	                                                            <li >
-                                	<a href="javascript:void(0)" >武汉</a> 
+                                	<a href="${ctx}/company/findcompanybylocation?field=武汉" >武汉</a> 
                                 	                                	|
                                 	                                </li>
 	                                                            <li >
-                                	<a href="javascript:void(0)" >南京</a> 
+                                	<a href="${ctx}/company/findcompanybylocation?field=南京" >南京</a> 
                                 	                                	|
                                 	                                </li>
 	                                                            <li  class="more" >
@@ -141,78 +141,78 @@ var youdao_conv_id = 271546;
 						    								    										    							    										    		<dl>
 							    			<dt>ABCDEF</dt>
 							    			<dd>
-							     										     				<span>北京</span>
-							     										     				<span>长春</span>
-							     										     				<span>成都</span>
-							     										     				<span>重庆</span>
-							     										     				<span>长沙</span>
-							     										     				<span>常州</span>
-							     										     				<span>东莞</span>
-							     										     				<span>大连</span>
-							     										     				<span>佛山</span>
-							     										     				<span>福州</span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=北京" style="float:none;margin:0 0">北京</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=长春" style="float:none;margin:0 0">长春</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=成都" style="float:none;margin:0 0">成都</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=重庆" style="float:none;margin:0 0">重庆</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=长沙" style="float:none;margin:0 0">长沙</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=常州" style="float:none;margin:0 0">常州</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=东莞" style="float:none;margin:0 0">东莞</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=大连" style="float:none;margin:0 0">大连</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=佛山" style="float:none;margin:0 0">佛山</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=福州" style="float:none;margin:0 0">福州</a></span>
 							     										    			</dd>
 							    	  	</dl>
 							    	  								    							    										    		<dl>
 							    			<dt>GHIJ</dt>
 							    			<dd>
-							     										     				<span>贵阳</span>
-							     										     				<span>广州</span>
-							     										     				<span>哈尔滨</span>
-							     										     				<span>合肥</span>
-							     										     				<span>海口</span>
-							     										     				<span>杭州</span>
-							     										     				<span>惠州</span>
-							     										     				<span>金华</span>
-							     										     				<span>济南</span>
-							     										     				<span>嘉兴</span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=贵阳" style="float:none;margin:0 0">贵阳</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=广州" style="float:none;margin:0 0">广州</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=哈尔滨" style="float:none;margin:0 0">哈尔滨</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=合肥" style="float:none;margin:0 0">合肥</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=海口" style="float:none;margin:0 0">海口</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=杭州" style="float:none;margin:0 0">杭州</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=惠州" style="float:none;margin:0 0">惠州</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=金华" style="float:none;margin:0 0">金华</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=济南" style="float:none;margin:0 0">济南</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=嘉兴" style="float:none;margin:0 0">嘉兴</a></span>
 							     										    			</dd>
 							    	  	</dl>
 							    	  								    							    										    		<dl>
 							    			<dt>KLMN</dt>
 							    			<dd>
-							     										     				<span>昆明</span>
-							     										     				<span>廊坊</span>
-							     										     				<span>宁波</span>
-							     										     				<span>南昌</span>
-							     										     				<span>南京</span>
-							     										     				<span>南宁</span>
-							     										     				<span>南通</span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=昆明" style="float:none;margin:0 0">昆明</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=廊坊" style="float:none;margin:0 0">廊坊</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=宁波" style="float:none;margin:0 0">宁波</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=南昌" style="float:none;margin:0 0">南昌</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=南京" style="float:none;margin:0 0">南京</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=南宁" style="float:none;margin:0 0">南宁</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=南通" style="float:none;margin:0 0">南通</a></span>
 							     										    			</dd>
 							    	  	</dl>
 							    	  								    							    										    		<dl>
 							    			<dt>OPQR</dt>
 							    			<dd>
-							     										     				<span>青岛</span>
-							     										     				<span>泉州</span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=青岛" style="float:none;margin:0 0">青岛</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=泉州" style="float:none;margin:0 0">泉州</a></span>
 							     										    			</dd>
 							    	  	</dl>
 							    	  								    							    										    		<dl>
 							    			<dt>STUV</dt>
 							    			<dd>
-							     										     				<span>上海</span>
-							     										     				<span>石家庄</span>
-							     										     				<span>绍兴</span>
-							     										     				<span>沈阳</span>
-							     										     				<span>深圳</span>
-							     										     				<span>苏州</span>
-							     										     				<span>天津</span>
-							     										     				<span>太原</span>
-							     										     				<span>台州</span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=上海" style="float:none;margin:0 0">上海</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=石家庄" style="float:none;margin:0 0">石家庄</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=绍兴" style="float:none;margin:0 0">绍兴</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=沈阳" style="float:none;margin:0 0">沈阳</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=深圳" style="float:none;margin:0 0">深圳</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=苏州" style="float:none;margin:0 0">苏州</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=天津" style="float:none;margin:0 0">天津</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=太原" style="float:none;margin:0 0">太原</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=台州" style="float:none;margin:0 0">台州</a></span>
 							     										    			</dd>
 							    	  	</dl>
 							    	  								    							    										    		<dl>
 							    			<dt>WXYZ</dt>
 							    			<dd>
-							     										     				<span>武汉</span>
-							     										     				<span>无锡</span>
-							     										     				<span>温州</span>
-							     										     				<span>西安</span>
-							     										     				<span>厦门</span>
-							     										     				<span>烟台</span>
-							     										     				<span>珠海</span>
-							     										     				<span>中山</span>
-							     										     				<span>郑州</span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=武汉" style="float:none;margin:0 0">武汉</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=无锡" style="float:none;margin:0 0">无锡</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=温州" style="float:none;margin:0 0">温州</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=西安" style="float:none;margin:0 0">西安</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=厦门" style="float:none;margin:0 0">厦门</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=烟台" style="float:none;margin:0 0">烟台</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=珠海" style="float:none;margin:0 0">珠海</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=中山" style="float:none;margin:0 0">中山</a></span>
+							     										     				<span><a href="${ctx}/company/findcompanybylocation?field=郑州" style="float:none;margin:0 0">郑州</a></span>
 							     										    			</dd>
 							    	  	</dl>
 							    	  								    								    </li>
@@ -222,10 +222,10 @@ var youdao_conv_id = 271546;
 	                        <dl>
 	                            <dt>发展阶段：</dt>
 	                            <dd>
-	                            			                            			                                <a href="javascript:void(0)">初创型</a>
-		                                	                                		                            	<a href="javascript:void(0)">成长型</a>
-		                                	                                		                            	<a href="javascript:void(0)">成熟型</a>
-		                                	                                		                            	<a href="javascript:void(0)">已上市</a>
+	                            			        <a href="${ctx}/company/findcompanybystage?field=初创型">初创型</a>
+		                                	        <a href="${ctx}/company/findcompanybystage?field=成长型">成长型</a>
+		                                	        <a href="${ctx}/company/findcompanybystage?field=成熟型">成熟型</a>
+		                                	        <a href="${ctx}/company/findcompanybystage?field=已上市">已上市</a>
 		                                	                                	                            </dd>
 	                        </dl>
 	                        <dl>

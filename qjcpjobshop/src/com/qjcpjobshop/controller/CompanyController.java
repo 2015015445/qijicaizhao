@@ -135,6 +135,109 @@ public class CompanyController {
 	}
 	
 	
+	@RequestMapping(value="/findcompanybylocation", method=RequestMethod.GET)
+	public String findCompanyByLocation(@RequestParam("field") String field,HttpServletRequest request,HttpSession session,Model model){
+		try {
+//			String industryfield = new String(request.getParameter("field").getBytes(
+//			        "ISO-8859-1"), "utf-8");//其中ISO-8859-1是tomcat默认的编码类型  ,utf-8为项目编码类型
+			System.out.println(field);
+//			System.out.println(industryfield);
+			String pageNum = (String)request.getParameter("pageNum");
+			int num = 0;
+			if(pageNum ==null || pageNum.equals("")){
+				num = 1;
+			}else{
+				num = Integer.parseInt(pageNum);
+			}
+			
+			List<Company> list = companyService.findCompanyByLocation(num, PAGESIZE, field);
+			
+			int count = list.size();
+			Page<Company> p = new Page<Company>(num,PAGESIZE);
+			p.setList(list);
+			p.setTotalCount(count);
+			session.setAttribute("count", p.getTotalPageNum());
+			
+			List pagelist1 = new ArrayList();
+			for (int i = 1; i < p.getTotalPageNum()+1; i++) {
+				pagelist1.add(i);
+			}
+			model.addAttribute("pagelist1", pagelist1);
+			model.addAttribute("page", p);
+			model.addAttribute("list", list);
+			
+//			List list = companyService.findAllCompany();
+			
+			Cookie cookie = (Cookie) session.getAttribute("cookie");
+			model.addAttribute("list", list);
+			if(cookie!=null){
+				model.addAttribute("email", cookie.getName());
+			}else{
+				model.addAttribute("email", null);
+			}
+			
+			return "companylist";
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "companylist";
+		}
+	}
+	
+	@RequestMapping(value="/findcompanybystage", method=RequestMethod.GET)
+	public String findCompanyByStage(@RequestParam("field") String field,HttpServletRequest request,HttpSession session,Model model){
+		try {
+//			String industryfield = new String(request.getParameter("field").getBytes(
+//			        "ISO-8859-1"), "utf-8");//其中ISO-8859-1是tomcat默认的编码类型  ,utf-8为项目编码类型
+			System.out.println(field);
+//			System.out.println(industryfield);
+			String pageNum = (String)request.getParameter("pageNum");
+			int num = 0;
+			if(pageNum ==null || pageNum.equals("")){
+				num = 1;
+			}else{
+				num = Integer.parseInt(pageNum);
+			}
+			
+			List<Company> list = companyService.findCompanyByStage(num, PAGESIZE, field);
+			
+			int count = list.size();
+			Page<Company> p = new Page<Company>(num,PAGESIZE);
+			p.setList(list);
+			p.setTotalCount(count);
+			session.setAttribute("count", p.getTotalPageNum());
+			
+			List pagelist1 = new ArrayList();
+			for (int i = 1; i < p.getTotalPageNum()+1; i++) {
+				pagelist1.add(i);
+			}
+			model.addAttribute("pagelist1", pagelist1);
+			model.addAttribute("page", p);
+			model.addAttribute("list", list);
+			
+//			List list = companyService.findAllCompany();
+			
+			Cookie cookie = (Cookie) session.getAttribute("cookie");
+			model.addAttribute("list", list);
+			if(cookie!=null){
+				model.addAttribute("email", cookie.getName());
+			}else{
+				model.addAttribute("email", null);
+			}
+			
+			return "companylist";
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "companylist";
+		}
+	}
+	
+	
 	@RequestMapping(value="/companydetail", method=RequestMethod.GET)
 	public String companydetail(Model model,@RequestParam("email") String email,@RequestParam("id1") String id1){
 		Company c = companyService.findCompanyByEmail(email);

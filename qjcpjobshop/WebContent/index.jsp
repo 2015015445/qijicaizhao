@@ -79,14 +79,52 @@ var youdao_conv_id = 271546;
     			<c:if test="${user == null }"><li ><a rel="nofollow" onclick="clickj()">我的简历</a></li></c:if>
     			<c:if test="${user != null }"><li ><a href="${ctx}/jianli" rel="nofollow">我的简历</a></li></c:if>
     			
-	    		<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li>
-
+    		<%
+    			Boolean o = (Boolean)session.getAttribute("button");
+    			if(o!=null){
+    				if(o==true){
+    					if(request.getParameter("email")!=null){
+    					System.out.println("index页面的email"+request.getParameter("email"));
+    		%>	
+    		<li ><a href="${ctx}/position/create?id=${email}" rel="nofollow">发布职位</a></li>
+    		<%} } }%>
 	    	</ul>
-        	<ul class="loginTop">
-            	<li><a href="${ctx}/user/login1" rel="nofollow">登录</a></li> 
+	    	
+	    	<% 
+	    		Cookie cookie = (Cookie)session.getAttribute("cookie");
+	    		if(cookie!=null){
+	    			if(cookie.getName()!=null&cookie.getName()!=""){
+	    				if(request.getParameter("email")!=null){
+	    	%>
+	    	
+	    		<dl class="collapsible_menu">
+            		<dt>
+           			<span>${email}&nbsp;</span> 
+            		<span class="red dn" id="noticeDot-1"></span>
+            		<i></i>
+            	</dt>
+                                	<dd style="display: none;"><a href="positions.html">我发布的职位</a></dd>
+                	<dd style="display: none;"><a href="positions.html">我收到的简历</a></dd>
+                	<dd class="btm" style="display: none;"><a href="myhome.html">我的公司主页</a></dd>
+                	<dd style="display: none;"><a href="jianli.html">我要找工作</a></dd>
+                                                <dd style="display: none;"><a href="accountBind.html">帐号设置</a></dd>
+                                <dd class="logout" style="display: none;"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
+            </dl>
+	    	
+	    	<%}else{%>
+	    	<ul class="loginTop">
+            	<li><a href="${ctx}/user/login1" rel="nofollow">登录</a></li>
+            	<li>|</li>
+            	<li><a href="${ctx}/user/regist1" rel="nofollow">注册</a></li>
+            </ul>	
+	    	<%}}}else{ %>
+	    	}
+	    	<ul class="loginTop">
+            	<li><a href="${ctx}/user/login1" rel="nofollow">登录</a></li>
             	<li>|</li>
             	<li><a href="${ctx}/user/regist1" rel="nofollow">注册</a></li>
             </ul>
+	    	<%} %>
         </div>
     </div><!-- end #header -->
     <div id="container">

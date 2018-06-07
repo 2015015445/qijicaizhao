@@ -58,6 +58,39 @@ public class CompanyDao {
 		return list;
 	}
 	
+	
+	public List<Company> findCompanyByLocation(int pageNum, int pageSize,String field){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="from Company c where c.location like '%"+field+"%'";
+		Query query = session.createQuery(hql);
+		query.setFirstResult((pageNum-1)*pageSize);
+		query.setMaxResults(pageSize);
+//		query.setParameter(0, "%"+field+"%");
+		List<Company> list = query.list();
+		System.out.println("查找"+field+"成功");
+		System.out.println(hql);
+		tran.commit();
+		session.close();
+		return list;
+	}
+	
+	public List<Company> findCompanyByStage(int pageNum, int pageSize,String field){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="from Company c where c.stageofdevelopment like '%"+field+"%'";
+		Query query = session.createQuery(hql);
+		query.setFirstResult((pageNum-1)*pageSize);
+		query.setMaxResults(pageSize);
+//		query.setParameter(0, "%"+field+"%");
+		List<Company> list = query.list();
+		System.out.println("查找"+field+"成功");
+		System.out.println(hql);
+		tran.commit();
+		session.close();
+		return list;
+	}
+	
 	public int findCompanyCount(){
 		Session session = sessionFactory.openSession();
 		Transaction tran = session.beginTransaction();
