@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="alternate" media="handheld"  />
 <!-- end 云适配 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>注册-奇迹才聘网-最专业的互联网招聘平台</title>
+<title>登录-奇迹才聘网-最专业的互联网招聘平台</title>
 <meta property="qc:admins" content="23635710066417756375" />
 <meta content="奇迹才聘网是3W旗下的互联网领域垂直招聘网站,互联网职业机会尽在奇迹才聘网" name="description">
 <meta content="奇迹才聘,奇迹才聘网,奇迹才聘招聘,奇迹才聘, 奇迹才聘网 ,互联网招聘,奇迹才聘互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 奇迹才聘官网, 奇迹才聘百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招" name="keywords">
@@ -54,7 +54,7 @@ var youdao_conv_id = 271546;
     	<input type="hidden" id="resubmitToken" value="9b207beb1e014a93bc852b7ba450db27" />		
 		<div class="login_box">
         	<form id="loginForm" method="post" action="${ctx}/user/regist">
-        		<h3>该邮箱已被注册！</h3>
+        		<h3>账号或密码错误，请重新登录</h3>
                 
                 <input type="hidden" id="callback" name="callback" value=""/>
                 <input type="hidden" id="authType" name="authType" value=""/>
