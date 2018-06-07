@@ -65,15 +65,15 @@ var youdao_conv_id = 271546;
 <div id="body">
 	<div id="header">
     	<div class="wrapper">
-    		<a href="index.html" class="logo">
+    		<a href="index.jsp" class="logo">
     			<img src="${ctx}/style/images/logo.png" width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" />
     		</a>
     		<ul class="reset" id="navheader">
     			<li class="current"><a href="${ctx }/position/index?pageNum=1">首页</a></li>
     			<li ><a href="${ctx }/company/findallcompany" >公司</a></li>
-    			<li ><a href="htoForum.html" target="_blank">职业预测</a></li>
+    			<li ><a href="htoForum.jsp" target="_blank">职业预测</a></li>
 
-<!--     		<li ><a href="jianli.html" rel="nofollow">我的简历</a></li> -->
+<!--     		<li ><a href="jianli.jsp" rel="nofollow">我的简历</a></li> -->
 <%-- 	    	<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li> --%>
 
     			<c:if test="${user == null }"><li ><a rel="nofollow" onclick="clickj()">我的简历</a></li></c:if>
@@ -845,7 +845,7 @@ var youdao_conv_id = 271546;
 		<span class="positioncount"></span>
 		<a href="#loginPop" class="bar_login inline" title="登录"><i></i></a>
 		<div class="right">
-			<a href="register.html?from=index_footerbar" onclick="_hmt.push(['_trackEvent', 'button', 'click', 'register'])" class="bar_register" id="bar_register" target="_blank"><i></i></a>
+			<a href="register.jsp?from=index_footerbar" onclick="_hmt.push(['_trackEvent', 'button', 'click', 'register'])" class="bar_register" id="bar_register" target="_blank"><i></i></a>
 		</div>
 		<input type="hidden" id="cc" value="16002" />
 		<input type="hidden" id="cp" value="96531" />
@@ -866,7 +866,7 @@ var youdao_conv_id = 271546;
 		</form>
 		<div class="login_right">
 			<div>还没有奇迹才聘帐号？</div>
-			<a href="register.html" class="registor_now">立即注册</a>
+			<a href="register.jsp" class="registor_now">立即注册</a>
 		    <div class="login_others">使用以下帐号直接登录:</div>
 		    <a href="h/ologin/auth/sina.html" target="_blank" id="icon_wb" class="icon_wb" title="使用新浪微博帐号登录"></a>
 		    <a href="h/ologin/auth/qq.html" class="icon_qq" id="icon_qq" target="_blank" title="使用腾讯QQ帐号登录" ></a>
@@ -884,7 +884,7 @@ var youdao_conv_id = 271546;
 	</div><!-- end #body -->
 	<div id="footer">
 		<div class="wrapper">
-			<a href="about.html" target="_blank" rel="nofollow">联系我们</a>
+			<a href="about.jsp" target="_blank" rel="nofollow">联系我们</a>
 		    
 		    <a href=https://weibo.com/u/5704043792 target="_blank" rel="nofollow">奇迹才聘微博</a>
 		    <a class="footer_qr" href="javascript:void(0)" rel="nofollow">奇迹才聘微信<i></i></a>
