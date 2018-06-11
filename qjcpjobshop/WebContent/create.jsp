@@ -80,16 +80,16 @@ var youdao_conv_id = 271546;
                 <dl class="company_center_aside">
 		<dt>我收到的简历</dt>
 		<dd>
-		<a href="">待处理简历</a> 
+		<a href="${ctx }/caninterviewresumes?pagenum=1&type=0">待处理简历</a> 
 			</dd>
 	<dd>
-		<a href="canInterviewResumes.html">待定简历</a>
+		<a href="${ctx }/caninterviewresumes?pagenum=1&type=1">待定简历</a>
 	</dd>
 	<dd>
-		<a href="haveNoticeResumes.html">已通知面试简历</a>
+		<a href="${ctx }/caninterviewresumes?pagenum=1&type=2">已通知面试简历</a>
 	</dd>
 	<dd>
-		<a href="haveRefuseResumes.html">不合适简历</a>
+		<a href="${ctx }/caninterviewresumes?pagenum=1&type=3">不合适简历</a>
 	</dd>
 	<dd class="btm">
 		<a href="autoFilterResumes.html">自动过滤简历</a> 
