@@ -47,6 +47,9 @@ console.log(1);
     <script type="text/javascript" src="style/js/excanvas.js"></script>
 <![endif]-->
 <script type="text/javascript">
+function clickj() {
+	alert("你还没有登陆！！");
+}
 var youdao_conv_id = 271546; 
 </script> 
 <script type="text/javascript" src="style/js/conv.js"></script>
@@ -67,17 +70,34 @@ $('desc').html(areaContent)
     			<img src="style/images/logo.png" width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" />
     		</a>
     		<ul class="reset" id="navheader">
-    			<li ><a href="index.html">首页</a></li>
-    			<li ><a href="companylist.html" >公司</a></li>
+    			<li ><a href="${ctx }/position/index?pageNum=1">首页</a></li>
+    			<li ><a href="${ctx }/company/findallcompany" >公司</a></li>
     			<li ><a href="h/toForum.html" target="_blank">职业预测*</a></li>
-    				    			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
-	    							    			<li ><a href="create.html" rel="nofollow">发布职位</a></li>
+    			<c:if test="${user == null }"><li ><a rel="nofollow" onclick="clickj()">我的简历</a></li></c:if>
+    			<c:if test="${user != null }"><li ><a href="${ctx}/jianli" rel="nofollow">我的简历</a></li></c:if>
+	    							    			<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li>
 	    		    		</ul>
         	            <ul class="loginTop">
-            	<li><a href="login.html" rel="nofollow">登录</a></li> 
+            	<li><a href="${ctx}/user/login1" rel="nofollow">登录</a></li> 
             	<li>|</li>
-            	<li><a href="register.html" rel="nofollow">注册</a></li>
+            	<li><a href="${ctx}/user/regist1" rel="nofollow">注册</a></li>
             </ul>
+            <c:if test="${user != null }">
+            	<dl class="collapsible_menu">
+            	<dt>
+           			<span>${email}&nbsp;</span> 
+            		<span class="red dn" id="noticeDot-1"></span>
+            		<i></i>
+            	</dt>
+                    <dd><a rel="nofollow" href="jianli.html">我的简历</a></dd>
+                	<dd><a href="collections.html">我收藏的职位</a></dd>
+                	<dd><a href="delivery.html">我投递的职位 <span id="noticeNo" class="red">(1)</span></a></dd>
+                	<dd class="btm"><a href="subscribe.html">我的订阅</a></dd>
+                	<dd><a href="create.html">我要招人</a></dd>
+                    <dd><a href="accountBind.html">帐号设置</a></dd>
+                    <dd class="logout" style="display: none;"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
+            </dl>
+            </c:if>
                                 </div>
     </div><!-- end #header -->
     <div id="container">
@@ -131,8 +151,13 @@ $('desc').html(areaContent)
 						</div>
                     </div>
                                         <dd>
-                                        	                    			                        	<a href="#setResumeApply" title="登录" class="inline btn fr btn_apply">投个简历</a>
-	                        	                   		                	                </dd>
+                                        	<%--                     	<c:if test="${user != null }"> --%>
+                    		<a href="#setResumeApply" title="投个简历" class="inline btn fr btn_apply">投个简历</a>
+<%--                     	</c:if> --%>
+<%--                     	<c:if test="${user == null }"> --%>
+<!--                     		<a href="" title="投个简历" class=" btn fr btn_apply" onclick="clickj()">投个简历</a> -->
+<%--                     	</c:if>                        	 --%>	                 
+	                        	        </dd>
                 </dl>
                                 <div id="weibolist"></div>
             </div>	

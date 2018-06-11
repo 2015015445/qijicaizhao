@@ -1,7 +1,11 @@
 package com.qjcpjobshop.entity;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "resumereceived")
 public class ResumeReceived {
 	private int id;
 	private int type;
