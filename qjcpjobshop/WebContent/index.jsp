@@ -72,7 +72,7 @@ var youdao_conv_id = 271546;
     			<li class="current"><a href="${ctx }/position/index?pageNum=1">首页</a></li>
     			<li ><a href="${ctx }/company/findallcompany" >公司</a></li>
     			<li ><a href="htoForum.jsp" target="_blank">职业预测</a></li>
-
+				<li ><a href="${ctx }/delivery?pageNum=1&myEmail=123&type=5" target="_blank">123</a></li>
 <!--     		<li ><a href="jianli.jsp" rel="nofollow">我的简历</a></li> -->
 <%-- 	    	<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li> --%>
 

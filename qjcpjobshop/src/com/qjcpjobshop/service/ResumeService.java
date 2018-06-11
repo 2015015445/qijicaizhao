@@ -36,4 +36,12 @@ public class ResumeService {
 	public void saveResumeReceived(ResumeReceived r){
 		resumeDao.saveResumeReceived(r);
 	}
+	
+	public Page findMyPosition(int num, int size, String email) {
+		return resumeDao.findMyPosition(num, size, email);
+	}
+	
+	public Page findMyPosition(int num, int size, String email, int type) {
+		return resumeDao.findMyPosition(num, size, email, type);
+	}
 }

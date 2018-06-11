@@ -39,11 +39,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.qjcpjobshop.entity.Company;
 import com.qjcpjobshop.entity.Page;
 import com.qjcpjobshop.entity.Position;
 import com.qjcpjobshop.entity.Resume;
 import com.qjcpjobshop.entity.ResumeReceived;
 import com.qjcpjobshop.entity.Userfindjob;
+import com.qjcpjobshop.service.CompanyService;
 import com.qjcpjobshop.service.PositionService;
 import com.qjcpjobshop.service.ResumeService;
 
@@ -56,6 +58,7 @@ public class ResumeController {
 	@Resource
 	private PositionService positionService;
 	
+	@Resource CompanyService companyService;
 	
 	@RequestMapping(value="/jianlis", method=RequestMethod.POST)
 	public String Jianli1(Resume p, HttpSession session){
@@ -285,5 +288,84 @@ public class ResumeController {
 			return "haverefuseresume";
 		}
 		return "canInterviewResumes";
+	}
+	
+	@RequestMapping("delivery")
+	public String findMyPosition(@RequestParam("pageNum") int pageNum,@RequestParam("myEmail") String email,
+			@RequestParam("type") int type, Model model, HttpSession session) {
+		if(type == 5) {
+			Page p = resumeService.findMyPosition(pageNum, 5, email);
+			List li = p.getList();
+			List rlist = new ArrayList();
+			List positionList = new ArrayList();
+			List companyList = new ArrayList();
+			Iterator i = li.iterator();
+			
+			int nums = 0;
+			while(i.hasNext()) {
+				ResumeReceived rr = (ResumeReceived) i.next();
+				String rsumeEmail = rr.getResumeemail();
+				String companyEmail = rr.getCompanyemail();
+				String positionid = rr.getPositionid();
+				System.out.println(rsumeEmail+positionid+"找到了");
+				Resume r = resumeService.findR(rsumeEmail);
+				Position position = positionService.findJobDetail(positionid);
+				Company company = companyService.findCompanyByEmail(companyEmail);
+				System.out.println(company.getName());
+				companyList.add(company);
+				positionList.add(position);
+				rlist.add(r);
+				if(r != null) {
+					System.out.println("zhoadaoleresume");
+				}
+				if(position != null && r !=null) {
+					System.out.println("查找到的position"+position.getName()+"查找到的resume"+r.getName());				
+				}
+			}
+			model.addAttribute("position",positionList);
+			model.addAttribute("resumereceived",p);
+			model.addAttribute("company",companyList);
+			session.setAttribute("resume",rlist);
+			
+			return "delivery";
+		}else {
+			Page p = resumeService.findMyPosition(pageNum, 5, email, type);
+			List li = p.getList();
+			List rlist = new ArrayList();
+			List positionList = new ArrayList();
+			List companyList = new ArrayList();
+			Iterator i = li.iterator();
+			
+			int nums = 0;
+			while(i.hasNext()) {
+				ResumeReceived rr = (ResumeReceived) i.next();
+				String rsumeEmail = rr.getResumeemail();
+				String companyEmail = rr.getCompanyemail();
+				String positionid = rr.getPositionid();
+				System.out.println(rsumeEmail+positionid+"找到了");
+				Resume r = resumeService.findR(rsumeEmail);
+				Position position = positionService.findJobDetail(positionid);
+				Company company = companyService.findCompanyByEmail(companyEmail);
+				System.out.println(company.getName());
+				companyList.add(company);
+				positionList.add(position);
+				rlist.add(r);
+				if(r != null) {
+					System.out.println("zhoadaoleresume");
+				}
+				if(position != null && r !=null) {
+					System.out.println("查找到的position"+position.getName()+"查找到的resume"+r.getName());				
+				}
+			}
+			model.addAttribute("position",positionList);
+			model.addAttribute("resumereceived",p);
+			model.addAttribute("company",companyList);
+			session.setAttribute("resume",rlist);
+			
+			return "delivery";
+		}
+		
+		
+		
 	}
 }

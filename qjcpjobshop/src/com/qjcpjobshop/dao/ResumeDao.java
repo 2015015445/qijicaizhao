@@ -117,10 +117,10 @@ public class ResumeDao {
 			session1.setAttribute("resume6", resume);
 		}
 	}
-	public int findCompanyResumesCount(String email) {
+	public int findCompanyResumesCount(String email,int type) {
 		Session session = sessionFactory.openSession();
 		Transaction tran = session.beginTransaction();
-		Query query = session.createQuery("from ResumeReceived where companyemail='"+email+"'");
+		Query query = session.createQuery("from ResumeReceived where companyemail='"+email+"' and type="+type);
 		List querylist = query.list();
 		tran.commit();
 		session.close();
@@ -135,7 +135,7 @@ public class ResumeDao {
 			List list = query.list();
 			Page p = new Page(num,size);
 			p.setList(list);
-			p.setTotalCount(this.findCompanyResumesCount(email));
+			p.setTotalCount(this.findCompanyResumesCount(email,type));
 			return p;
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -178,6 +178,60 @@ public class ResumeDao {
 			session.close();
 		}catch(Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public int findMyPositionCount(String email) {
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from ResumeReceived where companyemail='"+email+"'");
+		List querylist = query.list();
+		tran.commit();
+		session.close();
+		return querylist.size();
+	}
+	
+	public Page findMyPosition(int num, int size, String email) {
+		try{
+			Query query = this.sessionFactory.getCurrentSession().createQuery("from ResumeReceived where resumeemail='"
+		+email+"'");
+			query.setFirstResult(num*size-size);
+			query.setMaxResults(size);
+			List list = query.list();
+			Page p = new Page(num,size);
+			p.setList(list);
+			p.setTotalCount(this.findMyPositionCount(email));
+			return p;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public int findMyPositionCountByType(String email,int type) {
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from ResumeReceived where resumeemail='"+email+"' and type ="+type);
+		List querylist = query.list();
+		tran.commit();
+		session.close();
+		return querylist.size();
+	}
+	
+	public Page findMyPosition(int num, int size, String email, int type) {
+		try{
+			Query query = this.sessionFactory.getCurrentSession().createQuery("from ResumeReceived where resumeemail='"
+		+email+"' and type="+type);
+			query.setFirstResult(num*size-size);
+			query.setMaxResults(size);
+			List list = query.list();
+			Page p = new Page(num,size);
+			p.setList(list);
+			p.setTotalCount(this.findMyPositionCountByType(email,type));
+			return p;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 }
