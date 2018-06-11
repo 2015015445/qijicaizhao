@@ -1,5 +1,7 @@
 package com.qjcpjobshop.dao;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -9,7 +11,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
+import com.qjcpjobshop.entity.Page;
 import com.qjcpjobshop.entity.Resume;
+import com.qjcpjobshop.entity.ResumeReceived;
 import com.qjcpjobshop.entity.Userfindjob;
 
 @Repository
@@ -111,6 +115,69 @@ public class ResumeDao {
 			session.close();
 			Resume resume = this.findR(u.getEmail());
 			session1.setAttribute("resume6", resume);
+		}
+	}
+	public int findCompanyResumesCount(String email) {
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from ResumeReceived where companyemail='"+email+"'");
+		List querylist = query.list();
+		tran.commit();
+		session.close();
+		return querylist.size();
+	}
+	public Page findResumes(int num, int size, String email, int type) {
+		try{
+			Query query = this.sessionFactory.getCurrentSession().createQuery("from ResumeReceived where companyemail='"
+		+email+"' and type="+type);
+			query.setFirstResult(num*size-size);
+			query.setMaxResults(size);
+			List list = query.list();
+			Page p = new Page(num,size);
+			p.setList(list);
+			p.setTotalCount(this.findCompanyResumesCount(email));
+			return p;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public void updateResumeReceivedType(int id, int type) {
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("update ResumeReceived r set r.type ="+type+" where r.id ="+id);
+		query.executeUpdate();
+		tran.commit();
+		session.close();
+	}
+	
+	public ResumeReceived findRrByEmail(String remail, String cemail, String id) {
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from ResumeReceived r where r.resumeemail='"+remail+
+				"' and r.companyemail='"+cemail+"' and r.positionid='"+id+"'");
+		ResumeReceived r = (ResumeReceived) query.uniqueResult();
+		tran.commit();
+		session.close();
+		return r;
+	}
+	
+	public void saveResumeReceived(ResumeReceived rr) {
+		try {
+			Session session = sessionFactory.openSession();
+			Transaction tran  = session.beginTransaction();
+			ResumeReceived r = this.findRrByEmail(rr.getResumeemail(), rr.getCompanyemail(), rr.getPositionid());
+			if(r == null) {
+				session.save(rr);
+			} else {
+				session.update(r);
+			}
+//			session.saveOrUpdate(rr);
+			tran.commit();
+			session.close();
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

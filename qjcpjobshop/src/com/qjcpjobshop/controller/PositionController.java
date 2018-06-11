@@ -24,10 +24,12 @@ import com.qjcpjobshop.entity.FoundingTeam;
 import com.qjcpjobshop.entity.Page1;
 import com.qjcpjobshop.entity.Position;
 import com.qjcpjobshop.entity.PositionAndCompany;
+import com.qjcpjobshop.entity.ResumeReceived;
 import com.qjcpjobshop.entity.Userfindjob;
 import com.qjcpjobshop.service.CompanyService;
 import com.qjcpjobshop.service.FoundingTeamService;
 import com.qjcpjobshop.service.PositionService;
+import com.qjcpjobshop.service.ResumeService;
 import com.qjcpjobshop.service.UserService;
 
 @Controller
@@ -42,6 +44,8 @@ public class PositionController extends HttpServlet {
 	@Resource
 	private FoundingTeamService foundingTeamService;
 	
+	@Resource
+	private ResumeService resumeService;
 	@RequestMapping(value="/addposition1", method=RequestMethod.POST)
 	public String addPosition1(@RequestParam("id") String id, @RequestParam(value="type",required=false) String type,@RequestParam("name") String name,@RequestParam("minSalary") String minSalary,@RequestParam("maxSalary") String maxSalary,@RequestParam("city") String city,@RequestParam(value="experience",required=false) String experience,@RequestParam(value="degree",required=false) String degree,@RequestParam("tempation") String tempation,@RequestParam(value="description",required=false) String description,@RequestParam(value="address",required=false) String address,@RequestParam(value="email",required=false) String email,@RequestParam(value="jobNature",required=false) String jobNature,HttpSession session){
 		try{
@@ -227,6 +231,12 @@ public class PositionController extends HttpServlet {
 	public String jobDetail(@RequestParam("id") String id, HttpSession session) {
 		Position p = this.positionService.findJobDetail(id);
 		Company company = companyService.findCompanyByEmail(p.getEmail());
+		ResumeReceived rr = new ResumeReceived();
+		rr.setCompanyemail(company.getEmail());
+		rr.setResumeemail("123");
+		rr.setType(0);
+		rr.setPositionid(id);
+		resumeService.saveResumeReceived(rr);
 		session.setAttribute("jobdetailcompany", company);
 		session.setAttribute("jobdetail", p);
 		return "jobdetail";

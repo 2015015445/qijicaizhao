@@ -2,8 +2,11 @@ package com.qjcpjobshop.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Properties;
+import java.util.List;
+
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -30,13 +33,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.qjcpjobshop.entity.Page;
+import com.qjcpjobshop.entity.Position;
 import com.qjcpjobshop.entity.Resume;
+import com.qjcpjobshop.entity.ResumeReceived;
 import com.qjcpjobshop.entity.Userfindjob;
+import com.qjcpjobshop.service.PositionService;
 import com.qjcpjobshop.service.ResumeService;
 
 @Controller
@@ -45,7 +53,8 @@ public class ResumeController {
 	@Resource
 	private ResumeService resumeService;
 	
-	
+	@Resource
+	private PositionService positionService;
 	
 	
 	@RequestMapping(value="/jianlis", method=RequestMethod.POST)
@@ -144,8 +153,15 @@ public class ResumeController {
 	}
 	
 	@RequestMapping(value="resumesend")
-	public String resumeSend(@RequestParam("resumeName") int resumenum) throws ServletException,
-	IOException {
+	public String resumeSend(@RequestParam("resumeName") int resumenum, @RequestParam("sendemail") String semail,
+			@RequestParam("receivedmail") String remail, HttpSession thesession) throws ServletException,IOException {                                        
+		ResumeReceived rr = new ResumeReceived();
+		Position p = (Position) thesession.getAttribute("jobdetail");
+		rr.setResumeemail(semail);
+		rr.setCompanyemail(remail);
+		rr.setType(0);
+		rr.setPositionid(p.getId());
+		resumeService.saveResumeReceived(rr);
 		Properties props = System.getProperties();
 		props.put("mail.smtp.host", "smtp.163.com");
 		props.put("mail.smtp.auth", "true");
@@ -207,5 +223,67 @@ public class ResumeController {
 			e.printStackTrace();
 		}
 		return "jobdetail";
+	}
+	
+	@RequestMapping("caninterviewresumes")
+	public String canInterviewResumes(@RequestParam("pagenum") int pagenum, @RequestParam("type") int type, Model model,HttpSession session) {
+		
+		Page p = resumeService.findResumes(pagenum, 5, "bd@robsense.com",type);
+		List li = p.getList();
+		List rlist = new ArrayList();
+		List positionList = new ArrayList();
+		Iterator i = li.iterator();
+		
+		int nums = 0;
+		while(i.hasNext()) {
+			ResumeReceived rr = (ResumeReceived) i.next();
+			String email = rr.getResumeemail();
+			String positionid = rr.getPositionid();
+			System.out.println(email+positionid+"找到了");
+			Resume r = resumeService.findR(email);
+			Position position = positionService.findJobDetail(positionid);
+			positionList.add(position);
+			rlist.add(r);
+			if(r != null) {
+				System.out.println("zhoadaoleresume");
+			}
+			if(position != null && r !=null) {
+				System.out.println("查找到的position"+position.getName()+"查找到的resume"+r.getName());				
+			}
+		}
+		model.addAttribute("position",positionList);
+		model.addAttribute("resumereceived",p);
+		session.setAttribute("resume",rlist);
+		if(type == 0) {
+			return "notsee";
+		}
+		if(type == 1) {
+			return "canInterviewResumes";
+		}
+		if(type == 2) {
+			return "interview";
+		}
+		if(type == 3) {
+			return "haverefuseresume";
+		}
+		return "canInterviewResumes";
+	}
+	
+	@RequestMapping("updateresumerecivedtype")
+	public String updateType(@RequestParam("id") int id,@RequestParam("agotype") int agotype, @RequestParam("type") int type) {
+		resumeService.updateResumeReceivedType(id, type);
+		if(agotype == 0) {
+			return "notsee";
+		}
+		if(agotype == 1) {
+			return "canInterviewResumes";
+		}
+		if(agotype == 2) {
+			return "interview";
+		}
+		if(agotype == 3) {
+			return "haverefuseresume";
+		}
+		return "canInterviewResumes";
 	}
 }
