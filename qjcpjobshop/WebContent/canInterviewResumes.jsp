@@ -189,7 +189,14 @@ var youdao_conv_id = 271546;
 			                                </label>
 			                                <div class="resumeShow">
 			                                	<a title="预览在线简历" target="_blank" class="resumeImg" href="resumeView.html?deliverId=1686182">
-			                                    <img src="style/images/default_headpic.png">
+			                                    
+			                                    <c:if test="${p.img == null }">
+						    					<img src="style/images/default_headpic.png">
+						    					</c:if>
+						    
+						    					<c:if test="${p.img != null }">
+						    					<img src="/upload/${resumeimg }">
+						    					</c:if>
 			                                    </a>
 			                                <div class="resumeIntro">
 			                                        <h3 class="unread">

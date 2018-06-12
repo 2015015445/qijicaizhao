@@ -153,11 +153,11 @@ var youdao_conv_id = 271546;
             			            			${resume1.tel} | ${user.email }<br>
             			</span></c:if>          			
             			</span>
-<!--             			<div class="m_portrait"> -->
-<!-- 	                    	<div></div> -->
-<!-- 	                    	<img width="120" height="120" alt="jason" src="style/images/default_headpic.png"> -->
-<!-- 	                    </div> -->
-            		</div><!--end .basicShow-->
+            			<div class="m_portrait">
+	                    	<div></div>
+	                    	<img width="120" height="120" alt="jason" src="style/images/default_headpic.png">
+	                    </div>
+          		</div><!--   end .basicShow -->
 
             		<div class="basicEdit dn">
             			
@@ -275,27 +275,33 @@ var youdao_conv_id = 271546;
 						    </tr>
 						  </tbody></table>
 						</form><!--end #profileForm-->
+						
 						<div class="new_portrait">
-<!-- 						  <div class="portrait_upload" id="portraitNo"> -->
-<!-- 						      <span>上传自己的头像</span> -->
-<!-- 						  </div> -->
-<!-- 						  <div > -->
-<!-- 						  	<form action="fileUpload" enctype="multipart/form-data" method="post"> -->
-<!-- 								<input type="file" name="upfile"/> -->
-<!-- 								<img width="120" height="120" src=""> -->
-<!-- 								<input type="button" value="sd"></input> -->
-<!-- 							</form> -->
+						   <div class="portrait_upload" id="portraitNo">
+						      <span>上传自己的头像</span>
+						  </div>
+						  <div >
+						    <c:if test="${resumeimg == null }">
+						    <img width="120" height="120" src="style/images/default_headpic.png">
+						    </c:if>
 						    
-<!-- 						    <span>更换头像</span> -->
-<!-- 						  </div> -->
-<!-- 						  <input type="file" value="" title="支持jpg、jpeg、gif、png格式，文件小于5M" onchange="img_check(this,'h/resume/uploadPhoto.json','headPic');" name="headPic" id="headPic" class="myfiles"> -->
-<!-- 							<input type="hidden" id="headPicHidden" /> -->
-<!-- 						  	<em> -->
-<!-- 						                  尺寸：120*120px <br>    -->
-<!-- 						                  大小：小于5M -->
-<!-- 						  	</em> -->
-<!-- 						  	<span style="display:none;" id="headPic_error" class="error"></span> -->
-						</div><!-- end .new_portrait -->
+						    <c:if test="${resumeimg != null }">
+						    <img width="120" height="120" src="/upload/${resumeimg }">
+						    </c:if>
+						    <a title="上传附件简历" href="#uploadImg" class="inline cboxElement" style="background-color: #0000000f; width: 50px; height: 10px;text-align: center;"><span>更换头像</span></a>
+						  </div>
+						 					
+						  <!-- <input type="hidden" id="headPicHidden" /> -->
+						  	<em style="margin-top: 15px;">
+						                  尺寸：120*120px <br>   
+						                  大小：小于5M
+						  	</em>
+						  	<span style="display:none;" id="headPic_error" class="error"></span>
+						  	
+						 
+						</div>
+						
+						<!-- end .new_portrait -->
             		</div><!--end .basicEdit-->
             		<input type="hidden" id="nameVal" value="jason">
             		<input type="hidden" id="genderVal" value="男">
@@ -1575,6 +1581,30 @@ var youdao_conv_id = 271546;
 	    	<tbody><tr>
 	        	<td align="center">
 	                <form action="${ctx }/fileUpload" enctype="multipart/form-data" method="post">
+								<input type="file" name="file"/>
+								
+								<input type="submit"/>
+					</form>
+	            </td>
+	        </tr>
+	    	<tr>
+	        	<td align="left">支持word、pdf、ppt、txt、wps格式文件<br>文件大小需小于10M</td>
+	        </tr>
+	        <tr>
+	        	<td align="left" style="color:#dd4a38; padding-top:10px;">注：若从其它网站下载的word简历，请将文件另存为.docx格式后上传</td>
+	        </tr>
+	    	<tr>
+	        	<td align="center"><img width="55" height="16" alt="loading" style="visibility: hidden;" id="loadingImg" src="style/images/loading.gif"></td>
+	        </tr>
+	    </tbody></table>
+	</div><!--/#uploadFile-->
+	
+	<!-- 上传照片 -->
+	<div class="popup" id="uploadImg">
+	    <table width="100%">
+	    	<tbody><tr>
+	        	<td align="center">
+	                <form action="${ctx }/imgUpload" enctype="multipart/form-data" method="post">
 								<input type="file" name="file"/>
 								
 								<input type="submit"/>

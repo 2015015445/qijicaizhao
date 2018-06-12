@@ -44,6 +44,17 @@ public class ResumeDao {
 		}
 		
 	}
+	public void saveImg(String img,String email,HttpSession session1) {
+		Resume r = this.findR(email);
+		r.setImg(img);
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(r);
+		tx.commit();
+		session.close();
+		Resume resume = this.findR(email);
+		session1.setAttribute("resumeimg", resume.getImg());
+	}
 	public void savep(Resume p, HttpSession session1) {
 		Userfindjob u = (Userfindjob) session1.getAttribute("user");
 		Session session = sessionFactory.openSession();
