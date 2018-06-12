@@ -51,7 +51,7 @@ var youdao_conv_id = 271546;
     			<li class="current"><a href="${ctx}/company/findallcompany" >公司</a></li>
     			<li ><a href="htoForum.html" target="_blank">职业预测</a></li>
     			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
-				<li ><a href="create.html" rel="nofollow">发布职位</a></li>
+				<li ><a href="${ctx}/position/create?id=${email}" rel="nofollow">发布职位</a></li>
 	    	</ul>
 	    	<% 
 	    		Cookie cookie = (Cookie)session.getAttribute("cookie");

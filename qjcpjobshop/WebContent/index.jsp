@@ -118,7 +118,6 @@ var youdao_conv_id = 271546;
             	<li><a href="${ctx}/user/regist1" rel="nofollow">注册</a></li>
             </ul>	
 	    	<%}}}else{ %>
-	    	}
 	    	<ul class="loginTop">
             	<li><a href="${ctx}/user/login1" rel="nofollow">登录</a></li>
             	<li>|</li>
@@ -135,7 +134,7 @@ var youdao_conv_id = 271546;
 									<div class="menu_box">
 						<div class="menu_main">
 							<h2>技术 <span></span></h2>
-								<a href="${ctx }/position/search?kd=Java">Java</a>
+				<a href="${ctx }/position/search?kd=Java">Java</a>
 				<a href="${ctx }/position/search?kd=PHP">PHP</a>
 				<a href="${ctx }/position/search?kd=C">C</a>
 				<a href="${ctx }/position/search?kd=C++">C++</a>

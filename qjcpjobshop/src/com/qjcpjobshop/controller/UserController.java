@@ -81,7 +81,7 @@ public class UserController {
 		Userfindjob u = userService.login(name, password);
 		if(u!=null){
 			if(u.getPassword().equals(password)){
-				session.setAttribute("id", name);
+				session.setAttribute("id", name); 
 				session.setAttribute("user", u);
 
 				Cookie cookie = new Cookie(name,password);

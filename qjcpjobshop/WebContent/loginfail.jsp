@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script id="allmobilize" charset="utf-8" src="style/js/allmobilize.min.js"></script>
+<script id="allmobilize" charset="utf-8" src="${ctx}/style/js/allmobilize.min.js"></script>
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="alternate" media="handheld"  />
 <!-- end 云适配 -->
@@ -31,10 +31,10 @@ console.log(1);
 <link rel="Shortcut Icon" href="${ctx}/h/images/favicon.ico">
 <link rel="stylesheet" type="text/css" href="${ctx}/style/css/style.css"/>
 
-<script src="style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="style/js/jquery.lib.min.js"></script>
-<script type="text/javascript" src="style/js/core.min.js"></script>
+<script type="text/javascript" src="${ctx}/style/js/jquery.lib.min.js"></script>
+<script type="text/javascript" src="${ctx}/style/js/core.min.js"></script>
 
 
 <script type="text/javascript">
@@ -54,7 +54,7 @@ var youdao_conv_id = 271546;
     	<input type="hidden" id="resubmitToken" value="9b207beb1e014a93bc852b7ba450db27" />		
 		<div class="login_box">
         	<form id="loginForm" method="post" action="${ctx}/user/regist">
-        		<h3>该邮箱已被注册！</h3>
+        		<h3>密码错误，请重新输登录！</h3>
                 
                 <input type="hidden" id="callback" name="callback" value=""/>
                 <input type="hidden" id="authType" name="authType" value=""/>
@@ -62,7 +62,7 @@ var youdao_conv_id = 271546;
                 <input type="hidden" id="timestamp" name="timestamp" value=""/>
             </form>
             <div class="login_right">
-            	<div>已有拉勾帐号</div>
+            	<div>已有奇迹帐号</div>
             	<a  href="${ctx}/user/login1"  class="registor_now">重新登录</a>
                 <div class="login_others">使用以下帐号直接登录:</div>
                 <a  href="h/ologin/auth/sina.html"  target="_blank" class="icon_wb" title="使用新浪微博帐号登录"></a>

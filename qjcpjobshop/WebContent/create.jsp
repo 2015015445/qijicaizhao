@@ -725,7 +725,7 @@ $(function(){
 </script> -->
 
 <!-- old -->
-<script src="style/js/jquery.tinymce.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/jquery.tinymce.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 
@@ -798,7 +798,7 @@ $(function(){
 </script>
 <!-- end old -->
 
-<script src="style/js/jobs.min.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/jobs.min.js" type="text/javascript"></script>
 <script src="http://api.map.baidu.com/api?v=2.0&amp;ak=A2c1a1ff1fe0750e3290660295aac602" type="text/javascript"></script><script src="http://api.map.baidu.com/getscript?v=2.0&amp;ak=A2c1a1ff1fe0750e3290660295aac602&amp;services=&amp;t=20140617153133" type="text/javascript"></script>
 <script type="text/javascript">
 //百度地图API功能
@@ -908,8 +908,8 @@ $(function(){
 		</div>
 	</div>
 
-<script src="style/js/core.min.js" type="text/javascript"></script>
-<script src="style/js/popup.min.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/core.min.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/popup.min.js" type="text/javascript"></script>
 
 <!--  -->
 
