@@ -112,9 +112,12 @@ public class UserController {
 	@RequestMapping(value="/index")
 	public String index(HttpSession session,Model model){
 			Cookie cookie = (Cookie) session.getAttribute("cookie");
-			model.addAttribute("email", cookie.getName());
-			System.out.println("cookie的getName（）"+cookie.getName());
-			
+			if(cookie.getName()!=null){
+				model.addAttribute("email", cookie.getName());
+			}else{
+				model.addAttribute("email", null);
+			}
+			System.out.println("cookie的getName()"+cookie.getName());
 			return "index";
 	}
 	

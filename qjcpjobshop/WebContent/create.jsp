@@ -51,7 +51,7 @@ var youdao_conv_id = 271546;
     		</a>
     		<ul id="navheader" class="reset">
     			<li><a href="${ctx }/position/index?pageNum=1">首页</a></li>
-    			<li><a href="companylist.html">公司</a></li>
+    			<li><a href="${ctx }/company/findallcompany">公司</a></li>
     			<li><a target="_blank" href="">论坛</a></li>
     				    			<li>
 	    				<a rel="nofollow" href="">简历管理</a>
