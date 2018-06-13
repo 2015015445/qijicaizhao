@@ -188,21 +188,28 @@ var youdao_conv_id = 271546;
 			                                    <i></i>
 			                                </label>
 			                                <div class="resumeShow">
-			                                	<a title="预览在线简历" target="_blank" class="resumeImg" href="resumeView.html?deliverId=1686182">
+			                                	<a title="预览在线简历" target="_blank" class="resumeImg" href="${ctx }/preview?email=${p.email}">
 			                                    
 			                                    <c:if test="${p.img == null }">
 						    					<img src="style/images/default_headpic.png">
 						    					</c:if>
 						    
 						    					<c:if test="${p.img != null }">
-						    					<img src="/upload/${resumeimg }">
+						    					<img src="/upload/${p.img }">
 						    					</c:if>
 			                                    </a>
 			                                <div class="resumeIntro">
 			                                        <h3 class="unread">
-														<a target="_blank" title="预览jason的简历" href="resumeView.html?deliverId=1686182">
-			                                        	${p.name }的简历
-			                                        	</a>
+														<c:if test="${p.resumepdf != null }">
+			                                        		<a target="_blank" title="预览${p.name }的简历" href="${ctx }/newfiled?filed=${p.resumepdf}">
+			                                        		${p.name }的简历
+			                                        		</a>
+			                                        	</c:if>
+			                                        	<c:if test="${p.resumepdf == null }">
+			                                        		<a target="_blank" title="预览${p.name }的简历" href="${ctx }/preview?email=${p.email}">
+			                                        		${p.name }的简历
+			                                        		</a>
+			                                        	</c:if>
 			                                        	<em></em>
 			                                        </h3> 
 			                                        <span class="fr">投递时间：2014-07-01 17:08</span>

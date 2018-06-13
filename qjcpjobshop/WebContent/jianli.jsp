@@ -94,11 +94,11 @@ var youdao_conv_id = 271546;
 	            	<div class="nameShow fl">
 	            		<c:if test="${resume1.name != null }"><h1 title="我的简历">${resume1.name }的简历</h1></c:if>
 	            		<c:if test="${resume1.name == null }"><h1 title="我的简历">我的简历</h1></c:if>
-	            		<span class="rename">重命名</span> | <a target="_blank" href="${ctx }/preview">预览</a>
+	            		<span class="rename">重命名</span> | <a target="_blank" href="${ctx }/preview?email=${email}">预览</a>
             		</div>
             		<form class="fl dn" id="resumeNameForm">
             			<input type="text" value="${resume1.name }的简历" name="resumeName" class="nameEdit c9">	
-            			<input type="submit" value="保存"> | <a target="_blank" href="${ctx }/preview">预览</a>
+            			<input type="submit" value="保存"> | <a target="_blank" href="${ctx }/preview?email=${resume1.email}">预览</a>
             		</form>
             	</div><!--end #resume_name-->
             	<div class="fr c5" id="lastChangedTime">最后一次更新：<span>2014-07-01 15:14 </span></div><!--end #lastChangedTime-->
@@ -281,12 +281,12 @@ var youdao_conv_id = 271546;
 						      <span>上传自己的头像</span>
 						  </div>
 						  <div >
-						    <c:if test="${resumeimg == null }">
+						    <c:if test="${resume.img == null }">
 						    <img width="120" height="120" src="style/images/default_headpic.png">
 						    </c:if>
 						    
-						    <c:if test="${resumeimg != null }">
-						    <img width="120" height="120" src="/upload/${resumeimg }">
+						    <c:if test="${resume.img != null }">
+						    <img width="120" height="120" src="/upload/${resume.img }">
 						    </c:if>
 						    <a title="上传附件简历" href="#uploadImg" class="inline cboxElement" style="background-color: #0000000f; width: 50px; height: 10px;text-align: center;"><span>更换头像</span></a>
 						  </div>
@@ -1529,10 +1529,10 @@ var youdao_conv_id = 271546;
             		<h2>我的附件简历 
             			<a title="上传附件简历" href="#uploadFile" class="inline cboxElement">上传简历</a>
             		</h2>
-            		<c:if test="${resumsrc != null }">
+            		<c:if test="${resumepdf != null }">
             			<a href="NewFile.jsp"  target="_blank">查看我的附件简历</a>
             		</c:if>	 
-            		<c:if test="${resumsrc == null }">
+            		<c:if test="${resumepdf == null }">
             			<div class="resumeUploadDiv">
 	            			暂无附件简历
 	            		</div>
@@ -1580,7 +1580,7 @@ var youdao_conv_id = 271546;
 	    <table width="100%">
 	    	<tbody><tr>
 	        	<td align="center">
-	                <form action="${ctx }/fileUpload" enctype="multipart/form-data" method="post">
+	                <form action="${ctx }/fileUpload?email=${user.email}" enctype="multipart/form-data" method="post">
 								<input type="file" name="file"/>
 								
 								<input type="submit"/>
@@ -1604,7 +1604,7 @@ var youdao_conv_id = 271546;
 	    <table width="100%">
 	    	<tbody><tr>
 	        	<td align="center">
-	                <form action="${ctx }/imgUpload" enctype="multipart/form-data" method="post">
+	                <form action="${ctx }/imgUpload?email=${user.email}" enctype="multipart/form-data" method="post">
 								<input type="file" name="file"/>
 								
 								<input type="submit"/>

@@ -23,8 +23,8 @@ public class ResumeDao {
 	private SessionFactory sessionFactory;
 	
 	public Resume findR(String name) {
+		System.out.println("执行finR方法");
 		String hql = "from Resume where email ='"+name+"'";
-		System.out.println(name);
 		return (Resume)sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
 		
 //		String hql = "from Userfindjob where email ='"+name+"'";
@@ -53,12 +53,27 @@ public class ResumeDao {
 		tx.commit();
 		session.close();
 		Resume resume = this.findR(email);
-		session1.setAttribute("resumeimg", resume.getImg());
+		session1.setAttribute("resume", resume);
+	}
+	public void saveResuemPDF(String pdf,String email,HttpSession session1) {
+		Resume r = this.findR(email);
+		r.setResumepdf(pdf);
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(r);
+		tx.commit();
+		session.close();
+//		Resume resume = this.findR(email);
+//		session1.setAttribute("resumepdf", resume.getResumepdf());
 	}
 	public void savep(Resume p, HttpSession session1) {
 		Userfindjob u = (Userfindjob) session1.getAttribute("user");
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
+		String resumepdf = (String) session1.getAttribute("resumepdf");
+		if(p.getResumepdf() != null && resumepdf == null) {
+			session1.setAttribute("resumepdf", p.getResumepdf());
+		}
 		//基本信息录入
 		if(p.getName() != null) {
 			Query query = session.createQuery("update Resume p set p.name = '"+p.getName()+"',p.sex = '"+p.getSex()

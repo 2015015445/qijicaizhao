@@ -25,6 +25,9 @@ public class ResumeService {
 	public void saveImg(String img, String email,HttpSession session) {
 		resumeDao.saveImg(img, email, session);
 	}
+	public void saveResumePDF(String pdf, String email,HttpSession session) {
+		resumeDao.saveResuemPDF(pdf, email, session);
+	}
 	public void savep(Resume p, HttpSession session) {
 		resumeDao.savep(p, session);
 	}

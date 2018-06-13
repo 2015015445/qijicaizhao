@@ -151,12 +151,12 @@ $('desc').html(areaContent)
 						</div>
                     </div>
                                         <dd>
-                                        	<%--                     	<c:if test="${user != null }"> --%>
+                                        	                    	<c:if test="${user != null }">
                     		<a href="#setResumeApply" title="投个简历" class="inline btn fr btn_apply">投个简历</a>
-<%--                     	</c:if> --%>
-<%--                     	<c:if test="${user == null }"> --%>
-<!--                     		<a href="" title="投个简历" class=" btn fr btn_apply" onclick="clickj()">投个简历</a> -->
-<%--                     	</c:if>                        	 --%>	                 
+                    	</c:if>
+                    	<c:if test="${user == null }">
+                    		<a href="" title="投个简历" class=" btn fr btn_apply" onclick="clickj()">投个简历</a>
+                    	</c:if>                        		                 
 	                        	        </dd>
                 </dl>
                                 <div id="weibolist"></div>

@@ -79,10 +79,14 @@ public class ResumeController {
 		
 		Userfindjob u = (Userfindjob) session.getAttribute("user");
 		Resume re = resumeService.findR(u.getEmail());
-		if(resumeService.findR(u.getEmail()) == null) {
+		
+		if(re == null) {
 			resumeService.sp(u.getEmail());
 			return "jianli";
-		}else {
+		}
+			if(re.getResumepdf() != null) {
+				session.setAttribute("resume", re.getResumepdf());
+			}
 			if(re.getName() != null) {
 				session.setAttribute("resume1", re);
 			}else{session.removeAttribute("resume1");}
@@ -101,17 +105,19 @@ public class ResumeController {
 			if(re.getSelfDescription() != null) {
 				session.setAttribute("resume6", re);
 			}else{session.removeAttribute("resume6");}
+		
+		if(re.getResumepdf() != null) {
+			session.setAttribute("resumepdf", re.getResumepdf());
 		}
-
 		return "jianli";
 	}
 	
 	@RequestMapping(value="/preview", method=RequestMethod.GET)
-	public String Preview(HttpSession session){
-		Userfindjob u = (Userfindjob) session.getAttribute("user");
-		Resume re = resumeService.findR(u.getEmail());
-		if(resumeService.findR(u.getEmail()) == null) {
-			resumeService.sp(u.getEmail());
+	public String Preview(HttpSession session,@RequestParam("email") String email){
+//		Userfindjob u = (Userfindjob) session.getAttribute("user");
+		Resume re = resumeService.findR(email);
+		if(resumeService.findR(email) == null) {
+			resumeService.sp(email);
 			return "jianli";
 		}else {
 			if(re.getName() != null) {
@@ -126,7 +132,7 @@ public class ResumeController {
 	
 	@RequestMapping(value="/fileUpload", method=RequestMethod.POST)
 	public String FileUpload(HttpServletRequest request,  
-			 @RequestParam("file") MultipartFile file,HttpSession session){
+			 @RequestParam("file") MultipartFile file, @RequestParam("email") String email, HttpSession session){
 		//如果文件不为空，写入上传路径
         if(!file.isEmpty()) {
             //上传文件路径
@@ -134,8 +140,8 @@ public class ResumeController {
             //上传文件名
             String filename = file.getOriginalFilename();
             File filepath = new File(path,filename);
-            session.setAttribute("resumsrc", path+ "/" + filename);
-            System.out.println(filepath);
+//          session.setAttribute("resumsrc", path+ "/" + filename);
+            System.out.println("filepath:"+filepath);
             //判断路径是否存在，如果不存在就创建一个
             if (!filepath.getParentFile().exists()) { 
                 filepath.getParentFile().mkdirs();
@@ -143,6 +149,8 @@ public class ResumeController {
             //将上传文件保存到一个目标文件当中
             try {
 				file.transferTo(new File(path + File.separator + filename));
+				resumeService.saveResumePDF(path+ "/" + filename, email, session);
+				session.setAttribute("resumepdf",filepath);
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -155,10 +163,15 @@ public class ResumeController {
 		return "jianli";
 	}
 	
+	@RequestMapping(value="/newfiled", method=RequestMethod.POST)
+	public String newFiled(@RequestParam("filed") String filed, HttpSession session) {
+		session.setAttribute("resumepdf", filed);
+		return "NewFiled";
+	}
+	
 	@RequestMapping(value="/imgUpload", method=RequestMethod.POST)
 	public String ImgUpload(HttpServletRequest request,  
-			 @RequestParam("file") MultipartFile file, HttpSession session){
-		String email="123";
+			 @RequestParam("file") MultipartFile file, @RequestParam("email") String email, HttpSession session){
 		//如果文件不为空，写入上传路径
         if(!file.isEmpty()) {
             //上传文件路径
@@ -262,8 +275,9 @@ public class ResumeController {
 	
 	@RequestMapping("caninterviewresumes")
 	public String canInterviewResumes(@RequestParam("pagenum") int pagenum, @RequestParam("type") int type, Model model,HttpSession session) {
-		
-		Page p = resumeService.findResumes(pagenum, 5, "bd@robsense.com",type);
+		Userfindjob user = (Userfindjob) session.getAttribute("user");
+		String companyemail = user.getEmail();
+		Page p = resumeService.findResumes(pagenum, 5, companyemail,type);
 		List li = p.getList();
 		List rlist = new ArrayList();
 		List positionList = new ArrayList();
@@ -274,17 +288,11 @@ public class ResumeController {
 			ResumeReceived rr = (ResumeReceived) i.next();
 			String email = rr.getResumeemail();
 			String positionid = rr.getPositionid();
-			System.out.println(email+positionid+"找到了");
 			Resume r = resumeService.findR(email);
 			Position position = positionService.findJobDetail(positionid);
 			positionList.add(position);
 			rlist.add(r);
-			if(r != null) {
-				System.out.println("zhoadaoleresume");
-			}
-			if(position != null && r !=null) {
-				System.out.println("查找到的position"+position.getName()+"查找到的resume"+r.getName());				
-			}
+			
 		}
 		model.addAttribute("position",positionList);
 		model.addAttribute("resumereceived",p);
@@ -339,7 +347,6 @@ public class ResumeController {
 				String rsumeEmail = rr.getResumeemail();
 				String companyEmail = rr.getCompanyemail();
 				String positionid = rr.getPositionid();
-				System.out.println(rsumeEmail+positionid+"找到了");
 				Resume r = resumeService.findR(rsumeEmail);
 				Position position = positionService.findJobDetail(positionid);
 				Company company = companyService.findCompanyByEmail(companyEmail);
@@ -347,12 +354,7 @@ public class ResumeController {
 				companyList.add(company);
 				positionList.add(position);
 				rlist.add(r);
-				if(r != null) {
-					System.out.println("zhoadaoleresume");
-				}
-				if(position != null && r !=null) {
-					System.out.println("查找到的position"+position.getName()+"查找到的resume"+r.getName());				
-				}
+				
 			}
 			model.addAttribute("position",positionList);
 			model.addAttribute("resumereceived",p);
@@ -374,20 +376,13 @@ public class ResumeController {
 				String rsumeEmail = rr.getResumeemail();
 				String companyEmail = rr.getCompanyemail();
 				String positionid = rr.getPositionid();
-				System.out.println(rsumeEmail+positionid+"找到了");
 				Resume r = resumeService.findR(rsumeEmail);
 				Position position = positionService.findJobDetail(positionid);
 				Company company = companyService.findCompanyByEmail(companyEmail);
-				System.out.println(company.getName());
 				companyList.add(company);
 				positionList.add(position);
 				rlist.add(r);
-				if(r != null) {
-					System.out.println("zhoadaoleresume");
-				}
-				if(position != null && r !=null) {
-					System.out.println("查找到的position"+position.getName()+"查找到的resume"+r.getName());				
-				}
+				
 			}
 			model.addAttribute("position",positionList);
 			model.addAttribute("resumereceived",p);

@@ -11,7 +11,8 @@
 </head>
 <body onunload="opener.reload();opener.focus();">
 <%  
-    String filePath = (String)session.getAttribute("resumsrc");  
+	
+    String filePath = (String)session.getAttribute("resumepdf");  
     BufferedInputStream bis = null;  
     BufferedOutputStream bos = null;  
     response.setContentType("application/pdf");  

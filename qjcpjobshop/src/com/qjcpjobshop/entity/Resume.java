@@ -39,6 +39,7 @@ public class Resume {
 	private String professionalName;
 	private String degree;
 	private String img;
+	private String resumepdf;
 	
 	@Id
 	public String getEmail() {
@@ -226,6 +227,12 @@ public class Resume {
 	}
 	public void setImg(String img) {
 		this.img = img;
+	}
+	public String getResumepdf() {
+		return resumepdf;
+	}
+	public void setResumepdf(String resumepdf) {
+		this.resumepdf = resumepdf;
 	}
 	
 	
