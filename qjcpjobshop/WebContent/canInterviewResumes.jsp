@@ -212,7 +212,7 @@ var youdao_conv_id = 271546;
 			                                        	</c:if>
 			                                        	<em></em>
 			                                        </h3> 
-			                                        <span class="fr">投递时间：2014-07-01 17:08</span>
+			                                        <span class="fr">投递时间：${resumereceived.list[loop.count-1].date }</span>
 			                                        <div> 
 			                                        	${p.name } / ${p.sex } / ${p.topDegree }/ ${p.workYear } 	/ ${p.expectCity }		<br>${p.positionName }· ${p.companyName } | ${p.degree } · ${p.schoolName }
 			                                        </div>

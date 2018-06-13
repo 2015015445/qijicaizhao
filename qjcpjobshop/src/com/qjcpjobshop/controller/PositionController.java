@@ -228,9 +228,9 @@ public class PositionController extends HttpServlet {
 	}
 	
 	@RequestMapping("jobdetail")
-	public String jobDetail(@RequestParam("id") String id, HttpSession session) {
+	public String jobDetail(@RequestParam("id") String id, @RequestParam("email") String email, HttpSession session) {
 		Position p = this.positionService.findJobDetail(id);
-		Company company = companyService.findCompanyByEmail(p.getEmail());
+		Company company = companyService.findCompanyByEmail(email);
 		ResumeReceived rr = new ResumeReceived();
 		rr.setCompanyemail(company.getEmail());
 		rr.setResumeemail("123");

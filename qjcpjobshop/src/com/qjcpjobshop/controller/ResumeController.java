@@ -85,7 +85,7 @@ public class ResumeController {
 			return "jianli";
 		}
 			if(re.getResumepdf() != null) {
-				session.setAttribute("resume", re.getResumepdf());
+				session.setAttribute("resume", re);
 			}
 			if(re.getName() != null) {
 				session.setAttribute("resume1", re);
@@ -360,6 +360,8 @@ public class ResumeController {
 			model.addAttribute("resumereceived",p);
 			model.addAttribute("company",companyList);
 			session.setAttribute("resume",rlist);
+			Resume resume = (Resume) rlist.get(0);
+			session.setAttribute("name", resume.getName());
 			
 			return "delivery";
 		}else {

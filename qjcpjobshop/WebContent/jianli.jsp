@@ -71,12 +71,12 @@ var youdao_conv_id = 271546;
             		<span class="red dn" id="noticeDot-0"></span>
             		<i></i>
             	</dt>
-                                	<dd><a rel="nofollow" href="jianli.html">我的简历</a></dd>
+                                	<dd><a rel="nofollow" href="${ctx }/jianli">我的简历</a></dd>
                 	                	<dd><a href="collections.html">我收藏的职位</a></dd>
                 	                	                	<dd class="btm"><a href="subscribe.html">我的订阅</a></dd>
-                	<dd><a href="create.html">我要招人</a></dd>
+                	<dd><a href="${ctx }/delivery?pageNum=1&myEmail=123&type=5">我投递的职位</a></dd>
                                                 <dd><a href="accountBind.html">帐号设置</a></dd>
-                                <dd class="logout"><a rel="nofollow" href="login.html">退出</a></dd>
+                                <dd class="logout"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
             </dl>
                                     <div class="dn" id="noticeTip">
             	<span class="bot"></span>
@@ -281,12 +281,13 @@ var youdao_conv_id = 271546;
 						      <span>上传自己的头像</span>
 						  </div>
 						  <div >
+<!-- 						  <img width="120" height="120" src="style/images/default_headpic.png">  -->
 						    <c:if test="${resume.img == null }">
 						    <img width="120" height="120" src="style/images/default_headpic.png">
 						    </c:if>
 						    
 						    <c:if test="${resume.img != null }">
-						    <img width="120" height="120" src="/upload/${resume.img }">
+						    <img width="120" height="120" src="/upload/${resume.img}">
 						    </c:if>
 						    <a title="上传附件简历" href="#uploadImg" class="inline cboxElement" style="background-color: #0000000f; width: 50px; height: 10px;text-align: center;"><span>更换头像</span></a>
 						  </div>

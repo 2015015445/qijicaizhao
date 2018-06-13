@@ -51,17 +51,16 @@ var youdao_conv_id = 271546;
 	    						    		</ul>
         	        	<dl class="collapsible_menu">
             	<dt>
-           			<span>jason&nbsp;</span> 
-            		<span class="red dn" id="noticeDot-0"></span>
+           			<span>${name }&nbsp;</span> 
+<!--             		<span class="red dn" id="noticeDot-0"></span> -->
             		<i></i>
             	</dt>
-                                	<dd style="display: none;"><a rel="nofollow" href="jianli.html">我的简历</a></dd>
+                                	<dd style="display: none;"><a rel="nofollow" href="${ctx }/jianli">我的简历</a></dd>
                 	                	<dd style="display: none;"><a href="collections.html">我收藏的职位</a></dd>
-                	                	                	<dd style="display: none;"><a href="toudi.html">我投递的职位 <span id="noticeNo" class="red dn">(0)</span></a></dd>
+                	                	                	<dd style="display: none;"><a href="${ctx }/delivery?pageNum=1&myEmail=123&type=5">我投递的职位 </a></dd>
                 	                	<dd class="btm" style="display: none;"><a href="subscribe.html">我的订阅</a></dd>
-                	<dd style="display: none;"><a href="create.html">我要招人</a></dd>
                                                 <dd style="display: none;"><a href="accountBind.html">帐号设置</a></dd>
-                                <dd class="logout" style="display: none;"><a rel="nofollow" href="login.html">退出</a></dd>
+                                <dd class="logout" style="display: none;"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
             </dl>
                                     <div class="dn" id="noticeTip">
             	<span class="bot"></span>
@@ -123,7 +122,7 @@ var youdao_conv_id = 271546;
 	                                   		<a title="公司名称" class="d_jobname" target="_blank" href="http://www.lagou.com/c/25927.html">
 	                                   		${company[loop.count-1].name } <span>[${p.city }]</span> 
 	                                    	</a>
-	                                    	<span class="d_time">2014-07-01 17:15</span>
+	                                    	<span class="d_time">${resumereceived.list[loop.count-1].date }</span>
 	                                    <div class="clear"></div>
 	                                    <div class="d_resume">
 	                                    	使用简历：
@@ -163,12 +162,12 @@ var youdao_conv_id = 271546;
 	                                    </ul>
                                			<ul class="status_list">
                                				    <li class="top">
-                               					<div class="list_time"><em></em>2014-07-01 17:15</div>
+                               					<div class="list_time"><em></em>${resumereceived.list[loop.count-1].date }</div>
                                					<div class="list_body">
                                					简历被lixiang标记为不合适<div>您的简历已收到，但目前您的工作经历与该职位不是很匹配，因此很抱歉地通知您无法进入面试。</div>                               						                               					</div>
                                				</li>
                                				<li class="bottom">
-                               					<div class="list_time"><em></em>2014-07-01 17:08</div>
+                               					<div class="list_time"><em></em>${resumereceived.list[loop.count-1].date }</div>
                                					<div class="list_body">
                                					lixiang已成功接收你的简历                               						                               					</div>
                                				</li>

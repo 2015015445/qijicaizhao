@@ -1,5 +1,8 @@
 package com.qjcpjobshop.dao;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -172,7 +175,9 @@ public class ResumeDao {
 	public void updateResumeReceivedType(int id, int type) {
 		Session session = sessionFactory.openSession();
 		Transaction tran = session.beginTransaction();
-		Query query = session.createQuery("update ResumeReceived r set r.type ="+type+" where r.id ="+id);
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String str = format.format(new Date());
+		Query query = session.createQuery("update ResumeReceived r set r.type ="+type+",date='"+str+"' where r.id ="+id);
 		query.executeUpdate();
 		tran.commit();
 		session.close();
@@ -193,10 +198,15 @@ public class ResumeDao {
 		try {
 			Session session = sessionFactory.openSession();
 			Transaction tran  = session.beginTransaction();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String str = format.format(new Date());
+			rr.setDate(str);
+			System.out.println("saveresumereceived时间："+str);
 			ResumeReceived r = this.findRrByEmail(rr.getResumeemail(), rr.getCompanyemail(), rr.getPositionid());
 			if(r == null) {
 				session.save(rr);
 			} else {
+				r.setDate(str);
 				session.update(r);
 			}
 //			session.saveOrUpdate(rr);
@@ -254,6 +264,20 @@ public class ResumeDao {
 			Page p = new Page(num,size);
 			p.setList(list);
 			p.setTotalCount(this.findMyPositionCountByType(email,type));
+			return p;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public Page findResumesByLimit(int num, int size,String email, String limit, int type) {
+		try{
+			Page p = this.findResumes(num, size, email, type);
+			Iterator i = p.getList().iterator();
+			while(i.hasNext()) {
+				
+			}
 			return p;
 		}catch(Exception e) {
 			e.printStackTrace();
