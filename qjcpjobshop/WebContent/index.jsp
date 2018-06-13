@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.*"%> 
-<%@ page import="java.text.*"%> 
+<%@ page import="java.text.*"%>
+<%@ page import="com.qjcpjobshop.service.UserService"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -94,9 +95,9 @@ var youdao_conv_id = 271546;
 	    		Cookie cookie = (Cookie)session.getAttribute("cookie");
 	    		if(cookie!=null){
 	    			if(cookie.getName()!=null&cookie.getName()!=""){
-	    				if(request.getParameter("email")!=null){
+	    				UserService us = new UserService();
+	    				if(us.email!=null){
 	    	%>
-	    	
 	    		<dl class="collapsible_menu">
             		<dt>
            			<span>${email}&nbsp;</span> 

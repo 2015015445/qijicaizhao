@@ -43,4 +43,8 @@ public class CompanyService {
 	public List<Company> findCompanyByStage(int pageNum, int pageSize,String field){
 		return companyDao.findCompanyByStage(pageNum, pageSize, field);
 	}
+	
+	public void updateMyCompany(String name,String briefintroduction,int id){
+		companyDao.updateMyCompany(name, briefintroduction, id);
+	}
 }

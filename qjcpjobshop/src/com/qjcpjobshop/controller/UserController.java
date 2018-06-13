@@ -86,7 +86,8 @@ public class UserController {
 
 				Cookie cookie = new Cookie(name,password);
 				session.setAttribute("cookie", cookie);
-				model.addAttribute("email", cookie.getName());
+				userService.email = name;
+				model.addAttribute("email", userService.email);
 				model.addAttribute("id", name);
 				return "index";
 			}else{
@@ -98,6 +99,7 @@ public class UserController {
 				Cookie cookie = new Cookie(name,password);
 				session.setAttribute("cookie", cookie);
 				model.addAttribute("email", cookie.getName());
+				userService.email = name;
 				session.setAttribute("button", true);
 				return "index";
 			}
@@ -112,12 +114,12 @@ public class UserController {
 	@RequestMapping(value="/index")
 	public String index(HttpSession session,Model model){
 			Cookie cookie = (Cookie) session.getAttribute("cookie");
-			if(cookie.getName()!=null){
-				model.addAttribute("email", cookie.getName());
+			if(cookie!=null){
+				model.addAttribute("email", userService.email);
 			}else{
 				model.addAttribute("email", null);
 			}
-			System.out.println("cookie的getName()"+cookie.getName());
+//			System.out.println("cookie的getName()"+cookie.getName());
 			return "index";
 	}
 	
@@ -125,6 +127,7 @@ public class UserController {
 	public String signOut(HttpSession session,Model model){
 		session.setAttribute("cookie",null);
 		model.addAttribute("email", null);
+		userService.email = null; 
 		session.setAttribute("button", null);
 		
 		return "index";

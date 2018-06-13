@@ -30,6 +30,8 @@ import com.qjcpjobshop.service.UserService;
 public class PositionController extends HttpServlet {
 	@Resource
 	private PositionService positionService;
+	@Resource
+	private UserService userService;
 	
 	@RequestMapping(value="/addposition1", method=RequestMethod.POST)
 	public String addPosition1(@RequestParam("id") String id, @RequestParam(value="type",required=false) String type,@RequestParam("name") String name,@RequestParam("minSalary") String minSalary,@RequestParam("maxSalary") String maxSalary,@RequestParam("city") String city,@RequestParam(value="experience",required=false) String experience,@RequestParam(value="degree",required=false) String degree,@RequestParam("tempation") String tempation,@RequestParam(value="description",required=false) String description,@RequestParam(value="address",required=false) String address,@RequestParam(value="email",required=false) String email,@RequestParam(value="jobNature",required=false) String jobNature,HttpSession session){
@@ -76,7 +78,7 @@ public class PositionController extends HttpServlet {
 	}
 	
 	@RequestMapping(value="/index")
-	public String findPositionByPage(@RequestParam("pageNum") int num, HttpSession session){
+	public String findPositionByPage(@RequestParam("pageNum") int num, HttpSession session,Model model){
 		session.removeAttribute("searchpositionpage");
 		session.removeAttribute("positionpage");
 		session.removeAttribute("searchpositiontypepage");
@@ -92,6 +94,7 @@ public class PositionController extends HttpServlet {
 			}
 		}
 		
+		model.addAttribute("email", userService.email);
 		return "index";
 	}
 	

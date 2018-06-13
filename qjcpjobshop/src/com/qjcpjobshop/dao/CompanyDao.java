@@ -113,4 +113,17 @@ public class CompanyDao {
 		session.close();
 		return list;
 	}
+	
+	public void updateMyCompany(String name,String briefintroduction,int id){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="update Company c set c.name=?,c.briefintroduction=? where c.id=?";
+		Query query  = session.createQuery(hql); 
+		query.setString(0,name);
+		query.setString(1,briefintroduction);
+		query.setInteger(2,id);
+		int i =query.executeUpdate();
+		System.out.println(i);
+		session.close();
+	}
 }

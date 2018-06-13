@@ -15,6 +15,7 @@ public class UserService {
 	@Resource
 	private UserDao userDao;
 	
+	public static String email;
 
 	public void registUser(Userfindjob user) {
 		userDao.insertUser(user);

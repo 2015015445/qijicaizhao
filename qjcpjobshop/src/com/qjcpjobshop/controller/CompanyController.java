@@ -256,4 +256,30 @@ public class CompanyController {
 //		System.out.println(c.getName());
 		return "companydetail";
 	}
+	
+	@RequestMapping(value="/mycompany", method=RequestMethod.GET)
+	public String mycompany(Model model,@RequestParam("email") String email){
+		Company c = companyService.findCompanyByEmail(email);
+		List<CompanyProduct> companyproductlist = companyProductService.findCompanyProductByEmail(email);
+		List<FoundingTeam> foundingteamlist = foundingTeamService.findCompanyProductByEmail(email);
+		List<Position> positionlist = positionService.findPositionByEmail(email);
+		model.addAttribute("email", email);
+		model.addAttribute("company", c);
+		model.addAttribute("productlist",companyproductlist);
+		model.addAttribute("foundingteamlist",foundingteamlist );
+		model.addAttribute("positionlist",positionlist);
+		for(CompanyProduct pruduct:companyproductlist){
+			System.out.println(pruduct.getName());
+		}
+		
+//		System.out.println(c.getName());
+		return "mycompany";
+	}
+	
+	@RequestMapping(value="/updatemycompany", method=RequestMethod.POST)
+	public String updatemycompany(@RequestParam("email") String email,@RequestParam("name") String name,@RequestParam("briefintroduction") String briefintroduction,@RequestParam("id") int id){
+		companyService.updateMyCompany(name, briefintroduction, id);
+		
+		return "redirect:/company/mycompany?email="+email;
+	}
 }

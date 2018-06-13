@@ -62,10 +62,10 @@ var youdao_conv_id = 271546;
                 	<dd><a href="positions.html">我收到的简历</a></dd>
                 	<dd class="btm"><a href="myhome.html">我的公司主页</a></dd>
                 	<dd><a href="jianli.html">我要找工作</a></dd>
-                                                <dd><a href="accountBind.html">帐号设置</a></dd>
-                                <dd class="logout"><a rel="nofollow" href="login.html">退出</a></dd>
+                    <dd><a href="accountBind.html">帐号设置</a></dd>
+                    <dd class="logout"><a rel="nofollow" href="login.html">退出</a></dd>
             </dl>
-                                </div>
+        </div>
     </div><!-- end #header -->
     <div id="container">
         <!-- <script src="style/js/swfobject_modified.js" type="text/javascript"></script> -->
@@ -75,21 +75,19 @@ var youdao_conv_id = 271546;
 	                <div class="c_detail">
 	                	<div style="background-color:#fff;" class="c_logo">
 		                	<a title="上传公司LOGO" id="logoShow" class="inline cboxElement" href="#logoUploader">
-		                	<img width="190" height="190" alt="公司logo" src="${ctx}/style/images/logo_default.png">             	
+		                	<img width="190" height="190" alt="公司logo" src="${c.image}">             	
 	                        	<span>更换公司图片<br>190px*190px 小于5M</span>
 	                        </a>
 		                </div>
-		                <!--  			                <div class="c_logo" style="background-color:#fff;">
+		                <div class="c_logo" style="background-color:#fff;">
 			                	<div id="logoShow">
-			                		<img src="style/images/logo_default.png" width="190" height="190" alt="公司logo" />
+			                		<img src="${c.image}" width="190" height="190" alt="公司logo" />
 		                        	<span>更换公司图片<br />190px*190px 小于5M</span>
 		                        </div>
 		                        <input onchange="img_check(this,'http://www.lagou.com/cd/saveProfileLogo.json',25927,'logo');" type="file" id="logo" name="logo" title="支持jpg、jpeg、gif、png格式，文件小于5M" />
-			                     
+			                    
 			                </div>
 		                    <span class="error" id="logo_error" style="display:none;"></span>
-						     -->
-		                
 	                    <div class="c_box companyName">
 	                    		<h2 title="公司名称">公司名称</h2>
 	                        	<em class="unvalid"></em>
@@ -97,25 +95,26 @@ var youdao_conv_id = 271546;
 	                        	<a target="_blank" class="applyC" href="http://www.lagou.com/c/auth.html">申请认证</a>
 	                        	                        <div class="clear"></div>
 	                       	
-	                       		                   			<h1 title="福建平潭协创进出口贸易有限公司" class="fullname">福建平潭协创进出口贸易有限公司</h1>
+	                       		                   			<h1 title="${c.name}" class="fullname">${c.name}</h1>
 	                        	                        
-	                        <form class="clear editDetail dn" id="editDetailForm" style="display: none;">
-	                            <input type="text" placeholder="请输入公司简称" maxlength="15" value="平潭协创进出口贸易有限公司" name="companyShortName" id="companyShortName" class="valid">
-	                            <input type="text" placeholder="一句话描述公司优势，核心价值，限50字" maxlength="50" value="测试的发打发打发大范德萨发" name="companyFeatures" id="companyFeatures" class="valid"><span for="companyFeatures" generated="true" class="error" style="display: none;">请输入5-50字的一句话介绍</span>
-	                            <input type="hidden" value="25927" id="companyId" name="companyId">
+	                        <form class="clear editDetail dn" id="editDetailForm" style="display: none;" action="${ctx}/company/updatemycompany" method="post">
+	                            <input type="text" placeholder="${c.name}" maxlength="15" value="" name="name" id="companyShortName" class="valid">
+	                            <input type="text" placeholder="${c.briefintroduction}" maxlength="50" value="" name="briefintroduction" id="companyFeatures" class="valid"><span for="companyFeatures" generated="true" class="error" style="display: none;">请输入5-50字的一句话介绍</span>
+	                            <input type="hidden" value="${c.id}" id="companyId" name="id">
+	                            <input type="hidden" value="${c.email}" name="email">
 	                            <input type="submit" value="保存" id="saveDetail" class="btn_small">
 	                            <a id="cancelDetail" class="btn_cancel_s" >取消</a>
 		                    </form>
 	                            
-	                        <div class="clear oneword" style="display: block;"><img width="17" height="15" src="style/images/quote_l.png">&nbsp; <span>公司名称公司名称公司名称</span> &nbsp;<img width="17" height="15" src="style/images/quote_r.png"></div>
-	                        <h3 class="dn">已选择标签</h3>
+	                        <div class="clear oneword" style="display: block;"><img width="17" height="15" src="${ctx}/style/images/quote_l.png">&nbsp; <span>${c.name}</span> &nbsp;<img width="17" height="15" src="${ctx}/style/images/quote_r.png"></div>
+	                        <!-- <h3 class="dn">已选择标签</h3>
 	                        <ul style="overflow:auto" id="hasLabels" class="reset clearfix">
-	                        			                        	<li><span>年终分红</span></li>
-		                        		                        	<li><span>五险一金</span></li>
-		                        		                        	<li><span>弹性工作</span></li>
-		                        		                        	<li><span>岗位晋升</span></li>
-		                        	                            <li class="link">编辑</li>
-	                        </ul>
+	                        		<li><span>年终分红</span></li>
+		                        	<li><span>五险一金</span></li>
+		                        	<li><span>弹性工作</span></li>
+		                        	<li><span>岗位晋升</span></li>
+		                        	<li class="link">编辑</li>
+	                        </ul> -->
 	                        <div class="dn" id="addLabels">
 	                        	<a id="changeLabels" class="change" href="javascript:void(0)">换一换</a>
 	                        	<input type="hidden" value="1" id="labelPageNo">
@@ -168,7 +167,7 @@ var youdao_conv_id = 271546;
 							                                </div>
 							                            </div>
 							                            <div class="product_upload productShow">
-							                            	<img width="380" height="220" src="style/images/product_default.png">
+							                            	<img width="380" height="220" src="${ctx}/style/images/product_default.png">
 								                        	<span>更换产品图片<br>380*220px 小于5M</span>
 								                        </div>
 							                        
@@ -196,7 +195,7 @@ var youdao_conv_id = 271546;
 					                    	<h2><em></em>公司产品</h2>
 					                    </dt>
 					                    <dd>
-					                    	<img width="380" height="220" alt="发大发" src="style/images/product_default.png">
+					                    	<img width="380" height="220" alt="发大发" src="${ctx}/style/images/product_default.png">
 				                        	<div class="cp_intro">
 				                        						                        		<h3><a target="_blank" href="http://www.zmtpost.com">随便写</a></h3>
 					                            <div class="scroll-pane" style="overflow: hidden; padding: 0px; width: 260px;">
@@ -557,7 +556,7 @@ var youdao_conv_id = 271546;
 </div>
 <!------------------------------------- end ----------------------------------------->
 
-<script src="style/js/company.min.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/company.min.js" type="text/javascript"></script>
 <script>
 var avatar = {};
 avatar.uploadComplate = function( data ){
@@ -583,8 +582,8 @@ avatar.uploadComplate = function( data ){
 		</div>
 	</div>
 
-<script src="style/js/core.min.js" type="text/javascript"></script>
-<script src="style/js/popup.min.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/core.min.js" type="text/javascript"></script>
+<script src="${ctx}/style/js/popup.min.js" type="text/javascript"></script>
 
 <!--  -->
 
