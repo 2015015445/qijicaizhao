@@ -2,8 +2,11 @@ package com.qjcpjobshop.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Properties;
+import java.util.List;
+
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -30,13 +33,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.qjcpjobshop.entity.Company;
+import com.qjcpjobshop.entity.Page;
+import com.qjcpjobshop.entity.Position;
 import com.qjcpjobshop.entity.Resume;
+import com.qjcpjobshop.entity.ResumeReceived;
 import com.qjcpjobshop.entity.Userfindjob;
+import com.qjcpjobshop.service.CompanyService;
+import com.qjcpjobshop.service.PositionService;
 import com.qjcpjobshop.service.ResumeService;
 
 @Controller
@@ -45,8 +55,10 @@ public class ResumeController {
 	@Resource
 	private ResumeService resumeService;
 	
+	@Resource
+	private PositionService positionService;
 	
-	
+	@Resource CompanyService companyService;
 	
 	@RequestMapping(value="/jianlis", method=RequestMethod.POST)
 	public String Jianli1(Resume p, HttpSession session){
@@ -67,10 +79,14 @@ public class ResumeController {
 		
 		Userfindjob u = (Userfindjob) session.getAttribute("user");
 		Resume re = resumeService.findR(u.getEmail());
-		if(resumeService.findR(u.getEmail()) == null) {
+		
+		if(re == null) {
 			resumeService.sp(u.getEmail());
 			return "jianli";
-		}else {
+		}
+			if(re.getResumepdf() != null) {
+				session.setAttribute("resume", re);
+			}
 			if(re.getName() != null) {
 				session.setAttribute("resume1", re);
 			}else{session.removeAttribute("resume1");}
@@ -89,17 +105,19 @@ public class ResumeController {
 			if(re.getSelfDescription() != null) {
 				session.setAttribute("resume6", re);
 			}else{session.removeAttribute("resume6");}
+		
+		if(re.getResumepdf() != null) {
+			session.setAttribute("resumepdf", re.getResumepdf());
 		}
-
 		return "jianli";
 	}
 	
 	@RequestMapping(value="/preview", method=RequestMethod.GET)
-	public String Preview(HttpSession session){
-		Userfindjob u = (Userfindjob) session.getAttribute("user");
-		Resume re = resumeService.findR(u.getEmail());
-		if(resumeService.findR(u.getEmail()) == null) {
-			resumeService.sp(u.getEmail());
+	public String Preview(HttpSession session,@RequestParam("email") String email){
+//		Userfindjob u = (Userfindjob) session.getAttribute("user");
+		Resume re = resumeService.findR(email);
+		if(resumeService.findR(email) == null) {
+			resumeService.sp(email);
 			return "jianli";
 		}else {
 			if(re.getName() != null) {
@@ -114,7 +132,7 @@ public class ResumeController {
 	
 	@RequestMapping(value="/fileUpload", method=RequestMethod.POST)
 	public String FileUpload(HttpServletRequest request,  
-			 @RequestParam("file") MultipartFile file,HttpSession session){
+			 @RequestParam("file") MultipartFile file, @RequestParam("email") String email, HttpSession session){
 		//如果文件不为空，写入上传路径
         if(!file.isEmpty()) {
             //上传文件路径
@@ -122,8 +140,8 @@ public class ResumeController {
             //上传文件名
             String filename = file.getOriginalFilename();
             File filepath = new File(path,filename);
-            session.setAttribute("resumsrc", path+ "/" + filename);
-            System.out.println(filepath);
+//          session.setAttribute("resumsrc", path+ "/" + filename);
+            System.out.println("filepath:"+filepath);
             //判断路径是否存在，如果不存在就创建一个
             if (!filepath.getParentFile().exists()) { 
                 filepath.getParentFile().mkdirs();
@@ -131,6 +149,8 @@ public class ResumeController {
             //将上传文件保存到一个目标文件当中
             try {
 				file.transferTo(new File(path + File.separator + filename));
+				resumeService.saveResumePDF(path+ "/" + filename, email, session);
+				session.setAttribute("resumepdf",filepath);
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -143,14 +163,58 @@ public class ResumeController {
 		return "jianli";
 	}
 	
+	@RequestMapping(value="/newfiled", method=RequestMethod.POST)
+	public String newFiled(@RequestParam("filed") String filed, HttpSession session) {
+		session.setAttribute("resumepdf", filed);
+		return "NewFiled";
+	}
+	
+	@RequestMapping(value="/imgUpload", method=RequestMethod.POST)
+	public String ImgUpload(HttpServletRequest request,  
+			 @RequestParam("file") MultipartFile file, @RequestParam("email") String email, HttpSession session){
+		//如果文件不为空，写入上传路径
+        if(!file.isEmpty()) {
+            //上传文件路径
+            String path = request.getServletContext().getRealPath("/upload/");
+            //上传文件名
+            String filename = file.getOriginalFilename();
+            File filepath = new File(path,filename);
+//            session.setAttribute(email+"img",filename);
+            System.out.println("filepath:"+filepath);
+            //判断路径是否存在，如果不存在就创建一个
+            if (!filepath.getParentFile().exists()) { 
+                filepath.getParentFile().mkdirs();
+            }
+            //将上传文件保存到一个目标文件当中
+            try {
+				file.transferTo(new File(path + File.separator + filename));
+				resumeService.saveImg(filename, email,session);
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        } 
+		
+		return "jianli";
+	}
 	@RequestMapping(value="resumesend")
-	public String resumeSend(@RequestParam("resumeName") int resumenum) throws ServletException,
-	IOException {
+	public String resumeSend(@RequestParam("resumeName") int resumenum, @RequestParam("sendemail") String semail,
+			@RequestParam("receivedmail") String remail, HttpSession thesession) throws ServletException,IOException {                                        
+		ResumeReceived rr = new ResumeReceived();
+		Position p = (Position) thesession.getAttribute("jobdetail");
+		rr.setResumeemail(semail);
+		rr.setCompanyemail(remail);
+		rr.setType(0);
+		rr.setPositionid(p.getId());
+		resumeService.saveResumeReceived(rr);
 		Properties props = System.getProperties();
 		props.put("mail.smtp.host", "smtp.163.com");
 		props.put("mail.smtp.auth", "true");
 		Session session = Session.getInstance(props, new Authenticator() {
-			public PasswordAuthentication getPasswordAuthentication() { /* 鑻ユ湇鍔″櫒闇�瑕佽韩浠借璇侊紝Sission浼氳嚜鍔ㄨ皟鐢ㄨ繖涓柟娉� */
+			public PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication("he2510211460@163.com", "123456he");
 			}
 		});
@@ -207,5 +271,130 @@ public class ResumeController {
 			e.printStackTrace();
 		}
 		return "jobdetail";
+	}
+	
+	@RequestMapping("caninterviewresumes")
+	public String canInterviewResumes(@RequestParam("pagenum") int pagenum, @RequestParam("type") int type, Model model,HttpSession session) {
+		Userfindjob user = (Userfindjob) session.getAttribute("user");
+		String companyemail = user.getEmail();
+		Page p = resumeService.findResumes(pagenum, 5, companyemail,type);
+		List li = p.getList();
+		List rlist = new ArrayList();
+		List positionList = new ArrayList();
+		Iterator i = li.iterator();
+		
+		int nums = 0;
+		while(i.hasNext()) {
+			ResumeReceived rr = (ResumeReceived) i.next();
+			String email = rr.getResumeemail();
+			String positionid = rr.getPositionid();
+			Resume r = resumeService.findR(email);
+			Position position = positionService.findJobDetail(positionid);
+			positionList.add(position);
+			rlist.add(r);
+			
+		}
+		model.addAttribute("position",positionList);
+		model.addAttribute("resumereceived",p);
+		session.setAttribute("resume",rlist);
+		if(type == 0) {
+			return "notsee";
+		}
+		if(type == 1) {
+			return "canInterviewResumes";
+		}
+		if(type == 2) {
+			return "interview";
+		}
+		if(type == 3) {
+			return "haverefuseresume";
+		}
+		return "canInterviewResumes";
+	}
+	
+	@RequestMapping("updateresumerecivedtype")
+	public String updateType(@RequestParam("id") int id,@RequestParam("agotype") int agotype, @RequestParam("type") int type) {
+		resumeService.updateResumeReceivedType(id, type);
+		if(agotype == 0) {
+			return "notsee";
+		}
+		if(agotype == 1) {
+			return "canInterviewResumes";
+		}
+		if(agotype == 2) {
+			return "interview";
+		}
+		if(agotype == 3) {
+			return "haverefuseresume";
+		}
+		return "canInterviewResumes";
+	}
+	
+	@RequestMapping("delivery")
+	public String findMyPosition(@RequestParam("pageNum") int pageNum,@RequestParam("myEmail") String email,
+			@RequestParam("type") int type, Model model, HttpSession session) {
+		if(type == 5) {
+			Page p = resumeService.findMyPosition(pageNum, 5, email);
+			List li = p.getList();
+			List rlist = new ArrayList();
+			List positionList = new ArrayList();
+			List companyList = new ArrayList();
+			Iterator i = li.iterator();
+			
+			int nums = 0;
+			while(i.hasNext()) {
+				ResumeReceived rr = (ResumeReceived) i.next();
+				String rsumeEmail = rr.getResumeemail();
+				String companyEmail = rr.getCompanyemail();
+				String positionid = rr.getPositionid();
+				Resume r = resumeService.findR(rsumeEmail);
+				Position position = positionService.findJobDetail(positionid);
+				Company company = companyService.findCompanyByEmail(companyEmail);
+				System.out.println(company.getName());
+				companyList.add(company);
+				positionList.add(position);
+				rlist.add(r);
+				
+			}
+			model.addAttribute("position",positionList);
+			model.addAttribute("resumereceived",p);
+			model.addAttribute("company",companyList);
+			session.setAttribute("resume",rlist);
+			Resume resume = (Resume) rlist.get(0);
+			session.setAttribute("name", resume.getName());
+			
+			return "delivery";
+		}else {
+			Page p = resumeService.findMyPosition(pageNum, 5, email, type);
+			List li = p.getList();
+			List rlist = new ArrayList();
+			List positionList = new ArrayList();
+			List companyList = new ArrayList();
+			Iterator i = li.iterator();
+			
+			int nums = 0;
+			while(i.hasNext()) {
+				ResumeReceived rr = (ResumeReceived) i.next();
+				String rsumeEmail = rr.getResumeemail();
+				String companyEmail = rr.getCompanyemail();
+				String positionid = rr.getPositionid();
+				Resume r = resumeService.findR(rsumeEmail);
+				Position position = positionService.findJobDetail(positionid);
+				Company company = companyService.findCompanyByEmail(companyEmail);
+				companyList.add(company);
+				positionList.add(position);
+				rlist.add(r);
+				
+			}
+			model.addAttribute("position",positionList);
+			model.addAttribute("resumereceived",p);
+			model.addAttribute("company",companyList);
+			session.setAttribute("resume",rlist);
+			
+			return "delivery";
+		}
+		
+		
+		
 	}
 }

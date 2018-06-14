@@ -47,6 +47,9 @@ console.log(1);
     <script type="text/javascript" src="style/js/excanvas.js"></script>
 <![endif]-->
 <script type="text/javascript">
+function clickj() {
+	alert("你还没有登陆！！");
+}
 var youdao_conv_id = 271546; 
 </script> 
 <script type="text/javascript" src="style/js/conv.js"></script>
@@ -67,17 +70,33 @@ $('desc').html(areaContent)
     			<img src="style/images/logo.png" width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" />
     		</a>
     		<ul class="reset" id="navheader">
-    			<li ><a href="index.html">首页</a></li>
-    			<li ><a href="companylist.html" >公司</a></li>
+    			<li ><a href="${ctx }/position/index?pageNum=1">首页</a></li>
+    			<li ><a href="${ctx }/company/findallcompany" >公司</a></li>
     			<li ><a href="h/toForum.html" target="_blank">职业预测*</a></li>
-    				    			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
-	    							    			<li ><a href="create.html" rel="nofollow">发布职位</a></li>
+    			<c:if test="${user == null }"><li ><a rel="nofollow" onclick="clickj()">我的简历</a></li></c:if>
+    			<c:if test="${user != null }"><li ><a href="${ctx}/jianli" rel="nofollow">我的简历</a></li></c:if>
+	    							    			<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li>
 	    		    		</ul>
         	            <ul class="loginTop">
-            	<li><a href="login.html" rel="nofollow">登录</a></li> 
+            	<li><a href="${ctx}/user/login1" rel="nofollow">登录</a></li> 
             	<li>|</li>
-            	<li><a href="register.html" rel="nofollow">注册</a></li>
+            	<li><a href="${ctx}/user/regist1" rel="nofollow">注册</a></li>
             </ul>
+            <c:if test="${user != null }">
+            	<dl class="collapsible_menu">
+            	<dt>
+           			<span>${email}&nbsp;</span> 
+            		<span class="red dn" id="noticeDot-1"></span>
+            		<i></i>
+            	</dt>
+                    <dd><a rel="nofollow" href="${ctx }/jianli">我的简历</a></dd>
+                	<dd><a href="collections.html">我收藏的职位</a></dd>
+                	<dd><a href="${ctx }/delivery?pageNum=1&myEmail=123&type=5">我投递的职位 <span id="noticeNo" class="red">(1)</span></a></dd>
+                	<dd class="btm"><a href="subscribe.html">我的订阅</a></dd>
+                    <dd><a href="accountBind.html">帐号设置</a></dd>
+                    <dd class="logout" style="display: none;"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
+            </dl>
+            </c:if>
                                 </div>
     </div><!-- end #header -->
     <div id="container">
@@ -87,7 +106,7 @@ $('desc').html(areaContent)
                     <dt>
                         <h1 title="内容运营">
                             <em></em>
-                                                        	<div>立方网运营部招聘</div>
+                                                        	<div>${jobdetailcompany.name }招聘</div>
                            	                           	${jobdetail.name }
                         </h1>
                         
@@ -131,8 +150,13 @@ $('desc').html(areaContent)
 						</div>
                     </div>
                                         <dd>
-                                        	                    			                        	<a href="#setResumeApply" title="登录" class="inline btn fr btn_apply">投个简历</a>
-	                        	                   		                	                </dd>
+                                        	                    	<c:if test="${user != null }">
+                    		<a href="#setResumeApply" title="投个简历" class="inline btn fr btn_apply">投个简历</a>
+                    	</c:if>
+                    	<c:if test="${user == null }">
+                    		<a href="" title="投个简历" class=" btn fr btn_apply" onclick="clickj()">投个简历</a>
+                    	</c:if>                        		                 
+	                        	        </dd>
                 </dl>
                                 <div id="weibolist"></div>
             </div>	
@@ -140,10 +164,10 @@ $('desc').html(areaContent)
                 <dl class="job_company">
                     <dt>
                     	<a href="h/c/683.html" target="_blank">
-                            <img class="b2" src="style/images/ff80808140ac5ed90140b953972e0215.png" width="80" height="80" alt="北京立方网信息技术有限公司" />
+                            <img class="b2" src="https://www.lgstatic.com/thumbnail_300x300/i/image2/M00/2A/33/CgotOVooq-OAKqXDAAAsWtz2brk407.png" width="80" height="80" alt="${jobdetailcompany.name }" />
                             <div>
                                 <h2 class="fl">
-                                	                                  		立方网
+                                	                                  		${jobdetailcompany.name }
                                   	                                  	
                                   	                                    	<img src="style/images/valid.png" width="15" height="19" alt="奇迹才聘认证企业" /> 
                                     	<span class="dn">奇迹才聘认证企业</span>
@@ -154,8 +178,8 @@ $('desc').html(areaContent)
                     </dt>
                     <dd>
                     	<ul class="c_feature reset">
-                        	<li><span>领域</span> 移动互联网,游戏</li>
-                        	<li><span>规模</span> 50-150人</li>
+                        	<li><span>领域</span> ${jobdetailcompany.industryfield }</li>
+                        	<li><span>规模</span> ${jobdetailcompany.scale }</li>
                         	<li>
                         		<span>主页</span> 
                         		           							<a href="http://L99.com" target="_blank" title="http://L99.com" rel="nofollow">http://L99.com</a>
@@ -164,7 +188,7 @@ $('desc').html(areaContent)
                         
                         <h4>发展阶段</h4>
                         <ul class="c_feature reset">
-                        	<li><span>目前阶段</span> A轮</li>
+                        	<li><span>目前阶段</span> ${jobdetailcompany.thefinancingstage }</li>
                         	                        	<li><span>投资机构</span> IDG(A轮)，腾讯(A轮)</li>
                         	                        </ul>
                         
@@ -742,7 +766,7 @@ $(function(){
 	</div><!-- end #body -->
 	<div id="footer">
 		<div class="wrapper">
-			<a href="h/about.html" target="_blank" rel="nofollow">联系我们</a>
+			<a href="about.jsp" target="_blank" rel="nofollow">联系我们</a>
 		    <a href="http://www.baidu.com" target="_blank">互联网公司导航</a>
 		    <a href=https://weibo.com/u/5704043792 target="_blank" rel="nofollow">奇迹才聘微博</a>
 		    <a class="footer_qr" href="javascript:void(0)" rel="nofollow">奇迹才聘微信<i></i></a>

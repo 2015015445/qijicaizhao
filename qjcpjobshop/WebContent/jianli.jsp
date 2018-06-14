@@ -71,12 +71,12 @@ var youdao_conv_id = 271546;
             		<span class="red dn" id="noticeDot-0"></span>
             		<i></i>
             	</dt>
-                                	<dd><a rel="nofollow" href="jianli.html">我的简历</a></dd>
+                                	<dd><a rel="nofollow" href="${ctx }/jianli">我的简历</a></dd>
                 	                	<dd><a href="collections.html">我收藏的职位</a></dd>
                 	                	                	<dd class="btm"><a href="subscribe.html">我的订阅</a></dd>
-                	<dd><a href="create.html">我要招人</a></dd>
+                	<dd><a href="${ctx }/delivery?pageNum=1&myEmail=123&type=5">我投递的职位</a></dd>
                                                 <dd><a href="accountBind.html">帐号设置</a></dd>
-                                <dd class="logout"><a rel="nofollow" href="login.html">退出</a></dd>
+                                <dd class="logout"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
             </dl>
                                     <div class="dn" id="noticeTip">
             	<span class="bot"></span>
@@ -94,11 +94,11 @@ var youdao_conv_id = 271546;
 	            	<div class="nameShow fl">
 	            		<c:if test="${resume1.name != null }"><h1 title="我的简历">${resume1.name }的简历</h1></c:if>
 	            		<c:if test="${resume1.name == null }"><h1 title="我的简历">我的简历</h1></c:if>
-	            		<span class="rename">重命名</span> | <a target="_blank" href="${ctx }/preview">预览</a>
+	            		<span class="rename">重命名</span> | <a target="_blank" href="${ctx }/preview?email=${email}">预览</a>
             		</div>
             		<form class="fl dn" id="resumeNameForm">
             			<input type="text" value="${resume1.name }的简历" name="resumeName" class="nameEdit c9">	
-            			<input type="submit" value="保存"> | <a target="_blank" href="${ctx }/preview">预览</a>
+            			<input type="submit" value="保存"> | <a target="_blank" href="${ctx }/preview?email=${resume1.email}">预览</a>
             		</form>
             	</div><!--end #resume_name-->
             	<div class="fr c5" id="lastChangedTime">最后一次更新：<span>2014-07-01 15:14 </span></div><!--end #lastChangedTime-->
@@ -153,11 +153,11 @@ var youdao_conv_id = 271546;
             			            			${resume1.tel} | ${user.email }<br>
             			</span></c:if>          			
             			</span>
-<!--             			<div class="m_portrait"> -->
-<!-- 	                    	<div></div> -->
-<!-- 	                    	<img width="120" height="120" alt="jason" src="style/images/default_headpic.png"> -->
-<!-- 	                    </div> -->
-            		</div><!--end .basicShow-->
+            			<div class="m_portrait">
+	                    	<div></div>
+	                    	<img width="120" height="120" alt="jason" src="style/images/default_headpic.png">
+	                    </div>
+          		</div><!--   end .basicShow -->
 
             		<div class="basicEdit dn">
             			
@@ -275,27 +275,34 @@ var youdao_conv_id = 271546;
 						    </tr>
 						  </tbody></table>
 						</form><!--end #profileForm-->
+						
 						<div class="new_portrait">
-<!-- 						  <div class="portrait_upload" id="portraitNo"> -->
-<!-- 						      <span>上传自己的头像</span> -->
-<!-- 						  </div> -->
-<!-- 						  <div > -->
-<!-- 						  	<form action="fileUpload" enctype="multipart/form-data" method="post"> -->
-<!-- 								<input type="file" name="upfile"/> -->
-<!-- 								<img width="120" height="120" src=""> -->
-<!-- 								<input type="button" value="sd"></input> -->
-<!-- 							</form> -->
+						   <div class="portrait_upload" id="portraitNo">
+						      <span>上传自己的头像</span>
+						  </div>
+						  <div >
+<!-- 						  <img width="120" height="120" src="style/images/default_headpic.png">  -->
+						    <c:if test="${resume.img == null }">
+						    <img width="120" height="120" src="style/images/default_headpic.png">
+						    </c:if>
 						    
-<!-- 						    <span>更换头像</span> -->
-<!-- 						  </div> -->
-<!-- 						  <input type="file" value="" title="支持jpg、jpeg、gif、png格式，文件小于5M" onchange="img_check(this,'h/resume/uploadPhoto.json','headPic');" name="headPic" id="headPic" class="myfiles"> -->
-<!-- 							<input type="hidden" id="headPicHidden" /> -->
-<!-- 						  	<em> -->
-<!-- 						                  尺寸：120*120px <br>    -->
-<!-- 						                  大小：小于5M -->
-<!-- 						  	</em> -->
-<!-- 						  	<span style="display:none;" id="headPic_error" class="error"></span> -->
-						</div><!-- end .new_portrait -->
+						    <c:if test="${resume.img != null }">
+						    <img width="120" height="120" src="/upload/${resume.img}">
+						    </c:if>
+						    <a title="上传附件简历" href="#uploadImg" class="inline cboxElement" style="background-color: #0000000f; width: 50px; height: 10px;text-align: center;"><span>更换头像</span></a>
+						  </div>
+						 					
+						  <!-- <input type="hidden" id="headPicHidden" /> -->
+						  	<em style="margin-top: 15px;">
+						                  尺寸：120*120px <br>   
+						                  大小：小于5M
+						  	</em>
+						  	<span style="display:none;" id="headPic_error" class="error"></span>
+						  	
+						 
+						</div>
+						
+						<!-- end .new_portrait -->
             		</div><!--end .basicEdit-->
             		<input type="hidden" id="nameVal" value="jason">
             		<input type="hidden" id="genderVal" value="男">
@@ -1523,10 +1530,10 @@ var youdao_conv_id = 271546;
             		<h2>我的附件简历 
             			<a title="上传附件简历" href="#uploadFile" class="inline cboxElement">上传简历</a>
             		</h2>
-            		<c:if test="${resumsrc != null }">
+            		<c:if test="${resumepdf != null }">
             			<a href="NewFile.jsp"  target="_blank">查看我的附件简历</a>
             		</c:if>	 
-            		<c:if test="${resumsrc == null }">
+            		<c:if test="${resumepdf == null }">
             			<div class="resumeUploadDiv">
 	            			暂无附件简历
 	            		</div>
@@ -1574,7 +1581,31 @@ var youdao_conv_id = 271546;
 	    <table width="100%">
 	    	<tbody><tr>
 	        	<td align="center">
-	                <form action="${ctx }/fileUpload" enctype="multipart/form-data" method="post">
+	                <form action="${ctx }/fileUpload?email=${user.email}" enctype="multipart/form-data" method="post">
+								<input type="file" name="file"/>
+								
+								<input type="submit"/>
+					</form>
+	            </td>
+	        </tr>
+	    	<tr>
+	        	<td align="left">支持word、pdf、ppt、txt、wps格式文件<br>文件大小需小于10M</td>
+	        </tr>
+	        <tr>
+	        	<td align="left" style="color:#dd4a38; padding-top:10px;">注：若从其它网站下载的word简历，请将文件另存为.docx格式后上传</td>
+	        </tr>
+	    	<tr>
+	        	<td align="center"><img width="55" height="16" alt="loading" style="visibility: hidden;" id="loadingImg" src="style/images/loading.gif"></td>
+	        </tr>
+	    </tbody></table>
+	</div><!--/#uploadFile-->
+	
+	<!-- 上传照片 -->
+	<div class="popup" id="uploadImg">
+	    <table width="100%">
+	    	<tbody><tr>
+	        	<td align="center">
+	                <form action="${ctx }/imgUpload?email=${user.email}" enctype="multipart/form-data" method="post">
 								<input type="file" name="file"/>
 								
 								<input type="submit"/>
@@ -1696,7 +1727,7 @@ var youdao_conv_id = 271546;
 	</div><!-- end #body -->
 	<div id="footer">
 		<div class="wrapper">
-			<a rel="nofollow" target="_blank" href="h/about.html">联系我们</a>
+			<a rel="nofollow" target="_blank" href="about.jsp">联系我们</a>
 		    <a target="_blank" href="http://www.baidu.com">互联网公司导航</a>
 		    <a rel="nofollow" target="_blank" href=https://weibo.com/u/5704043792>奇迹才聘微博</a>
 		    <a rel="nofollow" href="javascript:void(0)" class="footer_qr">奇迹才聘微信<i></i></a>

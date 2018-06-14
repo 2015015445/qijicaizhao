@@ -68,7 +68,7 @@ var youdao_conv_id = 271546;
                 <span class="error" style="display:none;" id="beError"></span>
                 <input type="password" id="password" name="password" tabindex="2" placeholder="请输入密码" />
             	<label class="fl registerJianJu" for="checkbox">
-            		<input type="checkbox" id="checkbox" name="checkbox" checked  class="checkbox valid" />我已阅读并同意<a href="h/privacy.html" target="_blank">《拉勾用户协议》</a>
+            		<input type="checkbox" id="checkbox" name="checkbox" checked  class="checkbox valid" />我已阅读并同意<a href="privacy.jsp" target="_blank">《奇迹才聘用户协议》</a>
            		</label>
                 <input type="submit" id="submitLogin" value="注 &nbsp; &nbsp; 册" />
                 
@@ -77,7 +77,7 @@ var youdao_conv_id = 271546;
                 <input type="hidden" id="signature" name="signature" value=""/>
                 <input type="hidden" id="timestamp" name="timestamp" value=""/>
             </form>
-            <div class="login_right">
+            <div class="login_right">                                   
             	<div>已有奇迹才聘帐号</div>
             	<a  href="${ctx}/user/login1"  class="registor_now">直接登录</a>
                 <div class="login_others">使用以下帐号直接登录:</div>

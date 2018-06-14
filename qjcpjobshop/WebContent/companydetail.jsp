@@ -525,7 +525,7 @@ avatar.uploadComplate = function( data ){
 	</div><!-- end #body -->
 	<div id="footer">
 		<div class="wrapper">
-			<a rel="nofollow" target="_blank" href="about.html">联系我们</a>
+			<a rel="nofollow" target="_blank" href="about.jsp">联系我们</a>
 		    <a target="_blank" href="http://www.baidu.com">互联网公司导航</a>
 		    <a rel="nofollow" target="_blank" href=https://weibo.com/u/5704043792>奇迹才聘微博</a>
 		    <a rel="nofollow" href="javascript:void(0)" class="footer_qr">奇迹才聘微信<i></i></a>

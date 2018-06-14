@@ -425,7 +425,7 @@ $(function(){
 	</div><!-- end #body -->
 	<div id="footer">
 		<div class="wrapper">
-			<a href="about.html" target="_blank" rel="nofollow">联系我们</a>
+			<a href="about.jsp" target="_blank" rel="nofollow">联系我们</a>
 		    
 		    <a href=https://weibo.com/u/5704043792 target="_blank" rel="nofollow">奇迹才聘微博</a>
 		    <a class="footer_qr" href="javascript:void(0)" rel="nofollow">奇迹才聘微信<i></i></a>
