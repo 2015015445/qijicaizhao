@@ -271,17 +271,5 @@ public class ResumeDao {
 		}
 	}
 	
-	public Page findResumesByLimit(int num, int size,String email, String limit, int type) {
-		try{
-			Page p = this.findResumes(num, size, email, type);
-			Iterator i = p.getList().iterator();
-			while(i.hasNext()) {
-				
-			}
-			return p;
-		}catch(Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
+	
 }

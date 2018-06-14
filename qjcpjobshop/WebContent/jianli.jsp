@@ -155,7 +155,13 @@ var youdao_conv_id = 271546;
             			</span>
             			<div class="m_portrait">
 	                    	<div></div>
-	                    	<img width="120" height="120" alt="jason" src="style/images/default_headpic.png">
+	                    	<c:if test="${resume.img == null }">
+						    <img width="120" height="120" src="style/images/default_headpic.png">
+						    </c:if>
+						    
+						    <c:if test="${resume.img != null }">
+						    <img width="120" height="120" src="/upload/${resume.img}">
+						    </c:if>
 	                    </div>
           		</div><!--   end .basicShow -->
 

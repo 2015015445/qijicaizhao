@@ -392,9 +392,61 @@ public class ResumeController {
 			session.setAttribute("resume",rlist);
 			
 			return "delivery";
+		}	
+	}
+	
+	@RequestMapping("resumetype")
+	public String findResumesByLimit(@RequestParam("pageNum") int pageNum,@RequestParam("myEmail") String email,
+			@RequestParam("type") int type, Model model, HttpSession session, @RequestParam("resumetype") int resumeType) {
+		try{
+			Page p = resumeService.findResumes(pageNum, 6, email, type);
+			Iterator i = p.getList().iterator();
+			List positionList = new ArrayList();
+			List rlist = new ArrayList();
+			while(i.hasNext()) {
+				ResumeReceived rr = (ResumeReceived) i.next();
+				String resumeemail = rr.getResumeemail();
+				Resume r = resumeService.findR(resumeemail);
+				if(resumeType == 0) {
+					if(r.getResumepdf() == null) {
+						i.remove();
+					}
+				}else if(resumeType == 1) {
+					if(r.getResumepdf() != null) {
+						i.remove();
+					}
+				}
+				
+			}
+			while(i.hasNext()) {
+				ResumeReceived rr = (ResumeReceived) i.next();
+				String resumeemail = rr.getResumeemail();
+				String positionid = rr.getPositionid();
+				Resume r = resumeService.findR(resumeemail);
+				Position position = positionService.findJobDetail(positionid);
+				positionList.add(position);
+				rlist.add(r);
+				
+			}
+			model.addAttribute("position",positionList);
+			model.addAttribute("resumereceived",p);
+			session.setAttribute("resume",rlist);
+			if(type == 0) {
+				return "notsee";
+			}
+			if(type == 1) {
+				return "canInterviewResumes";
+			}
+			if(type == 2) {
+				return "interview";
+			}
+			if(type == 3) {
+				return "haverefuseresume";
+			}
+			return "canInterviewResumes";
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "canInterviewResumes";
 		}
-		
-		
-		
 	}
 }
