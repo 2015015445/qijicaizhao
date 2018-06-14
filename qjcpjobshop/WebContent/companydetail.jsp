@@ -151,8 +151,7 @@ var youdao_conv_id = 271546;
 							                        <input type="file" title="支持jpg、jpeg、gif、png格式，文件小于5M" onchange="product_check(this,'http://www.lagou.com/c/upload.json','productNo','productShow','type','productInfos');" name="myfiles" id="myfiles0">
 							                    	<input type="hidden" value="3" name="type" class="type"> 
 							                    	<input type="hidden" value="images/product_default.png" name="productPicUrl" class="productInfos">   
-							                    </div>
-					                            
+							                    </div》
 					                            <div class="cp_intro">
 					                               	<input type="text" placeholder="请输入产品名称" value="发大发" name="product" class="valid">	
 					                                <input type="text" placeholder="请输入产品网址" value="http://www.weimob.com" name="productUrl" class="valid">	
@@ -175,15 +174,13 @@ var youdao_conv_id = 271546;
 				                        	<div class="cp_intro">
 				                        		<h3><a target="_blank" href="${list1.url}">${list1.name}</a></h3>
 					                            <div class="scroll-pane" style="overflow: auto; padding: 0px; width: 260px;">
-					                            	
-					                            <div class="jspContainer" style="width: 260px; height: 140px;"><div class="jspPane" style="padding: 0px; top: 0px; width: 260px;overflow:auto;">${list1.introduction}</div></div></div>
+					                            <div class="jspContainer" style="width: 260px; height: 140px;"><div class="jspPane" style="padding: 0px; top: 0px;height:140px; width: 260px;overflow:auto;">${list1.introduction}</div></div></div>
 					                        </div>
 					            		</dd>
 					                   </c:forEach>
 					                </dl>
-	            
 	              				</div>
-       								        						    			        			</div>   <!-- end #Product --> 
+       						</div><!-- end #Product --> 
        	
        				<div id="Profile">
 			            				        	<div class="profile_wrap">

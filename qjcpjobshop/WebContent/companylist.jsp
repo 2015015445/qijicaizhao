@@ -36,7 +36,18 @@ console.log(1);
 <![endif]-->
 <script type="text/javascript">
 var youdao_conv_id = 271546; 
-</script> 
+function searchclick() {
+	var na = $("#search_input").val()
+	if ("" == na || na ==null) {
+		alert('请输入要查找的内容')
+	}
+}
+function clickj() {
+	alert("你还没有登陆！！");
+}
+var ctx = "h";
+console.log(1);
+</script>
 <script type="text/javascript" src="${ctx}/style/js/conv.js"></script>
 </head>
 <body>
@@ -51,7 +62,9 @@ var youdao_conv_id = 271546;
     			<li class="current"><a href="${ctx}/company/findallcompany" >公司</a></li>
     			<li ><a href="htoForum.html" target="_blank">职业预测</a></li>
     			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
-				<li ><a href="${ctx}/position/create?id=${email}" rel="nofollow">发布职位</a></li>
+    			<c:if test="${email == null }"><li ><a rel="nofollow" onclick="clickj()">发布职位</a></li></c:if>
+    			<c:if test="${email != null }"><li ><a href="${ctx}/position/create?id=${email}" rel="nofollow">发布职位</a></li></c:if>
+				<%-- <li ><a href="${ctx}/position/create?id=${email}" rel="nofollow">发布职位</a></li> --%>
 	    	</ul>
 	    	<% 
 	    		Cookie cookie = (Cookie)session.getAttribute("cookie");
@@ -312,30 +325,31 @@ var youdao_conv_id = 271546;
 																						                        </ul>
 			                    </li> -->
 		                        <c:forEach items="${list}" var="p1">
-			                        <li >
-				                        <a href="${ctx}/company/companydetail?email=${p1.email}&&id1=${email}" target="_blank">
-				                        	<h3 title="${p1.name}">${p1.name}</h3>
-				                        	<div class="comLogo">
-					                        	<img src="${p1.image}" width="190" height="190" alt="${p1.name}" />
-					                        	<ul>
-					                        		<li>${p1.thefinancingstage}</li>
-					                        	</ul>
-				                        	</div>
-				                        </a>
-   			                        	<!-- <a href="h/jobs/148976.html" target="_blank"> PHP</a>
-   			                        	<a href="h/jobs/148979.html" target="_blank"> U3D</a>
-   			                        	<a href="h/jobs/148991.html" target="_blank"> 游戏动作/主美</a> -->
-			                      		<ul class="reset ctags">
-		                        			<li>${p1.thefinancingstage}</li>
-   				                        	<li>${p1.industryfield}</li>
-   				                        	<li style="white-space: pre-wrap">${p1.briefintroduction}</li>
-				                        </ul>
-				                    </li>
+				                        <li>
+					                        <a href="${ctx}/company/companydetail?email=${p1.email}&&id1=${email}" target="_blank">
+					                        	<h3 title="${p1.name}">${p1.name}</h3>
+					                        	<div class="comLogo">
+						                        	<img src="${p1.image}" width="190" height="190" alt="${p1.name}" />
+						                        	<ul>
+						                        		<li>${p1.thefinancingstage}</li>
+						                        	</ul>
+					                        	</div>
+					                        </a>
+	   			                        	<!-- <a href="h/jobs/148976.html" target="_blank"> PHP</a>
+	   			                        	<a href="h/jobs/148979.html" target="_blank"> U3D</a>
+	   			                        	<a href="h/jobs/148991.html" target="_blank"> 游戏动作/主美</a> -->
+				                      		<ul class="reset ctags">
+			                        			<li>${p1.thefinancingstage}</li>
+	   				                        	<li>${p1.industryfield}</li>
+	   				                        	<li style="white-space: pre-wrap">${p1.briefintroduction}</li>
+					                        </ul>
+					                    </li>
 				                </c:forEach>
 		                </ul>
               			<!-- <div class="Pagination"></div> -->
               			<div class="Pagination myself">
-	              			<a href="${ctx}/company/findallcompany?pageNum=1">首页</a>
+              				<c:if test="${style == 1 }">
+              				<a href="${ctx}/company/findallcompany?pageNum=1">首页</a>
 	              			<a href="${ctx}/company/findallcompany?pageNum=${page.prePageNum }">上一页 </a>
 	              			<c:forEach items="${pagelist1}" var="p2">
 	              				<a href="${ctx}/company/findallcompany?pageNum=${p2}" title="${p2}">${p2}</a>
@@ -343,6 +357,18 @@ var youdao_conv_id = 271546;
 	              			<a href="${ctx}/company/findallcompany?pageNum=${page.nextPageNum }">下一页 </a>
 	              			<a href="${ctx}/company/findallcompany?pageNum=${page.totalPageNum }">尾页</a>
 	              			<p>共 ${page.totalPageNum}页，当前第${page.currentPageNum}页</p>
+              				</c:if>
+	              			
+	              			<c:if test="${style == 2 }">
+              				<a href="${ctx}/company/findallcompany?pageNum=1">首页</a>
+	              			<a href="${ctx}/company/findallcompany?pageNum=${page.prePageNum }">上一页 </a>
+	              			<c:forEach items="${pagelist1}" var="p2">
+	              				<a href="${ctx}/company/findallcompany?pageNum=${p2}" title="${p2}">${p2}</a>
+	              			</c:forEach>
+	              			<a href="${ctx}/company/findallcompany?pageNum=${page.nextPageNum }">下一页 </a>
+	              			<a href="${ctx}/company/findallcompany?pageNum=${page.totalPageNum }">尾页</a>
+	              			<p>共 ${page.totalPageNum}页，当前第${page.currentPageNum}页</p>
+              				</c:if>
               			</div>
                   </form>
             </div>	

@@ -79,7 +79,8 @@ public class CompanyController {
 		}else{
 			model.addAttribute("email", null);
 		}
-		
+		//allcompany
+		model.addAttribute("style", 1);
 		return "companylist";
 	}
 	
@@ -124,6 +125,9 @@ public class CompanyController {
 				model.addAttribute("email", null);
 			}
 			
+			
+			//byfield
+			model.addAttribute("style", 2);
 			return "companylist";
 			
 			
@@ -176,6 +180,8 @@ public class CompanyController {
 				model.addAttribute("email", null);
 			}
 			
+			//bylocation
+			model.addAttribute("style", 3);
 			return "companylist";
 			
 			
@@ -227,8 +233,9 @@ public class CompanyController {
 				model.addAttribute("email", null);
 			}
 			
+			//bystage
+			model.addAttribute("style", 4);
 			return "companylist";
-			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
