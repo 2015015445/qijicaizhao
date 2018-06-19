@@ -83,7 +83,6 @@ public class UserController {
 			if(u.getPassword().equals(password)){
 				session.setAttribute("id", name); 
 				session.setAttribute("user", u);
-
 				Cookie cookie = new Cookie(name,password);
 				session.setAttribute("cookie", cookie);
 				userService.email = name;
@@ -96,6 +95,7 @@ public class UserController {
 		}else{
 			Usercompany company = userService.findByCompanyName(name);
 			if(company.getPassword().equals(password)){
+				session.setAttribute("user", u);
 				Cookie cookie = new Cookie(name,password);
 				session.setAttribute("cookie", cookie);
 				model.addAttribute("email", cookie.getName());

@@ -54,11 +54,8 @@ var youdao_conv_id = 271546;
     	<input type="hidden" id="resubmitToken" value="9b207beb1e014a93bc852b7ba450db27" />		
 		<div class="login_box">
         	<form id="loginForm" method="post" action="${ctx}/user/regist">
-<<<<<<< HEAD
-        		<h3>密码错误，请重新输登录！</h3>
-=======
+
         		<h3>账号或密码错误，请重新登录</h3>
->>>>>>> 2588b0715090918293939831163fb2dc9b366b0e
                 
                 <input type="hidden" id="callback" name="callback" value=""/>
                 <input type="hidden" id="authType" name="authType" value=""/>
@@ -66,11 +63,7 @@ var youdao_conv_id = 271546;
                 <input type="hidden" id="timestamp" name="timestamp" value=""/>
             </form>
             <div class="login_right">
-<<<<<<< HEAD
-            	<div>已有奇迹帐号</div>
-=======
             	<div>已有奇迹才聘帐号</div>
->>>>>>> 2588b0715090918293939831163fb2dc9b366b0e
             	<a  href="${ctx}/user/login1"  class="registor_now">重新登录</a>
                 <div class="login_others">使用以下帐号直接登录:</div>
                 <a  href="h/ologin/auth/sina.html"  target="_blank" class="icon_wb" title="使用新浪微博帐号登录"></a>

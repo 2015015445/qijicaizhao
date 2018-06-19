@@ -125,6 +125,51 @@ $('desc').html(areaContent)
                     </dd>
                     <dd class="job_bt">
                         <h3 class="description">职位描述</h3>
+                        &nbsp;如果你一个人能干掉一个（产品经理+UED部门），快到碗里来！
+<br>
+<br>
+<br>
+<br>&nbsp;如果你觉得前端是一份优雅和极富有创造力的工作，快到碗里来！
+<br>
+<br>
+<br>
+<br>&nbsp;你真心看不上用网页三剑客的人；
+<br>
+<br>&nbsp;你在git上开发或参与的项目，并持续维护；
+<br>
+<br>&nbsp;你不会在不是多屏工作的公司上班；
+<br>
+<br>&nbsp;你支持开源，对bootstrap&nbsp;这种框架，喜爱程度是无法言语的；
+<br>
+<br>&nbsp;你有很好的设计品味，坚持移动优先的理念，跨屏幕的响应式，有很多经验；
+<br>
+<br>&nbsp;你是个超级APP控、工具控；
+<br>
+<br>&nbsp;你精通HTML5和CSS3规范和标准；
+<br>
+<br>&nbsp;你精通ANDRIOD和IOS开发标准；
+<br>
+<br>&nbsp;你静通JS，手写是你的业余爱好；
+<br>
+<br>&nbsp;当然，我们更欢迎各种超人加盟我们正日益壮大的团队。
+<br>
+<br>&nbsp;人生苦短，为了生活和未来而奋斗的人儿，是时候换个姿势取悦自己了！
+<br>
+<br>&nbsp;我们就是这样一群爱自己的人。
+<br>
+<br>&nbsp;如果你也爱自己，请将你的故事及作品传送至：公司hr邮箱，我们翘首以盼。
+<br>
+<br>
+<br>&nbsp;
+<br>
+<br>任职条件：
+<br>
+<br>1、本科及以上学历，计算机相关专业，3-5年相关互联网公司工作经验；
+<br>2、理解mobile&nbsp;first&nbsp;设计理念&nbsp;，熟悉各种前端开发框架，善于利用各种资源，懂得站在巨人肩膀上开发；
+<br>3、熟悉Javascript实现交互效果，关注前端技术新动向，能写原生代码；
+<br>4、精通div+css构架页面（网站、后台管理系统、触屏终端）；
+<br>5、具有良好的沟通协调能力和敬业净胜，工作细心，有较高的共组效率；
+<br>6、熟悉互联网，具有积克精神，精通设计美学，可做设计者优先。&nbsp;
                         <p class="desc"></p>
                         <pre><font font-weight="blod" size="3px" color="#777">${jobdetail.description }</font></pre>
                     </dd>

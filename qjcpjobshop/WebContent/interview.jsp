@@ -69,13 +69,12 @@ var youdao_conv_id = 271546;
             		<span class="red" id="noticeDot-0"></span>
             		<i></i>
             	</dt>
-                                	<dd><a rel="nofollow" href="jianli.html">我的简历</a></dd>
-                	                	<dd><a href="collections.html">我收藏的职位</a></dd>
-                	                	                	<dd><a href="delivery.html">我投递的职位 <span id="noticeNo" class="red">(1)</span></a></dd>
-                	                	<dd class="btm"><a href="subscribe.html">我的订阅</a></dd>
-                	<dd><a href="create.html">我要招人</a></dd>
-                                                <dd><a href="accountBind.html">帐号设置</a></dd>
-                                <dd class="logout"><a rel="nofollow" href="login.html">退出</a></dd>
+                                	<dd><a rel="nofollow" href="jianli.html">我发布的职位</a></dd>
+                	<dd><a href="${ctx }/caninterviewresumes?pagenum=1&type=0">我收到的简历</a></dd>
+                	<dd><a href="${ctx}/company/companydetail?email=${email}&id1=${email}">我的公司主页 </a></dd>       	
+                	<dd><a href="${ctx}/position/create?id=${email}">我要招人</a></dd>
+                    <dd><a href="accountBind.html">帐号设置</a></dd>
+                    <dd class="logout"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
             </dl>
                                     <div id="noticeTip">
             	<span class="bot"></span>

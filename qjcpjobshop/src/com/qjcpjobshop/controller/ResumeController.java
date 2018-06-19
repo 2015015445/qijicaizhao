@@ -44,6 +44,7 @@ import com.qjcpjobshop.entity.Page;
 import com.qjcpjobshop.entity.Position;
 import com.qjcpjobshop.entity.Resume;
 import com.qjcpjobshop.entity.ResumeReceived;
+import com.qjcpjobshop.entity.Usercompany;
 import com.qjcpjobshop.entity.Userfindjob;
 import com.qjcpjobshop.service.CompanyService;
 import com.qjcpjobshop.service.PositionService;
@@ -275,8 +276,9 @@ public class ResumeController {
 	
 	@RequestMapping("caninterviewresumes")
 	public String canInterviewResumes(@RequestParam("pagenum") int pagenum, @RequestParam("type") int type, Model model,HttpSession session) {
-		Userfindjob user = (Userfindjob) session.getAttribute("user");
-		String companyemail = user.getEmail();
+		
+		
+		String companyemail = (String) session.getAttribute("id");
 		Page p = resumeService.findResumes(pagenum, 5, companyemail,type);
 		List li = p.getList();
 		List rlist = new ArrayList();
