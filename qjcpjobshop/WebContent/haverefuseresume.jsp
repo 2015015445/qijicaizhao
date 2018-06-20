@@ -120,7 +120,7 @@ var youdao_conv_id = 271546;
                     <dt>
                         <h1>
                             <em></em>
-                            	不合适简历  <span>（共1份）</span>                        </h1>
+                            	不合适简历  <span>（共${resumereceived.totalCount }份）</span>                        </h1>
                     </dt>
                     <dd>
                     	<form action="canInterviewResumes.html" method="get" id="filterForm">

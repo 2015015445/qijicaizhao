@@ -202,8 +202,8 @@ public class ResumeController {
 		return "jianli";
 	}
 	@RequestMapping(value="resumesend")
-	public String resumeSend(@RequestParam("resumeName") int resumenum, @RequestParam("sendemail") String semail,
-			@RequestParam("receivedmail") String remail, HttpSession thesession) throws ServletException,IOException {                                        
+	public String resumeSend(@RequestParam(value="sendemail",required=false) String semail, @RequestParam(value="receivedmail",required=false) String remail, 
+			@RequestParam("resumeName") int resumenum, HttpSession thesession) throws ServletException,IOException {                                        
 		ResumeReceived rr = new ResumeReceived();
 		Position p = (Position) thesession.getAttribute("jobdetail");
 		rr.setResumeemail(semail);
