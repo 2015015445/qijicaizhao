@@ -201,16 +201,19 @@ public class ResumeController {
 		
 		return "jianli";
 	}
-	@RequestMapping(value="resumesend")
-	public String resumeSend(@RequestParam(value="sendemail",required=false) String semail, @RequestParam(value="receivedmail",required=false) String remail, 
-			@RequestParam("resumeName") int resumenum, HttpSession thesession) throws ServletException,IOException {                                        
+	
+	@RequestMapping(value="sendresumemail")
+	public String resumeSendMail(HttpSession thesession, @RequestParam("semail") String semail,
+			@RequestParam("remail") String remail) {                                        
 		ResumeReceived rr = new ResumeReceived();
 		Position p = (Position) thesession.getAttribute("jobdetail");
+		System.out.println("的士大夫敢死队风格"+semail);
 		rr.setResumeemail(semail);
 		rr.setCompanyemail(remail);
 		rr.setType(0);
 		rr.setPositionid(p.getId());
 		resumeService.saveResumeReceived(rr);
+		System.out.println("发送简历中......");
 		Properties props = System.getProperties();
 		props.put("mail.smtp.host", "smtp.163.com");
 		props.put("mail.smtp.auth", "true");

@@ -235,12 +235,12 @@ public class PositionController extends HttpServlet {
 	public String jobDetail(@RequestParam("id") String id, @RequestParam("email") String email, HttpSession session) {
 		Position p = this.positionService.findJobDetail(id);
 		Company company = companyService.findCompanyByEmail(email);
-//		ResumeReceived rr = new ResumeReceived();
-//		rr.setCompanyemail(company.getEmail());
-//		rr.setResumeemail("123");
-//		rr.setType(0);
-//		rr.setPositionid(id);
-//		resumeService.saveResumeReceived(rr);
+		ResumeReceived rr = new ResumeReceived();
+		rr.setCompanyemail(company.getEmail());
+		rr.setResumeemail("123");
+		rr.setType(0);
+		rr.setPositionid(id);
+		resumeService.saveResumeReceived(rr);
 		session.setAttribute("jobdetailcompany", company);
 		session.setAttribute("jobdetail", p);
 		return "jobdetail";

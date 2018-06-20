@@ -344,7 +344,7 @@ $('desc').html(areaContent)
 	    	</tr>
 	    	<tr>
 	        	<td>
-                    <form  action="${ctx }/resumesend?sendemail=${user.email }&receivedmail=${jobdetail.email}">
+                    <form  action="${ctx }/sendresumemail?semail=${user.email }123&remail=${jobdetail.email}" method="post">
 	            		<div style="margin: 15px 0px 25px 25px; " >
                     		<label class="radio" >
 	            			<input  type="radio" name="resumeName" class="resume1" value="1"  />
