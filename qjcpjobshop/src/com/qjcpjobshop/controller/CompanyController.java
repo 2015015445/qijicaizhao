@@ -266,6 +266,8 @@ public class CompanyController {
 	
 	@RequestMapping(value="/mycompany", method=RequestMethod.GET)
 	public String mycompany(Model model,@RequestParam("email") String email){
+		System.out.println("进入CompanyController");
+		
 		Company c = companyService.findCompanyByEmail(email);
 		List<CompanyProduct> companyproductlist = companyProductService.findCompanyProductByEmail(email);
 		List<FoundingTeam> foundingteamlist = foundingTeamService.findCompanyProductByEmail(email);
@@ -285,8 +287,64 @@ public class CompanyController {
 	
 	@RequestMapping(value="/updatemycompany", method=RequestMethod.POST)
 	public String updatemycompany(@RequestParam("email") String email,@RequestParam("name") String name,@RequestParam("briefintroduction") String briefintroduction,@RequestParam("id") int id){
+		System.out.println("进入CompanyController，并修改公司信息");
 		companyService.updateMyCompany(name, briefintroduction, id);
 		
+		System.out.println("即将跳转出CompanyController");
+		return "redirect:/company/mycompany?email="+email;
+	}
+	
+	@RequestMapping(value="/updateproduct", method=RequestMethod.POST)
+	public String updateproduct(@RequestParam("email") String email,@RequestParam("name") String name,@RequestParam("url") String url,@RequestParam("introduction") String introduction,@RequestParam("id") int id){
+		System.out.println("进入CompanyController，并修改产品信息");
+		companyService.updateProduct(name,url,introduction,id);
+		
+		System.out.println("即将跳转出CompanyController");
+		return "redirect:/company/mycompany?email="+email;
+	}
+	
+	@RequestMapping(value="/updatecompanyintroduction", method=RequestMethod.POST)
+	public String updatecompanyintroduction(@RequestParam("email") String email,@RequestParam("detailintroduction") String detailintroduction,@RequestParam("id") int id){
+		System.out.println("进入CompanyController，并修改公司介绍");
+		companyService.updatecompanyintroduction(detailintroduction,id);
+		
+		System.out.println("即将跳转出CompanyController");
+		return "redirect:/company/mycompany?email="+email;
+	}
+	
+	@RequestMapping(value="/updatemycompany2", method=RequestMethod.POST)
+	public String updatemycompany2(@RequestParam("location") String location,@RequestParam("industryfield") String industryfield,@RequestParam("scale") String scale,@RequestParam("url") String url,@RequestParam("email") String email,@RequestParam("id") int id){
+		System.out.println("进入CompanyController，并修改公司信息");
+		companyService.updateMyCompany2(location,industryfield,scale,url,id);
+		
+		System.out.println("即将跳转出CompanyController");
+		return "redirect:/company/mycompany?email="+email;
+	}
+	
+	@RequestMapping(value="/updatemycompany3", method=RequestMethod.POST)
+	public String updatemycompany3(@RequestParam("id") int id,@RequestParam("email") String email,@RequestParam("thefinancingstage") String thefinancingstage){
+		System.out.println("进入CompanyController，并修改公司信息");
+		companyService.updateMyCompany3(thefinancingstage, id);
+		
+		System.out.println("即将跳转出CompanyController");
+		return "redirect:/company/mycompany?email="+email;
+	}
+	
+	@RequestMapping(value="/updatefoundingteam", method=RequestMethod.POST)
+	public String updatefoundingteam(@RequestParam("id") int id,@RequestParam("email") String email,@RequestParam("name") String name,@RequestParam("positionnow") String positionnow,@RequestParam("weibourl") String weibourl,@RequestParam("introduction") String introduction){
+		System.out.println("进入CompanyController，并修改创始团队信息");
+		companyService.updateFoundingTeam(name,positionnow,weibourl,introduction, id);
+		
+		System.out.println("即将跳转出CompanyController");
+		return "redirect:/company/mycompany?email="+email;
+	}
+	
+	@RequestMapping(value="/deleteproduct", method=RequestMethod.POST)
+	public String deleteproduct(@RequestParam("id") int id,@RequestParam("email") String email){
+		System.out.println("进入CompanyController，并删除产品信息");
+		companyService.deleteProduct(id);
+		
+		System.out.println("即将跳转出CompanyController");
 		return "redirect:/company/mycompany?email="+email;
 	}
 }

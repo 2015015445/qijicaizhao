@@ -59,6 +59,6 @@
 	<classpathentry kind="lib" path="D:/Java/javawenjian/qijicaizhao/qjcpjobshop/WebContent/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mail.jar"/>
-	<classpathentry kind="lib" path="E:/apache-tomcat-8.0.11/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/apache-tomcat-8.0.11/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

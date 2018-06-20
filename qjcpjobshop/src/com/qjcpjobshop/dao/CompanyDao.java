@@ -126,4 +126,83 @@ public class CompanyDao {
 		System.out.println(i);
 		session.close();
 	}
+	
+	public void updateProduct(String name,String url,String introduction,int id){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="update CompanyProduct c set c.name=?,c.url=?,c.introduction=? where c.id=?";
+		Query query  = session.createQuery(hql); 
+		query.setString(0,name);
+		query.setString(1,url);
+		query.setString(2,introduction);
+		query.setInteger(3,id);
+		int i =query.executeUpdate();
+		System.out.println(i);
+		session.close();
+	}
+	
+	public void updateCompanyIntroduction(String detailintroduction,int id){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="update Company c set c.detailintroduction=? where c.id=?";
+		Query query  = session.createQuery(hql); 
+		query.setString(0,detailintroduction);
+		query.setInteger(1,id);
+		int i =query.executeUpdate();
+		System.out.println(i);
+		session.close();
+	}
+	
+	public void updateMyCompany2(String location,String industryfield,String scale,String url,int id){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="update Company c set c.location=?,c.industryfield=?,c.scale=?,c.url=? where c.id=?";
+		Query query  = session.createQuery(hql); 
+		query.setString(0,location);
+		query.setString(2,industryfield);
+		query.setString(3,scale);
+		query.setString(4,url);
+		query.setInteger(5,id);
+		int i =query.executeUpdate();
+		System.out.println(i);
+		session.close();
+	}
+	
+	public void updateMyCompany3(String thefinancingstage,int id){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="update Company c set c.thefinancingstage=? where c.id=?";
+		Query query  = session.createQuery(hql); 
+		query.setString(0,thefinancingstage);
+		query.setInteger(1,id);
+		int i =query.executeUpdate();
+		System.out.println(i);
+		session.close();
+	}
+	
+	public void updateFoundingTeam(String name,String positionnow,String weibourl,String introduction,int id){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="update FoundingTeam f set f.name=?,f.positionnow=?,f.weibourl=?,f.introduction=? where f.id=?";
+		Query query  = session.createQuery(hql); 
+		query.setString(0,name);
+		query.setString(1,positionnow);
+		query.setString(2,weibourl);
+		query.setString(3,introduction);
+		query.setInteger(4,id);
+		int i =query.executeUpdate();
+		System.out.println(i);
+		session.close();
+	}
+	
+	public void deleteProduct(int id){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="delete from CompanyProduct c where c.id=?";
+		Query query  = session.createQuery(hql); 
+		query.setInteger(0,id);
+		int i =query.executeUpdate();
+		System.out.println(i);
+		session.close();
+	}
 }

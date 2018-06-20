@@ -360,13 +360,35 @@ console.log(1);
               				</c:if>
 	              			
 	              			<c:if test="${style == 2 }">
-              				<a href="${ctx}/company/findallcompany?pageNum=1">首页</a>
-	              			<a href="${ctx}/company/findallcompany?pageNum=${page.prePageNum }">上一页 </a>
+              				<a href="${ctx}/company/findcompanybyfield?pageNum=1">首页</a>
+	              			<a href="${ctx}/company/findcompanybyfield?pageNum=${page.prePageNum }">上一页 </a>
 	              			<c:forEach items="${pagelist1}" var="p2">
-	              				<a href="${ctx}/company/findallcompany?pageNum=${p2}" title="${p2}">${p2}</a>
+	              				<a href="${ctx}/company/findcompanybyfield?pageNum=${p2}" title="${p2}">${p2}</a>
 	              			</c:forEach>
-	              			<a href="${ctx}/company/findallcompany?pageNum=${page.nextPageNum }">下一页 </a>
-	              			<a href="${ctx}/company/findallcompany?pageNum=${page.totalPageNum }">尾页</a>
+	              			<a href="${ctx}/company/findcompanybyfield?pageNum=${page.nextPageNum }">下一页 </a>
+	              			<a href="${ctx}/company/findcompanybyfield?pageNum=${page.totalPageNum }">尾页</a>
+	              			<p>共 ${page.totalPageNum}页，当前第${page.currentPageNum}页</p>
+              				</c:if>
+              				
+              				<c:if test="${style == 3 }">
+              				<a href="${ctx}/company/findcompanybylocation?pageNum=1">首页</a>
+	              			<a href="${ctx}/company/findcompanybylocation?pageNum=${page.prePageNum }">上一页 </a>
+	              			<c:forEach items="${pagelist1}" var="p2">
+	              				<a href="${ctx}/company/findcompanybyfindcompanybylocation?pageNum=${p2}" title="${p2}">${p2}</a>
+	              			</c:forEach>
+	              			<a href="${ctx}/company/findcompanybylocation?pageNum=${page.nextPageNum }">下一页 </a>
+	              			<a href="${ctx}/company/findcompanybylocation?pageNum=${page.totalPageNum }">尾页</a>
+	              			<p>共 ${page.totalPageNum}页，当前第${page.currentPageNum}页</p>
+              				</c:if>
+              					
+              				<c:if test="${style == 4 }">
+              				<a href="${ctx}/company/findcompanybystage?pageNum=1">首页</a>
+	              			<a href="${ctx}/company/findcompanybystage?pageNum=${page.prePageNum }">上一页 </a>
+	              			<c:forEach items="${pagelist1}" var="p2">
+	              				<a href="${ctx}/company/findcompanybyfindcompanybylocation?pageNum=${p2}" title="${p2}">${p2}</a>
+	              			</c:forEach>
+	              			<a href="${ctx}/company/findcompanybystage?pageNum=${page.nextPageNum }">下一页 </a>
+	              			<a href="${ctx}/company/findcompanybystage?pageNum=${page.totalPageNum }">尾页</a>
 	              			<p>共 ${page.totalPageNum}页，当前第${page.currentPageNum}页</p>
               				</c:if>
               			</div>

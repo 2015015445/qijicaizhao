@@ -47,4 +47,28 @@ public class CompanyService {
 	public void updateMyCompany(String name,String briefintroduction,int id){
 		companyDao.updateMyCompany(name, briefintroduction, id);
 	}
+	
+	public void updateProduct(String name,String url,String introduction,int id){
+		companyDao.updateProduct(name,url,introduction,id);
+	}
+	
+	public void updatecompanyintroduction(String detailintroduction,int id){
+		companyDao.updateCompanyIntroduction(detailintroduction,id);
+	}
+	
+	public void updateMyCompany2(String location,String industryfield,String scale,String url,int id){
+		companyDao.updateMyCompany2(location,industryfield,scale,url,id);
+	}
+	
+	public void updateMyCompany3(String thefinancingstage,int id){
+		companyDao.updateMyCompany3(thefinancingstage, id);
+	}
+	
+	public void updateFoundingTeam(String name,String positionnow,String weibourl,String introduction,int id){
+		companyDao.updateFoundingTeam(name,positionnow,weibourl,introduction, id);
+	}
+	
+	public void deleteProduct(int id){
+		companyDao.deleteProduct(id);
+	}
 }
