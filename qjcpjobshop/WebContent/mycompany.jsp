@@ -188,7 +188,7 @@ var youdao_conv_id = 271546;
 							                               	<input type="text" placeholder="请输入产品名称" value="${p1.name}" name="name" class="valid">	
 							                                <input type="text" placeholder="请输入产品网址" value="${p1.url}" name="url" class="valid">	
 							                                <textarea placeholder="请简短描述该产品定位、产品特色、用户群体等" maxlength="500" value="" class="s_textarea valid" name="introduction">${p1.introduction}</textarea>	
-							                                <div class="word_count fr">你最多可以输入 <span>500</span> 字</div>
+							                                <div class="word_count fr">你还可以输入 <span>500</span> 字</div>
 							                                <div class="clear"></div>
 							                                <input type="submit" value="保存" class="btn_small">
 							                                <a class="btn_cancel_s product_delete" href="${ctx}/company/deleteproduct">删除</a>
@@ -323,7 +323,7 @@ var youdao_conv_id = 271546;
 						                    	<input type="hidden" value="${company.email}" name="email">
 							                    <input type="hidden" value="${company.id}" name="id">
 						                        <textarea placeholder="请分段详细描述公司简介、企业文化等" name="detailintroduction" id="companyProfile" class="valid">${company.detailintroduction}</textarea>		                                        
-						                        <div class="word_count fr">你最多可以输入 <span>1000</span> 字</div>
+						                        <div class="word_count fr">你还可以输入 <span>1000</span> 字</div>
 						                        <div class="clear"></div>
 						                        <input type="submit" value="保存" id="submitProfile" class="btn_small">
 						                        <a id="delProfile" class="btn_cancel_s" href="javascript:void(0)">取消</a>
