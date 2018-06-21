@@ -117,11 +117,13 @@ public class CompanyDao {
 	public void updateMyCompany(String name,String briefintroduction,int id){
 		Session session = sessionFactory.openSession();
 		Transaction tran = session.beginTransaction();
+//		String hql="update Company c set c.name='"+name+"',c.briefintroduction='"+briefintroduction+"' where c.id="+id;
 		String hql="update Company c set c.name=?,c.briefintroduction=? where c.id=?";
 		Query query  = session.createQuery(hql); 
 		query.setString(0,name);
 		query.setString(1,briefintroduction);
 		query.setInteger(2,id);
+		tran.commit();
 		int i =query.executeUpdate();
 		System.out.println(i);
 		session.close();
@@ -136,6 +138,7 @@ public class CompanyDao {
 		query.setString(1,url);
 		query.setString(2,introduction);
 		query.setInteger(3,id);
+		tran.commit();
 		int i =query.executeUpdate();
 		System.out.println(i);
 		session.close();
@@ -148,6 +151,7 @@ public class CompanyDao {
 		Query query  = session.createQuery(hql); 
 		query.setString(0,detailintroduction);
 		query.setInteger(1,id);
+		tran.commit();
 		int i =query.executeUpdate();
 		System.out.println(i);
 		session.close();
@@ -159,10 +163,11 @@ public class CompanyDao {
 		String hql="update Company c set c.location=?,c.industryfield=?,c.scale=?,c.url=? where c.id=?";
 		Query query  = session.createQuery(hql); 
 		query.setString(0,location);
-		query.setString(2,industryfield);
-		query.setString(3,scale);
-		query.setString(4,url);
-		query.setInteger(5,id);
+		query.setString(1,industryfield);
+		query.setString(2,scale);
+		query.setString(3,url);
+		query.setInteger(4,id);
+		tran.commit();
 		int i =query.executeUpdate();
 		System.out.println(i);
 		session.close();
@@ -175,6 +180,7 @@ public class CompanyDao {
 		Query query  = session.createQuery(hql); 
 		query.setString(0,thefinancingstage);
 		query.setInteger(1,id);
+		tran.commit();
 		int i =query.executeUpdate();
 		System.out.println(i);
 		session.close();
@@ -190,6 +196,7 @@ public class CompanyDao {
 		query.setString(2,weibourl);
 		query.setString(3,introduction);
 		query.setInteger(4,id);
+		tran.commit();
 		int i =query.executeUpdate();
 		System.out.println(i);
 		session.close();
@@ -201,6 +208,7 @@ public class CompanyDao {
 		String hql="delete from CompanyProduct c where c.id=?";
 		Query query  = session.createQuery(hql); 
 		query.setInteger(0,id);
+		tran.commit();
 		int i =query.executeUpdate();
 		System.out.println(i);
 		session.close();

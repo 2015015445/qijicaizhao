@@ -231,7 +231,8 @@ var youdao_conv_id = 271546;
 		                    <c:forEach items="${positionlist}" var="list3">
 		                    	<dd>
 		                    	<div class="addnew">
-		                        	${list3.name}<br>
+		                        	${list3.name}&nbsp;&nbsp;&nbsp;${list3.city}&nbsp;${list3.experience}<br>
+		                        	
 		                        </div>
 		                    </dd>
 		                    </c:forEach>

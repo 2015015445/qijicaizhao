@@ -290,6 +290,10 @@ public class CompanyController {
 		System.out.println("进入CompanyController，并修改公司信息");
 		companyService.updateMyCompany(name, briefintroduction, id);
 		
+		System.out.println(name);
+		System.out.println(briefintroduction);
+		System.out.println(id);
+		
 		System.out.println("即将跳转出CompanyController");
 		return "redirect:/company/mycompany?email="+email;
 	}
