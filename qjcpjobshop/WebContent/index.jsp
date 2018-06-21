@@ -737,7 +737,7 @@ var youdao_conv_id = 271546;
 			        </c:forEach>
 			        <c:if test="${positionpage != null }">
 			        <div align="center" style="margin-top: 15px">
-			        <a href="" class="numstyle1" href="${ctx }/position/index?pageNum=1"><font color="#fff">首页</font></a>
+			        <a class="numstyle1" href="${ctx }/position/index?pageNum=1"><font color="#fff">首页</font></a>
 			        <a class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.prePageNum}" ><font color="#fff">上一页</font></a>
 			        <c:if test="${positionpage.totalPageNum < 5}">
 			        	<c:forEach  begin="1" end="${positionpage.totalPageNum }" var="num">
@@ -750,7 +750,7 @@ var youdao_conv_id = 271546;
 			        	</c:forEach>
 			        	<a class="numstyle1"><font color="#fff">...</font></a>
 			        </c:if>
-			        <a class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.nePageNum}" ><font color="#fff">下一页</font></a>
+			        <a class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.nextPageNum}" ><font color="#fff">下一页</font></a>
 			        <a href="" class="numstyle1" href="${ctx }/position/index?pageNum=${positionpage.totalPageNum}"><font color="#fff">尾页</font></a>
 		            </div>
 		            </c:if>
@@ -789,7 +789,7 @@ var youdao_conv_id = 271546;
 			        </li>
 			        </c:forEach>
 			        <div align="center" style="margin-top: 15px">	
-			        <a href="" class="numstyle1" href="${ctx }/position/searchpage?pageNum=1&kd=${searchname}"><font color="#fff">首页</font></a>
+			        <a class="numstyle1" href="${ctx }/position/searchpage?pageNum=1&kd=${searchname}"><font color="#fff">首页</font></a>
 			        <a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.prePageNum}&kd=${searchname}" ><font color="#fff">上一页</font></a>
 			        <c:if test="${searchpositionpage.totalPageNum < 5}">
 			        	<c:forEach  begin="1" end="${searchpositionpage.totalPageNum }" var="num">
@@ -802,7 +802,7 @@ var youdao_conv_id = 271546;
 			        	</c:forEach>
 			        	<a class="numstyle1" ><font color="#fff">...</font></a>
 			        </c:if>
-			        <a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.nePageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
+			        <a class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.nextPageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
 			        <a href="" class="numstyle1" href="${ctx }/position/searchpage?pageNum=${searchpositionpage.totalPageNum}&kd=${searchname}"><font color="#fff">尾页</font></a>
 		            </div>
 		            
@@ -842,7 +842,7 @@ var youdao_conv_id = 271546;
 			        </li>
 			        </c:forEach>	
 			        <div align="center" style="margin-top: 15px">
-			        <a href="" class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=1&kd=${searchname}"><font color="#fff">首页</font></a>
+			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=1&kd=${searchname}"><font color="#fff">首页</font></a>
 			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.prePageNum}&kd=${searchname}" ><font color="#fff">上一页</font></a>
 			        <c:if test="${searchpositiontypepage.totalPageNum < 5}">
 			        	<c:forEach  begin="1" end="${searchpositiontypepage.totalPageNum }" var="num">
@@ -855,7 +855,7 @@ var youdao_conv_id = 271546;
 			        	</c:forEach>
 			        	<a class="numstyle1"><font color="#fff">...</font></a>
 			        </c:if>
-			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.nePageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
+			        <a class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.nextPageNum}&kd=${searchname}" ><font color="#fff">下一页</font></a>
 			        <a href="" class="numstyle1" href="${ctx }/position/searchtypepage?pageNum=${searchpositiontypepage.totalPageNum}&kd=${searchname}"><font color="#fff">尾页</font></a>
 		            </div>
 		        </c:if>

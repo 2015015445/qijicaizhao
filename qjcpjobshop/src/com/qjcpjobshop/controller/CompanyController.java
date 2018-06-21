@@ -24,7 +24,6 @@ import com.qjcpjobshop.entity.Company;
 import com.qjcpjobshop.entity.CompanyProduct;
 import com.qjcpjobshop.entity.FoundingTeam;
 import com.qjcpjobshop.entity.Page;
-import com.qjcpjobshop.entity.Page1;
 import com.qjcpjobshop.entity.Position;
 import com.qjcpjobshop.service.CompanyProductService;
 import com.qjcpjobshop.service.CompanyService;

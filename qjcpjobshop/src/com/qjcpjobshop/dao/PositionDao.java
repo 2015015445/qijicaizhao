@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.qjcpjobshop.entity.CompanyProduct;
-import com.qjcpjobshop.entity.Page1;
+import com.qjcpjobshop.entity.Page;
 import com.qjcpjobshop.entity.Position;
 
 @Repository
@@ -40,13 +40,13 @@ public class PositionDao {
 	
 	
 	
-	public Page1 findPositionByPage(int num, int size) {
+	public Page findPositionByPage(int num, int size) {
 		try{
 			Query query = this.sessionFactory.getCurrentSession().createQuery("from Position order by id");
 			query.setFirstResult(num*size-size);
 			query.setMaxResults(size);
 			List<Position> list = query.list();
-			Page1 p = new Page1(num,size);
+			Page p = new Page(num,size);
 			p.setList(list);
 			p.setTotalCount(this.findPositionTotalCount("Position"));
 			return p;
@@ -84,7 +84,7 @@ public class PositionDao {
 		return count;
 	}
 	
-	public Page1 searchPosition(int num, int size, String name){
+	public Page searchPosition(int num, int size, String name){
 		try{
 			String hql = "from Position a where a.name like ?";  
 			Query query=this.sessionFactory.getCurrentSession().createQuery(hql);     
@@ -92,7 +92,7 @@ public class PositionDao {
 			query.setFirstResult(num*size-size);
 			query.setMaxResults(size);
 			List<Position> list = query.list();
-			Page1 p = new Page1(num,size);
+			Page p = new Page(num,size);
 			p.setList(list);
 			int totalnum = this.searchPositionTotalCount("Position", name);
 			p.setTotalCount(totalnum);
@@ -115,7 +115,7 @@ public class PositionDao {
 		return count;
 	}
 	
-	public Page1 searchPositionByType(int num, int size, String name){
+	public Page searchPositionByType(int num, int size, String name){
 		try{
 			String hql = "from Position a where a.type like ?";  
 			Query query=this.sessionFactory.getCurrentSession().createQuery(hql);     
@@ -123,7 +123,7 @@ public class PositionDao {
 			query.setFirstResult(num*size-size);
 			query.setMaxResults(size);
 			List<Position> list = query.list();
-			Page1 p = new Page1(num,size);
+			Page p = new Page(num,size);
 			p.setList(list);
 			int totalnum = this.findPositionTypeTotalCount("Position", name);
 			p.setTotalCount(totalnum);

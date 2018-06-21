@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.qjcpjobshop.entity.Company;
 import com.qjcpjobshop.entity.FoundingTeam;
-import com.qjcpjobshop.entity.Page1;
+import com.qjcpjobshop.entity.Page;
 import com.qjcpjobshop.entity.Position;
 import com.qjcpjobshop.entity.PositionAndCompany;
 import com.qjcpjobshop.entity.ResumeReceived;
@@ -36,6 +36,9 @@ import com.qjcpjobshop.service.UserService;
 @Controller
 @RequestMapping("/position")
 public class PositionController extends HttpServlet {
+	
+	private final int PAGESIZE = 6;
+	
 	@Resource
 	private PositionService positionService;
 	@Resource
@@ -98,7 +101,7 @@ public class PositionController extends HttpServlet {
 		session.removeAttribute("searchpositionpage");
 		session.removeAttribute("positionpage");
 		session.removeAttribute("searchpositiontypepage");
-		Page1 p = this.positionService.findPositionByPage(num, 12);
+		Page p = this.positionService.findPositionByPage(num, PAGESIZE);
 		
 		if(p != null) {
 			session.setAttribute("positionpage", p);
@@ -134,7 +137,7 @@ public class PositionController extends HttpServlet {
 		session.removeAttribute("positionpage");
 		session.removeAttribute("searchpositionpage");
 		session.removeAttribute("searchpositiontypepage");
-		Page1 p = this.positionService.searchPosition(1, 12,name);
+		Page p = this.positionService.searchPosition(1, PAGESIZE,name);
 		
 
 		if(p != null) {
@@ -161,7 +164,7 @@ public class PositionController extends HttpServlet {
 		session.removeAttribute("positionpage");
 		session.removeAttribute("searchpositionpage");
 		session.removeAttribute("searchpositiontypepage");
-		Page1 p = this.positionService.searchPosition(num, 12,name);
+		Page p = this.positionService.searchPosition(num, PAGESIZE,name);
 		
 		if(p != null) {
 			session.setAttribute("searchpositionpage", p);
@@ -186,7 +189,7 @@ public class PositionController extends HttpServlet {
 		session.removeAttribute("searchpositionpage");
 		session.removeAttribute("positionpage");
 		session.removeAttribute("searchpositiontypepage");
-		Page1 p = this.positionService.searchPositionByType(1, 12,name);
+		Page p = this.positionService.searchPositionByType(1, PAGESIZE,name);
 		
 		if(p != null) {
 			session.setAttribute("searchpositiontypepage", p);
@@ -211,7 +214,7 @@ public class PositionController extends HttpServlet {
 		session.removeAttribute("searchpositionpage");
 		session.removeAttribute("searchpositiontypepage");
 		session.removeAttribute("positionpage");
-		Page1 p = this.positionService.searchPositionByType(num, 12,name);
+		Page p = this.positionService.searchPositionByType(num, PAGESIZE,name);
 		
 		if(p != null) {
 			session.setAttribute("searchpositiontypepage", p);
