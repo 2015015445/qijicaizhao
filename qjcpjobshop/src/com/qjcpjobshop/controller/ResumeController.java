@@ -166,10 +166,10 @@ public class ResumeController {
 		return "jianli";
 	}
 	
-	@RequestMapping(value="/newfiled", method=RequestMethod.POST)
+	@RequestMapping(value="/newfiled", method=RequestMethod.GET)
 	public String newFiled(@RequestParam("filed") String filed, HttpSession session) {
 		session.setAttribute("resumepdf", filed);
-		return "NewFiled";
+		return "NewFile";
 	}
 	
 	@RequestMapping(value="/imgUpload", method=RequestMethod.POST)
@@ -210,6 +210,7 @@ public class ResumeController {
 		ResumeReceived rr = new ResumeReceived();
 		Position p = (Position) thesession.getAttribute("jobdetail");
 		rr.setResumeemail(semail);
+		System.out.println("发送方简历Email："+semail);
 		rr.setCompanyemail(remail);
 		rr.setType(0);
 		rr.setPositionid(p.getId());
@@ -220,7 +221,7 @@ public class ResumeController {
 		props.put("mail.smtp.auth", "true");
 		Session session = Session.getInstance(props, new Authenticator() {
 			public PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("he2510211460@163.com", "123456he");
+				return new PasswordAuthentication("a15733125218@163.com", "123456dhy");
 			}
 		});
 		Message msg = new MimeMessage(session);
@@ -237,19 +238,19 @@ public class ResumeController {
 	         MimeMessage message = new MimeMessage(session);
 	 
 	         // Set From: 头部头字段
-	         message.setFrom(new InternetAddress("he2510211460@163.com"));
+	         message.setFrom(new InternetAddress("a15733125218@163.com"));
 	 
 	         // Set To: 头部头字段
 	         message.addRecipient(Message.RecipientType.TO,new InternetAddress("2510211460@qq.com"));
 	 
 	         // Set Subject: 头字段
-	         message.setSubject("This is the Subject Line!");
+	         message.setSubject("一名应届毕业生的简历This is the Subject Line!");
 	 
 	         // 创建消息部分
 	         BodyPart messageBodyPart = new MimeBodyPart();
 	 
 	         // 消息
-	         messageBodyPart.setText("This is message body");
+	         messageBodyPart.setText("尊敬的HR你好，我是一名应届毕业生，非常想去贵公司工作，附上我的简历一份，希望和贵公司共同进步This is message body");
 	        
 	         // 创建多重消息
 	         Multipart multipart = new MimeMultipart();
@@ -259,7 +260,7 @@ public class ResumeController {
 	 
 	         // 附件部分
 	         messageBodyPart = new MimeBodyPart();
-	         String filename = "C:/Users/acer/Desktop/qwe.jpg";
+	         String filename = "D:/Java/javawenjian/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/qjcpjobshop/upload/2018春招-陈汉-河北师范大学-后端研发工程师实习生.pdf";
 	         DataSource source = new FileDataSource(filename);
 	         messageBodyPart.setDataHandler(new DataHandler(source));
 	         messageBodyPart.setFileName(filename);
