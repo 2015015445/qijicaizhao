@@ -163,7 +163,7 @@ var youdao_conv_id = 271546;
 							                    	<h2><em></em>公司产品</h2>
 							                    </dt>
 							                    <dd>
-							                        <form action="${ctx}/company/updateproduct" method="post" class="productForm">
+							                        <form action="${ctx}/company/updateproduct" method="post">
 							                            <div class="new_product">
 									                            <div class="product_upload dn productNo">
 									                                <div style="background-color: rgb(147, 183, 187);">
@@ -446,7 +446,7 @@ var youdao_conv_id = 271546;
                     	<ul class="reset stageshow">
                     		<li>目前阶段：<span class="c5">${company.thefinancingstage}</span></li>
                     	</ul>
-                    	<form class="dn" id="stageform" action="${ctx}/company/updatemycompany3" method="post">
+                    	<form action="${ctx}/company/updatemycompany3" method="post"><!-- class="dn" id="stageform" -->
                     		<div class="stageSelect">
                     			<label>目前阶段</label>
                     			<input type="hidden" value="${company.id}" name="id">
@@ -476,7 +476,7 @@ var youdao_conv_id = 271546;
 	                                     	                                 		
 		                                 						                           			<li>上市公司</li>
 				                           					                           		
-	                                     	                                 </ul>
+	                                 </ul>
 	                             </div>	
                     		</div>	
 	                    	<!-- <ul id="stagesList" class="reset">
@@ -544,7 +544,7 @@ var youdao_conv_id = 271546;
 				                        
 				                        <!-- 编辑创始人 -->
 		                        		<div class="member_info newMember dn">
-			                        		<form class="memberForm" action="${ctx}/company/updatefoundingteam" method="post">
+			                        		<form action="${ctx}/company/updatefoundingteam" method="post">
 					                            <div class="new_portrait">
 						                            <div class="portrait_upload dn portraitNo">
 						                                <span>上传创始人头像</span>
