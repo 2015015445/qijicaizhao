@@ -183,11 +183,11 @@ public class ResumeDao {
 		session.close();
 	}
 	
-	public ResumeReceived findRrByEmail(String remail, String cemail, String id) {
+	public ResumeReceived findRrByEmail(String remail, String cemail, int id) {
 		Session session = sessionFactory.openSession();
 		Transaction tran = session.beginTransaction();
 		Query query = session.createQuery("from ResumeReceived r where r.resumeemail='"+remail+
-				"' and r.companyemail='"+cemail+"' and r.positionid='"+id+"'");
+				"' and r.companyemail='"+cemail+"' and r.positionid="+id);
 		ResumeReceived r = (ResumeReceived) query.uniqueResult();
 		tran.commit();
 		session.close();

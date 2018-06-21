@@ -138,8 +138,8 @@ public class PositionDao {
 		}
 	}
 	
-	public Position findJobDetail(String id) {
-		Query query = this.sessionFactory.getCurrentSession().createQuery("from Position p where p.id ='"+id+"'");
+	public Position findJobDetail(int id) {
+		Query query = this.sessionFactory.getCurrentSession().createQuery("from Position p where p.id ="+id);
 		return (Position) query.uniqueResult();
 	}
 }

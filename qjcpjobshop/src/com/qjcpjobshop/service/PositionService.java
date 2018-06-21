@@ -41,7 +41,7 @@ public class PositionService {
 		return positionDao.searchPositionByType(num, size, name);
 	}
 	
-	public Position findJobDetail(String id) {
+	public Position findJobDetail(int id) {
 		return positionDao.findJobDetail(id);
 	}
 }

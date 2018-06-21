@@ -57,7 +57,7 @@ public class PositionController extends HttpServlet {
 		try{
 			Position p = new Position();
 //			int count = positionService.findCompanypositionCount(id)+1;
-			p.setId(id);
+//			p.setId(id);
 //			p.setType(type);
 			
 //			System.out.println("type"+type);
@@ -235,7 +235,7 @@ public class PositionController extends HttpServlet {
 	}
 	
 	@RequestMapping("jobdetail")
-	public String jobDetail(@RequestParam("id") String id, @RequestParam("email") String email, HttpSession session) {
+	public String jobDetail(@RequestParam("id") int id, @RequestParam("email") String email, HttpSession session) {
 		Position p = this.positionService.findJobDetail(id);
 		Company company = companyService.findCompanyByEmail(email);
 		ResumeReceived rr = new ResumeReceived();

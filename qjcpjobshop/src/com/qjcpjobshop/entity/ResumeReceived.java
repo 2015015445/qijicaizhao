@@ -12,7 +12,7 @@ public class ResumeReceived {
 	private String resumeemail;
 	private String companyemail;
 	private String date;
-	private String positionid;
+	private int positionid;
 	
 	@Id
 	public int getId() {
@@ -45,10 +45,10 @@ public class ResumeReceived {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public String getPositionid() {
+	public int getPositionid() {
 		return positionid;
 	}
-	public void setPositionid(String positionid) {
+	public void setPositionid(int positionid) {
 		this.positionid = positionid;
 	}
 	

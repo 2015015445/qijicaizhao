@@ -52,6 +52,8 @@ import com.qjcpjobshop.service.ResumeService;
 
 @Controller
 public class ResumeController {
+	
+	private final int PAGESIZE=5;
 
 	@Resource
 	private ResumeService resumeService;
@@ -207,7 +209,6 @@ public class ResumeController {
 			@RequestParam("remail") String remail) {                                        
 		ResumeReceived rr = new ResumeReceived();
 		Position p = (Position) thesession.getAttribute("jobdetail");
-		System.out.println("的士大夫敢死队风格"+semail);
 		rr.setResumeemail(semail);
 		rr.setCompanyemail(remail);
 		rr.setType(0);
@@ -283,7 +284,7 @@ public class ResumeController {
 		Usercompany usercompany = (Usercompany) session.getAttribute("usercompany");
 		String companyemail = usercompany.getEmail();
 		System.out.println("compnayemail收到的简历"+usercompany.getEmail());
-		Page p = resumeService.findResumes(pagenum, 5, companyemail,type);
+		Page p = resumeService.findResumes(pagenum, PAGESIZE, companyemail,type);
 		List li = p.getList();
 		List rlist = new ArrayList();
 		List positionList = new ArrayList();
@@ -293,7 +294,7 @@ public class ResumeController {
 		while(i.hasNext()) {
 			ResumeReceived rr = (ResumeReceived) i.next();
 			String email = rr.getResumeemail();
-			String positionid = rr.getPositionid();
+			int positionid = rr.getPositionid();
 			Resume r = resumeService.findR(email);
 			Position position = positionService.findJobDetail(positionid);
 			positionList.add(position);
@@ -340,7 +341,7 @@ public class ResumeController {
 	public String findMyPosition(@RequestParam("pageNum") int pageNum,@RequestParam("myEmail") String email,
 			@RequestParam("type") int type, Model model, HttpSession session) {
 		if(type == 5) {
-			Page p = resumeService.findMyPosition(pageNum, 5, email);
+			Page p = resumeService.findMyPosition(pageNum, PAGESIZE, email);
 			List li = p.getList();
 			List rlist = new ArrayList();
 			List positionList = new ArrayList();
@@ -352,7 +353,7 @@ public class ResumeController {
 				ResumeReceived rr = (ResumeReceived) i.next();
 				String rsumeEmail = rr.getResumeemail();
 				String companyEmail = rr.getCompanyemail();
-				String positionid = rr.getPositionid();
+				int positionid = rr.getPositionid();
 				Resume r = resumeService.findR(rsumeEmail);
 				Position position = positionService.findJobDetail(positionid);
 				Company company = companyService.findCompanyByEmail(companyEmail);
@@ -371,7 +372,7 @@ public class ResumeController {
 			
 			return "delivery";
 		}else {
-			Page p = resumeService.findMyPosition(pageNum, 5, email, type);
+			Page p = resumeService.findMyPosition(pageNum, PAGESIZE, email, type);
 			List li = p.getList();
 			List rlist = new ArrayList();
 			List positionList = new ArrayList();
@@ -383,7 +384,7 @@ public class ResumeController {
 				ResumeReceived rr = (ResumeReceived) i.next();
 				String rsumeEmail = rr.getResumeemail();
 				String companyEmail = rr.getCompanyemail();
-				String positionid = rr.getPositionid();
+				int positionid = rr.getPositionid();
 				Resume r = resumeService.findR(rsumeEmail);
 				Position position = positionService.findJobDetail(positionid);
 				Company company = companyService.findCompanyByEmail(companyEmail);
@@ -405,7 +406,7 @@ public class ResumeController {
 	public String findResumesByLimit(@RequestParam("pageNum") int pageNum,@RequestParam("myEmail") String email,
 			@RequestParam("type") int type, Model model, HttpSession session, @RequestParam("resumetype") int resumeType) {
 		try{
-			Page p = resumeService.findResumes(pageNum, 6, email, type);
+			Page p = resumeService.findResumes(pageNum, PAGESIZE, email, type);
 			Iterator i = p.getList().iterator();
 			List positionList = new ArrayList();
 			List rlist = new ArrayList();
@@ -427,7 +428,7 @@ public class ResumeController {
 			while(i.hasNext()) {
 				ResumeReceived rr = (ResumeReceived) i.next();
 				String resumeemail = rr.getResumeemail();
-				String positionid = rr.getPositionid();
+				int positionid = rr.getPositionid();
 				Resume r = resumeService.findR(resumeemail);
 				Position position = positionService.findJobDetail(positionid);
 				positionList.add(position);

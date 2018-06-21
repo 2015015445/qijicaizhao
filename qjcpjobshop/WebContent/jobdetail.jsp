@@ -85,7 +85,7 @@ $('desc').html(areaContent)
             <c:if test="${user != null }">
             	<dl class="collapsible_menu">
             	<dt>
-           			<span>${email}&nbsp;</span> 
+           			<span>${user.email}&nbsp;</span> 
             		<span class="red dn" id="noticeDot-1"></span>
             		<i></i>
             	</dt>
