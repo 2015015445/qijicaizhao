@@ -101,7 +101,7 @@ var youdao_conv_id = 271546;
 	                       	
 	                       		                   			<h1 title="${company.name}" class="fullname">${company.name}</h1>
 	                        	                        
-	                        <form class="clear editDetail dn" id="editDetailForm" style="display: none;" action="${ctx}/company/updatemycompany" method="post">
+	                        <form class="clear editDetail dn"  action="${ctx}/company/updatemycompany" method="post">
 	                                                                                    公司名称：
 	                            <input type="text" placeholder="请输入公司名称" maxlength="15" value="${company.name}" name="name" id="companyShortName" class="valid">
 	                                                                                    公司简介：
@@ -158,7 +158,7 @@ var youdao_conv_id = 271546;
 							                </dl>
 			                
 							            	<!--产品编辑-->
-							                <dl id="newProduct" class="newProduct dn">
+							                <dl  class="newProduct dn">
 							                	<dt>
 							                    	<h2><em></em>公司产品</h2>
 							                    </dt>
@@ -188,7 +188,7 @@ var youdao_conv_id = 271546;
 							                               	<input type="text" placeholder="请输入产品名称" value="${p1.name}" name="name" class="valid">	
 							                                <input type="text" placeholder="请输入产品网址" value="${p1.url}" name="url" class="valid">	
 							                                <textarea placeholder="请简短描述该产品定位、产品特色、用户群体等" maxlength="500" value="" class="s_textarea valid" name="introduction">${p1.introduction}</textarea>	
-							                                <div class="word_count fr">你最多可以输入 <span>500</span> 字</div>
+							                                <div class="word_count fr">你还可以输入 <span>500</span> 字</div>
 							                                <div class="clear"></div>
 							                                <input type="submit" value="保存" class="btn_small">
 							                                <a class="btn_cancel_s product_delete" href="${ctx}/company/deleteproduct">删除</a>
@@ -203,7 +203,7 @@ var youdao_conv_id = 271546;
 							                    	<h2><em></em>公司产品</h2>
 							                    </dt>
 							                    <dd>
-							                    	<img width="380" height="220" alt="发大发" src="${ctx}/style/images/product_default.png">
+							                    	<img width="380" height="220" alt="图片跑路啦" src="${ctx}/style/images/product_default.png">
 						                        	<div class="cp_intro">
 						                        		<h3><a target="_blank" href="${p1.url}">${p1.name}</a></h3>
 							                            <div class="scroll-pane" style="overflow: hidden; padding: 0px; width: 260px;">
@@ -276,14 +276,14 @@ var youdao_conv_id = 271546;
 										</form>
 										
 				                    </dd>
-				                </dl>
+				                </dl>--%>
 				                <!--有产品-->
 				                <dl class="c_product">
 				                	<dt>
 				                    	<h2><em></em>公司产品</h2>
 				                    </dt>
 				                    <dd>
-				                    	<img width="380" height="220" alt="发大发" src="${ctx}/style/images/product_default.png">
+				                    	<img width="380" height="220" alt="图片跑路啦" src="${ctx}/style/images/product_default.png">
 			                        	<div class="cp_intro">
 			                        		<h3><a target="_blank" href="http://www.zmtpost.com">随便写</a></h3>
 				                            <div class="scroll-pane" style="overflow: hidden; padding: 0px; width: 260px;">
@@ -293,7 +293,7 @@ var youdao_conv_id = 271546;
 				                        <a title="编辑公司产品" class="c_edit product_edit" href="javascript:void(0)"></a>
 				            								            			<a title="新增公司产品" class="c_add product_add" href="javascript:void(0)"></a>
 				            								                    </dd>
-				                </dl>--%>
+				                </dl>
             
               				</div>
 		       		</div>   <!-- end #Product --> 
@@ -319,11 +319,11 @@ var youdao_conv_id = 271546;
 					                        <h2><em></em>公司介绍</h2>
 					                    </dt>
 					                    <dd>
-						                    <form id="companyDesForm" action="${ctx}/company/updatecompanyintroduction" method ="post">
+						                    <form action="${ctx}/company/updatecompanyintroduction" method ="post">
 						                    	<input type="hidden" value="${company.email}" name="email">
 							                    <input type="hidden" value="${company.id}" name="id">
 						                        <textarea placeholder="请分段详细描述公司简介、企业文化等" name="detailintroduction" id="companyProfile" class="valid">${company.detailintroduction}</textarea>		                                        
-						                        <div class="word_count fr">你最多可以输入 <span>1000</span> 字</div>
+						                        <div class="word_count fr">你还可以输入 <span>1000</span> 字</div>
 						                        <div class="clear"></div>
 						                        <input type="submit" value="保存" id="submitProfile" class="btn_small">
 						                        <a id="delProfile" class="btn_cancel_s" href="javascript:void(0)">取消</a>
@@ -358,6 +358,11 @@ var youdao_conv_id = 271546;
 		                            <a href="${ctx}/position/create?id=${company.email}">+添加招聘职位</a>
 		                        </div>
 		                    </dd>
+		                    <ul style="overflow:auto" id="hasLabels" class="reset clearfix">
+		                    <c:forEach items="${positionlist}" var="p1">
+		                    <li><span>${p1.name}</span>&nbsp;&nbsp;&nbsp;<span>${p1.city}</span><span>${p1.experience}</span></li>
+		                    </c:forEach>
+		                    </ul>
 		                </dl>
 	          	
 	          	<input type="hidden" value="" name="hasNextPage" id="hasNextPage">
@@ -373,7 +378,7 @@ var youdao_conv_id = 271546;
 				                    <a id="editTags" class="c_edit" href="javascript:void(0)"></a>
 				                </div>
 				                <div id="c_tags_edit" class="c_tags editTags dn" style="display: none;">
-					                <form id="tagForms" action="${ctx}/company/updatecompany2" method="post">
+					                <form action="${ctx}/company/updatemycompany2" method="post">
 					                    <table>
 					                        <tbody><tr>
 					                            <td>地点</td>
