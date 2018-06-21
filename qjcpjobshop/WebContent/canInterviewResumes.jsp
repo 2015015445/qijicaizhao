@@ -65,9 +65,9 @@ var youdao_conv_id = 271546;
 	    						    		</ul>
         	        	<dl class="collapsible_menu">
             	<dt>
-           			<span>jason&nbsp;</span> 
-            		<span class="red" id="noticeDot-0"></span>
-            		<i></i>
+           			<span>${usercompany.email}&nbsp;</span> 
+<!--             		<span class="red" id="noticeDot-0"></span> -->
+<!--             		<i></i> -->
             	</dt>
                     <dd><a rel="nofollow" href="jianli.html">我发布的职位</a></dd>
                 	<dd><a href="${ctx }/caninterviewresumes?pagenum=1&type=0">我收到的简历</a></dd>
@@ -76,12 +76,12 @@ var youdao_conv_id = 271546;
                     <dd><a href="accountBind.html">帐号设置</a></dd>
                     <dd class="logout"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
             </dl>
-                                    <div id="noticeTip">
-            	<span class="bot"></span>
-				<span class="top"></span>
-				<a target="_blank" href="delivery.html"><strong>1</strong>条新投递反馈</a>
-				<a class="closeNT" href="javascript:;"></a>
-            </div>
+<!--                                     <div id="noticeTip"> -->
+<!--             	<span class="bot"></span> -->
+<!-- 				<span class="top"></span> -->
+<!-- 				<a target="_blank" href="delivery.html"><strong>1</strong>条新投递反馈</a> -->
+<!-- 				<a class="closeNT" href="javascript:;"></a> -->
+<!--             </div> -->
                     </div>
     </div><!-- end #header -->
     <div id="container">

@@ -44,10 +44,10 @@ var youdao_conv_id = 271546;
     			<img width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" src="style/images/logo.png">
     		</a>
     		<ul id="navheader" class="reset">
-    			<li><a href="index.html">首页</a></li>
-    			<li><a href="companylist.html">公司</a></li>
+    			<li><a href="${ctx}/position/index?pageNum=1">首页</a></li>
+    			<li><a href="${ctx}/company/findallcompany">公司</a></li>
     			<li><a target="_blank" href="">职业预测*</a></li>
-    				    			<li><a rel="nofollow" href="jianli.html">我的简历</a></li>
+    				    			<li><a rel="nofollow" href="${ctx}/jianli">我的简历</a></li>
 	    						    		</ul>
         	        	<dl class="collapsible_menu">
             	<dt>
