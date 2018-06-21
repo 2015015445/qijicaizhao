@@ -353,7 +353,7 @@ var youdao_conv_id = 271546;
 		                    	<h2><em></em>招聘职位</h2>
 		                    </dt>
 		                    <dd>
-		                    	<div class="addnew">
+		                    	<div >
 		                        	发布需要的人才信息，让伯乐和千里马尽快相遇……<br>
 		                            <a href="${ctx}/position/create?id=${company.email}">+添加招聘职位</a>
 		                        </div>
