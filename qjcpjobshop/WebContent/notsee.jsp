@@ -65,23 +65,23 @@ var youdao_conv_id = 271546;
 	    						    		</ul>
         	        	<dl class="collapsible_menu">
             	<dt>
-           			<span>jason&nbsp;</span> 
-            		<span class="red" id="noticeDot-0"></span>
-            		<i></i>
+           			<span>${usercompany.email}&nbsp;</span> 
+<!--             		<span class="red" id="noticeDot-0"></span> -->
+<!--             		<i></i> -->
             	</dt>
-                                	<dd><a rel="nofollow" href="jianli.html">我发布的职位</a></dd>
+                    <dd><a rel="nofollow" href="jianli.html">我发布的职位</a></dd>
                 	<dd><a href="${ctx }/caninterviewresumes?pagenum=1&type=0">我收到的简历</a></dd>
                 	<dd><a href="${ctx}/company/companydetail?email=${email}&id1=${email}">我的公司主页 </a></dd>       	
                 	<dd><a href="${ctx}/position/create?id=${email}">我要招人</a></dd>
                     <dd><a href="accountBind.html">帐号设置</a></dd>
                     <dd class="logout"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
             </dl>
-                                    <div id="noticeTip">
-            	<span class="bot"></span>
-				<span class="top"></span>
-				<a target="_blank" href="delivery.html"><strong>1</strong>条新投递反馈</a>
-				<a class="closeNT" href="javascript:;"></a>
-            </div>
+<!--                                     <div id="noticeTip"> -->
+<!--             	<span class="bot"></span> -->
+<!-- 				<span class="top"></span> -->
+<!-- 				<a target="_blank" href="delivery.html"><strong>1</strong>条新投递反馈</a> -->
+<!-- 				<a class="closeNT" href="javascript:;"></a> -->
+<!--             </div> -->
                     </div>
     </div><!-- end #header -->
     <div id="container">
@@ -224,7 +224,7 @@ var youdao_conv_id = 271546;
 			                                    <div class="links">
 			                                        <a data-deliverid="1686182" data-name="jason" data-positionid="149594" data-email="888888888@qq.com" class="resume_notice" href="${ctx }/updateresumerecivedtype?id=${resumereceived.list[loop.count-1].id}&agotype=0&type=2">通知面试</a>
 			                                        <a data-deliverid="1686182" class="resume_refuse" href="${ctx }/updateresumerecivedtype?id=${resumereceived.list[loop.count-1].id}&agotype=0&type=3">不合适</a>
-			                                   		<a data-resumename="jason的简历" data-positionname="随便写" data-deliverid="1686182" data-positionid="149594" data-resumekey="1ccca806e13637f7b1a4560f80f08057" data-forwardcount="1" class="resume_forward" href="${ctx }/updateresumerecivedtype?id=${resumereceived.list[loop.count-1].id}&agotype=0&type=2">
+			                                   		<a data-resumename="jason的简历" data-positionname="随便写" data-deliverid="1686182" data-positionid="149594" data-resumekey="1ccca806e13637f7b1a4560f80f08057" data-forwardcount="1" class="resume_forward" href="${ctx }/updateresumerecivedtype?id=${resumereceived.list[loop.count-1].id}&agotype=0&type=1">
                                                     	待定</span></a>
 			                                    </div>
 			                                </div>

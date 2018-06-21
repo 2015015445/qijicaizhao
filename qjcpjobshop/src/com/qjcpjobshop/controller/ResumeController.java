@@ -280,8 +280,9 @@ public class ResumeController {
 	@RequestMapping("caninterviewresumes")
 	public String canInterviewResumes(@RequestParam("pagenum") int pagenum, @RequestParam("type") int type, Model model,HttpSession session) {
 		
-		
-		String companyemail = (String) session.getAttribute("id");
+		Usercompany usercompany = (Usercompany) session.getAttribute("usercompany");
+		String companyemail = usercompany.getEmail();
+		System.out.println("compnayemail收到的简历"+usercompany.getEmail());
 		Page p = resumeService.findResumes(pagenum, 5, companyemail,type);
 		List li = p.getList();
 		List rlist = new ArrayList();
