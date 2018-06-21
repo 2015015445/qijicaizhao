@@ -45,7 +45,7 @@ function clickj() {
 var ctx = "h";
 console.log(1);
 </script>
-<link rel="Shortcut Icon" href="h/images/favicon.ico">
+<link rel="Shortcut Icon" href="${ctx}/style/images/logo.png"> <!-- title公司logo -->
 
 <link rel="stylesheet" type="text/css" href="style/css/style.css"/>
 <link rel="stylesheet" type="text/css" href="style/css/external.min.css"/>
@@ -70,10 +70,10 @@ var youdao_conv_id = 271546;
     			<img src="${ctx}/style/images/logo.png" width="229" height="43" alt="奇迹才聘招聘-专注互联网招聘" />
     		</a>
     		<ul class="reset" id="navheader">
-    			<li class="current"><a href="${ctx }/position/index?pageNum=1">首页</a></li>
-    			<li ><a href="${ctx }/company/findallcompany" >公司</a></li>
+    			<li class="current"><a href="${ctx}/position/index?pageNum=1">首页</a></li>
+    			<li ><a href="${ctx}/company/findallcompany" >公司</a></li>
     			<li ><a href="htoForum.jsp" target="_blank">职业预测</a></li>
-				<li ><a href="${ctx }/delivery?pageNum=1&myEmail=123&type=5" target="_blank">123</a></li>
+<%-- 				<li ><a href="${ctx }/delivery?pageNum=1&myEmail=123&type=5" target="_blank">123</a></li> --%>
 <!--     		<li ><a href="jianli.jsp" rel="nofollow">我的简历</a></li> -->
 <%-- 	    	<li ><a href="${ctx}/create.jsp?id=${id}" rel="nofollow">发布职位</a></li> --%>
 
@@ -106,7 +106,7 @@ var youdao_conv_id = 271546;
             	</dt>
                                 	<dd style="display: none;"><a href="positions.html">我发布的职位</a></dd>
                 	<dd style="display: none;"><a href="positions.html">我收到的简历</a></dd>
-                	<dd class="btm" style="display: none;"><a href="myhome.html">我的公司主页</a></dd>
+                	<dd class="btm" style="display: none;"><a href="${ctx}/company/mycompany?email=${email}">我的公司主页</a></dd>
                 	<dd style="display: none;"><a href="jianli.html">我要找工作</a></dd>
                                                 <dd style="display: none;"><a href="accountBind.html">帐号设置</a></dd>
                                 <dd class="logout" style="display: none;"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
