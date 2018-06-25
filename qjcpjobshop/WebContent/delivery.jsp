@@ -86,22 +86,22 @@ var youdao_conv_id = 271546;
                     				
                     			</c:if>
                     			<li>
-                    				<a href="${ctx }/delivery?pageNum=1&myEmail=123&type=5">全部</a>
+                    				<a href="${ctx }/delivery?pageNum=1&myEmail=${user.email }&type=5">全部</a>
                     			</li>
                     			<li>
-                    				<a href="${ctx }/delivery?pageNum=1&myEmail=123&type=0">投递成功</a>
+                    				<a href="${ctx }/delivery?pageNum=1&myEmail=${user.email }&type=0">投递成功</a>
                     			</li>
                     			<li>
-                    				<a href="${ctx }/delivery?pageNum=1&myEmail=123&type=0">被查看</a>
+                    				<a href="${ctx }/delivery?pageNum=1&myEmail=${user.email }&type=0">被查看</a>
                     			</li>
                     			<li>
-                    				<a href="${ctx }/delivery?pageNum=1&myEmail=123&type=1">通过初筛</a>
+                    				<a href="${ctx }/delivery?pageNum=1&myEmail=${user.email }&type=1">通过初筛</a>
                     			</li>
                     			<li>
-                    				<a href="${ctx }/delivery?pageNum=1&myEmail=123&type=2">通知面试</a>
+                    				<a href="${ctx }/delivery?pageNum=1&myEmail=${user.email }&type=2">通知面试</a>
                     			</li>
                     			<li class="last">
-                    				<a href="${ctx }/delivery?pageNum=1&myEmail=123&type=3">不合适</a>
+                    				<a href="${ctx }/delivery?pageNum=1&myEmail=${user.email }&type=3">不合适</a>
                     			</li>
                     		</ul>
                     	</div>

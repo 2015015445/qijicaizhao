@@ -74,7 +74,7 @@ var youdao_conv_id = 271546;
                                 	<dd><a rel="nofollow" href="${ctx }/jianli">我的简历</a></dd>
                 	                	<dd><a href="collections.html">我收藏的职位</a></dd>
                 	                	                	<dd class="btm"><a href="subscribe.html">我的订阅</a></dd>
-                	<dd><a href="${ctx }/delivery?pageNum=1&myEmail=123&type=5">我投递的职位</a></dd>
+                	<dd><a href="${ctx }/delivery?pageNum=1&myEmail=${user.email }&type=5">我投递的职位</a></dd>
                                                 <dd><a href="accountBind.html">帐号设置</a></dd>
                                 <dd class="logout"><a rel="nofollow" href="${ctx}/user/signout">退出</a></dd>
             </dl>

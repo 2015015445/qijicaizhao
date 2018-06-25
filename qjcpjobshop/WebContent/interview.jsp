@@ -235,7 +235,7 @@ var youdao_conv_id = 271546;
 		                            </ul><!-- end .resumeLists -->
 		                    	</form>
 		                    	<div align="center" style="margin-top: 15px">	
-			        <a href="" class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=1&type=2"><font color="#fff">首页</font></a>
+			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=1&type=2"><font color="#fff">首页</font></a>
 			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=${resumereceived.prePageNum}&type=2" ><font color="#fff">上一页</font></a>
 			        <c:if test="${resumereceived.totalPageNum < 5}">
 			        	<c:forEach  begin="1" end="${resumereceived.totalPageNum }" var="num">
@@ -249,7 +249,7 @@ var youdao_conv_id = 271546;
 			        	<a class="numstyle1" ><font color="#fff">...</font></a>
 			        </c:if>
 			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=${resumereceived.nextPageNum}&type=2" ><font color="#fff">下一页</font></a>
-			        <a href="" class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=${resumereceived.totalPageNum}&type=2"><font color="#fff">尾页</font></a>
+			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=${resumereceived.totalPageNum}&type=2"><font color="#fff">尾页</font></a>
 		            </div>
 		                    		                                               
                     </dd>
