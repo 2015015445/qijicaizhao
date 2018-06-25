@@ -237,21 +237,21 @@ var youdao_conv_id = 271546;
 		                            </ul><!-- end .resumeLists -->
 		                    	</form>
 		                    	<div align="center" style="margin-top: 15px">	
-			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=1&type=1"><font color="#fff">首页</font></a>
-			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=${resumereceived.prePageNum}&type=1" ><font color="#fff">上一页</font></a>
+			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pagenum=1&type=1"><font color="#fff">首页</font></a>
+			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pagenum=${resumereceived.prePageNum}&type=1" ><font color="#fff">上一页</font></a>
 			        <c:if test="${resumereceived.totalPageNum < 5}">
 			        	<c:forEach  begin="1" end="${resumereceived.totalPageNum }" var="num">
-			        	<a class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=${num}&type=1"><font color="#fff">${num }</font></a>
+			        	<a class="numstyle1" href="${ctx }/caninterviewresumes?pagenum=${num}&type=1"><font color="#fff">${num }</font></a>
 			        	</c:forEach>
 			        </c:if>
 			        <c:if test="${resumereceived.totalPageNum > 5}">
 			        	<c:forEach  begin="1" end="5" var="num">
-			        	<a class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=${num}&type=1"><font color="#fff">${num }</font></a>
+			        	<a class="numstyle1" href="${ctx }/caninterviewresumes?pagenum=${num}&type=1"><font color="#fff">${num }</font></a>
 			        	</c:forEach>
 			        	<a class="numstyle1" ><font color="#fff">...</font></a>
 			        </c:if>
-			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=${resumereceived.nextPageNum}&type=1" ><font color="#fff">下一页</font></a>
-			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pageNum=${resumereceived.totalPageNum}&type=1"><font color="#fff">尾页</font></a>
+			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pagenum=${resumereceived.nextPageNum}&type=1" ><font color="#fff">下一页</font></a>
+			        <a class="numstyle1" href="${ctx }/caninterviewresumes?pagenum=${resumereceived.totalPageNum}&type=1"><font color="#fff">尾页</font></a>
 		            </div>
 		                    		                                               
                     </dd>

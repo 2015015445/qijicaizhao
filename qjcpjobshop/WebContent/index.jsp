@@ -105,7 +105,7 @@ var youdao_conv_id = 271546;
             		<i></i>
             	</dt>
                                 	<dd style="display: none;"><a href="positions.html">我发布的职位</a></dd>
-                	<dd style="display: none;"><a href="positions.html">我收到的简历</a></dd>
+                	<dd style="display: none;"><a href="${ctx }/caninterviewresumes?pagenum=1&type=0">我收到的简历</a></dd>
                 	<dd class="btm" style="display: none;"><a href="${ctx}/company/mycompany?email=${email}">我的公司主页</a></dd>
                 	<dd style="display: none;"><a href="jianli.html">我要找工作</a></dd>
                                                 <dd style="display: none;"><a href="accountBind.html">帐号设置</a></dd>
