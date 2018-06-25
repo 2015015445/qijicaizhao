@@ -1537,7 +1537,7 @@ var youdao_conv_id = 271546;
             			<a title="上传附件简历" href="#uploadFile" class="inline cboxElement">上传简历</a>
             		</h2>
             		<c:if test="${resumepdf != null }">
-            			<a href="NewFile.jsp"  target="_blank">查看我的附件简历</a>
+            			<a href="${ctx }/newfiled?filed=${resume.resumepdf}"  target="_blank">查看我的附件简历</a>
             		</c:if>	 
             		<c:if test="${resumepdf == null }">
             			<div class="resumeUploadDiv">

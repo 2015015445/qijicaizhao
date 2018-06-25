@@ -79,7 +79,7 @@ public class ResumeController {
 	@RequestMapping(value="/jianli", method=RequestMethod.GET)
 	public String Jianli(HttpSession session){
 		System.out.println("进入简历");
-		
+		session.removeAttribute("resumepdf");
 		Userfindjob u = (Userfindjob) session.getAttribute("user");
 		Resume re = resumeService.findR(u.getEmail());
 		
@@ -88,6 +88,8 @@ public class ResumeController {
 			return "jianli";
 		}
 			if(re.getResumepdf() != null) {
+				System.out.println(re.getResumepdf());
+				session.setAttribute("resumepdf", re.getResumepdf());
 				session.setAttribute("resume", re);
 			}
 			if(re.getName() != null) {
