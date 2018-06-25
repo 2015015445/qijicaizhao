@@ -38,7 +38,16 @@ public class PositionDao {
 		return count;
 	}
 	
-	
+	public void delete(int id){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="delete from Position p where p.id=?";
+		Query query  = session.createQuery(hql); 
+		query.setInteger(0,id);
+		tran.commit();
+		int i =query.executeUpdate();
+		session.close();
+	}
 	
 	public Page findPositionByPage(int num, int size) {
 		try{
@@ -76,6 +85,30 @@ public class PositionDao {
 		session.close();
 		return querylist;
 	}
+	
+	public List<Position> findPosition(int size){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from Position where size ='"+size+"'");
+		List<Position> querylist = query.list();
+		tran.commit();
+		session.close();
+		return querylist;
+	}
+	
+	public void useless(int id,int size){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="update Position p set p.size=? where p.id=?";
+		Query query  = session.createQuery(hql); 
+		query.setInteger(0,size);
+		query.setInteger(1,id);
+		tran.commit();
+		int i =query.executeUpdate();
+		session.close();
+	}
+	
+	
 	public int searchPositionTotalCount(String type, String name) {
 		String hql = "select count(*) from Position where name like ?";
 		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);

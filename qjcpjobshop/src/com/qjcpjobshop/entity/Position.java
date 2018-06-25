@@ -20,6 +20,7 @@ public class Position {
 	private String tempation;
 	private String description;
 	private String address;
+	private int size;
 	
 	@Id
 	public int getId() {
@@ -99,5 +100,11 @@ public class Position {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
 	}
 }

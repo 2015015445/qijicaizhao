@@ -73,6 +73,7 @@ public class PositionController extends HttpServlet {
 			p.setTempation(tempation);
 			p.setDescription(description);
 			p.setAddress(address);
+			p.setSize(1);
 			positionService.addPosition(p);
 			System.out.println("insert OK");
 			JOptionPane.showMessageDialog(null,"添加职位成功!", "系统提示", JOptionPane.INFORMATION_MESSAGE);
@@ -122,6 +123,50 @@ public class PositionController extends HttpServlet {
 		
 		model.addAttribute("email", userService.email);
 		return "index";
+	}
+	
+	@RequestMapping(value="/findposition")
+	public String findUsefulPosition(HttpServletRequest request,Model model){
+		int size = Integer.parseInt(request.getParameter("size"));
+		System.out.println("size值:"+size);
+		List<Position> list = positionService.findPosition(size);
+		
+		String id = request.getParameter("id");
+		
+		model.addAttribute("id", id);
+		model.addAttribute("list", list);
+		return "myposition1";
+	}
+	
+	@RequestMapping(value="/findposition2")
+	public String findPosition2(HttpServletRequest request,Model model){
+		int size = Integer.parseInt(request.getParameter("size"));
+		System.out.println("size值:"+size);
+		List<Position> list = positionService.findPosition(size);
+		
+		String id = request.getParameter("id");
+		
+		model.addAttribute("id", id);
+		
+		model.addAttribute("list", list);
+		return "myposition2";
+	}
+	
+	@RequestMapping(value="/useless")
+	public String useless(HttpServletRequest request,Model model){
+		int size = 0;
+		int id = Integer.parseInt(request.getParameter("id"));
+		positionService.useless(id, size);
+		
+		return "redirect:/position/findposition?size=1";
+	}
+	
+	@RequestMapping(value="/deleteposition")
+	public String delete(HttpServletRequest request,Model model){
+		int id = Integer.parseInt(request.getParameter("id"));
+		positionService.delete(id);
+		
+		return "redirect:/position/findposition2?size=0";
 	}
 	
 //	@RequestMapping(value="/search", method=RequestMethod.POST)

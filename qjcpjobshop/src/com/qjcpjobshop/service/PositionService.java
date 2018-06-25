@@ -29,8 +29,21 @@ public class PositionService {
 	public List<Position> findPositionByEmail(String email){
 		return positionDao.findPositionByEmail(email);
 	}
+	
 	public Page findPositionByPage(int num, int size){
 		return positionDao.findPositionByPage(num, size);
+	}
+	
+	public List<Position> findPosition(int size){
+		return positionDao.findPosition(size);
+	}
+	
+	public void useless(int id,int size){
+		positionDao.useless(id, size);
+	}
+	
+	public void delete(int id){
+		positionDao.delete(id);
 	}
 	
 	public Page searchPosition(int num, int size, String name) {
