@@ -25,7 +25,10 @@ public class PositionService {
 		return count;
 	}
 	
-
+	public List<Position> findPositionByType(String type, String email){
+		return positionDao.findPositionByType(type, email);
+	}
+	
 	public List<Position> findPositionByEmail(String email){
 		return positionDao.findPositionByEmail(email);
 	}
