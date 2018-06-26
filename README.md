@@ -52,6 +52,6 @@
 <a name="运行效果截图"></a>
 ## 运行效果截图
 
-![注册登录](https://github.com/2015015445/qijicaizhao/blob/master/pictures/zhucedenglu.png)
+![注册登录](https://github.com/2015015445/qijicaizhao/blob/master/pictures/zhucedenglu.png)<br>
 ![职位列表](https://github.com/2015015445/qijicaizhao/blob/master/%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE/%E9%A6%96%E9%A1%B5.png)
 
