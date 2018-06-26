@@ -152,6 +152,23 @@ public class PositionController extends HttpServlet {
 		return "myposition2";
 	}
 	
+	@RequestMapping(value="/positiondetail")
+	public String positionDetail(HttpServletRequest request,Model model){
+		String email = request.getParameter("email");
+		model.addAttribute("email", email);
+		
+		int id1 = Integer.parseInt(request.getParameter("id1"));
+		Position p = positionService.findPositionById(id1).get(0);
+		model.addAttribute("p", p);
+		
+		String id = request.getParameter("id");
+		Company c = companyService.findCompanyByEmail(id);
+		model.addAttribute("c", c);
+		
+		return "jobdetail2";
+		
+	}
+	
 	@RequestMapping(value="/useless")
 	public String useless(HttpServletRequest request,Model model){
 		int size = 0;
