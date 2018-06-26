@@ -53,4 +53,5 @@
 ## 运行效果截图
 
 ![Image text](https://github.com/2015015445/qijicaizhao/blob/master/pictures/zhucedenglu.png)
+![Image text](https://github.com/2015015445/qijicaizhao/blob/master/pictures/%E8%81%8C%E4%BD%8D%E8%AF%A6%E6%83%85.png)
 
