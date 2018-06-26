@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -61,18 +63,36 @@ var youdao_conv_id = 271546;
 	<!-- content -->
 	<div id="content">
 		<p id="prePosi">职位预测<p/>
-		<form>
+		<form action="${ctx }/htofroum" method="post">
 			<div class="floatLeft">
 				<label for="性别">性别</label>
-				<select name="性别" id="sex">
-					<option value="男">男</option>
-					<option value="女">女</option>
+				<select name="gender" id="sex">
+					<option value="1">男</option>
+					<option value="0">女</option>
 				</select>
 			</div>
 			<div class="floatLeft Right">
 				<label for="年龄">年龄</label>
-				<select name="年龄" id="age">
-					<option value="18">18</option>
+				<select name="age" id="age">
+					<option value="1">18</option>
+					<option value="1">19</option>
+					<option value="1">20</option>
+					<option value="2">21</option>
+					<option value="2">22</option>
+					<option value="2">23</option>
+					<option value="3">24</option>
+					<option value="3">25</option>
+					<option value="3">26</option>
+					<option value="4">27</option>
+					<option value="4">28</option>
+					<option value="4">29</option>
+					<option value="4">30</option>
+					<option value="5">31</option>
+					<option value="5">32</option>
+					<option value="5">33</option>
+					<option value="5">34</option>
+					<option value="5">35</option>
+					<option value="6">36</option>
 				</select>
 			</div>
 			<div class="floatLeft">
@@ -81,8 +101,10 @@ var youdao_conv_id = 271546;
 			</div>
 			<div class="floatLeft Right">
 				<label for="学历">学历</label>
-				<select name="学历" id="">
-					<option value="">大专及以下</option>
+				<select name="degree" id="">
+					<option value="0">大专及以下</option>
+					<option value="1">本科</option>
+					<option value="2">硕士及以上</option>
 				</select>
 			</div>
 			<div style="clear:both;"></div>
@@ -90,13 +112,32 @@ var youdao_conv_id = 271546;
 				<div id="item1">
 					<h1>工作经历</h1>
 					<label>公司行业</label><input type="text">
-					<label class = "trans-right">公司规模</label><select><option>1-50人</option></select>
+					<label class = "trans-right">公司规模</label>
+					<select name="size">
+					<option value="1">1-50人</option>
+					<option value="2">50-100人</option>
+					<option value="3">100-300人</option>
+					<option value="4">300-500人</option>
+					<option value="5">500-1000人</option>
+					<option value="6">1000-10000人</option>
+					<option value="7">10000人以上</option>
+					</select>
 
 					<label>职位名称</label><input type="text">
 					<label class = "trans-right">职位类型</label><input type="text">
 
 					<label>部门</label><input type="text">
-					<label class = "trans-right">月薪</label><select><option>1-2000</option></select>
+					<label class = "trans-right">月薪</label>
+					<select name="salary">
+					<option value="0">1-2000</option>
+					<option value="1">2000-4000</option>
+					<option value="2">4000-6000</option>
+					<option value="3">6000-8000</option>
+					<option value="4">8000-10000</option>
+					<option value="5">10000-20000</option>
+					<option value="6">20000以上</option>
+					
+					</select>
 
 					<label>开始时间</label><select class="itemYear"><option>2018</option></select>年<select  class="itemMonth"><option value="">1</option></select>月					
 					<label class = "trans-right">结束时间</label><select class="itemYear"><option>2018</option></select>年<select  class="itemMonth"><option value="">1</option></select>月

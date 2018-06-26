@@ -91,6 +91,20 @@ public class CompanyDao {
 		return list;
 	}
 	
+	public List<Company> findCompanyBySize(String size) {
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="from Company c where c.scale like '%"+size+"%'";
+		Query query = session.createQuery(hql);
+//		query.setParameter(0, "%"+field+"%");
+		List<Company> list = query.list();
+		System.out.println("查找"+size+"成功");
+		System.out.println(hql);
+		tran.commit();
+		session.close();
+		return list;
+	}
+	
 	public int findCompanyCount(){
 		Session session = sessionFactory.openSession();
 		Transaction tran = session.beginTransaction();
