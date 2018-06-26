@@ -60,7 +60,7 @@
 编辑简历![编辑简历](https://github.com/2015015445/qijicaizhao/blob/master/%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE/%E7%BC%96%E8%BE%91%E7%AE%80%E5%8E%86.png)<br>
 预览简历![预览简历](https://github.com/2015015445/qijicaizhao/blob/master/%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE/%E9%A2%84%E8%A7%88%E7%AE%80%E5%8E%86.png)<br>
 职位预测![职位预测](https://github.com/2015015445/qijicaizhao/blob/master/%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE/%E8%81%8C%E4%BD%8D%E9%A2%84%E6%B5%8B.png)<br>
-投递简历![投递简历]()<br>
+投递简历![投递简历](https://github.com/2015015445/qijicaizhao/blob/master/%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE/%E6%8A%95%E9%80%92.png)<br>
 简历投递状态![简历投递状态](https://github.com/2015015445/qijicaizhao/blob/master/%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE/%E7%AE%80%E5%8E%86%E6%8A%95%E9%80%92%E7%8A%B6%E6%80%81.png)<br>
 公司主页![公司主页](https://github.com/2015015445/qijicaizhao/blob/master/%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE/%E5%85%AC%E5%8F%B8%E4%B8%BB%E9%A1%B5.png)<br>
 发布职位![发布职位](https://github.com/2015015445/qijicaizhao/blob/master/%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE/%E5%8F%91%E5%B8%83%E8%81%8C%E4%BD%8D.png)<br>
