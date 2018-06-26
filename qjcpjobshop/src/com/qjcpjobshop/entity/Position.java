@@ -8,6 +8,7 @@ import javax.persistence.Table;
 @Table(name = "position")
 public class Position {
 	private int id;
+	private int id1;
 	private String email;
 	private String type;
 	private String name;
@@ -28,6 +29,12 @@ public class Position {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getId1() {
+		return id1;
+	}
+	public void setId1(int id1) {
+		this.id1 = id1;
 	}
 	public String getEmail() {
 		return email;

@@ -86,6 +86,16 @@ public class PositionDao {
 		return querylist;
 	}
 	
+	public List<Position> findPositionById(int id1){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from Position where id1 ='"+id1+"'");
+		List<Position> querylist = query.list();
+		tran.commit();
+		session.close();
+		return querylist;
+	}
+	
 	public List<Position> findPosition(int size){
 		Session session = sessionFactory.openSession();
 		Transaction tran = session.beginTransaction();

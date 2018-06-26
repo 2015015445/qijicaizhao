@@ -30,6 +30,10 @@ public class PositionService {
 		return positionDao.findPositionByEmail(email);
 	}
 	
+	public List<Position> findPositionById(int id1){
+		return positionDao.findPositionById(id1);
+	}
+	
 	public Page findPositionByPage(int num, int size){
 		return positionDao.findPositionByPage(num, size);
 	}
