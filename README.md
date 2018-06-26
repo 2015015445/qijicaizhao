@@ -44,4 +44,4 @@
 <a name="获取代码"></a>  
 ### 获取代码  
   
-* gitcafe项目主页: <https://gitcafe.com/onecoder/shurnim-storage-for-UPYUN>  
+* gitcafe项目主页: <https:////github.com/2015015445/qijicaizhao/>  
