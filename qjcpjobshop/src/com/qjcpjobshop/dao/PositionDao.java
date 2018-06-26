@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
-
+import com.qjcpjobshop.entity.Company;
 import com.qjcpjobshop.entity.CompanyProduct;
 import com.qjcpjobshop.entity.Page;
 import com.qjcpjobshop.entity.Position;
@@ -30,6 +30,20 @@ public class PositionDao {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	public List<Position> findPositionByType(String type, String email) {
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="from Position c where c.name like '%"+type+"%' and email='"+email+"'";
+		Query query = session.createQuery(hql);
+//		query.setParameter(0, "%"+field+"%");
+		List<Position> list = query.list();
+		System.out.println("查找"+type+"成功");
+		System.out.println(hql);
+		tran.commit();
+		session.close();
+		return list;
 	}
 	
 	public int findPositionTotalCount(String type) {
