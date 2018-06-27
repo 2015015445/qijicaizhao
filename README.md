@@ -18,7 +18,11 @@
 奇迹才聘网，是一个专注于互联网业人才招聘的网站。 
 
 <a name="项目成员"></a>  
-## 项目成员  
+## 项目成员 
+
+* [王伟]项目经理  
+  * [邮箱] <https:////github.com/2015015445/qijicaizhao/>
+  * [github]<https:////github.com/2015015445/qijicaizhao/>
   
 <a name="项目介绍"></a>  
 ## 项目功能介绍  
