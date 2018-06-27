@@ -20,9 +20,28 @@
 <a name="项目成员"></a>  
 ## 项目成员 
 
-* 王伟 （项目经理）  
+* 王伟 （项目经理，编写需求文档，画用例图）  
   * 邮箱 ww201509@foxmail.com
   * github <https://github.com/2015015445/>
+* 陈汉 （后台开发，企业用户功能）  
+  * 邮箱 2510211460@qq.com
+  * github <https://github.com/chenhan9527>
+* 时维 （前台开发，前台代码实现）  
+  * 邮箱 877935761@qq.com
+  * github <http://10.7.1.5/my/page>
+* 郑彬 （后台开发，个人用户功能）  
+  * 邮箱 1017040120@qq.com
+  * github <https://github.com/Mrzhengbin>
+* 刘建程（UI设计，页面的设计）  
+  * 邮箱 243454411@qq.com
+  * github <https://github.com/liujiancheng2015>  
+* 杜浩然 （数据库设计，数据处理）  
+  * 邮箱 824978658@qq.com
+  * github <https://github.com/ranranranhaodu>  
+* 何天晨 （算法研究，职业预测算法实现）  
+  * 邮箱 648221747@qq.com
+  * github <https://github.com/hetianchen>  
+
   
 <a name="项目介绍"></a>  
 ## 项目功能介绍  
